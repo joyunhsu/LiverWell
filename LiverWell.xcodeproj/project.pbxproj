@@ -14,6 +14,11 @@
 		6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9952253DA37006536A2 /* Profile.storyboard */; };
 		6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */; };
 		6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */; };
+		6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */; };
+		6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C422547FB600BECC70 /* HomeViewController.swift */; };
+		6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */; };
+		6EA2EA72225494750039B39F /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA71225494750039B39F /* HomeManager.swift */; };
+		6EA2EA74225494890039B39F /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA73225494890039B39F /* HomeItem.swift */; };
 		6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD02253332F000859FD /* ActivityCollectionReusableView.swift */; };
 		6EA8CBD32253332F000859FD /* ActivityCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD12253332F000859FD /* ActivityCollectionReusableView.xib */; };
 		6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD422533B2F000859FD /* ActivityCollectionViewCell.swift */; };
@@ -35,6 +40,11 @@
 		6E49C9952253DA37006536A2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6E4B74C422547FB600BECC70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6EA2EA71225494750039B39F /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		6EA2EA73225494890039B39F /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		6EA8CBD02253332F000859FD /* ActivityCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionReusableView.swift; sourceTree = "<group>"; };
 		6EA8CBD12253332F000859FD /* ActivityCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCollectionReusableView.xib; sourceTree = "<group>"; };
 		6EA8CBD422533B2F000859FD /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -69,10 +79,50 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		6E4B74C322547F8100BECC70 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6E4B74C422547FB600BECC70 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6E4B74C62254809000BECC70 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6EA2EA6E225494070039B39F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6EA2EA71225494750039B39F /* HomeManager.swift */,
+				6EA2EA73225494890039B39F /* HomeItem.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6EA2EA6F2254940F0039B39F /* Knowledge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Knowledge;
+			sourceTree = "<group>";
+		};
+		6EA2EA702254942B0039B39F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		6EA8CBCB22533248000859FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				6E49C99822545F86006536A2 /* Base */,
+				6E4B74C322547F8100BECC70 /* Home */,
 				6EA8CBDA22533E84000859FD /* Activity */,
 			);
 			path = Controller;
@@ -81,6 +131,7 @@
 		6EA8CBCC22533253000859FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E4B74C62254809000BECC70 /* Home */,
 				6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */,
 				6EFDDEA72251E41100C1B8B3 /* Main.storyboard */,
 				6E49C98F2253DA08006536A2 /* Home.storyboard */,
@@ -95,7 +146,10 @@
 		6EA8CBCE22533261000859FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6EA2EA6E225494070039B39F /* Home */,
 				6EA8CBDB22536695000859FD /* Activity */,
+				6EA2EA6F2254940F0039B39F /* Knowledge */,
+				6EA2EA702254942B0039B39F /* Profile */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +187,7 @@
 			children = (
 				6EA8CBDF22536861000859FD /* UIImage+Extension.swift */,
 				6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */,
+				6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -199,6 +254,7 @@
 				TargetAttributes = {
 					6EFDDE9D2251E41100C1B8B3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -249,10 +305,15 @@
 				6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
+				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
+				6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
+				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
+				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,
+				6EA2EA74225494890039B39F /* HomeItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joyunhsu.LiverWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -425,7 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joyunhsu.LiverWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
