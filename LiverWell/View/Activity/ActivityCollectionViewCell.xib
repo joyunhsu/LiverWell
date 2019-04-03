@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ActivityCollectionViewCell" id="gTV-IL-0wX" customClass="ActivityCollectionViewCell" customModule="LiverWell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="152"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_Workout_TV" translatesAutoresizingMaskIntoConstraints="NO" id="MZ8-qh-LBe">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="125"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="145" id="8IA-i5-Uqa"/>
+                            <constraint firstAttribute="height" constant="125" id="rvy-HX-89W"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看電視一邊做" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlN-vh-dke">
+                        <rect key="frame" x="23.5" y="130" width="98" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="KyG-cT-vEL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="MZ8-qh-LBe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cap-vX-wUp"/>
+                <constraint firstItem="MZ8-qh-LBe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dgr-nX-0wD"/>
+                <constraint firstItem="WlN-vh-dke" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="oa3-dv-nwq"/>
+                <constraint firstAttribute="bottom" secondItem="WlN-vh-dke" secondAttribute="bottom" id="z7a-78-cA7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="workoutIcon" destination="MZ8-qh-LBe" id="KJy-O5-39v"/>
+                <outlet property="workoutLabel" destination="WlN-vh-dke" id="MKP-fQ-vqx"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Icon_Workout_TV" width="145" height="125"/>
+    </resources>
+</document>
