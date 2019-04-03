@@ -12,6 +12,8 @@
 		6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9912253DA1A006536A2 /* Activity.storyboard */; };
 		6E49C9942253DA28006536A2 /* Knowledge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9932253DA28006536A2 /* Knowledge.storyboard */; };
 		6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9952253DA37006536A2 /* Profile.storyboard */; };
+		6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */; };
+		6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */; };
 		6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD02253332F000859FD /* ActivityCollectionReusableView.swift */; };
 		6EA8CBD32253332F000859FD /* ActivityCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD12253332F000859FD /* ActivityCollectionReusableView.xib */; };
 		6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8CBD422533B2F000859FD /* ActivityCollectionViewCell.swift */; };
@@ -31,6 +33,8 @@
 		6E49C9912253DA1A006536A2 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		6E49C9932253DA28006536A2 /* Knowledge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Knowledge.storyboard; sourceTree = "<group>"; };
 		6E49C9952253DA37006536A2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		6EA8CBD02253332F000859FD /* ActivityCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionReusableView.swift; sourceTree = "<group>"; };
 		6EA8CBD12253332F000859FD /* ActivityCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCollectionReusableView.xib; sourceTree = "<group>"; };
 		6EA8CBD422533B2F000859FD /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -57,9 +61,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E49C99822545F86006536A2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		6EA8CBCB22533248000859FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E49C99822545F86006536A2 /* Base */,
 				6EA8CBDA22533E84000859FD /* Activity */,
 			);
 			path = Controller;
@@ -119,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA8CBDF22536861000859FD /* UIImage+Extension.swift */,
+				6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
@@ -237,6 +252,7 @@
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
+				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
