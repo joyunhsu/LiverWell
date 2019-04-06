@@ -12,28 +12,35 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let manager = HomeManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+        
     }
-    
-
 
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        
+        return manager.groups[1].items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeCollectionViewCell.self), for: indexPath)
         
-        return cell
+        guard let homeCell = cell as? HomeCollectionViewCell else { return cell }
+        
+        let item = manager.groups[1].items[indexPath.row]
+        
+        homeCell.layoutCell(image: item.image)
+        
+        return homeCell
     }
     
 }
@@ -53,7 +60,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
     }
 
 }

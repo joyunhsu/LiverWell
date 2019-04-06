@@ -16,6 +16,10 @@
 		6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */; };
 		6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */; };
 		6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C422547FB600BECC70 /* HomeViewController.swift */; };
+		6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */; };
+		6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */; };
+		6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */; };
+		6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */; };
 		6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */; };
 		6EA2EA72225494750039B39F /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA71225494750039B39F /* HomeManager.swift */; };
 		6EA2EA74225494890039B39F /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA73225494890039B39F /* HomeItem.swift */; };
@@ -42,6 +46,10 @@
 		6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6E4B74C422547FB600BECC70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
+		6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSetupViewController.swift; sourceTree = "<group>"; };
+		6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSetupViewController.swift; sourceTree = "<group>"; };
 		6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EA2EA71225494750039B39F /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		6EA2EA73225494890039B39F /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
@@ -95,6 +103,21 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		6E9599AE2258B86000BC1D9A /* Knowledge */ = {
+			isa = PBXGroup;
+			children = (
+				6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */,
+			);
+			path = Knowledge;
+			sourceTree = "<group>";
+		};
+		6E9599AF2258B87500BC1D9A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		6EA2EA6E225494070039B39F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +147,8 @@
 				6E49C99822545F86006536A2 /* Base */,
 				6E4B74C322547F8100BECC70 /* Home */,
 				6EA8CBDA22533E84000859FD /* Activity */,
+				6E9599AE2258B86000BC1D9A /* Knowledge */,
+				6E9599AF2258B87500BC1D9A /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				6EA8CBD822533E80000859FD /* ActivityViewController.swift */,
+				6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */,
+				6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -188,6 +215,7 @@
 				6EA8CBDF22536861000859FD /* UIImage+Extension.swift */,
 				6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */,
 				6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */,
+				6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,12 +332,16 @@
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
+				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
+				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
 				6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
+				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
+				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,

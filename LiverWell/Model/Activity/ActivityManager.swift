@@ -6,9 +6,6 @@
 //  Copyright © 2019 Jo Hsu. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
 class ActivityManager {
     
     let trainGroup = ActivityGroup(

@@ -81,7 +81,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_WatchTV" translatesAutoresizingMaskIntoConstraints="NO" id="KNj-BC-Dha">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_Home_WatchTV" translatesAutoresizingMaskIntoConstraints="NO" id="KNj-BC-Dha">
                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="119"/>
                                                 </imageView>
                                             </subviews>
@@ -93,6 +93,9 @@
                                             <constraint firstItem="KNj-BC-Dha" firstAttribute="leading" secondItem="WbC-WR-bb2" secondAttribute="leading" id="yjH-oh-Iog"/>
                                         </constraints>
                                         <size key="customSize" width="165" height="119"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="KNj-BC-Dha" id="Zaf-Cr-JfP"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -181,6 +184,6 @@
         <image name="Background_Orange" width="375" height="555"/>
         <image name="Background_Oval" width="375" height="330"/>
         <image name="Icon_24px_Share" width="20" height="22"/>
-        <image name="Icon_WatchTV" width="165" height="119"/>
+        <image name="Icon_Home_WatchTV" width="165" height="119"/>
     </resources>
 </document>

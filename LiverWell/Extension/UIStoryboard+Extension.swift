@@ -24,17 +24,17 @@ private struct StoryboardCategory {
 
 extension UIStoryboard {
     
-    static var main: UIStoryboard { return lvStoryboard(name: StoryboardCategory.main) }
+    static var main: UIStoryboard { return lWStoryboard(name: StoryboardCategory.main) }
     
-    static var home: UIStoryboard { return lvStoryboard(name: StoryboardCategory.home) }
+    static var home: UIStoryboard { return lWStoryboard(name: StoryboardCategory.home) }
     
-    static var activity: UIStoryboard { return lvStoryboard(name: StoryboardCategory.activity) }
+    static var activity: UIStoryboard { return lWStoryboard(name: StoryboardCategory.activity) }
     
-    static var knowledge: UIStoryboard { return lvStoryboard(name: StoryboardCategory.knowledge) }
+    static var knowledge: UIStoryboard { return lWStoryboard(name: StoryboardCategory.knowledge) }
     
-    static var profile: UIStoryboard { return lvStoryboard(name: StoryboardCategory.profile) }
+    static var profile: UIStoryboard { return lWStoryboard(name: StoryboardCategory.profile) }
     
-    private static func lvStoryboard(name: String) -> UIStoryboard {
+    private static func lWStoryboard(name: String) -> UIStoryboard {
         
         return UIStoryboard(name: name, bundle: nil)
         

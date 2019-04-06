@@ -20,6 +20,20 @@ enum ImageAsset: String {
     case Icon_24px_Profile_Normal
     case Icon_24px_Profile_Selected
     
+    // Home tab - Resting
+    case Icon_Home_BackPain
+    case Icon_Home_LowerBody
+    case Icon_Home_UpperBody
+    case Icon_Home_WatchTV
+    case Icon_Home_WholeBody
+    
+    // Home tab - Working
+    case Icon_Home_LongSit
+    case Icon_Home_LongStand
+    
+    // Home tab - Before Sleep
+    case Icon_Home_BeforeSleep
+    
     // Activity tab - Train
     case Icon_Workout_BackPain
     case Icon_Workout_LowerBody
