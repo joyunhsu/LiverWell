@@ -1,0 +1,22 @@
+PODS:
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
+  - MBCircularProgressBar (0.3.5)
+
+DEPENDENCIES:
+  - Charts
+  - MBCircularProgressBar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Charts
+    - MBCircularProgressBar
+
+SPEC CHECKSUMS:
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+
+PODFILE CHECKSUM: 350551a8dd60012e976b24bdbd3d67cde8733414
+
+COCOAPODS: 1.6.0
