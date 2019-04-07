@@ -20,6 +20,12 @@
 		6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */; };
 		6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */; };
 		6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */; };
+		6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B62259315C00BC1D9A /* SetupActivityTableViewCell.swift */; };
+		6E9599B92259315C00BC1D9A /* SetupActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9599B72259315C00BC1D9A /* SetupActivityTableViewCell.xib */; };
+		6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599BA2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift */; };
+		6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9599BB2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib */; };
+		6E9599C02259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599BE2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift */; };
+		6E9599C12259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9599BF2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib */; };
 		6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */; };
 		6EA2EA72225494750039B39F /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA71225494750039B39F /* HomeManager.swift */; };
 		6EA2EA74225494890039B39F /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2EA73225494890039B39F /* HomeItem.swift */; };
@@ -50,6 +56,12 @@
 		6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSetupViewController.swift; sourceTree = "<group>"; };
 		6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSetupViewController.swift; sourceTree = "<group>"; };
+		6E9599B62259315C00BC1D9A /* SetupActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupActivityTableViewCell.swift; sourceTree = "<group>"; };
+		6E9599B72259315C00BC1D9A /* SetupActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupActivityTableViewCell.xib; sourceTree = "<group>"; };
+		6E9599BA2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstActivityInfoTableViewCell.swift; sourceTree = "<group>"; };
+		6E9599BB2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstActivityInfoTableViewCell.xib; sourceTree = "<group>"; };
+		6E9599BE2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondActivityInfoTableViewCell.swift; sourceTree = "<group>"; };
+		6E9599BF2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondActivityInfoTableViewCell.xib; sourceTree = "<group>"; };
 		6EA2EA6C225482550039B39F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EA2EA71225494750039B39F /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		6EA2EA73225494890039B39F /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
@@ -157,13 +169,13 @@
 			isa = PBXGroup;
 			children = (
 				6E4B74C62254809000BECC70 /* Home */,
+				6EA8CBCF225332B3000859FD /* Activity */,
 				6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */,
 				6EFDDEA72251E41100C1B8B3 /* Main.storyboard */,
 				6E49C98F2253DA08006536A2 /* Home.storyboard */,
 				6E49C9912253DA1A006536A2 /* Activity.storyboard */,
 				6E49C9932253DA28006536A2 /* Knowledge.storyboard */,
 				6E49C9952253DA37006536A2 /* Profile.storyboard */,
-				6EA8CBCF225332B3000859FD /* Activity */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +198,12 @@
 				6EA8CBD12253332F000859FD /* ActivityCollectionReusableView.xib */,
 				6EA8CBD422533B2F000859FD /* ActivityCollectionViewCell.swift */,
 				6EA8CBD522533B2F000859FD /* ActivityCollectionViewCell.xib */,
+				6E9599B62259315C00BC1D9A /* SetupActivityTableViewCell.swift */,
+				6E9599B72259315C00BC1D9A /* SetupActivityTableViewCell.xib */,
+				6E9599BA2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift */,
+				6E9599BB2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib */,
+				6E9599BE2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift */,
+				6E9599BF2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -309,11 +327,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9599C12259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib in Resources */,
+				6E9599B92259315C00BC1D9A /* SetupActivityTableViewCell.xib in Resources */,
 				6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */,
 				6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */,
 				6EA8CBD32253332F000859FD /* ActivityCollectionReusableView.xib in Resources */,
 				6E49C9942253DA28006536A2 /* Knowledge.storyboard in Resources */,
 				6E49C9902253DA08006536A2 /* Home.storyboard in Resources */,
+				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
@@ -330,6 +351,7 @@
 			files = (
 				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
+				6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */,
 				6EA8CBD22253332F000859FD /* ActivityCollectionReusableView.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
@@ -337,11 +359,13 @@
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
+				6E9599C02259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
 				6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
 				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
+				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,

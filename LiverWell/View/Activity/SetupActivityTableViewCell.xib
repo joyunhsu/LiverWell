@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupActivityTableViewCell" rowHeight="130" id="KGk-i7-Jjw" customClass="SetupActivityTableViewCell" customModule="LiverWell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train_BackPain_01" translatesAutoresizingMaskIntoConstraints="NO" id="PN7-hO-3ZL" userLabel="Workout Graphic">
+                        <rect key="frame" x="20" y="8" width="174" height="114"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="174" id="9sr-xa-tE0"/>
+                            <constraint firstAttribute="height" constant="114" id="NsS-oI-UUw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="臀、背、腹肌伸展" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1w-CT-UIY">
+                        <rect key="frame" x="208" y="55" width="147" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="H1w-CT-UIY" firstAttribute="leading" secondItem="PN7-hO-3ZL" secondAttribute="trailing" constant="14" id="GVY-7K-lBj"/>
+                    <constraint firstItem="H1w-CT-UIY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Y5k-wp-gjP"/>
+                    <constraint firstItem="PN7-hO-3ZL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="YlW-Vn-Oek"/>
+                    <constraint firstItem="PN7-hO-3ZL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="a0R-en-b5K"/>
+                    <constraint firstAttribute="bottom" secondItem="PN7-hO-3ZL" secondAttribute="bottom" constant="8" id="gqK-Nj-toh"/>
+                    <constraint firstAttribute="trailing" secondItem="H1w-CT-UIY" secondAttribute="trailing" constant="20" id="lCU-7H-fMJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Train_BackPain_01" width="174" height="114"/>
+    </resources>
+</document>

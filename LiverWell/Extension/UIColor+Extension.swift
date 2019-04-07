@@ -12,7 +12,7 @@ private enum LWColor: String {
     
     case Orange
     
-    case Green
+    case G1
     
     case B1
     
@@ -25,7 +25,7 @@ extension UIColor {
     
     static let Orange = LWColor(.Orange)
     
-    static let Green = LWColor(.Green)
+    static let G1 = LWColor(.G1)
     
     static let B1 = LWColor(.B1)
     

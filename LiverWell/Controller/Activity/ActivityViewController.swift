@@ -121,16 +121,27 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? TrainSetupViewController {
+        if let trainDestination = segue.destination as? TrainSetupViewController {
             var indexPath = self.firstCollectionView.indexPathsForSelectedItems?.first
 //            let itemNumber: Int = indexPath!.item
             
-            let passItem = manager.groups[1].items[indexPath!.item]
+            let passItem = manager.groups[0].items[indexPath!.item]
             
 //            stretchCell.layoutView(title: stretchItems.title, image: stretchItems.image)
             
-            destination.navTitle = passItem.title
+            trainDestination.navTitle = passItem.title
             print(passItem.title)
+        }
+        
+        if let stretchDestination = segue.destination as? StretchSetupViewController {
+            
+            var indexPath = self.secondCollectionView.indexPathsForSelectedItems?.first
+            
+            let passItem = manager.groups[1].items[indexPath!.item]
+            
+            stretchDestination.navTitle = passItem.title
+            print(passItem.title)
+            
         }
     }
 
