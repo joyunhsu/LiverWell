@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import MBCircularProgressBar
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
+    
+    @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
+    
+    @IBOutlet weak var stretchProgressView: MBCircularProgressBarView!
     
     @IBOutlet weak var workoutCollectionView: UICollectionView!
     
@@ -19,6 +24,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        trainProgressView.rotate(angle: 180)
+        
+        stretchProgressView.rotate(angle: 180)
         
         
     }
