@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBn-ko-B93" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-76"/>
+            <point key="canvasLocation" x="2750" y="-76"/>
         </scene>
         <!--Train Setup View Controller-->
         <scene sceneID="wS0-fp-Kts">
@@ -179,6 +179,10 @@
                                                 <constraint firstAttribute="width" secondItem="saQ-RS-Nqo" secondAttribute="height" multiplier="1:1" id="phg-dz-vzN"/>
                                             </constraints>
                                             <state key="normal" image="Button_5min_Normal"/>
+                                            <state key="selected" image="Button_5min_Selected"/>
+                                            <connections>
+                                                <action selector="fiveMinBtnPressed:" destination="mc3-wY-RMa" eventType="touchUpInside" id="3pn-97-cRm"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNZ-gk-9hB" userLabel="10minBtn">
                                             <rect key="frame" x="136.5" y="204" width="102" height="101.5"/>
@@ -186,6 +190,7 @@
                                                 <constraint firstAttribute="width" secondItem="rNZ-gk-9hB" secondAttribute="height" multiplier="1:1" id="NZJ-09-JCr"/>
                                             </constraints>
                                             <state key="normal" image="Button_10min_Normal"/>
+                                            <state key="selected" image="Button_10min_Selected"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIy-Ee-bsL" userLabel="15minBtn">
                                             <rect key="frame" x="253.5" y="204" width="101.5" height="101.5"/>
@@ -193,6 +198,7 @@
                                                 <constraint firstAttribute="width" secondItem="JIy-Ee-bsL" secondAttribute="height" multiplier="1:1" id="wRx-Bv-0Hz"/>
                                             </constraints>
                                             <state key="normal" image="Button_15min_Normal"/>
+                                            <state key="selected" image="Button_15min_Selected"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看電視時順便動一動，肌力訓練好簡單！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShM-7k-gG9">
                                             <rect key="frame" x="49.5" y="149" width="276" height="20"/>
@@ -324,6 +330,7 @@
                         <viewLayoutGuide key="safeArea" id="tN8-Vn-h6f"/>
                     </view>
                     <connections>
+                        <outlet property="fiveMinBtn" destination="saQ-RS-Nqo" id="R0w-Z9-Db8"/>
                         <outlet property="navBarItem" destination="sxF-Vi-Lig" id="RGy-Ex-MLF"/>
                         <outlet property="tableView" destination="vsp-HR-42B" id="RGl-UY-w6e"/>
                     </connections>
@@ -1149,8 +1156,11 @@
         <image name="Background_SetupStretch" width="375" height="270"/>
         <image name="Background_SetupTrain" width="375" height="320"/>
         <image name="Button_10min_Normal" width="96" height="96"/>
+        <image name="Button_10min_Selected" width="96" height="96"/>
         <image name="Button_15min_Normal" width="96" height="96"/>
+        <image name="Button_15min_Selected" width="96" height="96"/>
         <image name="Button_5min_Normal" width="96" height="96"/>
+        <image name="Button_5min_Selected" width="96" height="96"/>
         <image name="Icon_Workout_BackPain" width="145" height="125"/>
         <image name="Icon_Workout_LongSit" width="145" height="125"/>
         <image name="Train_BackPain_01" width="174" height="114"/>
@@ -1172,6 +1182,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N32-zC-2Fu"/>
+        <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

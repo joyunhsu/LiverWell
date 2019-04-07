@@ -16,6 +16,15 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
     }
     
+    @IBOutlet weak var fiveMinBtn: UIButton!
+    
+    @IBAction func fiveMinBtnPressed(_ sender: UIButton) {
+        
+        fiveMinBtn.isSelected = true
+        
+    }
+    
+    
     @IBOutlet weak var navBarItem: UINavigationItem!
     
     @IBOutlet weak var tableView: UITableView!
