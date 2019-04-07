@@ -153,9 +153,9 @@ extension ActivityViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
             
-        case firstCollectionView: return CGSize(width: firstCollectionView.bounds.width / 2.0, height: 152.0)
+        case firstCollectionView: return CGSize(width: (firstCollectionView.bounds.width - 20) / 2.0, height: 152.0)
             
-        default: return CGSize(width: secondCollectionView.bounds.width / 2.0, height: 152.0)
+        default: return CGSize(width: (secondCollectionView.bounds.width - 20) / 2.0, height: 152.0)
             
         }
         
@@ -167,6 +167,12 @@ extension ActivityViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 26.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 10)
+        
     }
     
 }
