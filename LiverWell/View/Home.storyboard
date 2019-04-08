@@ -132,7 +132,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFi-dH-dmx">
                                                     <rect key="frame" x="4" y="0.0" width="12" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="B1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -143,15 +143,63 @@
                                                         <constraint firstAttribute="height" constant="20" id="hEs-OS-P1l"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwz-0U-aal" customClass="MBCircularProgressBarView">
+                                                    <rect key="frame" x="0.0" y="20" width="20" height="20"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="DXX-XP-eZO"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Y7t-zG-f53"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                                            <real key="value" value="100"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
+                                                            <real key="value" value="50"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                                            <color key="value" name="B1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                                            <color key="value" name="B1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                                            <color key="value" name="B5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyLineStrokeColor">
+                                                            <color key="value" name="B5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="Kh4-Cj-eqP" firstAttribute="centerX" secondItem="fjs-jc-RU8" secondAttribute="centerX" id="589-Jn-76O"/>
                                             <constraint firstAttribute="bottom" secondItem="Kh4-Cj-eqP" secondAttribute="bottom" id="HV7-kY-73a"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bwz-0U-aal" secondAttribute="bottom" id="Yu2-XY-tnV"/>
                                             <constraint firstItem="VFi-dH-dmx" firstAttribute="top" secondItem="fjs-jc-RU8" secondAttribute="top" id="bnB-fU-DZc"/>
                                             <constraint firstItem="VFi-dH-dmx" firstAttribute="centerX" secondItem="fjs-jc-RU8" secondAttribute="centerX" id="d0Z-Zc-5Vb"/>
+                                            <constraint firstItem="Bwz-0U-aal" firstAttribute="centerX" secondItem="fjs-jc-RU8" secondAttribute="centerX" id="peC-Of-jM3"/>
                                         </constraints>
                                         <size key="customSize" width="20" height="40"/>
+                                        <connections>
+                                            <outlet property="completeImage" destination="Kh4-Cj-eqP" id="EkH-Vc-Jxg"/>
+                                            <outlet property="day" destination="VFi-dH-dmx" id="hEh-AL-d3a"/>
+                                            <outlet property="progressView" destination="Bwz-0U-aal" id="cgg-Nj-rGe"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -224,7 +272,7 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
                                         <real key="value" value="100"/>
@@ -242,7 +290,7 @@
                                         <color key="value" name="B5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyLineStrokeColor">
-                                        <color key="value" name="B5"/>
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
                                         <real key="value" value="7"/>
@@ -266,7 +314,7 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
                                         <real key="value" value="100"/>
@@ -278,7 +326,7 @@
                                         <color key="value" name="G1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" name="G1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

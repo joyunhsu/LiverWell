@@ -21,7 +21,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Knowledge" translatesAutoresizingMaskIntoConstraints="NO" id="XgD-F0-7d6" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILA-cr-EfX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILA-cr-EfX">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="gSP-eu-rIS">
@@ -45,9 +45,6 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lvCornerRadius">
-                                                    <real key="value" value="22"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
                                                     <real key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
@@ -61,9 +58,6 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lvCornerRadius">
-                                                    <real key="value" value="22"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
                                                     <real key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
@@ -80,9 +74,6 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lvCornerRadius">
-                                                    <real key="value" value="22"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
                                                     <real key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
@@ -106,11 +97,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="134" id="8is-GH-Rv7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KnowledgeTableViewCell" rowHeight="134" id="8is-GH-Rv7" customClass="KnowledgeTableViewCell" customModule="LiverWell" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8is-GH-Rv7" id="I3w-9i-6pf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxF-Au-l95">
@@ -153,6 +144,10 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mOc-7K-zMz" id="4bs-Xe-04i"/>
+                                    <outlet property="delegate" destination="mOc-7K-zMz" id="L6X-hb-Pkg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,18 +167,19 @@
                     <connections>
                         <outlet property="foodBtn" destination="CjW-xy-Y9G" id="B5i-Wv-D6Q"/>
                         <outlet property="liverBtn" destination="9zH-ty-YGy" id="wZV-mW-qNi"/>
+                        <outlet property="tableView" destination="ILA-cr-EfX" id="k3f-Xg-geS"/>
                         <outlet property="workoutBtn" destination="DlN-SR-rBT" id="kHh-sF-rGg"/>
-                        <segue destination="ukl-Hp-9N0" kind="presentation" id="XJF-Av-EMH"/>
+                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" id="XJF-Av-EMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="991.75412293853083"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Knowledge View Controller-->
         <scene sceneID="A3N-MA-9We">
             <objects>
-                <viewController id="ukl-Hp-9N0" sceneMemberID="viewController">
+                <viewController id="ukl-Hp-9N0" customClass="DetailKnowledgeViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sps-na-Ida">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

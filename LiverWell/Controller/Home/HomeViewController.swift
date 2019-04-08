@@ -23,11 +23,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        trainProgressView.rotate(angle: 180)
-        
-        stretchProgressView.rotate(angle: 180)
-        
         
     }
     
@@ -76,9 +71,13 @@ extension HomeViewController: UICollectionViewDataSource {
             
         } else if collectionView == weekProgressCollectionView {
             
+            let days = ["ㄧ", "二", "三", "四", "五", "六", "日"]
+            
             let cell = weekProgressCollectionView.dequeueReusableCell(withReuseIdentifier: "WeekProgressCollectionViewCell", for: indexPath)
             
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
+            
+            progressCell.day.text = days[indexPath.item]
             
             return progressCell
             

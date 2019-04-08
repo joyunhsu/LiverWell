@@ -10,9 +10,9 @@ import UIKit
 
 struct ActivityGroup {
     
-    let titleLine1: String
+    let firstLineTitle: String
     
-    let titleLine2: String
+    let secondLineTitle: String
     
     let caption: String
     
