@@ -41,6 +41,13 @@
 		6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */; };
 		6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */; };
 		6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */; };
+		6EE614AA225B3229003A104C /* FirstStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */; };
+		6EE614AB225B3229003A104C /* FirstStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */; };
+		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
+		6EE614AF225B3250003A104C /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */; };
+		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
+		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
+		6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B4225B37B9003A104C /* WeightViewController.swift */; };
 		6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */; };
 		6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA72251E41100C1B8B3 /* Main.storyboard */; };
 		6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */; };
@@ -82,6 +89,13 @@
 		6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStatusTableViewCell.swift; sourceTree = "<group>"; };
+		6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstStatusTableViewCell.xib; sourceTree = "<group>"; };
+		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
+		6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
+		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		6EE614B4225B37B9003A104C /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		6EFDDE9E2251E41100C1B8B3 /* LiverWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiverWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFDDEA82251E41100C1B8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +163,9 @@
 		6E9599AF2258B87500BC1D9A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				6EE614B0225B3792003A104C /* ProfileViewController.swift */,
+				6EE614B2225B37A3003A104C /* StatusViewController.swift */,
+				6EE614B4225B37B9003A104C /* WeightViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -194,6 +211,7 @@
 				6E4B74C62254809000BECC70 /* Home */,
 				6EA8CBCF225332B3000859FD /* Activity */,
 				6EAA7A2E225A7A130054AA69 /* Knowledge */,
+				6EAA7A39225B31320054AA69 /* Profile */,
 				6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */,
 				6EFDDEA72251E41100C1B8B3 /* Main.storyboard */,
 				6E49C98F2253DA08006536A2 /* Home.storyboard */,
@@ -269,6 +287,17 @@
 				6EAA7A2F225A7A700054AA69 /* KnowledgeTableViewCell.swift */,
 			);
 			path = Knowledge;
+			sourceTree = "<group>";
+		};
+		6EAA7A39225B31320054AA69 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */,
+				6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */,
+				6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */,
+				6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		6EFDDE952251E41100C1B8B3 = {
@@ -376,11 +405,13 @@
 				6E9599C12259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib in Resources */,
 				6E9599B92259315C00BC1D9A /* SetupActivityTableViewCell.xib in Resources */,
 				6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */,
+				6EE614AB225B3229003A104C /* FirstStatusTableViewCell.xib in Resources */,
 				6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */,
 				6E49C9942253DA28006536A2 /* Knowledge.storyboard in Resources */,
 				6E49C9902253DA08006536A2 /* Home.storyboard in Resources */,
 				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
+				6EE614AF225B3250003A104C /* PieChartTableViewCell.xib in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
@@ -446,6 +477,7 @@
 			files = (
 				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
+				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
 				6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
@@ -461,11 +493,15 @@
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
 				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
+				6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */,
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
 				6E9599C3225A33D200BC1D9A /* WeekProgressCollectionViewCell.swift in Sources */,
+				6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */,
+				6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */,
+				6EE614AA225B3229003A104C /* FirstStatusTableViewCell.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,
 				6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */,
 				6EA2EA74225494890039B39F /* HomeItem.swift in Sources */,
