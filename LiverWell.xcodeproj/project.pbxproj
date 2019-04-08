@@ -42,9 +42,7 @@
 		6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */; };
 		6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */; };
 		6EE614AA225B3229003A104C /* FirstStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */; };
-		6EE614AB225B3229003A104C /* FirstStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
-		6EE614AF225B3250003A104C /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
 		6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B4225B37B9003A104C /* WeightViewController.swift */; };
@@ -90,9 +88,7 @@
 		6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStatusTableViewCell.swift; sourceTree = "<group>"; };
-		6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstStatusTableViewCell.xib; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
-		6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		6EE614B4225B37B9003A104C /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
@@ -293,9 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				6EE614A8225B3229003A104C /* FirstStatusTableViewCell.swift */,
-				6EE614A9225B3229003A104C /* FirstStatusTableViewCell.xib */,
 				6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */,
-				6EE614AD225B3250003A104C /* PieChartTableViewCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -405,13 +399,11 @@
 				6E9599C12259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib in Resources */,
 				6E9599B92259315C00BC1D9A /* SetupActivityTableViewCell.xib in Resources */,
 				6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */,
-				6EE614AB225B3229003A104C /* FirstStatusTableViewCell.xib in Resources */,
 				6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */,
 				6E49C9942253DA28006536A2 /* Knowledge.storyboard in Resources */,
 				6E49C9902253DA08006536A2 /* Home.storyboard in Resources */,
 				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
-				6EE614AF225B3250003A104C /* PieChartTableViewCell.xib in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
