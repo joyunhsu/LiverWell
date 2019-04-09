@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2E6-YG-pP4">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E6-YG-pP4">
                                 <rect key="frame" x="0.0" y="176" width="375" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-f3-FMd" userLabel="Content View">
@@ -65,29 +65,53 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnc-Vv-jlR" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="156"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-rS-HzF">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-rS-HzF" userLabel="Underline">
                                         <rect key="frame" x="0.0" y="151" width="375" height="5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlb-Fs-vg9" userLabel="Indicator View">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="5"/>
+                                                <color key="backgroundColor" name="B1"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" name="B5"/>
                                         <constraints>
+                                            <constraint firstItem="zlb-Fs-vg9" firstAttribute="width" secondItem="fwe-rS-HzF" secondAttribute="width" multiplier="1:2" id="J6n-5U-iDj"/>
+                                            <constraint firstAttribute="bottom" secondItem="zlb-Fs-vg9" secondAttribute="bottom" id="TmL-90-efE"/>
                                             <constraint firstAttribute="height" constant="5" id="bel-tS-BGG"/>
+                                            <constraint firstItem="zlb-Fs-vg9" firstAttribute="top" secondItem="fwe-rS-HzF" secondAttribute="top" id="cEv-Xf-ZlN"/>
+                                            <constraint firstItem="zlb-Fs-vg9" firstAttribute="leading" secondItem="fwe-rS-HzF" secondAttribute="leading" id="ida-Ry-36r"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V8-FV-R1s">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V8-FV-R1s">
                                         <rect key="frame" x="0.0" y="108" width="187.5" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="BDT-x7-VOh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="運動狀態">
+                                            <color key="titleColor" name="B5"/>
+                                        </state>
+                                        <state key="selected">
                                             <color key="titleColor" name="B1"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePagePressed:" destination="O4e-g0-bSq" eventType="touchUpInside" id="coq-Ex-xTi"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPM-BZ-foL">
-                                        <rect key="frame" x="187.5" y="108" width="187.5" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPM-BZ-foL">
+                                        <rect key="frame" x="187.5" y="108" width="187.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="減重歷程">
                                             <color key="titleColor" name="B5"/>
                                         </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="B1"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changePagePressed:" destination="O4e-g0-bSq" eventType="touchUpInside" id="BVY-A4-aiC"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_UserProfile" translatesAutoresizingMaskIntoConstraints="NO" id="g1N-HB-6f7">
                                         <rect key="frame" x="34" y="18" width="66" height="66"/>
@@ -149,6 +173,15 @@
                         <viewLayoutGuide key="safeArea" id="pca-XO-rzh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="我的" image="24px_Profile_normal" id="BnL-td-FYm"/>
+                    <connections>
+                        <outlet property="indicatorLeadingConstraint" destination="ida-Ry-36r" id="OEK-2t-K0H"/>
+                        <outlet property="indicatorView" destination="zlb-Fs-vg9" id="lbi-ML-Mmr"/>
+                        <outlet property="scrollView" destination="2E6-YG-pP4" id="zNV-QA-Owr"/>
+                        <outlet property="statusContainerView" destination="Vjd-m7-4pr" id="Dnl-E7-sDb"/>
+                        <outlet property="weightContainerView" destination="I42-uK-9Yk" id="Qjl-Gl-Pbc"/>
+                        <outletCollection property="orderBtns" destination="6V8-FV-R1s" collectionClass="NSMutableArray" id="atB-8z-PT0"/>
+                        <outletCollection property="orderBtns" destination="nPM-BZ-foL" collectionClass="NSMutableArray" id="51A-Gz-9mM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5J-PU-D9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
