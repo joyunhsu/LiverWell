@@ -8,22 +8,28 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ActivityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var indicatorLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var firstCollectionView: UICollectionView!
-    
     @IBOutlet weak var secondCollectionView: UICollectionView!
+    
+    @IBOutlet var orderBtns: [UIButton]!
+    
+    var tableViews: [UICollectionView] {
+        
+        return [firstCollectionView, secondCollectionView]
+        
+    }
     
     let manager = ActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let headerNib = UINib(nibName: "ActivityCollectionReusableView", bundle: nil)
-//
-//        firstCollectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ActivityCollectionReusableView")
-//
-//        secondCollectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ActivityCollectionReusableView")
+        scrollView.delegate = self
         
         let headerCellNib = UINib(nibName: "HeaderCollectionViewCell", bundle: nil)
         
@@ -38,6 +44,61 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIColl
         secondCollectionView.register(cellNib, forCellWithReuseIdentifier: "ActivityCollectionViewCell")
         
         self.navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    @IBAction func changePagePressed(_ sender: UIButton) {
+        
+        for btn in orderBtns {
+            
+            btn.isSelected = false
+            
+        }
+        
+        sender.isSelected = true
+        
+        moveIndicatorView(toPage: sender.tag)
+    }
+    
+    private func moveIndicatorView(toPage: Int) {
+        
+        let screenWidth  = UIScreen.main.bounds.width
+        
+        indicatorLeadingConstraint.constant = CGFloat(toPage) * screenWidth / 2
+        
+        UIView.animate(withDuration: 0.3) {
+            
+            self.scrollView.contentOffset.x = CGFloat(toPage) * screenWidth
+            
+            self.view.layoutIfNeeded()
+            
+        }
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let screenWidth  = UIScreen.main.bounds.width
+        
+        indicatorLeadingConstraint.constant = scrollView.contentOffset.x / 2
+        
+        let temp = Double(scrollView.contentOffset.x / screenWidth)
+        
+        let number = lround(temp)
+        
+        for btn in orderBtns {
+            
+            btn.isSelected = false
+            
+        }
+        
+        orderBtns[number].isSelected = true
+        
+        UIView.animate(withDuration: 0.1) {
+            
+            self.view.layoutIfNeeded()
+            
+        }
         
     }
     
