@@ -7,7 +7,7 @@
 //
 
 class ActivityManager {
-    
+
     let trainGroup = ActivityGroup(
         firstLineTitle: "一點一滴訓練肌肉",
         secondLineTitle: "打造健康的易瘦體質",
@@ -20,7 +20,7 @@ class ActivityManager {
             TrainItem.lowerBody
         ]
     )
-    
+
     let stretchGroup = ActivityGroup(
         firstLineTitle: "伸展活絡身體",
         secondLineTitle: "提升基礎代謝三成",
@@ -31,8 +31,6 @@ class ActivityManager {
             StretchItem.beforeSleep
         ]
     )
-    
+
     lazy var groups: [ActivityGroup] = [trainGroup, stretchGroup]
 }
-
-

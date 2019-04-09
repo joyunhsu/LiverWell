@@ -10,19 +10,17 @@ import UIKit
 import Charts
 
 class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
-    
-    @IBOutlet weak var chartView: BarChartView!
-    
-    @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var chartView: BarChartView!
+
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
 
     }
-    
 
 }
 
@@ -30,15 +28,11 @@ extension StatusViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PieChartTableViewCell", for: indexPath)
-        
+
         return cell
     }
-    
-    
-    
-    
-    
+
 }

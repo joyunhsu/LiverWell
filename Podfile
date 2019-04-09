@@ -9,5 +9,6 @@ target 'LiverWell' do
 
 pod 'Charts'
 pod "MBCircularProgressBar"
+pod 'SwiftLint'
 
 end

@@ -10,12 +10,11 @@ import UIKit
 import MBCircularProgressBar
 
 class WeekProgressCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var day: UILabel!
-    
+
     @IBOutlet weak var progressView: MBCircularProgressBarView!
-    
+
     @IBOutlet weak var completeImage: UIImageView!
-    
-    
+
 }

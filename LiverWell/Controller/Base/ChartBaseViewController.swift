@@ -45,7 +45,7 @@ enum Option {
     case toggleYLabels
     case toggleRotate
     case toggleHighlightCircle
-    
+
     var label: String {
         switch self {
         case .toggleValues: return "Toggle Y-Values"
@@ -87,7 +87,6 @@ enum Option {
     }
 }
 
-
 class ChartBaseViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -95,7 +94,6 @@ class ChartBaseViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

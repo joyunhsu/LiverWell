@@ -3,20 +3,24 @@ PODS:
     - Charts/Core (= 3.2.2)
   - Charts/Core (3.2.2)
   - MBCircularProgressBar (0.3.5)
+  - SwiftLint (0.30.1)
 
 DEPENDENCIES:
   - Charts
   - MBCircularProgressBar
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
     - MBCircularProgressBar
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 350551a8dd60012e976b24bdbd3d67cde8733414
+PODFILE CHECKSUM: ad00af98fdfc3a567c169ad48ec6fb39c5a1bae4
 
 COCOAPODS: 1.6.0

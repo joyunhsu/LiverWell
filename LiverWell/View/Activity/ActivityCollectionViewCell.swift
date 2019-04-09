@@ -9,22 +9,22 @@
 import UIKit
 
 class ActivityCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var workoutIcon: UIImageView!
-    
+
     @IBOutlet weak var workoutLabel: UILabel!
-    
+
     func layoutView(title: String, image: UIImage?) {
-        
+
         workoutLabel.text = title
-        
+
         workoutIcon.image = image
-        
+
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
     }
 
 }

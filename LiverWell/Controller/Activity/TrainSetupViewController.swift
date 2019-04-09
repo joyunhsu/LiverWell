@@ -9,58 +9,56 @@
 import UIKit
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
-    
+
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
-        
+
         dismiss(animated: true)
-        
+
     }
-    
+
     @IBOutlet weak var fiveMinBtn: UIButton!
-    
+
     @IBAction func fiveMinBtnPressed(_ sender: UIButton) {
-        
+
         fiveMinBtn.isSelected = true
-        
+
     }
-    
-    
+
     @IBOutlet weak var navBarItem: UINavigationItem!
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     var navTitle: String = ""
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navBarItem.title = navTitle
-        
+
         let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
 
     }
 
-
 }
 
 extension TrainSetupViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SetupActivityTableViewCell", for: indexPath) as! SetupActivityTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SetupActivityTableViewCell", for: indexPath)
         
-        return cell
-        
+        guard let setupCell = cell as? SetupActivityTableViewCell else { return cell }
+
+        return setupCell
+
     }
-    
+
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 130
 //    }
-    
-    
+
 }

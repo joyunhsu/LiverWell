@@ -9,13 +9,13 @@
 import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var imageView: UIImageView!
-    
+
     func layoutCell(image: UIImage?) {
-        
+
         imageView.image = image
-        
+
     }
-    
+
 }

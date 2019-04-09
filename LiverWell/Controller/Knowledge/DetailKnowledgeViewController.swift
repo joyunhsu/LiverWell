@@ -13,10 +13,6 @@ class DetailKnowledgeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
-    
-
-
 
 }
