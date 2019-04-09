@@ -39,7 +39,7 @@ class PieChartTableViewCell: UITableViewCell {
         let chartDataSet = PieChartDataSet(values: numberOfDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let colors = [UIColor.orange, UIColor.G1]
+        let colors = [UIColor.Orange, UIColor.G1]
         chartDataSet.colors = colors as! [NSUIColor]
         
         pieChartView.data = chartData

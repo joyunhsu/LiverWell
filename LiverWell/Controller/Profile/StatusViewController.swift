@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import Charts
 
-class StatusViewController: UIViewController, UITableViewDelegate {
+class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
+    
+    @IBOutlet weak var chartView: BarChartView!
     
     @IBOutlet weak var tableView: UITableView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+
     }
     
-
-
 
 }
 
