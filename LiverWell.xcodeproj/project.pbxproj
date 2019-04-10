@@ -19,6 +19,8 @@
 		6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C422547FB600BECC70 /* HomeViewController.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
+		6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */; };
+		6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */; };
 		6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */; };
 		6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */; };
 		6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */; };
@@ -66,6 +68,8 @@
 		6E4B74C422547FB600BECC70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
+		6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectinoViewCell.swift; sourceTree = "<group>"; };
+		6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntryTableViewCell.swift; sourceTree = "<group>"; };
 		6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 		6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSetupViewController.swift; sourceTree = "<group>"; };
 		6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 			children = (
 				6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */,
 				6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */,
+				6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */,
+				6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
 				6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */,
+				6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
@@ -517,6 +524,7 @@
 				6E9599C3225A33D200BC1D9A /* WeekProgressCollectionViewCell.swift in Sources */,
 				6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */,
 				6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */,
+				6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,
 				6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */,
 				6EA2EA74225494890039B39F /* HomeItem.swift in Sources */,

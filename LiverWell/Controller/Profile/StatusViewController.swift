@@ -102,7 +102,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
             let mult = range + 1
             let val1 = Double(arc4random_uniform(mult) + mult / 2)
             let val2 = Double(arc4random_uniform(mult) + mult / 2)
-//            let val3 = Double(arc4random_uniform(mult) + mult / 3)
             
             return BarChartDataEntry(x: Double(i), yValues: [val1, val2], icon: #imageLiteral(resourceName: "Icon_24px_Home_Selected"))
         }
@@ -113,12 +112,12 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
             NSUIColor(cgColor: UIColor.Orange!.cgColor),
             NSUIColor(cgColor: UIColor.G1!.cgColor)
         ]
-//        set.stackLabels = ["Births", "Divorces", "Marriages"]
         
         let data = BarChartData(dataSet: set)
         data.setValueFont(.systemFont(ofSize: 7, weight: .light))
         data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         data.setValueTextColor(.white)
+        data.barWidth = 0.4
         
         chartView.fitBars = true
         chartView.data = data
