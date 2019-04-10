@@ -55,6 +55,17 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         // Animate Y
 //        chartView.animate(yAxisDuration: 1.5)
         
+        // Remove horizonatal line, right value label, legend below chart
+        self.chartView.xAxis.drawGridLinesEnabled = false
+        self.chartView.leftAxis.axisLineColor = UIColor.clear
+        self.chartView.rightAxis.drawLabelsEnabled = false
+        self.chartView.rightAxis.enabled = false
+        self.chartView.legend.enabled = false
+        
+        // Change xAxis label from top to bottom
+        chartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        chartView.minOffset = 0
+        
     }
     
     func barChartUpdate () {
@@ -112,6 +123,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         chartView.fitBars = true
         chartView.data = data
         
+        // Add string to xAxis
         let xAxisValue = chartView.xAxis
         xAxisValue.valueFormatter = axisFormatDelegate
     }

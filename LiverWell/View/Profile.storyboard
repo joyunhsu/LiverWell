@@ -285,7 +285,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-w0-kdw" customClass="BarChartView" customModule="Charts">
-                                            <rect key="frame" x="40" y="149" width="315" height="237"/>
+                                            <rect key="frame" x="8" y="149" width="367" height="237"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
@@ -295,8 +295,8 @@
                                         <constraint firstItem="pXE-pE-WBp" firstAttribute="centerY" secondItem="fg9-Fg-I9G" secondAttribute="centerY" constant="-10" id="4ph-zj-we0"/>
                                         <constraint firstItem="Qc6-w2-gib" firstAttribute="leading" secondItem="r44-hM-BAa" secondAttribute="leading" id="5KM-ET-AKY"/>
                                         <constraint firstItem="VJG-OQ-v0y" firstAttribute="top" secondItem="pXE-pE-WBp" secondAttribute="bottom" constant="6" id="61H-Uo-V1Q"/>
-                                        <constraint firstAttribute="trailing" secondItem="J1Q-w0-kdw" secondAttribute="trailing" constant="20" id="6Iu-D0-k1m"/>
-                                        <constraint firstItem="J1Q-w0-kdw" firstAttribute="leading" secondItem="r44-hM-BAa" secondAttribute="leading" constant="40" id="L16-CR-9Bu"/>
+                                        <constraint firstAttribute="trailing" secondItem="J1Q-w0-kdw" secondAttribute="trailing" id="6Iu-D0-k1m"/>
+                                        <constraint firstItem="J1Q-w0-kdw" firstAttribute="leading" secondItem="r44-hM-BAa" secondAttribute="leading" constant="8" id="L16-CR-9Bu"/>
                                         <constraint firstItem="fg9-Fg-I9G" firstAttribute="leading" secondItem="r44-hM-BAa" secondAttribute="leading" constant="36" id="Qxf-e6-rF5"/>
                                         <constraint firstItem="fg9-Fg-I9G" firstAttribute="top" secondItem="M9U-ie-ZMZ" secondAttribute="bottom" constant="10" id="R39-i3-ndc"/>
                                         <constraint firstItem="Qc6-w2-gib" firstAttribute="top" secondItem="r44-hM-BAa" secondAttribute="top" id="bF9-6Q-2SU"/>
