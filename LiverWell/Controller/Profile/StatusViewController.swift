@@ -15,6 +15,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
     @IBOutlet weak var tableView: UITableView!
     
+    weak var axisFormatDelegate: IAxisValueFormatter?
+    
+    let week = ["ㄧ", "二", "三", "四", "五", "六", "日"]
+    
     lazy var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
@@ -26,6 +30,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chartView.delegate = self
+        
+        axisFormatDelegate = self
 
         barChartUpdate()
         barChartViewSetup()
@@ -103,8 +111,17 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         chartView.fitBars = true
         chartView.data = data
+        
+        let xAxisValue = chartView.xAxis
+        xAxisValue.valueFormatter = axisFormatDelegate
     }
 
+}
+
+extension StatusViewController: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return week[Int(value) % week.count]
+    }
 }
 
 extension StatusViewController: UITableViewDataSource {
