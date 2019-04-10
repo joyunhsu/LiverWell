@@ -215,7 +215,7 @@
                                 </constraints>
                                 <state key="normal" image="Icon_24px_Share"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrainAndStretch" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-SJ-fdb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrainAndStretch" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-SJ-fdb">
                                 <rect key="frame" x="105.5" y="584" width="164" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="4aM-bR-CNa"/>
@@ -258,11 +258,11 @@
                                 <color key="textColor" name="Orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-dL-Iax" customClass="MBCircularProgressBarView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEx-o8-1iQ" userLabel="Stretch Progress Bar View" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="110.5" y="422" width="154" height="154"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kx9-dL-Iax" secondAttribute="height" multiplier="1:1" id="XfG-TN-YfN"/>
+                                    <constraint firstAttribute="width" secondItem="NEx-o8-1iQ" secondAttribute="height" multiplier="1:1" id="vv9-D1-Wba"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -281,7 +281,7 @@
                                         <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" name="Orange"/>
+                                        <color key="value" name="G1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -300,15 +300,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEx-o8-1iQ" userLabel="Stretch Progress Bar View" customClass="MBCircularProgressBarView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-dL-Iax" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="110.5" y="422" width="154" height="154"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="NEx-o8-1iQ" secondAttribute="height" multiplier="1:1" id="vv9-D1-Wba"/>
+                                    <constraint firstAttribute="width" secondItem="kx9-dL-Iax" secondAttribute="height" multiplier="1:1" id="XfG-TN-YfN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="2"/>
+                                        <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
                                         <real key="value" value="15"/>
@@ -323,10 +323,10 @@
                                         <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                        <color key="value" name="G1"/>
+                                        <color key="value" name="Orange"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
-                                        <color key="value" name="G1"/>
+                                        <color key="value" name="Orange"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -409,7 +409,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pC9-fi-VEy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="首頁" image="24px_Home_normal" id="1Ot-Iz-Ji4"/>
+                    <tabBarItem key="tabBarItem" title="首頁" id="1Ot-Iz-Ji4"/>
                     <connections>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
                         <outlet property="trainProgressView" destination="kx9-dL-Iax" id="7GV-Fi-M2E"/>
@@ -423,7 +423,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="24px_Home_normal" width="22" height="22"/>
         <image name="Background_Orange" width="375" height="555"/>
         <image name="Background_Oval" width="375" height="330"/>
         <image name="Icon_24px_Share" width="20" height="22"/>

@@ -16,6 +16,10 @@ class PracticeViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
 
     }
+    
+    @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

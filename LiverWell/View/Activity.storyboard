@@ -408,7 +408,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="r0W-Nl-HO2">
                                             <color key="tintColor" name="B1"/>
                                             <connections>
-                                                <action selector="dismissBtnPressed:" destination="mc3-wY-RMa" id="Tst-0b-QgW"/>
+                                                <action selector="dismissBtnPressed:" destination="cvd-0b-R8C" id="Jwl-zH-nTr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

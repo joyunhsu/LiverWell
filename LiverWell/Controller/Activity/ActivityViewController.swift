@@ -182,16 +182,18 @@ extension ActivityViewController: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "HeaderCollectionViewCell",
+                for: indexPath
+            )
+            
+            guard let headerCell = cell as? HeaderCollectionViewCell else { return cell }
+            
+            let trainGroup = manager.trainGroup
+            
+            let stretchGroup = manager.stretchGroup
+            
             if collectionView == firstCollectionView {
-                
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "HeaderCollectionViewCell",
-                    for: indexPath
-                )
-                
-                guard let headerCell = cell as? HeaderCollectionViewCell else { return cell }
-                
-                let trainGroup = manager.trainGroup
                 
                 headerCell.layoutCell(
                     firstLine: trainGroup.firstLineTitle,
@@ -201,18 +203,7 @@ extension ActivityViewController: UICollectionViewDataSource {
                     corner: .bottomLeft
                 )
                 
-                return headerCell
-                
             } else {
-                
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "HeaderCollectionViewCell",
-                    for: indexPath
-                )
-                
-                guard let headerCell = cell as? HeaderCollectionViewCell else { return cell }
-                
-                let stretchGroup = manager.stretchGroup
                 
                 headerCell.layoutCell(
                     firstLine: stretchGroup.firstLineTitle,
@@ -222,9 +213,10 @@ extension ActivityViewController: UICollectionViewDataSource {
                     corner: .bottomRight
                 )
                 
-                return headerCell
-                
             }
+            
+            return headerCell
+            
         } else {
             
             if collectionView == firstCollectionView {

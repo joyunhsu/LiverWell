@@ -187,7 +187,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9cf-5a-ldE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="肝好知識" image="24px_Knowledge_normal" id="Wcw-gL-lCZ"/>
+                    <tabBarItem key="tabBarItem" title="肝好知識" id="Wcw-gL-lCZ"/>
                     <connections>
                         <outlet property="foodBtn" destination="CjW-xy-Y9G" id="B5i-Wv-D6Q"/>
                         <outlet property="liverBtn" destination="9zH-ty-YGy" id="wZV-mW-qNi"/>
@@ -217,7 +217,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="24px_Knowledge_normal" width="18" height="23"/>
         <image name="Background_Knowledge" width="375" height="667"/>
         <image name="Icon_Knowledge_Marked" width="22" height="27"/>
         <image name="Icon_Knowledge_Unmarked" width="22" height="27"/>
