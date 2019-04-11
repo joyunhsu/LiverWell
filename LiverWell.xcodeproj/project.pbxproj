@@ -21,6 +21,7 @@
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
 		6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */; };
 		6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */; };
+		6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3E225EE8E300742339 /* CountDownViewController.swift */; };
 		6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */; };
 		6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */; };
 		6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */; };
@@ -70,6 +71,7 @@
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
 		6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectinoViewCell.swift; sourceTree = "<group>"; };
 		6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntryTableViewCell.swift; sourceTree = "<group>"; };
+		6E892A3E225EE8E300742339 /* CountDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownViewController.swift; sourceTree = "<group>"; };
 		6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 		6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSetupViewController.swift; sourceTree = "<group>"; };
 		6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */,
 				6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */,
 				6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */,
+				6E892A3E225EE8E300742339 /* CountDownViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
 				6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */,
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
+				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
 				6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,

@@ -15,13 +15,25 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         dismiss(animated: true)
 
     }
-
-    @IBOutlet weak var fiveMinBtn: UIButton!
-
-    @IBAction func fiveMinBtnPressed(_ sender: UIButton) {
-
-        fiveMinBtn.isSelected = true
-
+    
+    @IBOutlet var timerBtns: [UIButton]!
+    
+    @IBAction func selectTimerPressed(_ sender: UIButton) {
+        
+        for btn in timerBtns {
+            
+            btn.isSelected = false
+            
+        }
+        
+        sender.isSelected = true
+        
+        selectTimer(toTime: sender.tag)
+        
+    }
+    
+    private func selectTimer(toTime: Int) {
+        
     }
 
     @IBOutlet weak var navBarItem: UINavigationItem!
