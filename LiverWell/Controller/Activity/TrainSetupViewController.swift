@@ -51,6 +51,10 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
 
     }
+    
+    @IBAction func unwindtoSetup(segue: UIStoryboardSegue) {
+        
+    }
 
 }
 

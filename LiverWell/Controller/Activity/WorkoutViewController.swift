@@ -10,19 +10,21 @@ import UIKit
 
 class WorkoutViewController: UIViewController {
     
-    @IBAction func pauseWorkoutPressed(_ sender: UIButton) {
+//    @IBAction func pauseWorkoutPressed(_ sender: UIButton) {
+    
+//        let activityStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+//        let desVC = activityStoryboard.instantiateViewController(
+//            withIdentifier: String(describing: PauseViewController.self)
+//        )
+//        guard let pauseVC = desVC as? PauseViewController else { return }
+//        self.present(pauseVC, animated: false)
         
-        let activityStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-        let desVC = activityStoryboard.instantiateViewController(
-            withIdentifier: String(describing: PauseViewController.self)
-        )
-        guard let pauseVC = desVC as? PauseViewController else { return }
-        self.present(pauseVC, animated: false)
-        
-    }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
 
     }
 

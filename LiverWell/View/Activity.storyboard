@@ -331,7 +331,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="開始"/>
                                 <connections>
-                                    <segue destination="n7O-vc-7NG" kind="presentation" id="PfI-Od-U9g"/>
+                                    <segue destination="jqw-9b-qll" kind="presentation" id="PfI-Od-U9g"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YS8-RX-VRe">
@@ -518,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhI-aD-wXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4509.6000000000004" y="-76.011994002998506"/>
+            <point key="canvasLocation" x="4804" y="-76"/>
         </scene>
         <!--Stretch Setup View Controller-->
         <scene sceneID="pyH-rI-9CM">
@@ -675,7 +675,7 @@
             </objects>
             <point key="canvasLocation" x="3641" y="336"/>
         </scene>
-        <!--Count Down View Controller-->
+        <!--5分鐘肌力訓練-->
         <scene sceneID="a1n-ZG-Mgq">
             <objects>
                 <viewController id="n7O-vc-7NG" customClass="CountDownViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
@@ -683,16 +683,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbj-aN-PXM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Xu2-CB-lg2"/>
-                                </constraints>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="5分鐘肌力訓練" id="nVU-nU-dqe"/>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D17-uw-sSm">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.47843137250000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -753,25 +743,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zbj-aN-PXM" firstAttribute="leading" secondItem="beH-Ol-OnN" secondAttribute="leading" id="4ig-UK-LKR"/>
-                            <constraint firstItem="Zbj-aN-PXM" firstAttribute="top" secondItem="beH-Ol-OnN" secondAttribute="top" id="7Hw-4C-Zdf"/>
                             <constraint firstItem="akl-hD-Fha" firstAttribute="top" secondItem="s7M-ra-PCB" secondAttribute="bottom" constant="8" id="DV1-cR-K0c"/>
                             <constraint firstItem="V2r-Tc-hBz" firstAttribute="top" secondItem="O7n-Ik-j3H" secondAttribute="bottom" constant="20" id="Lje-Hp-Tzv"/>
                             <constraint firstItem="D17-uw-sSm" firstAttribute="leading" secondItem="p4g-Xm-hfK" secondAttribute="leading" id="MXh-EO-asR"/>
                             <constraint firstItem="V2r-Tc-hBz" firstAttribute="centerX" secondItem="p4g-Xm-hfK" secondAttribute="centerX" id="T40-L0-nJb"/>
-                            <constraint firstAttribute="trailing" secondItem="Zbj-aN-PXM" secondAttribute="trailing" id="eE5-yH-rLI"/>
+                            <constraint firstItem="O7n-Ik-j3H" firstAttribute="top" secondItem="beH-Ol-OnN" secondAttribute="top" constant="90" id="aI8-4F-5Nr"/>
                             <constraint firstItem="beH-Ol-OnN" firstAttribute="bottom" secondItem="D17-uw-sSm" secondAttribute="bottom" id="gsf-cE-MLU"/>
                             <constraint firstItem="O7n-Ik-j3H" firstAttribute="centerX" secondItem="p4g-Xm-hfK" secondAttribute="centerX" id="hXd-bI-iON"/>
                             <constraint firstItem="2Bl-uH-4z4" firstAttribute="top" secondItem="akl-hD-Fha" secondAttribute="bottom" constant="25" id="lyc-WR-HfN"/>
                             <constraint firstItem="s7M-ra-PCB" firstAttribute="centerX" secondItem="akl-hD-Fha" secondAttribute="centerX" id="oY1-s5-Ek7"/>
                             <constraint firstItem="beH-Ol-OnN" firstAttribute="trailing" secondItem="D17-uw-sSm" secondAttribute="trailing" id="p9W-B7-ygj"/>
-                            <constraint firstItem="O7n-Ik-j3H" firstAttribute="top" secondItem="Zbj-aN-PXM" secondAttribute="bottom" constant="90" id="qhF-vv-flV"/>
                             <constraint firstItem="D17-uw-sSm" firstAttribute="top" secondItem="2Bl-uH-4z4" secondAttribute="bottom" constant="26" id="rBF-8j-CBa"/>
                             <constraint firstItem="2Bl-uH-4z4" firstAttribute="centerX" secondItem="beH-Ol-OnN" secondAttribute="centerX" id="rSI-Wl-vkQ"/>
                             <constraint firstItem="akl-hD-Fha" firstAttribute="centerX" secondItem="2Bl-uH-4z4" secondAttribute="centerX" id="xBi-w0-AgK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="beH-Ol-OnN"/>
                     </view>
+                    <navigationItem key="navigationItem" title="5分鐘肌力訓練" id="ok1-2d-OHJ"/>
                     <connections>
                         <outlet property="countDownLabel" destination="V2r-Tc-hBz" id="fEe-Ce-e9C"/>
                         <segue destination="RZU-Ov-b75" kind="show" identifier="startWorkout" animates="NO" id="9NU-HS-VUS"/>
@@ -779,12 +767,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSd-ZE-QKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4509.6000000000004" y="-778.56071964017997"/>
+            <point key="canvasLocation" x="5626" y="-779"/>
         </scene>
-        <!--Workout View Controller-->
+        <!--5分鐘肌力訓練-->
         <scene sceneID="1VZ-q7-ih0">
             <objects>
-                <viewController id="RZU-Ov-b75" customClass="WorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="5分鐘肌力訓練" id="RZU-Ov-b75" customClass="WorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mf0-Qr-b4x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -799,7 +787,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="暫停運動"/>
                                 <connections>
-                                    <action selector="pauseWorkoutPressed:" destination="RZU-Ov-b75" eventType="touchUpInside" id="QNL-li-3Cc"/>
+                                    <segue destination="4C1-hB-deh" kind="presentation" animates="NO" id="Urd-Z5-Ftp"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCu-dB-hwb">
@@ -809,16 +797,6 @@
                                     <constraint firstAttribute="height" constant="240" id="Os2-yz-L68"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbw-C4-JeA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vAK-He-bPQ"/>
-                                </constraints>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="5分鐘肌力訓練" id="5Ac-Dx-jge"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛巾捲腹運動" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-Gv-Ch7">
                                 <rect key="frame" x="120.5" y="331" width="134" height="30"/>
                                 <constraints>
@@ -942,8 +920,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AD8-eX-3LG" firstAttribute="top" secondItem="biW-uh-Xg3" secondAttribute="top" id="27X-su-Cmu"/>
                             <constraint firstItem="biW-uh-Xg3" firstAttribute="bottom" secondItem="RYX-dN-PmF" secondAttribute="bottom" id="8WS-IP-dy3"/>
-                            <constraint firstAttribute="trailing" secondItem="rbw-C4-JeA" secondAttribute="trailing" id="EjR-oV-MbI"/>
                             <constraint firstAttribute="trailing" secondItem="RYX-dN-PmF" secondAttribute="trailing" id="G1e-xf-XxV"/>
                             <constraint firstItem="fCu-dB-hwb" firstAttribute="leading" secondItem="biW-uh-Xg3" secondAttribute="leading" id="Hct-cy-XqX"/>
                             <constraint firstItem="fCu-dB-hwb" firstAttribute="top" secondItem="AD8-eX-3LG" secondAttribute="bottom" id="IQv-Vi-8yO"/>
@@ -952,7 +930,6 @@
                             <constraint firstItem="rca-Vz-sNK" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="Qbi-yu-yUc"/>
                             <constraint firstItem="nS8-Gv-Ch7" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="SWV-ea-ZdP"/>
                             <constraint firstItem="biW-uh-Xg3" firstAttribute="trailing" secondItem="fCu-dB-hwb" secondAttribute="trailing" id="WhT-D2-MmJ"/>
-                            <constraint firstItem="rbw-C4-JeA" firstAttribute="leading" secondItem="biW-uh-Xg3" secondAttribute="leading" id="XqG-IN-CyJ"/>
                             <constraint firstItem="rca-Vz-sNK" firstAttribute="top" secondItem="xg1-7o-rqE" secondAttribute="bottom" constant="4" id="Zg7-Lx-7eL"/>
                             <constraint firstItem="uUz-xU-mOd" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="ZuK-PD-Rct"/>
                             <constraint firstItem="xg1-7o-rqE" firstAttribute="top" secondItem="uUz-xU-mOd" secondAttribute="bottom" constant="30" id="ahi-1o-PrX"/>
@@ -961,8 +938,6 @@
                             <constraint firstItem="RYX-dN-PmF" firstAttribute="leading" secondItem="biW-uh-Xg3" secondAttribute="leading" id="hZH-DH-bhL"/>
                             <constraint firstItem="xg1-7o-rqE" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="m0b-K6-XN8"/>
                             <constraint firstAttribute="trailing" secondItem="AD8-eX-3LG" secondAttribute="trailing" id="qJm-NF-nSE"/>
-                            <constraint firstItem="AD8-eX-3LG" firstAttribute="top" secondItem="rbw-C4-JeA" secondAttribute="bottom" id="uHf-tA-pXC"/>
-                            <constraint firstItem="rbw-C4-JeA" firstAttribute="top" secondItem="biW-uh-Xg3" secondAttribute="top" id="ua2-KB-EhU"/>
                             <constraint firstItem="uUz-xU-mOd" firstAttribute="top" secondItem="nS8-Gv-Ch7" secondAttribute="bottom" constant="4" id="wCT-bi-1t3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="biW-uh-Xg3"/>
@@ -973,26 +948,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-6I-qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5358" y="-779"/>
+            <point key="canvasLocation" x="6463" y="-779"/>
         </scene>
-        <!--View Controller-->
+        <!--5分鐘肌力訓練-->
         <scene sceneID="HGc-HV-n0m">
             <objects>
-                <viewController id="XvZ-sX-8C0" sceneMemberID="viewController">
+                <viewController title="5分鐘肌力訓練" id="XvZ-sX-8C0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iVi-yD-ZIn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLZ-mX-LVe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="5Op-Iw-6dV"/>
-                                </constraints>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="5分鐘肌力訓練" id="dav-5K-Lq9"/>
-                                </items>
-                            </navigationBar>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KCR-ny-CE4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                                 <constraints>
@@ -1093,13 +1058,12 @@
                         <constraints>
                             <constraint firstItem="yBM-IV-WCt" firstAttribute="top" secondItem="lmB-C5-lMo" secondAttribute="bottom" constant="12" id="0gD-Fb-fiC"/>
                             <constraint firstItem="sN9-pR-9mF" firstAttribute="top" secondItem="yBM-IV-WCt" secondAttribute="bottom" constant="28" id="4EP-vJ-UId"/>
-                            <constraint firstItem="BLZ-mX-LVe" firstAttribute="trailing" secondItem="rk9-uv-xRZ" secondAttribute="trailing" id="4Vp-o6-Ogk"/>
                             <constraint firstItem="lmB-C5-lMo" firstAttribute="centerX" secondItem="rk9-uv-xRZ" secondAttribute="centerX" id="7Ea-Ns-9Ye"/>
                             <constraint firstItem="rk9-uv-xRZ" firstAttribute="trailing" secondItem="CS4-sf-J3p" secondAttribute="trailing" id="7r5-4C-onv"/>
                             <constraint firstItem="CS4-sf-J3p" firstAttribute="top" secondItem="nhs-Uf-NGj" secondAttribute="bottom" constant="26" id="8Ef-gV-qE0"/>
+                            <constraint firstItem="KCR-ny-CE4" firstAttribute="top" secondItem="rk9-uv-xRZ" secondAttribute="top" id="8Pc-Vp-9e9"/>
                             <constraint firstItem="nhs-Uf-NGj" firstAttribute="centerX" secondItem="Y0u-1B-Veg" secondAttribute="centerX" id="AGC-og-gHw"/>
                             <constraint firstItem="sN9-pR-9mF" firstAttribute="centerX" secondItem="rk9-uv-xRZ" secondAttribute="centerX" id="MNu-wH-0WH"/>
-                            <constraint firstItem="BLZ-mX-LVe" firstAttribute="top" secondItem="rk9-uv-xRZ" secondAttribute="top" id="Vse-Kl-pNu"/>
                             <constraint firstAttribute="trailing" secondItem="KCR-ny-CE4" secondAttribute="trailing" id="Z8m-0v-PLK"/>
                             <constraint firstItem="lmB-C5-lMo" firstAttribute="top" secondItem="KCR-ny-CE4" secondAttribute="bottom" constant="40" id="ZOR-8C-Yuq"/>
                             <constraint firstItem="Y0u-1B-Veg" firstAttribute="centerX" secondItem="sN9-pR-9mF" secondAttribute="centerX" id="a6O-yc-Z5p"/>
@@ -1107,11 +1071,9 @@
                             <constraint firstItem="nhs-Uf-NGj" firstAttribute="top" secondItem="Y0u-1B-Veg" secondAttribute="bottom" constant="25" id="duq-jZ-ePc"/>
                             <constraint firstItem="CS4-sf-J3p" firstAttribute="leading" secondItem="iVi-yD-ZIn" secondAttribute="leading" id="gXq-f6-a0z"/>
                             <constraint firstItem="rk9-uv-xRZ" firstAttribute="bottom" secondItem="CS4-sf-J3p" secondAttribute="bottom" id="r9K-69-6s7"/>
-                            <constraint firstItem="BLZ-mX-LVe" firstAttribute="leading" secondItem="rk9-uv-xRZ" secondAttribute="leading" id="sVT-IG-5h4"/>
                             <constraint firstItem="yBM-IV-WCt" firstAttribute="centerX" secondItem="rk9-uv-xRZ" secondAttribute="centerX" id="snf-AR-I1E"/>
                             <constraint firstItem="Zz6-Nw-9Ug" firstAttribute="centerX" secondItem="yBM-IV-WCt" secondAttribute="centerX" id="tZY-EE-lRT"/>
                             <constraint firstItem="Zz6-Nw-9Ug" firstAttribute="centerY" secondItem="yBM-IV-WCt" secondAttribute="centerY" id="uwa-rw-s6X"/>
-                            <constraint firstItem="KCR-ny-CE4" firstAttribute="top" secondItem="BLZ-mX-LVe" secondAttribute="bottom" id="vVy-D9-cfx"/>
                             <constraint firstItem="KCR-ny-CE4" firstAttribute="leading" secondItem="iVi-yD-ZIn" secondAttribute="leading" id="xtp-n1-N8J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rk9-uv-xRZ"/>
@@ -1119,7 +1081,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbN-3R-ARd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6249" y="-779"/>
+            <point key="canvasLocation" x="7289" y="-779"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="8zg-aB-A6q">
@@ -1171,7 +1133,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ycv-gG-08J">
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <connections>
-                                                <action selector="terminateWorkout:" destination="4C1-hB-deh" id="Z7x-xW-Rfy"/>
+                                                <segue destination="Bpo-gw-dbe" kind="unwind" unwindAction="unwindtoSetupWithSegue:" id="SdV-zT-eWG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1187,7 +1149,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="繼續運動"/>
                                 <connections>
-                                    <action selector="resumeWorkoutPressed:" destination="4C1-hB-deh" eventType="touchUpInside" id="awu-U2-9Xc"/>
+                                    <action selector="resumeWorkoutPressed:" destination="4C1-hB-deh" eventType="touchUpInside" id="eRz-Ot-XkF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1208,8 +1170,27 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTN-gI-uMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bpo-gw-dbe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6249" y="-76"/>
+            <point key="canvasLocation" x="6462" y="-51"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ccj-0h-ae9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqw-9b-qll" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4W8-vg-A8j">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n7O-vc-7NG" kind="relationship" relationship="rootViewController" id="oxn-82-Kyp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sb2-cY-MVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4804" y="-779"/>
         </scene>
     </scenes>
     <resources>

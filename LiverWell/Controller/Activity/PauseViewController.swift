@@ -16,23 +16,9 @@ class PauseViewController: UIViewController {
         
     }
     
-    @IBAction func terminateWorkout(_ sender: UIBarButtonItem) {
-        
-        let activityStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-        let desVC = activityStoryboard.instantiateViewController(
-            withIdentifier: String(describing: TrainSetupViewController.self)
-        )
-        guard let pauseVC = desVC as? TrainSetupViewController else { return }
-        self.present(pauseVC, animated: true)
-        
-    }
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
 
 }
