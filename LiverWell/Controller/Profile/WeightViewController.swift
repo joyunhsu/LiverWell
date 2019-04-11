@@ -22,6 +22,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         super.viewDidLoad()
 
         setChartValues()
+        setupChartView()
         
     }
     
@@ -32,10 +33,48 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             return ChartDataEntry(x: Double(i), y: val)
         }
         
-        let dataSset = LineChartDataSet(values: values, label: "Weight Chart")
-        let data = LineChartData(dataSet: dataSset)
+        let lineDataSet = LineChartDataSet(values: values, label: "Weight Chart")
+        lineDataSet.circleRadius = 3
+        lineDataSet.circleColors = [UIColor.B1!]
+        lineDataSet.circleHoleRadius = 0
+        lineDataSet.lineWidth = 6
         
+        let gradient = getGradientFilling()
+        lineDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        lineDataSet.drawFilledEnabled = true
+        let data = LineChartData(dataSet: lineDataSet)
         self.lineChartView.data = data
+
+    }
+    
+    private func getGradientFilling() -> CGGradient {
+        
+        let colorTop = UIColor.hexStringToUIColor(hex: "F77A25").cgColor
+        let colorBottom = UIColor.hexStringToUIColor(hex: "FCB24C").cgColor
+        
+        let gradientColors = [colorTop, colorBottom] as CFArray
+        
+        let colorLocations: [CGFloat] = [0.7, 0.0]
+        
+        return CGGradient.init(
+            colorsSpace: CGColorSpaceCreateDeviceRGB(),
+            colors: gradientColors,
+            locations: colorLocations)!
+    }
+    
+    func setupChartView() {
+        
+        // Remove horizonatal line, right value label, legend below chart
+        self.lineChartView.xAxis.drawGridLinesEnabled = false
+        self.lineChartView.leftAxis.axisLineColor = UIColor.clear
+        self.lineChartView.rightAxis.drawLabelsEnabled = false
+        self.lineChartView.rightAxis.enabled = false
+        self.lineChartView.legend.enabled = false
+        
+        // Change xAxis label from top to bottom
+        lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        lineChartView.minOffset = 0
+        
     }
 
 }

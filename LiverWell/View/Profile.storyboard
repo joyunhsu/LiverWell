@@ -533,7 +533,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </view>
-                                                    <color key="backgroundColor" name="G1"/>
                                                     <size key="customSize" width="50" height="16"/>
                                                 </collectionViewCell>
                                             </cells>

@@ -46,14 +46,20 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         for set in chartView.data!.dataSets {
             set.drawValuesEnabled = !set.drawValuesEnabled
         }
-        chartView.setNeedsDisplay()
+//        chartView.setNeedsDisplay()
         
         // disable highlight
         chartView.data!.highlightEnabled = !chartView.data!.isHighlightEnabled
-        chartView.setNeedsDisplay()
+//        chartView.setNeedsDisplay()
         
         // Animate Y
 //        chartView.animate(yAxisDuration: 1.5)
+        
+        // Toggle Icon
+        for set in chartView.data!.dataSets {
+            set.drawIconsEnabled = !set.drawIconsEnabled
+        }
+        chartView.setNeedsDisplay()
         
         // Remove horizonatal line, right value label, legend below chart
         self.chartView.xAxis.drawGridLinesEnabled = false
@@ -103,7 +109,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
             let val1 = Double(arc4random_uniform(mult) + mult / 2)
             let val2 = Double(arc4random_uniform(mult) + mult / 2)
             
-            return BarChartDataEntry(x: Double(i), yValues: [val1, val2], icon: #imageLiteral(resourceName: "Icon_24px_Home_Selected"))
+            return BarChartDataEntry(x: Double(i), yValues: [val1, val2], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
         }
         
         let set = BarChartDataSet(values: yVals, label: "Weekly Status")
