@@ -12,6 +12,13 @@ class CountDownViewController: UIViewController {
     
     @IBOutlet weak var countDownLabel: UILabel!
     
+    @IBAction func stopWorkoutPressed(_ sender: UIButton) {
+        
+//        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
+        
+    }
+    
     var timer = Timer()
     var counter = 5
 

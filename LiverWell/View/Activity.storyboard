@@ -331,7 +331,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="開始"/>
                                 <connections>
-                                    <segue destination="n7O-vc-7NG" kind="show" id="PfI-Od-U9g"/>
+                                    <segue destination="n7O-vc-7NG" kind="presentation" id="PfI-Od-U9g"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YS8-RX-VRe">
@@ -702,6 +702,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="暫停運動"/>
+                                <connections>
+                                    <action selector="stopWorkoutPressed:" destination="n7O-vc-7NG" eventType="touchUpInside" id="unB-o0-TuV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="準備開始" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7n-Ik-j3H">
                                 <rect key="frame" x="152.5" y="154" width="70" height="22"/>
@@ -713,9 +716,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2r-Tc-hBz">
-                                <rect key="frame" x="169.5" y="196" width="36" height="72"/>
+                                <rect key="frame" x="162.5" y="196" width="50" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="WhJ-52-Gq4"/>
+                                    <constraint firstAttribute="width" constant="50" id="YdZ-qJ-Lxr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" name="Orange"/>
@@ -777,10 +781,10 @@
             </objects>
             <point key="canvasLocation" x="4509.6000000000004" y="-778.56071964017997"/>
         </scene>
-        <!--View Controller-->
+        <!--Workout View Controller-->
         <scene sceneID="1VZ-q7-ih0">
             <objects>
-                <viewController id="RZU-Ov-b75" sceneMemberID="viewController">
+                <viewController id="RZU-Ov-b75" customClass="WorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mf0-Qr-b4x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -794,6 +798,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="暫停運動"/>
+                                <connections>
+                                    <action selector="pauseWorkoutPressed:" destination="RZU-Ov-b75" eventType="touchUpInside" id="QNL-li-3Cc"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCu-dB-hwb">
                                 <rect key="frame" x="0.0" y="69" width="375" height="240"/>
@@ -966,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-6I-qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5378" y="-779"/>
+            <point key="canvasLocation" x="5358" y="-779"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HGc-HV-n0m">
@@ -1013,40 +1020,6 @@
                                 <color key="textColor" name="B1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz6-Nw-9Ug">
-                                <rect key="frame" x="122" y="225" width="131" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="dMK-ek-Gbz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
-                                <color key="textColor" name="B1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下一個動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN9-pR-9mF">
-                                <rect key="frame" x="144" y="375" width="87" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="1xN-nw-Hz4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="B1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛巾捲腹運動" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-1B-Veg">
-                                <rect key="frame" x="120.5" y="405" width="134" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="sdO-yZ-eM3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <color key="textColor" name="B1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train_BackPain_01" translatesAutoresizingMaskIntoConstraints="NO" id="nhs-Uf-NGj">
-                                <rect key="frame" x="82.5" y="457" width="210" height="134"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="134" id="DKO-fB-SjX"/>
-                                    <constraint firstAttribute="width" constant="210" id="i0C-Pa-GmF"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBM-IV-WCt" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="94.5" y="161" width="186" height="186"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1081,6 +1054,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz6-Nw-9Ug">
+                                <rect key="frame" x="122" y="225" width="131" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="dMK-ek-Gbz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下一個動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN9-pR-9mF">
+                                <rect key="frame" x="144" y="375" width="87" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="1xN-nw-Hz4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛巾捲腹運動" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-1B-Veg">
+                                <rect key="frame" x="120.5" y="405" width="134" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="sdO-yZ-eM3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train_BackPain_01" translatesAutoresizingMaskIntoConstraints="NO" id="nhs-Uf-NGj">
+                                <rect key="frame" x="82.5" y="457" width="210" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="DKO-fB-SjX"/>
+                                    <constraint firstAttribute="width" constant="210" id="i0C-Pa-GmF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1114,10 +1121,10 @@
             </objects>
             <point key="canvasLocation" x="6249" y="-779"/>
         </scene>
-        <!--View Controller-->
+        <!--Pause View Controller-->
         <scene sceneID="8zg-aB-A6q">
             <objects>
-                <viewController id="4C1-hB-deh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PauseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4C1-hB-deh" customClass="PauseViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dPj-dM-d4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1164,7 +1171,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ycv-gG-08J">
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <connections>
-                                                <action selector="dismissBtnPressed:" destination="mc3-wY-RMa" id="jvc-pj-iAf"/>
+                                                <action selector="terminateWorkout:" destination="4C1-hB-deh" id="Z7x-xW-Rfy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1179,6 +1186,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="繼續運動"/>
+                                <connections>
+                                    <action selector="resumeWorkoutPressed:" destination="4C1-hB-deh" eventType="touchUpInside" id="awu-U2-9Xc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
