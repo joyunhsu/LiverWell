@@ -8,24 +8,54 @@
 
 import UIKit
 
+// swiftlint:disable identifier_name
 class WorkoutViewController: UIViewController {
     
-//    @IBAction func pauseWorkoutPressed(_ sender: UIButton) {
+    @IBOutlet weak var workoutTitleLabel: UILabel!
     
-//        let activityStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-//        let desVC = activityStoryboard.instantiateViewController(
-//            withIdentifier: String(describing: PauseViewController.self)
-//        )
-//        guard let pauseVC = desVC as? PauseViewController else { return }
-//        self.present(pauseVC, animated: false)
-        
-//    }
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    @IBOutlet weak var repeatLabel: UILabel!
+    
+    @IBOutlet weak var repeatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var barProgressView: UIProgressView!
+    
+    var timer: Timer?
+    
+    var repeatCounts = [String]()
+    
+    var startTime = 0
+    
+    var counter = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        
+        changeRepeatCounts(totalCount: 10, timeInterval: 1)
 
+    }
+    
+    func changeRepeatCounts(totalCount: Int, timeInterval: TimeInterval) {
+    
+        for i in 1...totalCount {
+            let repeatCount = "\(i)/10次"
+            repeatCounts.append(repeatCount)
+    
+        }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
+            
+            if self.counter < totalCount {
+                self.repeatLabel.text = self.repeatCounts[self.counter]
+            }
+            
+            self.counter += 1
+            
+        })
+    
     }
 
 }

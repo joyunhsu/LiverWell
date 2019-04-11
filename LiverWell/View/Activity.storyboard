@@ -518,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhI-aD-wXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4804" y="-76"/>
+            <point key="canvasLocation" x="4804" y="-11"/>
         </scene>
         <!--Stretch Setup View Controller-->
         <scene sceneID="pyH-rI-9CM">
@@ -693,7 +693,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="暫停運動"/>
                                 <connections>
-                                    <action selector="stopWorkoutPressed:" destination="n7O-vc-7NG" eventType="touchUpInside" id="unB-o0-TuV"/>
+                                    <segue destination="4C1-hB-deh" kind="presentation" animates="NO" id="Sse-XR-Ptm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="準備開始" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7n-Ik-j3H">
@@ -943,6 +943,11 @@
                         <viewLayoutGuide key="safeArea" id="biW-uh-Xg3"/>
                     </view>
                     <connections>
+                        <outlet property="barProgressView" destination="AD8-eX-3LG" id="uFi-Al-ZLG"/>
+                        <outlet property="infoLabel" destination="uUz-xU-mOd" id="laB-qd-VvS"/>
+                        <outlet property="repeatCollectionView" destination="7Zb-aO-3DD" id="aZl-tM-VD6"/>
+                        <outlet property="repeatLabel" destination="rca-Vz-sNK" id="Tf5-mD-y6s"/>
+                        <outlet property="workoutTitleLabel" destination="nS8-Gv-Ch7" id="jDr-RE-jvs"/>
                         <segue destination="XvZ-sX-8C0" kind="show" id="4mo-LS-sdL"/>
                     </connections>
                 </viewController>
@@ -1172,7 +1177,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTN-gI-uMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Bpo-gw-dbe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6462" y="-51"/>
+            <point key="canvasLocation" x="6044" y="-11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ccj-0h-ae9">
@@ -1226,6 +1231,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Urd-Z5-Ftp"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>
