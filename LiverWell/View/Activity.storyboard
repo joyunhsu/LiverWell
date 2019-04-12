@@ -772,7 +772,7 @@
         <!--5分鐘肌力訓練-->
         <scene sceneID="1VZ-q7-ih0">
             <objects>
-                <viewController title="5分鐘肌力訓練" id="RZU-Ov-b75" customClass="WorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutViewController" title="5分鐘肌力訓練" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RZU-Ov-b75" customClass="WorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mf0-Qr-b4x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -877,36 +877,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WillRepeatCell" id="TZ8-8O-dik">
-                                        <rect key="frame" x="39" y="0.0" width="25" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNZ-d6-OHG">
-                                                    <rect key="frame" x="9" y="4" width="7" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="CaA-1D-c6N"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" name="B1"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" name="B5"/>
-                                        <constraints>
-                                            <constraint firstItem="uNZ-d6-OHG" firstAttribute="centerX" secondItem="TZ8-8O-dik" secondAttribute="centerX" id="J0i-6m-sSm"/>
-                                            <constraint firstItem="uNZ-d6-OHG" firstAttribute="centerY" secondItem="TZ8-8O-dik" secondAttribute="centerY" id="s9K-To-GyI"/>
-                                        </constraints>
-                                        <size key="customSize" width="25" height="25"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-eX-3LG">
@@ -948,7 +918,7 @@
                         <outlet property="repeatCollectionView" destination="7Zb-aO-3DD" id="aZl-tM-VD6"/>
                         <outlet property="repeatLabel" destination="rca-Vz-sNK" id="Tf5-mD-y6s"/>
                         <outlet property="workoutTitleLabel" destination="nS8-Gv-Ch7" id="jDr-RE-jvs"/>
-                        <segue destination="XvZ-sX-8C0" kind="show" id="4mo-LS-sdL"/>
+                        <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" id="4mo-LS-sdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-6I-qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -958,7 +928,7 @@
         <!--5分鐘肌力訓練-->
         <scene sceneID="HGc-HV-n0m">
             <objects>
-                <viewController title="5分鐘肌力訓練" id="XvZ-sX-8C0" sceneMemberID="viewController">
+                <viewController title="5分鐘肌力訓練" id="XvZ-sX-8C0" customClass="RestViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iVi-yD-ZIn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
