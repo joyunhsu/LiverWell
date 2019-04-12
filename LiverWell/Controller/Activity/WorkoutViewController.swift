@@ -16,6 +16,8 @@ struct Workout {
     
     let totalCount: Int
     
+    let perDuration: TimeInterval
+    
 }
 
 // swiftlint:disable identifier_name
@@ -37,19 +39,16 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var counter = 1
     
-    let firstWorkout = Workout(title: "看電視順便做", totalRepeat: 2, totalCount: 3)
-    
-    let secondWorkout = Workout(title: "預防腰痛", totalRepeat: 2, totalCount: 5)
-    
-    lazy var workoutSet = [firstWorkout, secondWorkout]
+    var workoutSet = [
+        Workout(title: "看電視順便做", totalRepeat: 2, totalCount: 3, perDuration: 2),
+        Workout(title: "預防腰痛", totalRepeat: 2, totalCount: 5, perDuration: 1)
+    ]
     
     var workoutIndex = 0
     
     var repeatCountingText = [String]()
     
     var nowRepeat = 1
-    
-//    var totalRepeat = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +60,12 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        counter = 1
-        self.repeatLabel.text = "\(counter)/10次"
+        let nowWorkout = workoutSet[workoutIndex]
         
-        changeRepeatCounts(totalCount: 10, timeInterval: 1)
+        counter = 1
+        self.repeatLabel.text = "\(counter)/\(nowWorkout.totalCount)次"
+        
+        changeRepeatCounts(totalCount: nowWorkout.totalCount, timeInterval: nowWorkout.perDuration)
         
         repeatCollectionView.reloadData()
         
@@ -73,12 +74,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         timer?.invalidate()
+        repeatCountingText = [String]()
     }
     
     private func changeRepeatCounts(totalCount: Int, timeInterval: TimeInterval) {
         
         for i in 1...totalCount {
-            let repeatCount = "\(i)/10次"
+            let repeatCount = "\(i)/\(totalCount)次"
             repeatCountingText.append(repeatCount)
             
         }
