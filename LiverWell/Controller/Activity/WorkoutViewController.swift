@@ -21,6 +21,10 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var barProgressView: UIProgressView!
     
+    var workoutSet = ["first", "second"]
+    
+    var nowWorkoutIndex = 0
+    
     var timer: Timer?
     
     var repeatCountingText = [String]()
@@ -68,15 +72,24 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             
             if self.counter < totalCount {
                 self.repeatLabel.text = self.repeatCountingText[self.counter]
-                
                 self.counter += 1
             } else {
                 self.timer?.invalidate()
-                self.performSegue(withIdentifier: "startRest", sender: self)
+                self.moveToNextVC()
                 self.nowRepeat += 1
             }
             
         })
+        
+    }
+    
+    private func moveToNextVC() {
+        
+        if nowRepeat == totalRepeat {
+            performSegue(withIdentifier: "finishWorkout", sender: self)
+        } else {
+            performSegue(withIdentifier: "startRest", sender: self)
+        }
         
     }
     

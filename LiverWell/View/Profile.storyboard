@@ -284,7 +284,7 @@
                                             <color key="textColor" name="B1"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-w0-kdw" customClass="BarChartView" customModule="Charts">
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-w0-kdw" customClass="BarChartView" customModule="Charts">
                                             <rect key="frame" x="8" y="149" width="367" height="231"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>

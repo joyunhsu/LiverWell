@@ -935,6 +935,7 @@
                         <outlet property="repeatLabel" destination="rca-Vz-sNK" id="Tf5-mD-y6s"/>
                         <outlet property="workoutTitleLabel" destination="nS8-Gv-Ch7" id="jDr-RE-jvs"/>
                         <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" animates="NO" id="4mo-LS-sdL"/>
+                        <segue destination="FzE-w5-HUl" kind="show" identifier="finishWorkout" animates="NO" id="V9S-5g-iX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-6I-qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1073,6 +1074,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbN-3R-ARd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7289" y="-779"/>
+        </scene>
+        <!--Finish Workout View Controller-->
+        <scene sceneID="psP-fn-sai">
+            <objects>
+                <viewController id="FzE-w5-HUl" customClass="FinishWorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3z-HM-EIN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-Gc-qTN">
+                                <rect key="frame" x="73" y="344" width="229" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="KiZ-rk-JFU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nf2-Gc-qTN" firstAttribute="centerX" secondItem="DMe-1I-lpZ" secondAttribute="centerX" id="JeT-rD-1vk"/>
+                            <constraint firstItem="Nf2-Gc-qTN" firstAttribute="centerY" secondItem="DMe-1I-lpZ" secondAttribute="centerY" id="vq9-Vg-oNr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DMe-1I-lpZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gc-Jn-gsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7289" y="-11"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="8zg-aB-A6q">
