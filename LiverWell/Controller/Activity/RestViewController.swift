@@ -20,14 +20,5 @@ class RestViewController: UIViewController {
         })
 
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-//            self.navigationController?.popViewController(animated: false)
-//        })
-//
-//    }
 
 }
