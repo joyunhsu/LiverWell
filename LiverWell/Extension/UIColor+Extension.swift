@@ -14,6 +14,8 @@ private enum LWColor: String {
     case Orange
 
     case G1
+    
+    case G2
 
     case B1
 
@@ -27,6 +29,8 @@ extension UIColor {
     static let Orange = LWColor(.Orange)
 
     static let G1 = LWColor(.G1)
+    
+    static let G2 = LWColor(.G2)
 
     static let B1 = LWColor(.B1)
 

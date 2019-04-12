@@ -833,51 +833,67 @@
                                 <color key="textColor" name="B1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Zb-aO-3DD">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Zb-aO-3DD">
                                 <rect key="frame" x="97" y="515" width="181" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="EOx-Nx-caz"/>
                                     <constraint firstAttribute="width" constant="181" id="am3-Pf-Iop"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="17Q-px-Neu">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="17Q-px-Neu">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DidRepeatCell" id="oWW-Kl-dlH">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepeatCollectionViewCell" id="oWW-Kl-dlH" userLabel="RepeatCell" customClass="RepeatCollectionViewCell" customModule="LiverWell" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BP-rs-EKy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="liT-NK-JiY"/>
+                                                        <constraint firstAttribute="height" constant="25" id="zgP-bw-gkP"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                                            <real key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMq-Pm-e0s">
                                                     <rect key="frame" x="9" y="4" width="7" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="nvf-Wd-Cry"/>
+                                                        <constraint firstAttribute="height" constant="17" id="LW6-Op-Akr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" name="G2"/>
                                         <constraints>
-                                            <constraint firstItem="SMq-Pm-e0s" firstAttribute="centerX" secondItem="oWW-Kl-dlH" secondAttribute="centerX" id="RRL-6V-EtM"/>
-                                            <constraint firstItem="SMq-Pm-e0s" firstAttribute="centerY" secondItem="oWW-Kl-dlH" secondAttribute="centerY" id="zMw-cl-ZD2"/>
+                                            <constraint firstItem="SMq-Pm-e0s" firstAttribute="centerY" secondItem="6BP-rs-EKy" secondAttribute="centerY" id="6EY-ZZ-cPi"/>
+                                            <constraint firstItem="SMq-Pm-e0s" firstAttribute="centerX" secondItem="6BP-rs-EKy" secondAttribute="centerX" id="NwT-wb-SeP"/>
+                                            <constraint firstItem="6BP-rs-EKy" firstAttribute="centerY" secondItem="oWW-Kl-dlH" secondAttribute="centerY" id="Z3H-iT-qT2"/>
+                                            <constraint firstItem="6BP-rs-EKy" firstAttribute="centerX" secondItem="oWW-Kl-dlH" secondAttribute="centerX" id="ZxR-6z-fN4"/>
                                         </constraints>
                                         <size key="customSize" width="25" height="25"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="cellBackground" destination="6BP-rs-EKy" id="mRG-Nn-OYb"/>
+                                            <outlet property="counterLabel" destination="SMq-Pm-e0s" id="fKp-Ru-jN9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="RZU-Ov-b75" id="ode-Pq-Zfw"/>
+                                    <outlet property="delegate" destination="RZU-Ov-b75" id="c67-s4-IhG"/>
+                                </connections>
                             </collectionView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-eX-3LG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="6"/>
@@ -918,12 +934,12 @@
                         <outlet property="repeatCollectionView" destination="7Zb-aO-3DD" id="aZl-tM-VD6"/>
                         <outlet property="repeatLabel" destination="rca-Vz-sNK" id="Tf5-mD-y6s"/>
                         <outlet property="workoutTitleLabel" destination="nS8-Gv-Ch7" id="jDr-RE-jvs"/>
-                        <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" id="4mo-LS-sdL"/>
+                        <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" animates="NO" id="4mo-LS-sdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3R-6I-qtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6463" y="-779"/>
+            <point key="canvasLocation" x="6461.6000000000004" y="-779.46026986506752"/>
         </scene>
         <!--5分鐘肌力訓練-->
         <scene sceneID="HGc-HV-n0m">
@@ -1192,9 +1208,6 @@
         </namedColor>
         <namedColor name="Beige">
             <color red="0.99607843137254903" green="0.98431372549019602" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="G2">
-            <color red="0.24705882352941178" green="0.6705882352941176" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Orange">
             <color red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

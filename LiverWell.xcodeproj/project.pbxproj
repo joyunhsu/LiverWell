@@ -25,6 +25,7 @@
 		6E892A41225F01C600742339 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A40225F01C600742339 /* PauseViewController.swift */; };
 		6E892A43225F022600742339 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A42225F022600742339 /* WorkoutViewController.swift */; };
 		6E892A452260466A00742339 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A442260466900742339 /* RestViewController.swift */; };
+		6E892A472260593100742339 /* RepeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A462260593100742339 /* RepeatCollectionViewCell.swift */; };
 		6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */; };
 		6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */; };
 		6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */; };
@@ -78,6 +79,7 @@
 		6E892A40225F01C600742339 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
 		6E892A42225F022600742339 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		6E892A442260466900742339 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
+		6E892A462260593100742339 /* RepeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E9599AC2258B85C00BC1D9A /* KnowledgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 		6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainSetupViewController.swift; sourceTree = "<group>"; };
 		6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				6E9599BB2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib */,
 				6E9599BE2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift */,
 				6E9599BF2259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib */,
+				6E892A462260593100742339 /* RepeatCollectionViewCell.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
 				6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */,
 				6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */,
+				6E892A472260593100742339 /* RepeatCollectionViewCell.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
