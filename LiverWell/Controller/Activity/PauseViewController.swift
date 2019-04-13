@@ -8,7 +8,13 @@
 
 import UIKit
 
-class PauseViewController: UIViewController {
+class PauseViewController: UIViewController, UITableViewDelegate {
+    
+    @IBOutlet weak var workoutImageView: UIImageView!
+    
+    @IBOutlet weak var barProgressView: UIProgressView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func resumeWorkoutPressed(_ sender: UIButton) {
         
@@ -22,3 +28,16 @@ class PauseViewController: UIViewController {
     }
 
 }
+
+//extension PauseViewController: UITableViewDataSource {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//    
+//    
+//}

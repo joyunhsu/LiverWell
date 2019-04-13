@@ -41,23 +41,12 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    @IBAction func startWorkoutPressed(_ sender: UIButton) {
-//        let activityStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-//        let desVC = activityStoryboard.instantiateViewController(
-//            withIdentifier: String(describing: WorkoutViewController.self)
-//            )
-//        guard let workoutVC = desVC as? WorkoutViewController,
-//            let selectedTime = selectedTime else { return }
-//        workoutVC.loadViewIfNeeded()
-//        workoutVC.workoutMinutes = selectedTime
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let desVC = segue.destination as? NavigationViewController,
+            let workoutMinutes = selectedTime {
+            desVC.workoutMinutes = workoutMinutes
+        }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let desVC = segue.destination as? CountDownViewController,
-//            let workoutMinutes = selectedTime {
-//            desVC.workoutMinutes = workoutMinutes
-//        }
-//    }
     
     private func selectTimer(withTag tag: Int) {
         

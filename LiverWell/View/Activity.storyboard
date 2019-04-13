@@ -323,7 +323,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-Xk-ZWf">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="B3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uZq-II-PHr"/>
                                 </constraints>
@@ -333,7 +333,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="startWorkoutPressed:" destination="mc3-wY-RMa" eventType="touchUpInside" id="0ad-hk-2d0"/>
                                     <segue destination="jqw-9b-qll" kind="presentation" identifier="startCountdown" id="PfI-Od-U9g"/>
                                 </connections>
                             </button>
@@ -906,6 +905,18 @@
                                 <color key="progressTintColor" name="Orange"/>
                                 <color key="trackTintColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTd-Q6-pXd">
+                                <rect key="frame" x="339" y="89" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="9jZ-pK-bDM"/>
+                                    <constraint firstAttribute="height" constant="20" id="ye0-Zs-IbC"/>
+                                </constraints>
+                                <state key="normal" image="Icon_Workout_SoundOn"/>
+                                <state key="selected" image="Icon_Workout_SoundOff"/>
+                                <connections>
+                                    <action selector="toggleSonudBtnPressed:" destination="RZU-Ov-b75" eventType="touchUpInside" id="AfI-D1-f0H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -917,6 +928,7 @@
                             <constraint firstItem="nS8-Gv-Ch7" firstAttribute="top" secondItem="fCu-dB-hwb" secondAttribute="bottom" constant="22" id="KTa-KR-s4S"/>
                             <constraint firstItem="7Zb-aO-3DD" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="Kw3-SF-OBJ"/>
                             <constraint firstItem="rca-Vz-sNK" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="Qbi-yu-yUc"/>
+                            <constraint firstItem="biW-uh-Xg3" firstAttribute="trailing" secondItem="oTd-Q6-pXd" secondAttribute="trailing" constant="16" id="SJ1-yt-woq"/>
                             <constraint firstItem="nS8-Gv-Ch7" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="SWV-ea-ZdP"/>
                             <constraint firstItem="biW-uh-Xg3" firstAttribute="trailing" secondItem="fCu-dB-hwb" secondAttribute="trailing" id="WhT-D2-MmJ"/>
                             <constraint firstItem="rca-Vz-sNK" firstAttribute="top" secondItem="xg1-7o-rqE" secondAttribute="bottom" constant="4" id="Zg7-Lx-7eL"/>
@@ -927,6 +939,7 @@
                             <constraint firstItem="RYX-dN-PmF" firstAttribute="leading" secondItem="biW-uh-Xg3" secondAttribute="leading" id="hZH-DH-bhL"/>
                             <constraint firstItem="xg1-7o-rqE" firstAttribute="centerX" secondItem="biW-uh-Xg3" secondAttribute="centerX" id="m0b-K6-XN8"/>
                             <constraint firstAttribute="trailing" secondItem="AD8-eX-3LG" secondAttribute="trailing" id="qJm-NF-nSE"/>
+                            <constraint firstItem="oTd-Q6-pXd" firstAttribute="top" secondItem="AD8-eX-3LG" secondAttribute="bottom" constant="20" id="tXg-nZ-CDC"/>
                             <constraint firstItem="uUz-xU-mOd" firstAttribute="top" secondItem="nS8-Gv-Ch7" secondAttribute="bottom" constant="4" id="wCT-bi-1t3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="biW-uh-Xg3"/>
@@ -936,6 +949,8 @@
                         <outlet property="infoLabel" destination="uUz-xU-mOd" id="laB-qd-VvS"/>
                         <outlet property="repeatCollectionView" destination="7Zb-aO-3DD" id="aZl-tM-VD6"/>
                         <outlet property="repeatLabel" destination="rca-Vz-sNK" id="Tf5-mD-y6s"/>
+                        <outlet property="soundBtn" destination="oTd-Q6-pXd" id="DsG-2D-2NA"/>
+                        <outlet property="workoutImageView" destination="fCu-dB-hwb" id="5kX-ez-KWj"/>
                         <outlet property="workoutTitleLabel" destination="nS8-Gv-Ch7" id="jDr-RE-jvs"/>
                         <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" animates="NO" id="4mo-LS-sdL"/>
                         <segue destination="FzE-w5-HUl" kind="show" identifier="finishWorkout" animates="NO" id="V9S-5g-iX7"/>
@@ -1134,8 +1149,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train_TV_03" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-wV-xI9">
-                                            <rect key="frame" x="0.0" y="131" width="375" height="114"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-wV-xI9">
+                                            <rect key="frame" x="0.0" y="5" width="375" height="240"/>
                                             <color key="backgroundColor" name="Beige"/>
                                         </imageView>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L7v-gk-3Tl">
@@ -1150,6 +1165,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="L7v-gk-3Tl" firstAttribute="top" secondItem="69P-et-ISW" secondAttribute="top" id="06w-cw-cUY"/>
+                                        <constraint firstItem="ud6-wV-xI9" firstAttribute="top" secondItem="L7v-gk-3Tl" secondAttribute="bottom" id="KjX-DC-3O4"/>
                                         <constraint firstItem="ud6-wV-xI9" firstAttribute="leading" secondItem="69P-et-ISW" secondAttribute="leading" id="PVt-H2-S7I"/>
                                         <constraint firstItem="L7v-gk-3Tl" firstAttribute="leading" secondItem="69P-et-ISW" secondAttribute="leading" id="SWN-4i-yZa"/>
                                         <constraint firstAttribute="bottom" secondItem="ud6-wV-xI9" secondAttribute="bottom" id="cgE-V4-e99"/>
@@ -1157,6 +1173,10 @@
                                         <constraint firstAttribute="trailing" secondItem="L7v-gk-3Tl" secondAttribute="trailing" id="naY-dN-UCX"/>
                                     </constraints>
                                 </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="4C1-hB-deh" id="oys-JS-uVP"/>
+                                    <outlet property="delegate" destination="4C1-hB-deh" id="DVb-Al-YmS"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiS-c7-3hR">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1204,16 +1224,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A1M-tW-XY4"/>
                     </view>
+                    <connections>
+                        <outlet property="barProgressView" destination="L7v-gk-3Tl" id="TNg-my-SyY"/>
+                        <outlet property="tableView" destination="of4-5E-kEF" id="Iml-Vc-9gq"/>
+                        <outlet property="workoutImageView" destination="ud6-wV-xI9" id="E0o-q4-xFN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTN-gI-uMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Bpo-gw-dbe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6044" y="-11"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="ccj-0h-ae9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqw-9b-qll" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqw-9b-qll" customClass="NavigationViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4W8-vg-A8j">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1240,6 +1265,8 @@
         <image name="Button_5min_Selected" width="96" height="96"/>
         <image name="Icon_Workout_BackPain" width="145" height="125"/>
         <image name="Icon_Workout_LongSit" width="145" height="125"/>
+        <image name="Icon_Workout_SoundOff" width="20" height="20"/>
+        <image name="Icon_Workout_SoundOn" width="20" height="20"/>
         <image name="Train_BackPain_01" width="174" height="114"/>
         <image name="Train_TV_03" width="174" height="114"/>
         <namedColor name="B1">
@@ -1259,7 +1286,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sse-XR-Ptm"/>
+        <segue reference="Urd-Z5-Ftp"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

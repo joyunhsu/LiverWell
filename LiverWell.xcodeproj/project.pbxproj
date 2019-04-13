@@ -55,6 +55,7 @@
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
 		6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B4225B37B9003A104C /* WeightViewController.swift */; };
+		6EF064D3226258A4004FB6A8 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */; };
 		6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */; };
 		6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA72251E41100C1B8B3 /* Main.storyboard */; };
 		6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		6EE614B4225B37B9003A104C /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
+		6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		6EFDDE9E2251E41100C1B8B3 /* LiverWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiverWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFDDEA82251E41100C1B8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				6EA8CBD822533E80000859FD /* ActivityViewController.swift */,
 				6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */,
+				6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */,
 				6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */,
 				6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */,
 				6E892A3E225EE8E300742339 /* CountDownViewController.swift */,
@@ -521,6 +524,7 @@
 				6E892A472260593100742339 /* RepeatCollectionViewCell.swift in Sources */,
 				6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */,
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
+				6EF064D3226258A4004FB6A8 /* NavigationViewController.swift in Sources */,
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */,
