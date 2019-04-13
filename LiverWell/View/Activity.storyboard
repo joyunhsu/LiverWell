@@ -331,7 +331,8 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="開始"/>
                                 <connections>
-                                    <segue destination="jqw-9b-qll" kind="presentation" id="PfI-Od-U9g"/>
+                                    <action selector="startWorkoutPressed:" destination="mc3-wY-RMa" eventType="touchUpInside" id="0ad-hk-2d0"/>
+                                    <segue destination="jqw-9b-qll" kind="presentation" identifier="startCountdown" id="PfI-Od-U9g"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YS8-RX-VRe">
@@ -1255,7 +1256,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Urd-Z5-Ftp"/>
+        <segue reference="Sse-XR-Ptm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,8 @@
 import UIKit
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
+    
+    var selectedTime: Float?
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -28,11 +30,37 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
         sender.isSelected = true
         
-        selectTimer(toTime: sender.tag)
+        selectTimer(withTag: sender.tag)
         
     }
     
-    private func selectTimer(toTime: Int) {
+    @IBAction func startWorkoutPressed(_ sender: UIButton) {
+//        let activityStoryboard = UIStoryboard(name: "Activity", bundle: nil)
+//        let desVC = activityStoryboard.instantiateViewController(
+//            withIdentifier: String(describing: WorkoutViewController.self)
+//            )
+//        guard let workoutVC = desVC as? WorkoutViewController,
+//            let selectedTime = selectedTime else { return }
+//        workoutVC.loadViewIfNeeded()
+//        workoutVC.workoutMinutes = selectedTime
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let desVC = segue.destination as? CountDownViewController,
+            let workoutMinutes = selectedTime {
+            desVC.workoutMinutes = workoutMinutes
+        }
+    }
+    
+    private func selectTimer(withTag tag: Int) {
+        
+        if tag == 0 {
+            selectedTime = 5.0
+        } else if tag == 1 {
+            selectedTime = 10.0
+        } else if tag == 2 {
+            selectedTime = 15.0
+        }
         
     }
 

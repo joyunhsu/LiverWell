@@ -14,6 +14,7 @@ class CountDownViewController: UIViewController {
     
     var timer = Timer()
     var counter = 5
+    var workoutMinutes: Float?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,13 @@ class CountDownViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "startWorkout", sender: self)
             timer.invalidate()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let desVC = segue.destination as? WorkoutViewController,
+            let workoutMinutes = workoutMinutes {
+            desVC.workoutMinutes = workoutMinutes
         }
     }
 }

@@ -66,7 +66,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var currentRepeat = 1
     
-    let maxTime: Float = 50.0
+    var workoutMinutes: Float?
     
     var currentTIme: Float = 0.0
 
@@ -95,12 +95,18 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         repeatCountingText = [String]()
     }
     
-    func updateBarProgress() {
+    private func updateBarProgress() {
+        
+        guard let workoutMinutes = workoutMinutes else { return }
+        let maxTime = workoutMinutes * 60.0
+        
+        currentTIme += 1.0
+        barProgressView.progress = self.currentTIme/maxTime
         
         barTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
-            if self.currentTIme < self.maxTime {
+            if self.currentTIme < maxTime {
                 self.currentTIme += 1.0
-                self.barProgressView.progress = self.currentTIme/self.maxTime
+                self.barProgressView.progress = self.currentTIme/maxTime
             } else {
                 return
             }
@@ -141,9 +147,12 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let workoutMinutes = workoutMinutes else { return }
+        let maxTime = workoutMinutes * 60.0
         if let destination = segue.destination as? RestViewController {
             destination.currentTime = self.currentTIme
-            destination.maxTime = self.maxTime
+            destination.maxTime = maxTime
         }
     }
     
