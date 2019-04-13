@@ -12,6 +12,8 @@ struct Workout {
     
     let title: String
     
+    let info: String
+    
     let totalRepeat: Int
     
     let totalCount: Int
@@ -40,8 +42,20 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     var counter = 1
     
     var workoutSet = [
-        Workout(title: "看電視順便做", totalRepeat: 2, totalCount: 3, perDuration: 2),
-        Workout(title: "預防腰痛", totalRepeat: 2, totalCount: 5, perDuration: 1)
+        Workout(
+            title: "看電視順便做",
+            info: "轉到手臂有明顯緊繃感為止",
+            totalRepeat: 2,
+            totalCount: 3,
+            perDuration: 2
+        ),
+        Workout(
+            title: "預防腰痛",
+            info: "轉到手臂有明顯緊繃感為止",
+            totalRepeat: 2,
+            totalCount: 5,
+            perDuration: 1
+        )
     ]
     
     var workoutIndex = 0
@@ -62,8 +76,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         let nowWorkout = workoutSet[workoutIndex]
         
+        workoutTitleLabel.text = nowWorkout.title
+        infoLabel.text = nowWorkout.info
+        
         counter = 1
-        self.repeatLabel.text = "\(counter)/\(nowWorkout.totalCount)次"
+        repeatLabel.text = "\(counter)/\(nowWorkout.totalCount)次"
         
         changeRepeatCounts(totalCount: nowWorkout.totalCount, timeInterval: nowWorkout.perDuration)
         
@@ -82,7 +99,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         for i in 1...totalCount {
             let repeatCount = "\(i)/\(totalCount)次"
             repeatCountingText.append(repeatCount)
-            
         }
         
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in

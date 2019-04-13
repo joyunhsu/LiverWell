@@ -995,7 +995,7 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
                                         <real key="value" value="5"/>
@@ -1009,10 +1009,16 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyLineStrokeColor">
                                         <color key="value" name="B5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" name="Orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                        <color key="value" name="Orange"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz6-Nw-9Ug">
-                                <rect key="frame" x="122" y="225" width="131" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz6-Nw-9Ug">
+                                <rect key="frame" x="157.5" y="225" width="60" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="dMK-ek-Gbz"/>
                                 </constraints>
@@ -1070,6 +1076,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rk9-uv-xRZ"/>
                     </view>
+                    <connections>
+                        <outlet property="countDownLabel" destination="Zz6-Nw-9Ug" id="euL-bL-0e3"/>
+                        <outlet property="progressView" destination="yBM-IV-WCt" id="GYC-yK-Qc6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbN-3R-ARd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
