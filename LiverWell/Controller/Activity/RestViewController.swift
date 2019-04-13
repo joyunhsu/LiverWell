@@ -41,7 +41,7 @@ class RestViewController: UIViewController {
     @objc func updateTimer() {
         if counter > 0 {
             counter -= 1
-            countDownLabel.text = String(format: "%2d", counter)
+            countDownLabel.text = String(format: "%d", counter)
             progressView.value = CGFloat(30 - counter)
         } else {
             self.navigationController?.popViewController(animated: false)

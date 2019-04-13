@@ -706,10 +706,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2r-Tc-hBz">
-                                <rect key="frame" x="162.5" y="196" width="50" height="72"/>
+                                <rect key="frame" x="170" y="196" width="35.5" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="WhJ-52-Gq4"/>
-                                    <constraint firstAttribute="width" constant="50" id="YdZ-qJ-Lxr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" name="Orange"/>
@@ -1255,7 +1254,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Urd-Z5-Ftp"/>
+        <segue reference="Sse-XR-Ptm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

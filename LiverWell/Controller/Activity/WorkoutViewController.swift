@@ -74,17 +74,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        let nowWorkout = workoutSet[workoutIndex]
-        
-        workoutTitleLabel.text = nowWorkout.title
-        infoLabel.text = nowWorkout.info
-        
-        counter = 1
-        repeatLabel.text = "\(counter)/\(nowWorkout.totalCount)次"
-        
-        changeRepeatCounts(totalCount: nowWorkout.totalCount, timeInterval: nowWorkout.perDuration)
-        
-        repeatCollectionView.reloadData()
+        changeTitleAndRepeats()
         
     }
     
@@ -112,6 +102,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                 
                 if self.nowRepeat < self.workoutSet[self.workoutIndex].totalRepeat {
                     self.nowRepeat += 1
+                    
+                    self.changeTitleAndRepeats()
+                    
                 } else {
                     self.workoutIndex += 1
                     self.nowRepeat = 1
@@ -120,12 +113,30 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         })
     }
     
+    private func changeTitleAndRepeats() {
+        
+        let nowWorkout = workoutSet[workoutIndex]
+        
+        workoutTitleLabel.text = nowWorkout.title
+        infoLabel.text = nowWorkout.info
+        
+        counter = 1
+        repeatLabel.text = "\(self.counter)/\(nowWorkout.totalCount)次"
+        
+        changeRepeatCounts(totalCount: nowWorkout.totalCount, timeInterval: nowWorkout.perDuration)
+        
+        repeatCollectionView.reloadData()
+        
+    }
+    
     private func moveToNextVC() {
         
         if nowRepeat == workoutSet[workoutIndex].totalRepeat && workoutIndex == (workoutSet.count - 1) {
             performSegue(withIdentifier: "finishWorkout", sender: self)
-        } else {
+        } else if nowRepeat == workoutSet[workoutIndex].totalRepeat {
             performSegue(withIdentifier: "startRest", sender: self)
+        } else {
+            return
         }
         
     }

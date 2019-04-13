@@ -32,7 +32,7 @@ class CountDownViewController: UIViewController {
     @objc func updateTimer() {
         if counter > 0 {
             counter -= 1
-            countDownLabel.text = String(format: "%2d", counter)
+            countDownLabel.text = String(format: "%d", counter)
         } else {
             performSegue(withIdentifier: "startWorkout", sender: self)
             timer.invalidate()
