@@ -321,15 +321,17 @@
                                     <outlet property="delegate" destination="mc3-wY-RMa" id="DyV-08-Bjl"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-Xk-ZWf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-Xk-ZWf">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.47843137250000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uZq-II-PHr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="開始"/>
+                                <state key="disabled">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="startWorkoutPressed:" destination="mc3-wY-RMa" eventType="touchUpInside" id="0ad-hk-2d0"/>
                                     <segue destination="jqw-9b-qll" kind="presentation" identifier="startCountdown" id="PfI-Od-U9g"/>
@@ -370,6 +372,7 @@
                     </view>
                     <connections>
                         <outlet property="navBarItem" destination="sxF-Vi-Lig" id="RGy-Ex-MLF"/>
+                        <outlet property="startBtn" destination="7GQ-Xk-ZWf" id="Dl1-P8-Qf0"/>
                         <outlet property="tableView" destination="vsp-HR-42B" id="RGl-UY-w6e"/>
                         <outletCollection property="timerBtns" destination="saQ-RS-Nqo" collectionClass="NSMutableArray" id="6K1-kV-rSw"/>
                         <outletCollection property="timerBtns" destination="rNZ-gk-9hB" collectionClass="NSMutableArray" id="XH6-WV-F6O"/>

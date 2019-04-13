@@ -10,7 +10,12 @@ import UIKit
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
-    var selectedTime: Float?
+    var selectedTime: Float? {
+        didSet {
+            startBtn.isEnabled = true
+            startBtn.backgroundColor = .Orange
+        }
+    }
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -19,6 +24,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBOutlet var timerBtns: [UIButton]!
+    
+    @IBOutlet weak var startBtn: UIButton!
     
     @IBAction func selectTimerPressed(_ sender: UIButton) {
         
@@ -45,12 +52,12 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
 //        workoutVC.workoutMinutes = selectedTime
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let desVC = segue.destination as? CountDownViewController,
-            let workoutMinutes = selectedTime {
-            desVC.workoutMinutes = workoutMinutes
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let desVC = segue.destination as? CountDownViewController,
+//            let workoutMinutes = selectedTime {
+//            desVC.workoutMinutes = workoutMinutes
+//        }
+//    }
     
     private func selectTimer(withTag tag: Int) {
         
@@ -77,6 +84,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
 
         let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
+        
+        startBtn.isEnabled = false
 
     }
     
