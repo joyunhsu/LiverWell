@@ -35,6 +35,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var barProgressView: UIProgressView!
     
+    var barTimer: Timer?
+    
     var timer: Timer?
     
     var startTime = 0
@@ -62,7 +64,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var repeatCountingText = [String]()
     
-    var nowRepeat = 1
+    var currentRepeat = 1
+    
+    let maxTime: Float = 50.0
+    
+    var currentTIme: Float = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,14 +80,31 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        changeTitleAndRepeats()
+        changeTitleAndRepeatText()
+        
+        updateBarProgress()
+        
+//        barProgressView.setProgress(currentTIme, animated: false)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         timer?.invalidate()
+        barTimer?.invalidate()
         repeatCountingText = [String]()
+    }
+    
+    func updateBarProgress() {
+        
+        barTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+            if self.currentTIme < self.maxTime {
+                self.currentTIme += 1.0
+                self.barProgressView.progress = self.currentTIme/self.maxTime
+            } else {
+                return
+            }
+        })
     }
     
     private func changeRepeatCounts(totalCount: Int, timeInterval: TimeInterval) {
@@ -98,32 +121,43 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                 self.counter += 1
             } else {
                 self.timer?.invalidate()
+                self.barTimer?.invalidate()
                 self.moveToNextVC()
                 
-                if self.nowRepeat < self.workoutSet[self.workoutIndex].totalRepeat {
-                    self.nowRepeat += 1
-                    
-                    self.changeTitleAndRepeats()
+                // Repeat within current workout
+                if self.currentRepeat < self.workoutSet[self.workoutIndex].totalRepeat {
+                    self.currentRepeat += 1
+                    self.changeTitleAndRepeatText()
+                    self.updateBarProgress()
                     
                 } else {
+                    // Finish repo in current workout, ready for next
                     self.workoutIndex += 1
-                    self.nowRepeat = 1
+                    self.currentRepeat = 1
+                
                 }
             }
         })
     }
     
-    private func changeTitleAndRepeats() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? RestViewController {
+            destination.currentTime = self.currentTIme
+            destination.maxTime = self.maxTime
+        }
+    }
+    
+    private func changeTitleAndRepeatText() {
         
-        let nowWorkout = workoutSet[workoutIndex]
+        let currentWorkout = workoutSet[workoutIndex]
         
-        workoutTitleLabel.text = nowWorkout.title
-        infoLabel.text = nowWorkout.info
+        workoutTitleLabel.text = currentWorkout.title
+        infoLabel.text = currentWorkout.info
         
         counter = 1
-        repeatLabel.text = "\(self.counter)/\(nowWorkout.totalCount)次"
+        repeatLabel.text = "\(self.counter)/\(currentWorkout.totalCount)次"
         
-        changeRepeatCounts(totalCount: nowWorkout.totalCount, timeInterval: nowWorkout.perDuration)
+        changeRepeatCounts(totalCount: currentWorkout.totalCount, timeInterval: currentWorkout.perDuration)
         
         repeatCollectionView.reloadData()
         
@@ -131,9 +165,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func moveToNextVC() {
         
-        if nowRepeat == workoutSet[workoutIndex].totalRepeat && workoutIndex == (workoutSet.count - 1) {
+        if currentRepeat == workoutSet[workoutIndex].totalRepeat && workoutIndex == (workoutSet.count - 1) {
             performSegue(withIdentifier: "finishWorkout", sender: self)
-        } else if nowRepeat == workoutSet[workoutIndex].totalRepeat {
+        } else if currentRepeat == workoutSet[workoutIndex].totalRepeat {
             performSegue(withIdentifier: "startRest", sender: self)
         } else {
             return
@@ -171,7 +205,7 @@ extension WorkoutViewController: UICollectionViewDataSource {
             textColorArray.append(defaultTextColor)
         }
         
-        for i in 0..<nowRepeat {
+        for i in 0..<currentRepeat {
             let finishedViewColor = UIColor.G2
             bgColorArray[i] = finishedViewColor
             

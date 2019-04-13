@@ -15,8 +15,13 @@ class RestViewController: UIViewController {
     
     @IBOutlet weak var progressView: MBCircularProgressBarView!
     
+    @IBOutlet weak var barProgressView: UIProgressView!
+    
     var timer = Timer()
-    var counter = 30
+    var counter = 5
+    
+    var currentTime: Float = 0.0
+    var maxTime: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,8 @@ class RestViewController: UIViewController {
             selector: #selector(updateTimer),
             userInfo: nil,
             repeats: true)
+        
+        barProgressView.progress = currentTime / maxTime
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
 //            self.navigationController?.popViewController(animated: false)

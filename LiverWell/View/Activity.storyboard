@@ -894,13 +894,13 @@
                                     <outlet property="delegate" destination="RZU-Ov-b75" id="c67-s4-IhG"/>
                                 </connections>
                             </collectionView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-eX-3LG">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-eX-3LG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="6"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="oEi-S2-bGP"/>
                                 </constraints>
                                 <color key="progressTintColor" name="Orange"/>
-                                <color key="trackTintColor" name="B5"/>
+                                <color key="trackTintColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -949,13 +949,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KCR-ny-CE4">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KCR-ny-CE4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="6t5-cp-pLl"/>
                                 </constraints>
                                 <color key="progressTintColor" name="Orange"/>
-                                <color key="trackTintColor" name="B5"/>
+                                <color key="trackTintColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS4-sf-J3p">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -1076,6 +1076,7 @@
                         <viewLayoutGuide key="safeArea" id="rk9-uv-xRZ"/>
                     </view>
                     <connections>
+                        <outlet property="barProgressView" destination="KCR-ny-CE4" id="UEL-HK-WZi"/>
                         <outlet property="countDownLabel" destination="Zz6-Nw-9Ug" id="euL-bL-0e3"/>
                         <outlet property="progressView" destination="yBM-IV-WCt" id="GYC-yK-Qc6"/>
                     </connections>
@@ -1254,7 +1255,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sse-XR-Ptm"/>
+        <segue reference="Urd-Z5-Ftp"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>
