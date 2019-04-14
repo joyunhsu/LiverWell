@@ -468,14 +468,20 @@
                                         </constraints>
                                         <state key="normal" image="Button_TodayStatus_Normal"/>
                                         <state key="selected" image="Button_TodayStatus_Selected"/>
+                                        <connections>
+                                            <action selector="selectStatusBtnPressed:" destination="lB1-gD-NbQ" eventType="touchUpInside" id="aDd-nH-oJh"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m8-nn-Uns">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m8-nn-Uns">
                                         <rect key="frame" x="180.5" y="421" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4m8-nn-Uns" secondAttribute="height" multiplier="1:1" id="MQg-ph-Qfz"/>
                                         </constraints>
                                         <state key="normal" image="Button_WeekData_Normal"/>
                                         <state key="selected" image="Button_WeekData_Selected"/>
+                                        <connections>
+                                            <action selector="selectStatusBtnPressed:" destination="lB1-gD-NbQ" eventType="touchUpInside" id="evG-4l-eUn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日狀態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkK-SN-UyA">
                                         <rect key="frame" x="97.5" y="499" width="58" height="18"/>
@@ -559,6 +565,8 @@
                     <connections>
                         <outlet property="todayStatusBtn" destination="Jy3-Aj-e4h" id="bue-hV-gyh"/>
                         <outlet property="weeklyStatusBtn" destination="4m8-nn-Uns" id="gWo-py-RuF"/>
+                        <outletCollection property="statusBtns" destination="Jy3-Aj-e4h" collectionClass="NSMutableArray" id="EPy-TM-99e"/>
+                        <outletCollection property="statusBtns" destination="4m8-nn-Uns" collectionClass="NSMutableArray" id="dT2-JB-Z0a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XY-FU-6fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
