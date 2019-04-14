@@ -133,6 +133,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             destination.currentTime = self.currentTIme
             destination.maxTime = maxTime
         }
+        
+        if let pauseVC = segue.destination as? PauseViewController {
+            pauseVC.currentTime = self.currentTIme
+            pauseVC.maxTime = maxTime
+        }
     }
     
     private func changeTitleAndRepeatText() {

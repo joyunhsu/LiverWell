@@ -390,8 +390,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xep-89-tpk">
-                                <rect key="frame" x="0.0" y="128" width="375" height="479"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xep-89-tpk">
+                                <rect key="frame" x="0.0" y="69" width="375" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="8vH-Ws-Dxp">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
@@ -410,6 +410,10 @@
                                         <constraint firstItem="DNF-xq-DTY" firstAttribute="top" secondItem="8vH-Ws-Dxp" secondAttribute="top" id="zjg-Zd-CAI"/>
                                     </constraints>
                                 </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="cvd-0b-R8C" id="8q1-Ow-JsO"/>
+                                    <outlet property="delegate" destination="cvd-0b-R8C" id="4yf-bc-oC2"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5z5-Jt-r56">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -432,12 +436,15 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nK-3h-FPN">
-                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="10" y="10" width="80" height="40"/>
                                         <color key="backgroundColor" name="Orange"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="28n-cg-YDt"/>
                                             <constraint firstAttribute="height" constant="40" id="2fU-SZ-Jp6"/>
+                                            <constraint firstAttribute="width" constant="80" id="hJ1-Qh-z4X"/>
                                         </constraints>
+                                        <state key="normal" title="上一個">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
                                                 <real key="value" value="20"/>
@@ -445,12 +452,15 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-9L-tlR">
-                                        <rect key="frame" x="325" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="285" y="10" width="80" height="40"/>
                                         <color key="backgroundColor" name="Orange"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Lin-3B-vR5"/>
-                                            <constraint firstAttribute="width" constant="40" id="dqa-mH-kQO"/>
+                                            <constraint firstAttribute="width" constant="80" id="pYC-5x-hFb"/>
                                         </constraints>
+                                        <state key="normal" title="下一個">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
                                                 <real key="value" value="20"/>
@@ -501,27 +511,30 @@
                         <constraints>
                             <constraint firstItem="5z5-Jt-r56" firstAttribute="leading" secondItem="GCv-lY-gbx" secondAttribute="leading" id="4kV-xf-TCh"/>
                             <constraint firstItem="5z5-Jt-r56" firstAttribute="trailing" secondItem="GCv-lY-gbx" secondAttribute="trailing" id="4p4-gJ-OiP"/>
-                            <constraint firstItem="csM-oe-0QA" firstAttribute="top" secondItem="xep-89-tpk" secondAttribute="bottom" id="7UJ-3A-Zy6"/>
+                            <constraint firstItem="xep-89-tpk" firstAttribute="trailing" secondItem="GCv-lY-gbx" secondAttribute="trailing" id="6Km-eL-y04"/>
                             <constraint firstItem="GCv-lY-gbx" firstAttribute="trailing" secondItem="csM-oe-0QA" secondAttribute="trailing" id="8o9-zr-Q4M"/>
                             <constraint firstAttribute="bottom" secondItem="csM-oe-0QA" secondAttribute="bottom" id="C4B-bD-6l5"/>
-                            <constraint firstItem="xep-89-tpk" firstAttribute="leading" secondItem="GCv-lY-gbx" secondAttribute="leading" id="CDA-72-qCT"/>
+                            <constraint firstItem="csM-oe-0QA" firstAttribute="top" secondItem="xep-89-tpk" secondAttribute="bottom" id="E1p-Gz-gHu"/>
                             <constraint firstItem="dl9-Iz-7vR" firstAttribute="top" secondItem="5z5-Jt-r56" secondAttribute="bottom" id="S9V-BP-HZG"/>
                             <constraint firstItem="csM-oe-0QA" firstAttribute="leading" secondItem="GCv-lY-gbx" secondAttribute="leading" id="SQL-xs-0Gd"/>
+                            <constraint firstItem="xep-89-tpk" firstAttribute="leading" secondItem="GCv-lY-gbx" secondAttribute="leading" id="UkN-k2-hEs"/>
                             <constraint firstItem="5z5-Jt-r56" firstAttribute="top" secondItem="GCv-lY-gbx" secondAttribute="top" id="bpe-d1-bio"/>
-                            <constraint firstItem="xep-89-tpk" firstAttribute="top" secondItem="5z5-Jt-r56" secondAttribute="bottom" id="c2f-p4-CcJ"/>
                             <constraint firstItem="dl9-Iz-7vR" firstAttribute="leading" secondItem="GCv-lY-gbx" secondAttribute="leading" id="c6R-dn-rmk"/>
-                            <constraint firstItem="GCv-lY-gbx" firstAttribute="trailing" secondItem="xep-89-tpk" secondAttribute="trailing" id="gza-aQ-17B"/>
+                            <constraint firstItem="xep-89-tpk" firstAttribute="top" secondItem="dl9-Iz-7vR" secondAttribute="bottom" id="f6d-Gm-KG0"/>
                             <constraint firstItem="GCv-lY-gbx" firstAttribute="trailing" secondItem="dl9-Iz-7vR" secondAttribute="trailing" id="kQD-uc-3EM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GCv-lY-gbx"/>
                     </view>
                     <connections>
+                        <outlet property="nextBtn" destination="bEP-9L-tlR" id="iIn-H3-snN"/>
+                        <outlet property="previousBtn" destination="0nK-3h-FPN" id="KqU-co-28v"/>
                         <outlet property="progressCollectionView" destination="dl9-Iz-7vR" id="YKx-T9-bAa"/>
+                        <outlet property="tableView" destination="xep-89-tpk" id="ft1-QN-ENt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhI-aD-wXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4804" y="-11"/>
+            <point key="canvasLocation" x="4804" y="-11.244377811094454"/>
         </scene>
         <!--Stretch Setup View Controller-->
         <scene sceneID="pyH-rI-9CM">
@@ -789,7 +802,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="暫停運動"/>
                                 <connections>
-                                    <segue destination="4C1-hB-deh" kind="presentation" animates="NO" id="Urd-Z5-Ftp"/>
+                                    <segue destination="4C1-hB-deh" kind="presentation" identifier="pause" animates="NO" id="Urd-Z5-Ftp"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCu-dB-hwb">
@@ -1153,13 +1166,13 @@
                                             <rect key="frame" x="0.0" y="5" width="375" height="240"/>
                                             <color key="backgroundColor" name="Beige"/>
                                         </imageView>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L7v-gk-3Tl">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L7v-gk-3Tl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="5" id="hXU-n3-rin"/>
                                             </constraints>
                                             <color key="progressTintColor" name="Orange"/>
-                                            <color key="trackTintColor" name="B5"/>
+                                            <color key="trackTintColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         </progressView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

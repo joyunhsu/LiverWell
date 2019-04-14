@@ -16,6 +16,10 @@ class PauseViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var currentTime: Float = 0.0
+    
+    var maxTime: Float = 0.0
+    
     @IBAction func resumeWorkoutPressed(_ sender: UIButton) {
         
         dismiss(animated: false)
@@ -24,6 +28,8 @@ class PauseViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        barProgressView.progress = currentTime / maxTime
         
         let firstCell = UINib(
             nibName: String(describing: FirstActivityInfoTableViewCell.self),

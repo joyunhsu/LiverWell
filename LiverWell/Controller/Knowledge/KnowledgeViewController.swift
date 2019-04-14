@@ -21,24 +21,18 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setupBtnView()
-
-    }
-
-    private func setupBtnView() {
-
-        foodBtn.roundCorners(.allCorners, radius: 22)
-
-        foodBtn.dropShadow()
-
-        workoutBtn.dropShadow()
-
-        liverBtn.dropShadow()
-
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 134
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "knowledgeDetail", sender: self)
+        
     }
 
 }
@@ -56,7 +50,9 @@ extension KnowledgeViewController: UITableViewDataSource {
         )
         
         guard let knowledgeCell = cell as? KnowledgeTableViewCell else { return cell }
-
+        
+        knowledgeCell.selectionStyle = .none
+        
         return knowledgeCell
     }
 

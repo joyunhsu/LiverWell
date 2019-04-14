@@ -168,6 +168,9 @@
                                                             </constraints>
                                                             <state key="normal" image="Icon_Knowledge_Unmarked"/>
                                                             <state key="selected" image="Icon_Knowledge_Marked"/>
+                                                            <connections>
+                                                                <action selector="bookMarkBtnPressed:" destination="8is-GH-Rv7" eventType="touchUpInside" id="Zyl-SW-9ZF"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="減重的敵人都是白色的：白飯、白土司、白砂糖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-GI-tfc">
                                                             <rect key="frame" x="18" y="47.5" width="267" height="50"/>
@@ -202,6 +205,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="bookMarkBtn" destination="cEI-VM-1Wt" id="QnP-Cc-Hbg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -229,7 +235,7 @@
                         <outlet property="liverBtn" destination="9zH-ty-YGy" id="wZV-mW-qNi"/>
                         <outlet property="tableView" destination="ILA-cr-EfX" id="k3f-Xg-geS"/>
                         <outlet property="workoutBtn" destination="DlN-SR-rBT" id="kHh-sF-rGg"/>
-                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" id="XJF-Av-EMH"/>
+                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" modalTransitionStyle="crossDissolve" id="XJF-Av-EMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,9 +249,81 @@
                     <view key="view" contentMode="scaleToFill" id="Sps-na-Ida">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-7v-hfd">
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-iW-6Hp">
+                                        <rect key="frame" x="305" y="16" width="22" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="kTj-fP-QtN"/>
+                                            <constraint firstAttribute="height" constant="27" id="kog-SZ-LP7"/>
+                                        </constraints>
+                                        <state key="normal" image="Icon_Knowledge_Unmarked"/>
+                                        <state key="selected" image="Icon_Knowledge_Marked"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="減重的敵人都是白色的：白飯、白土司、白砂糖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-AI-Ojb">
+                                        <rect key="frame" x="16" y="59" width="311" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="824-QJ-DGe">
+                                        <rect key="frame" x="16" y="132" width="311" height="243.5"/>
+                                        <string key="text">澱粉含有醣類，為人體重要營養來源，若都不吃含澱粉食物，身體、大腦將缺乏葡萄糖供應，體內會分泌酮體取代葡萄糖，而酮體能抑制食慾，所以這在減重初期確實有幫助。
+ 
+不過長期下來，這樣吃卻可能引起酮酸中毒，甚至腎功能受損，反而有損健康。在含澱粉食物選擇上，應挑糙米、地瓜、玉米等五穀根莖類，避開白麵包、白麵條、白飯、白饅頭等，因白色澱粉類食物易使體重增加不利減重。</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="B1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz4-YX-hKN">
+                                        <rect key="frame" x="134.5" y="565" width="74" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="L7t-uV-37m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="我知道了">
+                                            <color key="titleColor" name="Orange"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="ukl-Hp-9N0" eventType="touchUpInside" id="zeR-s5-BT3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kz4-YX-hKN" secondAttribute="bottom" constant="16" id="HJu-sV-Zq5"/>
+                                    <constraint firstItem="824-QJ-DGe" firstAttribute="top" secondItem="L7b-AI-Ojb" secondAttribute="bottom" constant="20" id="IHL-yV-XZ0"/>
+                                    <constraint firstItem="L7b-AI-Ojb" firstAttribute="top" secondItem="eWc-iW-6Hp" secondAttribute="bottom" constant="16" id="Kk3-sb-Wvf"/>
+                                    <constraint firstItem="kz4-YX-hKN" firstAttribute="centerX" secondItem="I7B-7v-hfd" secondAttribute="centerX" id="L8Z-OL-4JV"/>
+                                    <constraint firstAttribute="trailing" secondItem="L7b-AI-Ojb" secondAttribute="trailing" constant="16" id="LrV-3s-5d2"/>
+                                    <constraint firstItem="eWc-iW-6Hp" firstAttribute="top" secondItem="I7B-7v-hfd" secondAttribute="top" constant="16" id="U17-vj-HPJ"/>
+                                    <constraint firstItem="824-QJ-DGe" firstAttribute="leading" secondItem="I7B-7v-hfd" secondAttribute="leading" constant="16" id="ckY-AD-gW7"/>
+                                    <constraint firstItem="L7b-AI-Ojb" firstAttribute="leading" secondItem="I7B-7v-hfd" secondAttribute="leading" constant="16" id="d6n-1l-SQy"/>
+                                    <constraint firstAttribute="trailing" secondItem="eWc-iW-6Hp" secondAttribute="trailing" constant="16" id="pQC-tv-x5k"/>
+                                    <constraint firstAttribute="trailing" secondItem="824-QJ-DGe" secondAttribute="trailing" constant="16" id="qSb-EQ-CA5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="B5"/>
+                        <constraints>
+                            <constraint firstItem="I7B-7v-hfd" firstAttribute="leading" secondItem="PFZ-aS-Wu1" secondAttribute="leading" constant="16" id="6wW-Wk-cn6"/>
+                            <constraint firstItem="I7B-7v-hfd" firstAttribute="top" secondItem="PFZ-aS-Wu1" secondAttribute="top" constant="16" id="c3g-hX-AeH"/>
+                            <constraint firstItem="PFZ-aS-Wu1" firstAttribute="trailing" secondItem="I7B-7v-hfd" secondAttribute="trailing" constant="16" id="l0M-fZ-eap"/>
+                            <constraint firstItem="PFZ-aS-Wu1" firstAttribute="bottom" secondItem="I7B-7v-hfd" secondAttribute="bottom" constant="16" id="qEO-Th-upX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PFZ-aS-Wu1"/>
                     </view>
+                    <connections>
+                        <outlet property="contentLabel" destination="824-QJ-DGe" id="i30-VK-Bu1"/>
+                        <outlet property="titleLabel" destination="L7b-AI-Ojb" id="E5W-qp-tAs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Taz-Ea-CaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,6 +336,12 @@
         <image name="Icon_Knowledge_Unmarked" width="22" height="27"/>
         <namedColor name="B1">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B5">
+            <color red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Orange">
+            <color red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

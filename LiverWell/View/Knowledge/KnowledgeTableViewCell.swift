@@ -9,16 +9,31 @@
 import UIKit
 
 class KnowledgeTableViewCell: UITableViewCell {
+    
+    var isMarked: Bool = false
+    
+    @IBOutlet weak var bookMarkBtn: UIButton!
+    
+    @IBAction func bookMarkBtnPressed(_ sender: UIButton) {
+        
+        isMarked = !isMarked
+        
+        if isMarked == true {
+            bookMarkBtn.isSelected = true
+        } else {
+            bookMarkBtn.isSelected = false
+        }
+        
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

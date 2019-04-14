@@ -45,5 +45,10 @@ class CountDownViewController: UIViewController {
             let workoutMinutes = workoutMinutes {
             desVC.workoutMinutes = workoutMinutes
         }
+        
+        if let pauseVC = segue.destination as? PauseViewController {
+            pauseVC.currentTime = 0
+            pauseVC.maxTime = 1
+        }
     }
 }
