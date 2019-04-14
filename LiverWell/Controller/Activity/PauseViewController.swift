@@ -24,20 +24,59 @@ class PauseViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let firstCell = UINib(
+            nibName: String(describing: FirstActivityInfoTableViewCell.self),
+            bundle: nil
+        )
+        
+        tableView.register(
+            firstCell,
+            forCellReuseIdentifier: String(describing: FirstActivityInfoTableViewCell.self)
+        )
+        
+        let secondCell = UINib(
+            nibName: String(describing: SecondActivityInfoTableViewCell.self),
+            bundle: nil
+        )
+        
+        tableView.register(
+            secondCell,
+            forCellReuseIdentifier: String(describing: SecondActivityInfoTableViewCell.self)
+        )
 
     }
 
 }
 
-//extension PauseViewController: UITableViewDataSource {
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
+extension PauseViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: FirstActivityInfoTableViewCell.self),
+            for: indexPath
+        )
+        
+        let cellReuse = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: SecondActivityInfoTableViewCell.self),
+            for: indexPath
+        )
+        
+        guard let firstCell = cell as? FirstActivityInfoTableViewCell else { return cell }
+        
+        guard let secondCell = cellReuse as? SecondActivityInfoTableViewCell else { return cell }
+        
+        switch indexPath.row {
+        
+        case 0: return firstCell
+            
+        default: return secondCell
+            
+        }
+    }
+
+}

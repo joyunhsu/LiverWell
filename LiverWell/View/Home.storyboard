@@ -214,6 +214,9 @@
                                     <constraint firstAttribute="width" constant="24" id="yBU-ag-7OO"/>
                                 </constraints>
                                 <state key="normal" image="Icon_24px_Share"/>
+                                <connections>
+                                    <segue destination="lB1-gD-NbQ" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cqb-SI-5UD"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TrainAndStretch" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-SJ-fdb">
                                 <rect key="frame" x="105.5" y="584" width="164" height="20"/>
@@ -421,12 +424,158 @@
             </objects>
             <point key="canvasLocation" x="1084" y="-492.50374812593708"/>
         </scene>
+        <!--Share View Controller-->
+        <scene sceneID="NxM-8v-jqc">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="lB1-gD-NbQ" customClass="ShareViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r6D-Uf-qFY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7p5-M6-V2C">
+                                <rect key="frame" x="16" y="38" width="343" height="591"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-Nn-73A">
+                                        <rect key="frame" x="0.0" y="60" width="343" height="345"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="345" id="Uzf-Ym-wNN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="與好友分享成就！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqI-zR-u2I">
+                                        <rect key="frame" x="91.5" y="16" width="160" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="uWM-Tu-Dbo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                                        <color key="textColor" name="G1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOI-3u-WNj">
+                                        <rect key="frame" x="16" y="16" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="BZU-nz-YXl"/>
+                                            <constraint firstAttribute="width" constant="24" id="Fhx-Ij-G4I"/>
+                                        </constraints>
+                                        <state key="normal" image="Icon_Home_Dismiss"/>
+                                        <connections>
+                                            <action selector="dismissBtnPressed:" destination="lB1-gD-NbQ" eventType="touchUpInside" id="Uoe-3c-VQv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Aj-e4h">
+                                        <rect key="frame" x="90.5" y="421" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Jy3-Aj-e4h" secondAttribute="height" multiplier="1:1" id="gfs-Kv-eKc"/>
+                                        </constraints>
+                                        <state key="normal" image="Button_TodayStatus_Normal"/>
+                                        <state key="selected" image="Button_TodayStatus_Selected"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m8-nn-Uns">
+                                        <rect key="frame" x="180.5" y="421" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4m8-nn-Uns" secondAttribute="height" multiplier="1:1" id="MQg-ph-Qfz"/>
+                                        </constraints>
+                                        <state key="normal" image="Button_WeekData_Normal"/>
+                                        <state key="selected" image="Button_WeekData_Selected"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日狀態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkK-SN-UyA">
+                                        <rect key="frame" x="97.5" y="499" width="58" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="QKM-1V-h9g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="B1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本週數據" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8f-Oh-qfg">
+                                        <rect key="frame" x="187.5" y="499" width="58" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="PAf-75-NtF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="B1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEa-AJ-21I">
+                                        <rect key="frame" x="101.5" y="535" width="140" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="TQ7-SG-pSq"/>
+                                            <constraint firstAttribute="width" constant="140" id="e8f-Iz-N1j"/>
+                                        </constraints>
+                                        <state key="normal" title="分享">
+                                            <color key="titleColor" name="Orange"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lWBorderWidth">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lWBorderColor">
+                                                <color key="value" name="Orange"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="shareBtnPressed:" destination="lB1-gD-NbQ" eventType="touchUpInside" id="aA0-n7-C4Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Jy3-Aj-e4h" firstAttribute="top" secondItem="fkL-Nn-73A" secondAttribute="bottom" constant="16" id="1gP-Ae-GPG"/>
+                                    <constraint firstItem="XOI-3u-WNj" firstAttribute="top" secondItem="7p5-M6-V2C" secondAttribute="top" constant="16" id="3rW-hI-e2u"/>
+                                    <constraint firstItem="h8f-Oh-qfg" firstAttribute="centerX" secondItem="4m8-nn-Uns" secondAttribute="centerX" id="BQi-cJ-mao"/>
+                                    <constraint firstItem="gEa-AJ-21I" firstAttribute="centerX" secondItem="7p5-M6-V2C" secondAttribute="centerX" id="Msk-zz-Ilc"/>
+                                    <constraint firstItem="WkK-SN-UyA" firstAttribute="centerX" secondItem="Jy3-Aj-e4h" secondAttribute="centerX" id="NaK-md-S69"/>
+                                    <constraint firstItem="fkL-Nn-73A" firstAttribute="leading" secondItem="7p5-M6-V2C" secondAttribute="leading" id="ShD-mU-ALQ"/>
+                                    <constraint firstItem="4m8-nn-Uns" firstAttribute="leading" secondItem="Jy3-Aj-e4h" secondAttribute="trailing" constant="18" id="TF7-Bd-bFb"/>
+                                    <constraint firstItem="Jy3-Aj-e4h" firstAttribute="centerX" secondItem="7p5-M6-V2C" secondAttribute="centerX" constant="-45" id="bWT-4G-Cfg"/>
+                                    <constraint firstItem="WkK-SN-UyA" firstAttribute="top" secondItem="Jy3-Aj-e4h" secondAttribute="bottom" constant="6" id="f7B-Ev-vjK"/>
+                                    <constraint firstItem="fkL-Nn-73A" firstAttribute="top" secondItem="7p5-M6-V2C" secondAttribute="top" constant="60" id="fbf-hN-OjF"/>
+                                    <constraint firstItem="h8f-Oh-qfg" firstAttribute="top" secondItem="WkK-SN-UyA" secondAttribute="top" id="hzU-yy-Lj9"/>
+                                    <constraint firstItem="GqI-zR-u2I" firstAttribute="centerX" secondItem="7p5-M6-V2C" secondAttribute="centerX" id="j4F-fe-LRL"/>
+                                    <constraint firstItem="GqI-zR-u2I" firstAttribute="top" secondItem="7p5-M6-V2C" secondAttribute="top" constant="16" id="kVi-N0-hMO"/>
+                                    <constraint firstItem="4m8-nn-Uns" firstAttribute="top" secondItem="Jy3-Aj-e4h" secondAttribute="top" id="mH5-xc-WdM"/>
+                                    <constraint firstAttribute="bottom" secondItem="gEa-AJ-21I" secondAttribute="bottom" constant="20" id="mIp-f0-y0x"/>
+                                    <constraint firstAttribute="trailing" secondItem="fkL-Nn-73A" secondAttribute="trailing" id="yeX-YO-oBH"/>
+                                    <constraint firstItem="XOI-3u-WNj" firstAttribute="leading" secondItem="7p5-M6-V2C" secondAttribute="leading" constant="16" id="zbI-kS-01s"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hyb-2M-kd5" firstAttribute="trailing" secondItem="7p5-M6-V2C" secondAttribute="trailing" constant="16" id="YIP-iX-9bD"/>
+                            <constraint firstItem="Hyb-2M-kd5" firstAttribute="bottom" secondItem="7p5-M6-V2C" secondAttribute="bottom" constant="38" id="n8W-s9-0EN"/>
+                            <constraint firstItem="7p5-M6-V2C" firstAttribute="top" secondItem="Hyb-2M-kd5" secondAttribute="top" constant="18" id="nty-J6-7gl"/>
+                            <constraint firstItem="7p5-M6-V2C" firstAttribute="leading" secondItem="Hyb-2M-kd5" secondAttribute="leading" constant="16" id="pLD-jA-cce"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hyb-2M-kd5"/>
+                    </view>
+                    <connections>
+                        <outlet property="todayStatusBtn" destination="Jy3-Aj-e4h" id="bue-hV-gyh"/>
+                        <outlet property="weeklyStatusBtn" destination="4m8-nn-Uns" id="gWo-py-RuF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XY-FU-6fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855" y="-493"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background_Orange" width="375" height="555"/>
         <image name="Background_Oval" width="375" height="330"/>
+        <image name="Button_TodayStatus_Normal" width="72" height="72"/>
+        <image name="Button_TodayStatus_Selected" width="72" height="72"/>
+        <image name="Button_WeekData_Normal" width="72" height="72"/>
+        <image name="Button_WeekData_Selected" width="72" height="72"/>
         <image name="Icon_24px_Share" width="20" height="22"/>
         <image name="Icon_Home_Complete" width="20" height="20"/>
+        <image name="Icon_Home_Dismiss" width="24" height="24"/>
         <image name="Icon_Home_WatchTV" width="165" height="119"/>
         <image name="TrainAndStretch" width="164" height="14"/>
         <namedColor name="B1">

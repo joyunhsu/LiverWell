@@ -18,9 +18,11 @@ class RestViewController: UIViewController {
     @IBOutlet weak var barProgressView: UIProgressView!
     
     var timer = Timer()
+    
     var counter = 5
     
     var currentTime: Float = 0.0
+    
     var maxTime: Float = 0.0
     
     override func viewDidLoad() {
