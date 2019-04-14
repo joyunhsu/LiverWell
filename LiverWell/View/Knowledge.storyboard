@@ -261,6 +261,9 @@
                                         </constraints>
                                         <state key="normal" image="Icon_Knowledge_Unmarked"/>
                                         <state key="selected" image="Icon_Knowledge_Marked"/>
+                                        <connections>
+                                            <action selector="bookMarkBtnPressed:" destination="ukl-Hp-9N0" eventType="touchUpInside" id="wTc-8b-iRQ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="減重的敵人都是白色的：白飯、白土司、白砂糖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-AI-Ojb">
                                         <rect key="frame" x="16" y="59" width="311" height="53"/>
@@ -321,6 +324,7 @@
                         <viewLayoutGuide key="safeArea" id="PFZ-aS-Wu1"/>
                     </view>
                     <connections>
+                        <outlet property="bookMarkBtn" destination="eWc-iW-6Hp" id="ic9-BP-fKY"/>
                         <outlet property="contentLabel" destination="824-QJ-DGe" id="i30-VK-Bu1"/>
                         <outlet property="titleLabel" destination="L7b-AI-Ojb" id="E5W-qp-tAs"/>
                     </connections>
