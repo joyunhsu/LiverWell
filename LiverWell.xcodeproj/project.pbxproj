@@ -51,6 +51,8 @@
 		6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */; };
 		6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */; };
 		6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */; };
+		6EE01FB7226433360026C911 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB6226433360026C911 /* Auth.storyboard */; };
+		6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -108,6 +110,8 @@
 		6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		6EAA7A35225AF84B0054AA69 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		6EE01FB6226433360026C911 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				6EAA7A39225B31320054AA69 /* Profile */,
 				6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */,
 				6EFDDEA72251E41100C1B8B3 /* Main.storyboard */,
+				6EE01FB6226433360026C911 /* Auth.storyboard */,
 				6E49C98F2253DA08006536A2 /* Home.storyboard */,
 				6E49C9912253DA1A006536A2 /* Activity.storyboard */,
 				6E49C9932253DA28006536A2 /* Knowledge.storyboard */,
@@ -355,6 +360,7 @@
 				6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */,
 				6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */,
 				6EFDDEAF2251E41300C1B8B3 /* Info.plist */,
+				6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */,
 			);
 			path = LiverWell;
 			sourceTree = "<group>";
@@ -439,9 +445,11 @@
 				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
+				6EE01FB7226433360026C911 /* Auth.storyboard in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
 				6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */,
+				6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,14 +506,18 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiverWell/Pods-LiverWell-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

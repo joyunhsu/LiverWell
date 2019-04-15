@@ -8,22 +8,6 @@
 
 import UIKit
 
-struct Workout {
-    
-    let title: String
-    
-    let info: String
-    
-    let totalRepeat: Int
-    
-    let totalCount: Int
-    
-    let perDuration: TimeInterval
-    
-    let workoutImage: [UIImage]
-    
-}
-
 // swiftlint:disable identifier_name
 class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
@@ -53,18 +37,22 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         Workout(
             title: "看電視順便做",
             info: "轉到手臂有明顯緊繃感為止",
-            totalRepeat: 3,
+            totalRepeat: 1,
             totalCount: 3,
-            perDuration: 6,
-            workoutImage: [#imageLiteral(resourceName: "01毛巾捲腹運動1.png"), #imageLiteral(resourceName: "01毛巾捲腹運動2.png")]
+            perDuration: 2,
+            workoutImage: [#imageLiteral(resourceName: "01毛巾捲腹運動1.png"), #imageLiteral(resourceName: "01毛巾捲腹運動2.png")],
+            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+            practiceAnnotation: nil
         ),
         Workout(
             title: "預防腰痛",
             info: "轉到手臂有明顯緊繃感為止",
-            totalRepeat: 2,
-            totalCount: 5,
-            perDuration: 4,
-            workoutImage: [#imageLiteral(resourceName: "02反向高抬腿1.png"), #imageLiteral(resourceName: "02反向高抬腿2.png")]
+            totalRepeat: 1,
+            totalCount: 4,
+            perDuration: 3,
+            workoutImage: [#imageLiteral(resourceName: "02反向高抬腿1.png"), #imageLiteral(resourceName: "02反向高抬腿2.png")],
+            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+            practiceAnnotation: nil
         )
     ]
     
@@ -85,9 +73,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         soundIsOn = !soundIsOn
         
         if soundIsOn == true {
+            
             soundBtn.isSelected = false
+            
         } else {
+            
             soundBtn.isSelected = true
+            
         }
         
     }

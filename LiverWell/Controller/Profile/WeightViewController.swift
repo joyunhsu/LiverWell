@@ -34,10 +34,11 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         }
         
         let lineDataSet = LineChartDataSet(values: values, label: "Weight Chart")
-        lineDataSet.circleRadius = 3
+        lineDataSet.circleRadius = 2.5
         lineDataSet.circleColors = [UIColor.B1!]
         lineDataSet.circleHoleRadius = 0
-        lineDataSet.lineWidth = 6
+        lineDataSet.lineWidth = 2.5
+        lineDataSet.colors = [UIColor.Orange!]
         
         let gradient = getGradientFilling()
         lineDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
