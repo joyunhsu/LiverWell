@@ -53,6 +53,7 @@
 		6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */; };
 		6EE01FB7226433360026C911 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB6226433360026C911 /* Auth.storyboard */; };
 		6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */; };
+		6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBA22656C580026C911 /* FirebaseManager.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -112,6 +113,7 @@
 		6EAA7A36225AF84B0054AA69 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		6EE01FB6226433360026C911 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6EE01FBA22656C580026C911 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				6EA8CBDB22536695000859FD /* Activity */,
 				6EA2EA6F2254940F0039B39F /* Knowledge */,
 				6EA2EA702254942B0039B39F /* Profile */,
+				6EE01FBA22656C580026C911 /* FirebaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,8 +509,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LiverWell/Pods-LiverWell-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -515,8 +520,10 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +568,7 @@
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
 				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
+				6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */,
 				6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
