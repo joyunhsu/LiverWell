@@ -34,7 +34,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     var counter = 1
     
     var workoutSet = [
-        Workout(
+        WorkoutSample(
             title: "看電視順便做",
             info: "轉到手臂有明顯緊繃感為止",
             totalRepeat: 1,
@@ -44,7 +44,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
             practiceAnnotation: nil
         ),
-        Workout(
+        WorkoutSample(
             title: "預防腰痛",
             info: "轉到手臂有明顯緊繃感為止",
             totalRepeat: 1,

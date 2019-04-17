@@ -1,63 +1,63 @@
 {
-  "ActivityVC": [
+  "activityVC": [
     {
-      "肌力訓練": {
-        "Title": "一點一滴訓練肌肉\n打造健康的易瘦體質",
-        "Caption": "肌肉消耗的熱量是脂肪的十倍。活化肌肉，就算只是走路時抬頭挺胸、縮肚子也會帶來效果！",
-        "Workout": [
+      "train": {
+        "title": "一點一滴訓練肌肉\n打造健康的易瘦體質",
+        "caption": "肌肉消耗的熱量是脂肪的十倍。活化肌肉，就算只是走路時抬頭挺胸、縮肚子也會帶來效果！",
+        "workout": [
           {
-            "Title": "看電視一邊做",
-            "ID": "while-watch-tv",
-            "Icon": "電視Icon",
-            "Description": "看電視時順便動一動，肌力訓練好簡單！",
-            "WorkoutSet": {
+            "title": "看電視一邊做",
+            "id": "while-watch-tv",
+            "icon": "Icon_Workout_TV",
+            "description": "看電視時順便動一動，肌力訓練好簡單！",
+            "workoutSet": {
               "手臂平舉旋轉": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_01ArmSpin1%403x.png?alt=media&token=738a1098-de80-4cd1-bec8-91546b42aea4",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_01ArmSpin2%403x.png?alt=media&token=a8439b9a-6895-4724-9dd4-75265782e581"
                 ],
-                "Description": "1. 雙臂向兩側伸直，雙手握拳，豎起大拇指。\n2. 維持雙臂高度，慢慢將大拇指往下轉，轉到手臂有明顯緊繃感為止。上下轉動算一次。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 4,
-                "Annotation": [
+                "description": "1. 雙臂向兩側伸直，雙手握拳，豎起大拇指。\n2. 維持雙臂高度，慢慢將大拇指往下轉，轉到手臂有明顯緊繃感為止。上下轉動算一次。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
                   "轉動手腕時，肩膀可能會發出喀擦喀擦的聲響，因使用到平常少用的肌肉所致",
                   "不疼痛為原則，適度調整動作：如果覺得痛，可以調整手臂高度，或是不要轉動整個手臂"
                 ]
               },
               "手肘左右拉伸": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_02ArmStretch1%403x.png?alt=media&token=30ba6385-f53a-463f-a951-a7679f903f74",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_02ArmStretch2%403x.png?alt=media&token=207abd9e-b6b9-4341-a3cd-0b47e011361d"
                 ],
-                "Description": "1. 抬頭挺胸，雙手十指緊扣放後腦勺。上半身保持不動，將手肘往右下方拉，盡量慢慢拉到不能拉為止。\n2. 換邊，依相同方式將手肘往左下方拉。左右來回算一組。",
-                "Repeat": 2,
-                "Count": 10,
-                "PerDuration": 4,
-                "Annotation": [
+                "description": "1. 抬頭挺胸，雙手十指緊扣放後腦勺。上半身保持不動，將手肘往右下方拉，盡量慢慢拉到不能拉為止。\n2. 換邊，依相同方式將手肘往左下方拉。左右來回算一組。",
+                "repeat": 2,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
                   "以不疼痛為原則，適度調整動作：如果雙手十指緊扣，置於頭部後方有困難，可以抓毛巾試試看。"
                 ]
               },
               "平舉手臂後拉": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_03ArmToBack1%403x.png?alt=media&token=984954c1-c2c8-4ce1-82a3-217e030f8fce",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_03ArmToBack2%403x.png?alt=media&token=c0e38972-659f-4e1d-a011-fcf6d5785716"
                 ],
-                "Description": "1. 雙手手肘彎曲，舉至肩膀高度、胸部上方位置。雙手指尖可輕輕交疊或相觸。\n2. 雙手手肘向後推，感覺兩邊肩胛骨好像要碰在一起。",
-                "Repeat": 2,
-                "Count": 10,
-                "PerDuration": 4
+                "description": "1. 雙手手肘彎曲，舉至肩膀高度、胸部上方位置。雙手指尖可輕輕交疊或相觸。\n2. 雙手手肘向後推，感覺兩邊肩胛骨好像要碰在一起。",
+                "repeat": 2,
+                "count": 10,
+                "perDuration": 4
               },
               "肩胛骨伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_04ArmLift1%403x.png?alt=media&token=6d708e3d-c3d3-4f75-a6f2-36fd821738fc",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_1TV_04ArmLift2%403x.png?alt=media&token=0cd3fbc8-6fa5-479a-bfa0-53e64f7c778c"
                 ],
-                "Description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-                "Repeat": 2,
-                "Count": 12,
-                "PerDuration": 4,
-                "Annotation": [
+                "description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+                "repeat": 2,
+                "count": 12,
+                "perDuration": 4,
+                "annotation": [
                   "動作時，注意頸部不可過度用力，盡量放鬆。避免低頭、壓迫頸椎。",
                   "以不疼痛為原則，適度調整動作：身體柔軟度好的人可以縮短毛巾間距。反之，身體僵硬的人則拉大間距，待動作熟悉後再慢慢縮短毛巾長度。"
                 ]
@@ -65,215 +65,215 @@
             }
           },
           {
-            "Title": "預防腰痛",
-            "ID": "prevent-backPain",
-            "Icon": "腰痛Icon",
-            "Description": "每天簡單做，腰痛遠離我！",
-            "WorkoutSet": {
+            "title": "預防腰痛",
+            "id": "prevent-backPain",
+            "icon": "Icon_Workout_BackPain",
+            "description": "每天簡單做，腰痛遠離我！",
+            "workoutSet": {
               "毛巾捲腹運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_01Towel1%403x.png?alt=media&token=e5285431-d0df-4ace-a41b-985c89a47bec",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_01Towel2%403x.png?alt=media&token=7ca91d2c-9b0f-47f6-87e6-2dbc7d9044dc"
                 ],
-                "Description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
-                "Repeat": 3,
-                "Count": 15,
-                "PerDuration": 6,
-                "Annotation": [
+                "description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": [
                   "請勿使用頸部的力量起身，盡量以腹部的力量，以免受傷。"
                 ]
               },
               "反向高抬腿": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_02BackThigh1%403x.png?alt=media&token=4224ac6e-d994-43ae-922b-6f6a85d1df96",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_02BackThigh2%403x.png?alt=media&token=af536373-f421-44e8-8b9c-0fe3127dc257"
                 ],
-                "Description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 4
+                "description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4
               },
               "橋式運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_03Bridge1%403x.png?alt=media&token=3578b4cf-83bb-4575-b29e-430e22e66966",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_03Bridge2%403x.png?alt=media&token=eb62f4a2-a02c-49ba-866e-205a1edb03c4"
                 ],
-                "Description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
-                "Repeat": 3,
-                "Count": 5,
-                "PerDuration": 10
+                "description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
+                "repeat": 3,
+                "count": 5,
+                "perDuration": 10
               },
               "靠牆深蹲": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_04BackWall1%403x.png?alt=media&token=e4dd0830-a64a-46c0-905f-c85f6c26d5fd",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_04BackWall2%403x.png?alt=media&token=94fee0a6-5ab6-4c03-8306-c04e1421ed9c"
                 ],
-                "Description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 6,
-                "Annotation": null
+                "description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 6,
+                "annotation": null
               }
             }
           },
           {
-            "Title": "全身訓練",
-            "ID": "wholeBody-training",
-            "Icon": "全身Icon",
-            "Description": "活絡身心，全身一起動一動！",
-            "WorkoutSet": {
+            "title": "全身訓練",
+            "id": "wholeBody-training",
+            "icon": "Icon_Workout_WholeBody",
+            "description": "活絡身心，全身一起動一動！",
+            "workoutSet": {
               "早安彎腰式": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_01Morning1%403x.png?alt=media&token=a7cfdd15-ac01-4c6f-84cf-24fd8fff2fc2",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_01Morning2%403x.png?alt=media&token=14db219e-5540-4428-aa25-e49c8ccb62d7"
                 ],
-                "Description": "1. 站姿，雙腳打開與骨盆同寬，雙臂交叉於肩上。\n2. 腰背挺直，膝蓋可自然彎曲，像鞠躬般慢慢彎腰呈現90度。完成後用腰部的力量慢慢抬起上半身，回到動作1的姿勢。",
-                "Repeat": 3,
-                "Count": 20,
-                "PerDuration": 6,
-                "Annotation": null
+                "description": "1. 站姿，雙腳打開與骨盆同寬，雙臂交叉於肩上。\n2. 腰背挺直，膝蓋可自然彎曲，像鞠躬般慢慢彎腰呈現90度。完成後用腰部的力量慢慢抬起上半身，回到動作1的姿勢。",
+                "repeat": 3,
+                "count": 20,
+                "perDuration": 6,
+                "annotation": null
               },
               "大風車運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_02Windmill1%403x.png?alt=media&token=e2b56a30-f4a8-4de1-937f-347b0c558257",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_02Windmill2%403x.png?alt=media&token=b9ed020d-ba89-491b-9082-7a84999bd830"
                 ],
-                "Description": "1. 呈大字型站姿，雙手往兩側伸直。\n2. 彎腰，同時用右手指尖碰左腳踝，讓雙臂畫出半圓形，動作越大越好。進行時雙臂維持伸直狀態。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 6,
-                "Annotation": null
+                "description": "1. 呈大字型站姿，雙手往兩側伸直。\n2. 彎腰，同時用右手指尖碰左腳踝，讓雙臂畫出半圓形，動作越大越好。進行時雙臂維持伸直狀態。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 6,
+                "annotation": null
               },
               "反向高抬腿": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_03BackThigh1%403x.png?alt=media&token=3ddc7ffc-28de-4dbe-8c78-75a73ab9eabb",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_03BackThigh2%403x.png?alt=media&token=b6e666dd-bbce-490b-baf5-1b37a1c46591"
                 ],
-                "Description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 4,
-                "Annotation": null
+                "description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": null
               },
               "蜥蜴運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_04Lizard1%403x.png?alt=media&token=f7c4fa1d-f4e1-44b0-90f6-470b680f51d0",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_3Whole_04Lizard2%403x.png?alt=media&token=fed71582-826b-450f-b009-2b2de25e797a"
                 ],
-                "Description": "1. 站姿，十指緊扣置於後腦勺。\n2. 保持身體重心，將身體往側邊捲起，讓右手肘與右膝相碰充分延展側腹部。完成後換邊。",
-                "Repeat": 3,
-                "Count": 15,
-                "PerDuration": 4,
-                "Annotation": null
+                "description": "1. 站姿，十指緊扣置於後腦勺。\n2. 保持身體重心，將身體往側邊捲起，讓右手肘與右膝相碰充分延展側腹部。完成後換邊。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 4,
+                "annotation": null
               }
             }
           },
           {
-            "Title": "上半身訓練",
-            "ID": "upperBody-training",
-            "Icon": "上半身Icon",
-            "Description": "聚焦上半身，不費力！",
-            "WorkoutSet": {
+            "title": "上半身訓練",
+            "id": "upperBody-training",
+            "icon": "Icon_Workout_UpperBody",
+            "description": "聚焦上半身，不費力！",
+            "workoutSet": {
               "肩胛骨伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_01ArmLift1%403x.png?alt=media&token=9bc88996-d79a-456a-8098-3498686d1876",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_01ArmLift2%403x.png?alt=media&token=ff2ca6b5-c413-44cf-a66b-dc8ad264eef4"
                 ],
-                "Description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 4,
-                "Annotation": [
+                "description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
                   "動作時，注意頸部不可過度用力，盡量放鬆。避免低頭、壓迫頸椎。", 
                   "以不疼痛為原則，適度調整動作：身體柔軟度好的人可以縮短毛巾間距。反之，身體僵硬的人則拉大間距，待動作熟悉後再慢慢縮短毛巾長度。"
                 ]
               },
               "晾衣繩運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_02RopeMove1%403x.png?alt=media&token=340e9237-4162-435a-af4b-00b3da2ce6ef",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_02RopeMove2%403x.png?alt=media&token=ef83d005-14c4-41b1-8587-2bc38637fbd3"
                 ],
-                "Description": "1. 站姿，雙腳張開與肩同寬，雙手往兩側伸直。\n2. 下半身固定不動，將上半身往右推，進行時手臂不可晃動。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 0,
-                "Annotation": null
+                "description": "1. 站姿，雙腳張開與肩同寬，雙手往兩側伸直。\n2. 下半身固定不動，將上半身往右推，進行時手臂不可晃動。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 0,
+                "annotation": null
               },
               "手碰手側腹延展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_03HandtoHand1%403x.png?alt=media&token=3bd3c918-2cbd-4ed1-902c-bc9b11013dc5",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_03HandtoHand2%403x.png?alt=media&token=444e84ca-7874-401e-8f2f-05e000a05c73"
                 ],
-                "Description": "1. 站姿，雙腳打開與肩同寬，雙手手肘彎曲並抬起至肩膀高度；雙手指尖輕輕交疊或相觸即可。\n2. 下半身保持不動，將上半身向右彎，盡量伸展側腹部。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 4,
-                "Annotation": null
+                "description": "1. 站姿，雙腳打開與肩同寬，雙手手肘彎曲並抬起至肩膀高度；雙手指尖輕輕交疊或相觸即可。\n2. 下半身保持不動，將上半身向右彎，盡量伸展側腹部。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": null
               },
               "毛巾捲腹運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_04Towel1%403x.png?alt=media&token=7cc71a9e-fe7a-4362-b968-cde86f377b98",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_4Upper_04Towel2%403x.png?alt=media&token=0f156345-94f2-4458-826b-951a21e0135c"
                 ],
-                "Description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與骨盆同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
-                "Repeat": 3,
-                "Count": 15,
-                "PerDuration": 6,
-                "Annotation": [
+                "description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與骨盆同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": [
                   "請勿使用頸部的力量起身，盡量以腹部的力量，以免受傷。"
                 ]
               }
             }
           },
           {
-            "Title": "下半身訓練",
-            "ID": "lowerBody-training",
-            "Icon": "下半身Icon",
-            "Description": "",
-            "WorkoutSet": {
+            "title": "下半身訓練",
+            "id": "lowerBody-training",
+            "icon": "Icon_Workout_LowerBody",
+            "description": "",
+            "workoutSet": {
               "躺姿側抬腿": {
                 "Image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_01LegLift1%403x.png?alt=media&token=03777d00-4a3b-48c3-9341-57b2b0f0c5ac",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_01LegLift2%403x.png?alt=media&token=51e45db5-de86-432d-b949-70d0c39580f0"
                 ],
-                "Description": "1. 右側躺，緊貼地面的右腳彎成直角，左腳伸直盡可能和上半身呈一直線。\n2. 用手摸摸看側腹部和大腿外側肌肉是否有出力，同時慢慢將左腳向上抬起。",
-                "Repeat": 2,
-                "Count": 15,
-                "PerDuration": 6,
-                "Annotation": null
+                "description": "1. 右側躺，緊貼地面的右腳彎成直角，左腳伸直盡可能和上半身呈一直線。\n2. 用手摸摸看側腹部和大腿外側肌肉是否有出力，同時慢慢將左腳向上抬起。",
+                "repeat": 2,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": null
               },
               "橋式運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_02Bridge1%403x.png?alt=media&token=9139b901-fdbb-4f01-b07b-ee2ab7c0d812",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_02Bridge2%403x.png?alt=media&token=9431c87a-4029-486d-9934-e59eae63dded"
                 ],
-                "Description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
-                "Repeat": 3,
-                "Count": 15,
-                "PerDuration": 6,
-                "Annotation": null
+                "description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": null
               },
               "挺胸弓箭步": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_03Arrow1%403x.png?alt=media&token=2846f1a4-443a-4f97-9dac-6bfc845dd803",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_5Lower_03Arrow2%403x.png?alt=media&token=5a4b07dc-6569-4adb-aaa2-c41efa905be4"
                 ],
-                "Description": "1. 左腳在前，右腳在後站開，左腳腳掌緊貼地面，右腳腳跟抬起。十指緊扣放在後腦勺，上半身重心稍微往後躺，將重心放在右後腳上。\n2. 向下蹲坐，讓右腳膝蓋近乎碰到地面；保持上半身挺直穩定，勿歪斜。",
-                "Repeat": 3,
-                "Count": 15,
-                "PerDuration": 8,
-                "Annotation": null
+                "description": "1. 左腳在前，右腳在後站開，左腳腳掌緊貼地面，右腳腳跟抬起。十指緊扣放在後腦勺，上半身重心稍微往後躺，將重心放在右後腳上。\n2. 向下蹲坐，讓右腳膝蓋近乎碰到地面；保持上半身挺直穩定，勿歪斜。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 8,
+                "annotation": null
               },
               "靠牆深蹲": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_04BackWall1%403x.png?alt=media&token=e4dd0830-a64a-46c0-905f-c85f6c26d5fd",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FTrain_2BackPain_04BackWall2%403x.png?alt=media&token=94fee0a6-5ab6-4c03-8306-c04e1421ed9c"
                 ],
-                "Description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
-                "Repeat": 3,
-                "Count": 10,
-                "PerDuration": 8,
-                "Annotation": [
+                "description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 8,
+                "annotation": [
                   "大腿和小腿之間的夾角不要小於90度，蹲的太深會明顯增加髕股關節的壓力。"
                 ]
               }
@@ -283,148 +283,148 @@
       }
     },
     {
-      "伸展運動": {
-        "Title": "伸展活絡身體\n提升基礎代謝三成",
-        "Caption": "年過四十的減肥適合用緩和運動提升代謝，而不是吃力的運動減重。善用零碎時間做做伸展運動吧！",
-        "Workout": [
+      "stretch": {
+        "title": "伸展活絡身體\n提升基礎代謝三成",
+        "caption": "年過四十的減肥適合用緩和運動提升代謝，而不是吃力的運動減重。善用零碎時間做做伸展運動吧！",
+        "workout": [
           {
-            "Title": "久坐伸展",
-            "ID": "longSit-stretch",
-            "Icon": "久坐Icon",
-            "Description": "",
-            "WorkoutSet": {
+            "title": "久坐伸展",
+            "id": "longSit-stretch",
+            "icon": "Icon_Workout_LongSit",
+            "description": "",
+            "workoutSet": {
               "上半身轉體": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_01UpperSpin1%403x.png?alt=media&token=73434665-de9a-4c2c-87ba-aaa947739fa1",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_01UpperSpin2%403x.png?alt=media&token=1faa0a54-34c6-46ad-b3c0-d7a2a2b2da4e"
                 ],
-                "Description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "立姿彎腰": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_02Bow1%403x.png?alt=media&token=0cf9614e-401c-45db-9eb8-2171b37eace2",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_02Bow2%403x.png?alt=media&token=c45e71bf-d0fc-48f1-8454-e9cde3f147f7"
                 ],
-                "Description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "背部肌肉伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_03SitPush1%403x.png?alt=media&token=dd8a7015-dc45-4ad4-bfb2-92f97a8c2529",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_03SitPush2%403x.png?alt=media&token=3ef3998b-7f02-4201-b8d9-5d83fd1e9665"
                 ],
-                "Description": "1. 坐在椅子上，雙手抓住桌子邊緣。\n2. 下巴內收後，使力將坐著的椅子慢慢往後推。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 10
+                "description": "1. 坐在椅子上，雙手抓住桌子邊緣。\n2. 下巴內收後，使力將坐著的椅子慢慢往後推。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
               },
               "扶椅子伸展腿部": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_04LegStretch1%403x.png?alt=media&token=708c8c50-7a4d-4af1-8118-aba5043e358e",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_6Sitting_04LegStretch2%403x.png?alt=media&token=b882031b-fe0e-4f10-bcf5-7d4c93e4f180"
                 ],
-                "Description": "1. 站姿，手扶椅背。右腳向後跨開，重心放在左側。\n2. 膝蓋慢慢彎曲下壓，使右側膝蓋伸直且腳後跟緊貼地面。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 站姿，手扶椅背。右腳向後跨開，重心放在左側。\n2. 膝蓋慢慢彎曲下壓，使右側膝蓋伸直且腳後跟緊貼地面。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               }
             }
           },
           {
-            "Title": "久站伸展",
-            "ID": "longStand-stretch",
-            "Icon": "久站Icon",
-            "Description": "",
-            "WorkoutSet": {
+            "title": "久站伸展",
+            "id": "longStand-stretch",
+            "icon": "Icon_Workout_LongStand",
+            "description": "",
+            "workoutSet": {
               "直膝伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_01FootStretch1%403x.png?alt=media&token=727af975-5e13-4cdf-bbac-548e85dd08e0",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_01FootStretch2%403x.png?alt=media&token=d924ce97-a4fe-440a-b585-d9d9927f2520"
                 ],
-                "Description": "1. 一腳膝蓋伸直，做出腳勾的動作。\n2. 挺直腰背讓肚子靠近大腿，伸展小腿、大腿後側的肌群。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 一腳膝蓋伸直，做出腳勾的動作。\n2. 挺直腰背讓肚子靠近大腿，伸展小腿、大腿後側的肌群。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "小腿前側伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_02FootPress1%403x.png?alt=media&token=71674b9a-6088-4e0c-9e56-5111a210ab67",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_02FootPress2%403x.png?alt=media&token=2d91fa4c-599e-4a39-a51b-bb83db6078b8"
                 ],
-                "Description": "1. 將腳背輕壓在台階上，做出腳板往下的踮腳尖動作。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 將腳背輕壓在台階上，做出腳板往下的踮腳尖動作。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "踮腳走": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_03TipWalk%403x.png?alt=media&token=a1e7c639-768e-4f68-a59b-c59c233de0ce"
                 ],
-                "Description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 10
+                "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
               },
               "勾腳走": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_7Standing_04TipWalk%403x.png?alt=media&token=5e876bd6-75ba-42a1-aa97-53c5163f201a"
                 ],
-                "Description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               }
             }
           },
           {
-            "Title": "睡前舒緩",
-            "ID": "before-sleep",
-            "Icon": "睡前Icon",
-            "Description": "",
-            "WorkoutSet": {
+            "title": "睡前舒緩",
+            "id": "before-sleep",
+            "icon": "Icon_Workout_BeforeSleep",
+            "description": "",
+            "workoutSet": {
               "雙腿內側伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_01SitBow1%403x.png?alt=media&token=93ac98e5-c7c2-4022-925b-d4976205f4cf",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_01SitBow2%403x.png?alt=media&token=5b866e8f-4efd-42f1-8f20-bb806f1f6dc7"
                 ],
-                "Description": "1. 盤腿坐下，雙腳腳底合併。用手抓著腳踝，盡量將腳跟往身體的方向拉。\n2. 上半身緩緩向前傾。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 盤腿坐下，雙腳腳底合併。用手抓著腳踝，盡量將腳跟往身體的方向拉。\n2. 上半身緩緩向前傾。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "臀部、後背、腹肌伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_02BackBow1%403x.png?alt=media&token=bb5bfb01-e01a-468e-8ff5-522a7caa575c",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_02BackBow2%403x.png?alt=media&token=ea929013-76bc-4e28-9bf8-057d04be0ac6"
                 ],
-                "Description": "1. 仰躺屈膝，雙手抱住膝蓋，緩緩地吸氣，維持二十至三十秒。\n2. 抬起頭，將視線對著肚子，依邊抬起臀部讓膝蓋更靠近身體，一邊緩緩地吐氣。維持二十至三十秒。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 仰躺屈膝，雙手抱住膝蓋，緩緩地吸氣，維持二十至三十秒。\n2. 抬起頭，將視線對著肚子，依邊抬起臀部讓膝蓋更靠近身體，一邊緩緩地吐氣。維持二十至三十秒。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               },
               "腰部轉體運動": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_03LaySpin1%403x.png?alt=media&token=90c33236-d155-4986-939b-c0ebedcd8f17",
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_03LaySpin2%403x.png?alt=media&token=d64978eb-6ba2-4746-9e42-866d80e1f43b"
                 ],
-                "Description": "1. 仰躺攤開雙手，立起膝蓋。\n2. 雙肩貼著床，將膝蓋向右邊倒下，頭部轉向左邊。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 10
+                "description": "1. 仰躺攤開雙手，立起膝蓋。\n2. 雙肩貼著床，將膝蓋向右邊倒下，頭部轉向左邊。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
               },
               "全身伸展": {
-                "Image": [
+                "image": [
                   "https://firebasestorage.googleapis.com/v0/b/liver-well.appspot.com/o/WorkoutImage%2FStretch_8Sleep_04Lay%403x.png?alt=media&token=9697f4f7-8a36-4ffd-b6e5-dc21150e6790"
                 ],
-                "Description": "1. 將枕頭或浴巾捲成圓筒形放在腰部下方， 仰躺舉起雙手，放鬆全身的力氣。維持二十至三十秒。",
-                "Repeat": 1,
-                "Count": 10,
-                "PerDuration": 15
+                "description": "1. 將枕頭或浴巾捲成圓筒形放在腰部下方， 仰躺舉起雙手，放鬆全身的力氣。維持二十至三十秒。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
               }  
             }
           }
@@ -432,47 +432,47 @@
       }
     }
   ],
-  "KnowledgeVC": [
+  "knowledgeVC": [
     {
-      "Category": "飲食",
-      "Title": "減重的敵人都是白色的：白飯、白土司、白砂糖",
-      "Content": "澱粉含有醣類，為人體重要營養來源，若都不吃含澱粉食物，身體、大腦將缺乏葡萄糖供應，體內會分泌酮體取代葡萄糖，而酮體能抑制食慾，所以這在減重初期確實有幫助。\n不過長期下來，這樣吃卻可能引起酮酸中毒，甚至腎功能受損，反而有損健康。在含澱粉食物選擇上，應挑糙米、地瓜、玉米等五穀根莖類，避開白麵包、白麵條、白飯、白饅頭等，因白色澱粉類食物易使體重增加不利減重。"
+      "category": "飲食",
+      "title": "減重的敵人都是白色的：白飯、白土司、白砂糖",
+      "content": "澱粉含有醣類，為人體重要營養來源，若都不吃含澱粉食物，身體、大腦將缺乏葡萄糖供應，體內會分泌酮體取代葡萄糖，而酮體能抑制食慾，所以這在減重初期確實有幫助。\n不過長期下來，這樣吃卻可能引起酮酸中毒，甚至腎功能受損，反而有損健康。在含澱粉食物選擇上，應挑糙米、地瓜、玉米等五穀根莖類，避開白麵包、白麵條、白飯、白饅頭等，因白色澱粉類食物易使體重增加不利減重。"
     },
     {
-      "Category": "飲食",
-      "Title": "料理方式的選擇，認識紅燈區：紅燈停綠燈區行！",
-      "Content": "",
-      "Image": ""
+      "category": "飲食",
+      "title": "料理方式的選擇，認識紅燈區：紅燈停綠燈區行！",
+      "content": "",
+      "image": ""
     },
     {
-      "Category": "飲食",
-      "Title": "改變進食順序就能瘦：先低GI食物，後高GI食物",
-      "Content": "分辨先後順序的指摽就是GI值(升糖指數)，先吃血糖值「緩慢」上升的低GI食品，再吃高GI食品。\n低GI的食品：海藻類、豆類、菇類、蔬菜類\n高GI的食品：白米、精製小麥、塊莖類"
+      "category": "飲食",
+      "title": "改變進食順序就能瘦：先低GI食物，後高GI食物",
+      "content": "分辨先後順序的指摽就是GI值(升糖指數)，先吃血糖值「緩慢」上升的低GI食品，再吃高GI食品。\n低GI的食品：海藻類、豆類、菇類、蔬菜類\n高GI的食品：白米、精製小麥、塊莖類"
     },
     {
-      "Category": "運動",
-      "Title": "每週運動九十分鐘、每天十五分鐘，助抗老化、減重",
-      "Content": "我們無法阻止年齡增長，但是可以控制隨著年齡增長而在肉體上發生的令人洩氣的狀態。有論文指出，能延長壽命的運動量是星期九十分鐘，換算成一天只要運動十五分鐘即可。聰明運用零碎時間，工作空檔做做伸展、睡前做舒緩伸展操，既然可以利用零碎時間「順便做」，就不用特地安排時間了。"
+      "category": "運動",
+      "title": "每週運動九十分鐘、每天十五分鐘，助抗老化、減重",
+      "content": "我們無法阻止年齡增長，但是可以控制隨著年齡增長而在肉體上發生的令人洩氣的狀態。有論文指出，能延長壽命的運動量是星期九十分鐘，換算成一天只要運動十五分鐘即可。聰明運用零碎時間，工作空檔做做伸展、睡前做舒緩伸展操，既然可以利用零碎時間「順便做」，就不用特地安排時間了。"
     },
     {
-      "Category": "運動",
-      "Title": "提升基礎代謝最快速的方式，是矯正姿勢",
-      "Content": "提升基礎代謝最快速的方式，就是矯正姿勢。訓練身上的小肌肉，想到的時候抬頭挺胸、挺直腰桿就能改變。試著刻意抬頭挺胸、爬樓梯取代搭電梯、工作空閒時做做伸展運動吧！一點一滴地訓練肌肉，打造健康易瘦體質。"
+      "category": "運動",
+      "title": "提升基礎代謝最快速的方式，是矯正姿勢",
+      "content": "提升基礎代謝最快速的方式，就是矯正姿勢。訓練身上的小肌肉，想到的時候抬頭挺胸、挺直腰桿就能改變。試著刻意抬頭挺胸、爬樓梯取代搭電梯、工作空閒時做做伸展運動吧！一點一滴地訓練肌肉，打造健康易瘦體質。"
     },
     {
-      "Category": "飲食",
-      "Title": "不吃東西睡不著？可以吃的宵夜點心",
-      "Content": "烹調簡單、天然清爽的食物，能避免加重腸胃負擔。例如穀物粥、蒟蒻湯麵／涼麵，低卡又有滿足感。或是低脂熱牛奶、無糖熱豆漿、烤半片全麥吐司塗微甜果醬等等。"
+      "category": "飲食",
+      "title": "不吃東西睡不著？可以吃的宵夜點心",
+      "content": "烹調簡單、天然清爽的食物，能避免加重腸胃負擔。例如穀物粥、蒟蒻湯麵／涼麵，低卡又有滿足感。或是低脂熱牛奶、無糖熱豆漿、烤半片全麥吐司塗微甜果醬等等。"
     },
     {
-      "Category": "飲食",
-      "Title": "護肝從吃做起：脂肪肝飲食注意事項",
-      "Content": "得了脂肪肝，飲食一定要忌口，否則病情會惡化。那麼脂肪肝不能吃什麼呢？脂肪肝患者一定要戒菸戒酒，油膩、油炸、辛辣食品不能或少吃。\n脂肪肝主要是因為過胖、喝酒等原因造成。脂肪肝患者提倡高維生素、低糖、低脂肪食物，常吃蔬菜、水果及含纖維素多的食物。改掉不良飲食習慣，保障一日三餐定時定量攝入。"
+      "category": "飲食",
+      "title": "護肝從吃做起：脂肪肝飲食注意事項",
+      "content": "得了脂肪肝，飲食一定要忌口，否則病情會惡化。那麼脂肪肝不能吃什麼呢？脂肪肝患者一定要戒菸戒酒，油膩、油炸、辛辣食品不能或少吃。\n脂肪肝主要是因為過胖、喝酒等原因造成。脂肪肝患者提倡高維生素、低糖、低脂肪食物，常吃蔬菜、水果及含纖維素多的食物。改掉不良飲食習慣，保障一日三餐定時定量攝入。"
     },
     {
-      "Category": "脂肪肝",
-      "Title": "認識脂肪肝：我有脂肪肝，到底要不要緊？",
-      "Content": "在台灣約有三成的人具有脂肪肝，其中絕大多數都是體重過重或肥胖的人。有些人雖然身材標準，但如果飲酒過量、合併特定藥物或疾病、攝取過多的醣類，都可能會引發脂肪肝。\n長期脂肪肝，可能導致肝臟慢性發炎，每五個患者就有一個會產生肝臟纖維化，最終也可能演變成肝硬化或肝癌。\n對於有脂肪肝的人，如果同時合併年紀大於 50歲、肥胖、糖尿病或高血壓、肝指數（ALT）在正常值兩倍以上；或是肝切片已經顯示有發炎情形，都是未來走向肝臟纖維化的高危險群。"
+      "category": "脂肪肝",
+      "title": "認識脂肪肝：我有脂肪肝，到底要不要緊？",
+      "content": "在台灣約有三成的人具有脂肪肝，其中絕大多數都是體重過重或肥胖的人。有些人雖然身材標準，但如果飲酒過量、合併特定藥物或疾病、攝取過多的醣類，都可能會引發脂肪肝。\n長期脂肪肝，可能導致肝臟慢性發炎，每五個患者就有一個會產生肝臟纖維化，最終也可能演變成肝硬化或肝癌。\n對於有脂肪肝的人，如果同時合併年紀大於 50歲、肥胖、糖尿病或高血壓、肝指數（ALT）在正常值兩倍以上；或是肝切片已經顯示有發炎情形，都是未來走向肝臟纖維化的高危險群。"
     }
   ]
 }

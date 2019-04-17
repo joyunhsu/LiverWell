@@ -18,7 +18,7 @@ class PracticeViewController: UIViewController, UICollectionViewDelegate, UITabl
     
     @IBOutlet weak var nextBtn: UIButton!
     
-    var workoutSet: [Workout]?
+//    var workoutSet: [Workout]?
 
     override func viewDidLoad() {
         super.viewDidLoad()

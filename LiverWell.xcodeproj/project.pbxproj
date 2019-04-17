@@ -54,6 +54,7 @@
 		6EE01FB7226433360026C911 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB6226433360026C911 /* Auth.storyboard */; };
 		6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */; };
 		6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBA22656C580026C911 /* FirebaseManager.swift */; };
+		6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -114,6 +115,7 @@
 		6EE01FB6226433360026C911 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EE01FBA22656C580026C911 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				6EA8CBDC225366BE000859FD /* ActivityManager.swift */,
 				6E49C98D2253D8FD006536A2 /* ActivityItem.swift */,
+				6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				6E9599B32258F7FE00BC1D9A /* UIColor+Extension.swift in Sources */,
 				6EF064D3226258A4004FB6A8 /* NavigationViewController.swift in Sources */,
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
+				6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */,
 				6EAA7A32225A7B740054AA69 /* DetailKnowledgeViewController.swift in Sources */,

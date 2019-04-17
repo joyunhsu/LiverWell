@@ -8,67 +8,27 @@
 
 import UIKit
 
-struct Workout {
-    
-    let title: String
-    
-    let info: String
-    
-    let totalRepeat: Int
-    
-    let totalCount: Int
-    
-    let perDuration: TimeInterval
-    
-    let workoutImage: [UIImage]
-    
-    let practiceDescription: String
-    
-    let practiceAnnotation: [String]?
-    
-}
+struct WorkoutSample {
 
-struct WorkoutJson: Codable {
-    
     let title: String
-    
+
     let info: String
-    
+
     let totalRepeat: Int
-    
+
     let totalCount: Int
-    
+
     let perDuration: Double
-    
-    let workoutImage: [String]
-    
+
+    let workoutImage: [UIImage]
+
     let practiceDescription: String
-    
+
     let practiceAnnotation: [String]?
-    
+
 }
 
 class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
-    
-    let workoutSetTest = [
-        WorkoutJson(title: "看電視順便做",
-                    info: "轉到手臂有明顯緊繃感為止",
-                    totalRepeat: 2,
-                    totalCount: 3,
-                    perDuration: 4,
-                    workoutImage: ["1", "2"],
-                    practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-                    practiceAnnotation: nil),
-        WorkoutJson(title: "預防腰痛",
-                    info: "轉到手臂有明顯緊繃感為止",
-                    totalRepeat: 3,
-                    totalCount: 5,
-                    perDuration: 4,
-                    workoutImage: ["1", "2"],
-                    practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-                    practiceAnnotation: nil)
-    
-    ]
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var indicatorView: UIView!
@@ -85,21 +45,25 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
     }
 
     let manager = ActivityManager()
+    
+    let workoutManager = WorkoutManager()
+    
+    var train: Train?
+    
+    var stretch: Train?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {
-            let jsonData = try JSONEncoder().encode(workoutSetTest)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            print(jsonString) // [{"sentence":"Hello world","lang":"en"},{"sentence":"Hallo Welt","lang":"de"}]
-            
-            // and decode it back
-            let decodedSentences = try JSONDecoder().decode([WorkoutJson].self, from: jsonData)
-            print(decodedSentences)
-        } catch { print(error) }
 
         scrollView.delegate = self
+        
+        workoutManager.getWorkout(activity: ActivityItems.train) { (train, error) in
+            self.train = train
+        }
+        
+        workoutManager.getWorkout(activity: ActivityItems.stretch) { (stretch, error) in
+            self.stretch = stretch
+        }
 
         let headerCellNib = UINib(nibName: "HeaderCollectionViewCell", bundle: nil)
 
