@@ -53,6 +53,10 @@ extension StretchSetupViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SetupActivityTableViewCell", for: indexPath)
         
         guard let setupCell = cell as? SetupActivityTableViewCell else { return cell }
+        
+        guard let workoutSet = workoutElement?.workoutSet[indexPath.row] else { return cell }
+        
+        setupCell.layoutView(image: workoutSet.thumbnail, title: workoutSet.title)
 
         return setupCell
 

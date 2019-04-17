@@ -63,24 +63,23 @@ class WorkoutManager {
 
 struct WorkoutElement: Codable {
     let description, icon, id, title: String
-    let workoutSet: [String: WorkoutSet]
+    let workoutSet: [WorkoutSet]
 }
 
 struct WorkoutSet: Codable {
+    let title: String
+    let thumbnail: String
     let count: Int
     let description: String
-    let workoutSetImage: [String]?
     let perDuration, workoutSetRepeat: Int
     let annotation: [String]?
-    let image: [String]?
+    let images: [String]
     
     enum CodingKeys: String, CodingKey {
-        case count, description
-        case workoutSetImage = "image"
+        case count, description, title, images, thumbnail
         case perDuration
         case workoutSetRepeat = "repeat"
         case annotation
-        case image = "Image"
     }
 }
 

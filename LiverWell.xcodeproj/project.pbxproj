@@ -56,6 +56,7 @@
 		6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBA22656C580026C911 /* FirebaseManager.swift */; };
 		6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */; };
 		6EE01FBF22671D000026C911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBE22671CFF0026C911 /* ViewController.swift */; };
+		6EE01FDF2267842C0026C911 /* KnowledgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FDE2267842C0026C911 /* KnowledgeManager.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -118,6 +119,7 @@
 		6EE01FBA22656C580026C911 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		6EE01FBE22671CFF0026C911 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6EE01FDE2267842C0026C911 /* KnowledgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeManager.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		6EA2EA6F2254940F0039B39F /* Knowledge */ = {
 			isa = PBXGroup;
 			children = (
+				6EE01FDE2267842C0026C911 /* KnowledgeManager.swift */,
 			);
 			path = Knowledge;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
+				6EE01FDF2267842C0026C911 /* KnowledgeManager.swift in Sources */,
 				6E9599B82259315C00BC1D9A /* SetupActivityTableViewCell.swift in Sources */,
 				6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */,
 				6E892A472260593100742339 /* RepeatCollectionViewCell.swift in Sources */,

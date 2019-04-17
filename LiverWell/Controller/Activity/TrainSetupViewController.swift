@@ -97,7 +97,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
 extension TrainSetupViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return workoutElement?.workoutSet.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +105,9 @@ extension TrainSetupViewController: UITableViewDataSource {
         
         guard let setupCell = cell as? SetupActivityTableViewCell else { return cell }
         
+        guard let workoutSet = workoutElement?.workoutSet[indexPath.row] else { return cell }
         
+        setupCell.layoutView(image: workoutSet.thumbnail, title: workoutSet.title)
 
         return setupCell
 

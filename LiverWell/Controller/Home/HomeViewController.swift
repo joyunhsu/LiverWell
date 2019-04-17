@@ -20,9 +20,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var weekProgressCollectionView: UICollectionView!
 
     let manager = HomeManager()
+    
+    let workoutManager = WorkoutManager()
+    
+    var trainElements: [WorkoutElement]? {
+        didSet {
+            workoutCollectionView.reloadData()
+        }
+    }
+    
+//    var stretchElements: [WorkoutElement]? {
+//        didSet {
+//            secondCollectionView.reloadData()
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, error) in
+            self?.trainElements = train
+        }
 
     }
 
@@ -32,6 +50,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
             let desVC = mainStoryboard.instantiateViewController(withIdentifier: "TrainSetupViewController")
             guard let trainVC = desVC as? TrainSetupViewController else { return }
+            trainVC.loadViewIfNeeded()
             self.present(trainVC, animated: true)
 
         }
@@ -45,7 +64,8 @@ extension HomeViewController: UICollectionViewDataSource {
 
         if collectionView == workoutCollectionView {
 
-            return manager.groups[1].items.count
+//            return manager.groups[1].items.count
+            return trainElements?.count ?? 0
 
         } else if collectionView == weekProgressCollectionView {
 
