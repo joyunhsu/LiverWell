@@ -29,6 +29,10 @@ struct WorkoutSample {
 }
 
 class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
+    
+    deinit {
+        print("ActivityVC deinit")
+    }
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var indicatorView: UIView!
@@ -48,21 +52,29 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
     
     let workoutManager = WorkoutManager()
     
-    var train: Train?
+    var trainElements: [WorkoutElement]? {
+        didSet {
+            firstCollectionView.reloadData()
+        }
+    }
     
-    var stretch: Train?
+    var stretchElements: [WorkoutElement]? {
+        didSet {
+            secondCollectionView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         scrollView.delegate = self
         
-        workoutManager.getWorkout(activity: ActivityItems.train) { (train, error) in
-            self.train = train
+        workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, error) in
+            self?.trainElements = train
         }
         
-        workoutManager.getWorkout(activity: ActivityItems.stretch) { (stretch, error) in
-            self.stretch = stretch
+        workoutManager.getWorkout(activity: ActivityItems.stretch) { [weak self] (stretch, error) in
+            self?.stretchElements = stretch
         }
 
         let headerCellNib = UINib(nibName: "HeaderCollectionViewCell", bundle: nil)
@@ -159,22 +171,24 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
         if let trainDestination = segue.destination as? TrainSetupViewController {
 
             var indexPath = self.firstCollectionView.indexPathsForSelectedItems?.first
-//            let itemNumber: Int = indexPath!.item
-
-            let passItem = manager.groups[0].items[indexPath!.item]
-
-            trainDestination.navTitle = passItem.title
-            print(passItem.title)
+            
+            guard let trainElements = trainElements else { return }
+            
+            let passItem = trainElements[indexPath!.row]
+            
+            trainDestination.workoutElement = passItem
+            
         }
 
         if let stretchDestination = segue.destination as? StretchSetupViewController {
 
             var indexPath = self.secondCollectionView.indexPathsForSelectedItems?.first
+            
+            guard let stretchElements = stretchElements else { return }
+            
+            let passItem = stretchElements[indexPath!.row]
 
-            let passItem = manager.groups[1].items[indexPath!.item]
-
-            stretchDestination.navTitle = passItem.title
-            print(passItem.title)
+            stretchDestination.workoutElement = passItem
 
         }
     }
@@ -197,9 +211,9 @@ extension ActivityViewController: UICollectionViewDataSource {
             
             switch collectionView {
                 
-            case firstCollectionView: return manager.groups[0].items.count
+            case firstCollectionView: return trainElements?.count ?? 0
                 
-            case secondCollectionView: return manager.groups[1].items.count
+            case secondCollectionView: return stretchElements?.count ?? 0
                 
             default: return 0
                 
@@ -262,9 +276,11 @@ extension ActivityViewController: UICollectionViewDataSource {
                 
                 guard let trainCell = cell as? ActivityCollectionViewCell else { return cell }
                 
-                let trainItems = manager.groups[0].items[indexPath.row]
+                guard let trainElements = trainElements else { return cell }
                 
-                trainCell.layoutView(title: trainItems.title, image: trainItems.image)
+                let trainItems = trainElements[indexPath.row]
+                
+                trainCell.layoutView(title: trainItems.title, image: trainItems.icon)
                 
                 return trainCell
                 
@@ -277,9 +293,11 @@ extension ActivityViewController: UICollectionViewDataSource {
                 
                 guard let stretchCell = cell as? ActivityCollectionViewCell else { return cell }
                 
-                let stretchItems = manager.groups[1].items[indexPath.row]
+                guard let stretchElements = stretchElements else { return cell }
                 
-                stretchCell.layoutView(title: stretchItems.title, image: stretchItems.image)
+                let stretchItems = stretchElements[indexPath.row]
+                
+                stretchCell.layoutView(title: stretchItems.title, image: stretchItems.icon)
                 
                 return stretchCell
                 

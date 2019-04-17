@@ -43,6 +43,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="exerciseImageView" destination="PN7-hO-3ZL" id="du8-wb-2GW"/>
+                <outlet property="exerciseTitle" destination="H1w-CT-UIY" id="FIs-he-avz"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

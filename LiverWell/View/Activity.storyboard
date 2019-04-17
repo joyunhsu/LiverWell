@@ -371,6 +371,8 @@
                         <viewLayoutGuide key="safeArea" id="tN8-Vn-h6f"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="ShM-7k-gG9" id="dly-xD-Cfw"/>
+                        <outlet property="iconImageView" destination="jiD-Kw-jsP" id="3ll-1y-oMc"/>
                         <outlet property="navBarItem" destination="sxF-Vi-Lig" id="RGy-Ex-MLF"/>
                         <outlet property="startBtn" destination="7GQ-Xk-ZWf" id="Dl1-P8-Qf0"/>
                         <outlet property="tableView" destination="vsp-HR-42B" id="RGl-UY-w6e"/>
@@ -687,6 +689,8 @@
                         <viewLayoutGuide key="safeArea" id="vyS-XC-IrD"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="vYn-pj-R9E" id="Er9-FP-RUq"/>
+                        <outlet property="iconImageView" destination="BEY-YV-2BK" id="M0e-4w-dP7"/>
                         <outlet property="navBarItem" destination="8ru-nv-czv" id="UfN-7J-1SE"/>
                         <outlet property="tableView" destination="czN-5Q-7YG" id="ROi-4L-K4G"/>
                     </connections>

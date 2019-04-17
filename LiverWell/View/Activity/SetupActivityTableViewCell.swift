@@ -9,16 +9,27 @@
 import UIKit
 
 class SetupActivityTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    
+    @IBOutlet weak var exerciseTitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func layoutView(image: String, title: String) {
+        
+        exerciseTitle.text = title
+        
+        exerciseImageView.image = UIImage(named: image)
+        
     }
 
 }

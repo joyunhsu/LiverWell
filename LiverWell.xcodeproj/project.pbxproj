@@ -55,6 +55,7 @@
 		6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */; };
 		6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBA22656C580026C911 /* FirebaseManager.swift */; };
 		6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */; };
+		6EE01FBF22671D000026C911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE01FBE22671CFF0026C911 /* ViewController.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -116,6 +117,7 @@
 		6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EE01FBA22656C580026C911 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		6EE01FBE22671CFF0026C911 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				6EA8CBDA22533E84000859FD /* Activity */,
 				6E9599AE2258B86000BC1D9A /* Knowledge */,
 				6E9599AF2258B87500BC1D9A /* Profile */,
+				6EE01FBE22671CFF0026C911 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
 				6E892A452260466A00742339 /* RestViewController.swift in Sources */,
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
+				6EE01FBF22671D000026C911 /* ViewController.swift in Sources */,
 				6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */,
 				6E892A492260752000742339 /* FinishWorkoutViewController.swift in Sources */,
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,

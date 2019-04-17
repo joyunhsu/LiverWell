@@ -14,12 +14,20 @@ class ActivityCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var workoutLabel: UILabel!
 
-    func layoutView(title: String, image: UIImage?) {
-
+//    func layoutView(title: String, image: UIImage?) {
+//
+//        workoutLabel.text = title
+//
+//        workoutIcon.image = image
+//
+//    }
+    
+    func layoutView(title: String, image: String) {
+        
         workoutLabel.text = title
-
-        workoutIcon.image = image
-
+        
+        workoutIcon.image = UIImage(named: image)
+        
     }
 
     override func awakeFromNib() {

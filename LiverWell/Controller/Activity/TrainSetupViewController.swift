@@ -10,6 +10,12 @@ import UIKit
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
+    @IBOutlet weak var iconImageView: UIImageView!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var workoutElement: WorkoutElement?
+    
     var selectedTime: Float? {
         didSet {
             startBtn.isEnabled = true
@@ -64,12 +70,16 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var navTitle: String = ""
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let workoutElement = workoutElement else { return }
 
-        navBarItem.title = navTitle
+        navBarItem.title = workoutElement.title
+        
+        iconImageView.image = UIImage(named: workoutElement.icon)
+        
+        descriptionLabel.text = workoutElement.description
 
         let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
@@ -94,6 +104,8 @@ extension TrainSetupViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SetupActivityTableViewCell", for: indexPath)
         
         guard let setupCell = cell as? SetupActivityTableViewCell else { return cell }
+        
+        
 
         return setupCell
 

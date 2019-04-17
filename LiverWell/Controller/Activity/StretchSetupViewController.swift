@@ -9,6 +9,10 @@
 import UIKit
 
 class StretchSetupViewController: UIViewController, UITableViewDelegate {
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -19,13 +23,19 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var navBarItem: UINavigationItem!
 
     @IBOutlet weak var tableView: UITableView!
-
-    var navTitle: String = ""
+    
+    var workoutElement: WorkoutElement?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navBarItem.title = navTitle
+        
+        guard let workoutElement = workoutElement else { return }
+        
+        navBarItem.title = workoutElement.title
+        
+        iconImageView.image = UIImage(named: workoutElement.icon)
+        
+        descriptionLabel.text = workoutElement.description
 
         let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")

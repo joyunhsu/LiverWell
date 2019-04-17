@@ -21,9 +21,14 @@ class WorkoutManager {
         self.init(configuration: .default)
     }
 
-    func getWorkout(activity: ActivityItems, completionHandler completion: @escaping (Train?, Error?) -> Void) {
+    func getWorkout(
+        activity: ActivityItems,
+        completionHandler completion: @escaping ([WorkoutElement]?, Error?
+        ) -> Void) {
     
-        guard let url = URL(string: "https://liver-well.firebaseio.com/activityVC/\(activity.url())/workout.json") else { return }
+        guard let url = URL(
+            string: "https://liver-well.firebaseio.com/activityVC/\(activity.url())/workout.json"
+            ) else { return }
         
         let request = URLRequest(url: url)
         
@@ -34,10 +39,11 @@ class WorkoutManager {
             DispatchQueue.main.async {
                 
                 do {
-                    let train: Train = try self.decoder.decode(Train.self, from: data)
-                    print(train[0])
+                    let workouts: [WorkoutElement] = try self.decoder.decode(
+                        [WorkoutElement].self,
+                        from: data)
                     
-                    completion(train, nil)
+                    completion(workouts, nil)
                     
                 } catch {
                     
@@ -53,9 +59,9 @@ class WorkoutManager {
     
 }
 
-typealias Train = [TrainElement]
+//typealias Workouts = [WorkoutElement]
 
-struct TrainElement: Codable {
+struct WorkoutElement: Codable {
     let description, icon, id, title: String
     let workoutSet: [String: WorkoutSet]
 }
