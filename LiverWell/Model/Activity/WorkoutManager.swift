@@ -59,8 +59,6 @@ class WorkoutManager {
     
 }
 
-//typealias Workouts = [WorkoutElement]
-
 struct WorkoutElement: Codable {
     let description, icon, id, title: String
     let workoutSet: [WorkoutSet]

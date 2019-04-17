@@ -17,9 +17,29 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var liverBtn: UIButton!
 
     @IBOutlet weak var tableView: UITableView!
+    
+    let knowledgeManager = KnowledgeManager()
+    
+    var knowledges: [Knowledge]? {
+        
+        didSet {
+         
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
+    var selectedKnowledge: Knowledge?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        knowledgeManager.getKnowledge { (knowledges, error) in
+            
+            self.knowledges = knowledges
+            
+        }
 
     }
 
@@ -34,13 +54,23 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
         performSegue(withIdentifier: "knowledgeDetail", sender: self)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let detailVC = segue.destination as? DetailKnowledgeViewController {
+            
+            detailVC.knowledge = knowledges?[(tableView.indexPathForSelectedRow?.row)!]
+            
+        }
+        
+    }
 
 }
 
 extension KnowledgeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return knowledges?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,6 +80,10 @@ extension KnowledgeViewController: UITableViewDataSource {
         )
         
         guard let knowledgeCell = cell as? KnowledgeTableViewCell else { return cell }
+        
+        guard let knowledge = knowledges?[indexPath.row] else { return cell }
+        
+        knowledgeCell.layoutView(category: knowledge.category, title: knowledge.title)
         
         knowledgeCell.selectionStyle = .none
         

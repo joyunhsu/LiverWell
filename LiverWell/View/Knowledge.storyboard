@@ -207,6 +207,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="bookMarkBtn" destination="cEI-VM-1Wt" id="QnP-Cc-Hbg"/>
+                                            <outlet property="categoryLabel" destination="pbX-dN-9bC" id="93j-zR-7JK"/>
+                                            <outlet property="titleLabel" destination="iwn-GI-tfc" id="blO-xS-Etc"/>
+                                            <outlet property="underlineView" destination="07b-HZ-Sje" id="Ifp-aF-8YV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

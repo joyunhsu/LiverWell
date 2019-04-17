@@ -16,6 +16,8 @@ class DetailKnowledgeViewController: UIViewController {
     
     @IBOutlet weak var bookMarkBtn: UIButton!
     
+    var knowledge: Knowledge?
+    
     var isMarked: Bool = false
     
     @IBAction func bookMarkBtnPressed(_ sender: UIButton) {
@@ -42,6 +44,10 @@ class DetailKnowledgeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.text = knowledge?.title
+        
+        contentLabel.text = knowledge?.content
 
     }
 

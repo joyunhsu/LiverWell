@@ -12,6 +12,8 @@ private enum LWColor: String {
 
     // swiftlint:disable identifier_name
     case Orange
+    
+    case Yellow
 
     case G1
     
@@ -27,6 +29,8 @@ private enum LWColor: String {
 extension UIColor {
 
     static let Orange = LWColor(.Orange)
+    
+    static let Yellow = LWColor(.Yellow)
 
     static let G1 = LWColor(.G1)
     
