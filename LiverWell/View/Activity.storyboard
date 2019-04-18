@@ -440,7 +440,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nK-3h-FPN">
                                         <rect key="frame" x="10" y="10" width="80" height="40"/>
-                                        <color key="backgroundColor" name="Orange"/>
+                                        <color key="backgroundColor" name="B3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2fU-SZ-Jp6"/>
                                             <constraint firstAttribute="width" constant="80" id="hJ1-Qh-z4X"/>
@@ -506,7 +506,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <color key="backgroundColor" name="Orange"/>
                                         <size key="customSize" width="60" height="5"/>
                                     </collectionViewCell>
                                 </cells>

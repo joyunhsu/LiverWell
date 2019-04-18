@@ -23,8 +23,12 @@ class PracticeViewController: UIViewController, UICollectionViewDelegate, UITabl
     var workoutArray: [WorkoutSet]?
     
     var workoutIndex: Int = 0 {
+        
         didSet {
+            
             tableView.reloadData()
+            
+            progressCollectionView.reloadData()
             
             setupBtn()
             
@@ -175,10 +179,23 @@ extension PracticeViewController: UICollectionViewDataSource {
         return 4
     }
     
+    // swiftlint:disable identifier_name
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = progressCollectionView.dequeueReusableCell(withReuseIdentifier: "ProgressCell", for: indexPath)
+        
+        var background = [UIColor?]()
+        
+        for _ in 0...3 {
+            background.append(.B5)
+        }
+        
+        for i in 0...workoutIndex {
+            background[i] = .Orange
+        }
+        
+        cell.backgroundColor = background[indexPath.item]
         
         return cell
         

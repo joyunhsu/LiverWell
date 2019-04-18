@@ -49,11 +49,11 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
 
         scrollView.delegate = self
         
-        workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, error) in
+        workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, _ ) in
             self?.trainElements = train
         }
         
-        workoutManager.getWorkout(activity: ActivityItems.stretch) { [weak self] (stretch, error) in
+        workoutManager.getWorkout(activity: ActivityItems.stretch) { [weak self] (stretch, _ ) in
             self?.stretchElements = stretch
         }
 
