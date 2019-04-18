@@ -24,10 +24,33 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var workoutElement: WorkoutElement?
+    let workoutElementManager = WorkoutElementManager()
+    
+    var workoutElement: WorkoutElement? {
+        didSet {
+            tableView.reloadData()
+            
+            setupView()
+        }
+    }
+    
+    var idUrl: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
+        
+        guard let idUrl = idUrl else { return }
+        
+        workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, error) in
+            self.workoutElement = workoutElement
+        }
+
+    }
+    
+    private func setupView() {
         
         guard let workoutElement = workoutElement else { return }
         
@@ -36,10 +59,7 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
         iconImageView.image = UIImage(named: workoutElement.icon)
         
         descriptionLabel.text = workoutElement.description
-
-        let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
-
+        
     }
 }
 

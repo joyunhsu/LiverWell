@@ -14,7 +14,18 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var workoutElement: WorkoutElement?
+    let workoutElementManager = WorkoutElementManager()
+    
+    var workoutElement: WorkoutElement? {
+        didSet {
+            
+            tableView.reloadData()
+            setupView()
+            
+        }
+    }
+    
+    var idUrl: String?
     
     var selectedTime: Float? {
         didSet {
@@ -46,11 +57,44 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         selectTimer(withTag: sender.tag)
         
     }
+
+    @IBOutlet weak var navBarItem: UINavigationItem!
+
+    @IBOutlet weak var tableView: UITableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
+        
+        guard let idUrl = idUrl else { return }
+        
+        workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, error) in
+            self.workoutElement = workoutElement
+        }
+        
+        startBtn.isEnabled = false
+
+    }
+    
+    private func setupView() {
+        
+        guard let workoutElement = workoutElement else { return }
+        
+        navBarItem.title = workoutElement.title
+        
+        iconImageView.image = UIImage(named: workoutElement.icon)
+        
+        descriptionLabel.text = workoutElement.description
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let desVC = segue.destination as? NavigationViewController,
             let workoutMinutes = selectedTime {
             desVC.workoutMinutes = workoutMinutes
+            
         }
     }
     
@@ -64,28 +108,6 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             selectedTime = 15.0
         }
         
-    }
-
-    @IBOutlet weak var navBarItem: UINavigationItem!
-
-    @IBOutlet weak var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        guard let workoutElement = workoutElement else { return }
-
-        navBarItem.title = workoutElement.title
-        
-        iconImageView.image = UIImage(named: workoutElement.icon)
-        
-        descriptionLabel.text = workoutElement.description
-
-        let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
-        
-        startBtn.isEnabled = false
-
     }
     
     @IBAction func unwindtoSetup(segue: UIStoryboardSegue) {

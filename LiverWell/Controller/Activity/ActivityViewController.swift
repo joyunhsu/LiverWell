@@ -176,7 +176,7 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
             
             let passItem = trainElements[indexPath!.row]
             
-            trainDestination.workoutElement = passItem
+            trainDestination.idUrl = passItem.id
             
         }
 
@@ -187,8 +187,8 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
             guard let stretchElements = stretchElements else { return }
             
             let passItem = stretchElements[indexPath!.row]
-
-            stretchDestination.workoutElement = passItem
+            
+            stretchDestination.idUrl = passItem.id
 
         }
     }

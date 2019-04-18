@@ -56,6 +56,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         )
     ]
     
+    var workoutArray: [WorkoutSet]?
+    
     var workoutIndex = 0
     
     var repeatCountingText = [String]()

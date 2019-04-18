@@ -59,6 +59,7 @@
 		6EE0200622683A700026C911 /* WorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200522683A6F0026C911 /* WorkoutItem.swift */; };
 		6EE0200822683B630026C911 /* HomeObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200722683B630026C911 /* HomeObjectManager.swift */; };
 		6EE0200A22683B740026C911 /* HomeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200922683B740026C911 /* HomeObject.swift */; };
+		6EE0200C2268536A0026C911 /* WorkoutElementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200B2268536A0026C911 /* WorkoutElementManager.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -124,6 +125,7 @@
 		6EE0200522683A6F0026C911 /* WorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutItem.swift; sourceTree = "<group>"; };
 		6EE0200722683B630026C911 /* HomeObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObjectManager.swift; sourceTree = "<group>"; };
 		6EE0200922683B740026C911 /* HomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObject.swift; sourceTree = "<group>"; };
+		6EE0200B2268536A0026C911 /* WorkoutElementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutElementManager.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -297,8 +299,8 @@
 			children = (
 				6EA8CBD822533E80000859FD /* ActivityViewController.swift */,
 				6E9599B02258EB6C00BC1D9A /* TrainSetupViewController.swift */,
-				6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */,
 				6E9599B4225901D400BC1D9A /* StretchSetupViewController.swift */,
+				6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */,
 				6EAA7A33225AF23F0054AA69 /* PracticeViewController.swift */,
 				6E892A3E225EE8E300742339 /* CountDownViewController.swift */,
 				6E892A42225F022600742339 /* WorkoutViewController.swift */,
@@ -315,6 +317,7 @@
 				6EA8CBDC225366BE000859FD /* ActivityManager.swift */,
 				6E49C98D2253D8FD006536A2 /* ActivityItem.swift */,
 				6EE01FBC2265D5C20026C911 /* WorkoutManager.swift */,
+				6EE0200B2268536A0026C911 /* WorkoutElementManager.swift */,
 				6EE0200522683A6F0026C911 /* WorkoutItem.swift */,
 			);
 			path = Activity;
@@ -591,6 +594,7 @@
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
 				6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */,
 				6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */,
+				6EE0200C2268536A0026C911 /* WorkoutElementManager.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,
 				6E9599C3225A33D200BC1D9A /* WeekProgressCollectionViewCell.swift in Sources */,

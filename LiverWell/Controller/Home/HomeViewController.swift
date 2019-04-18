@@ -16,9 +16,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     var homeObject: HomeObject? {
         didSet {
             workoutCollectionView.reloadData()
+            
+            setupView()
         }
     }
-
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    @IBOutlet weak var background: UIImageView!
+    
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
 
     @IBOutlet weak var stretchProgressView: MBCircularProgressBarView!
@@ -27,33 +33,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var weekProgressCollectionView: UICollectionView!
 
-    let manager = HomeManager()
-    
-    let workoutManager = WorkoutManager()
-    
-    var trainElements: [WorkoutElement]? {
-        didSet {
-            workoutCollectionView.reloadData()
-        }
-    }
-    
-//    var stretchElements: [WorkoutElement]? {
-//        didSet {
-//            secondCollectionView.reloadData()
-//        }
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeObjectManager.getHomeObject(homeStatus: .resting) { [weak self] (homeObject, error) in
+        setupStatus(homeStatus: .resting)
+        
+//        setupView()
+
+    }
+    
+    private func setupStatus(homeStatus: HomeStatus) {
+        homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, error) in
             self?.homeObject = homeObject
         }
+    }
+    
+    private func setupView() {
         
-        workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, error) in
-            self?.trainElements = train
-        }
-
+        guard let homeObject = homeObject else { return }
+        
+        statusLabel.text = homeObject.title
+        
+        background.image = UIImage(named: homeObject.background)
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -62,7 +64,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
             let desVC = mainStoryboard.instantiateViewController(withIdentifier: "TrainSetupViewController")
             guard let trainVC = desVC as? TrainSetupViewController else { return }
-            trainVC.loadViewIfNeeded()
+//            trainVC.loadViewIfNeeded()
+            trainVC.idUrl = homeObject?.workoutSet[indexPath.item].id
             self.present(trainVC, animated: true)
 
         }
