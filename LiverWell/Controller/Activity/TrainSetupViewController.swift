@@ -94,7 +94,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         if let desVC = segue.destination as? NavigationViewController,
             let workoutMinutes = selectedTime {
             desVC.workoutMinutes = workoutMinutes
-            
+            desVC.workoutArray = workoutElement?.workoutSet
         }
     }
     

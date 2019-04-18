@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 // swiftlint:disable identifier_name
 class WorkoutViewController: UIViewController, UICollectionViewDelegate {
@@ -33,28 +34,28 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var counter = 1
     
-    var workoutSet = [
-        WorkoutSample(
-            title: "看電視順便做",
-            info: "轉到手臂有明顯緊繃感為止",
-            totalRepeat: 1,
-            totalCount: 3,
-            perDuration: 2,
-            workoutImage: [#imageLiteral(resourceName: "01毛巾捲腹運動1.png"), #imageLiteral(resourceName: "01毛巾捲腹運動2.png")],
-            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-            practiceAnnotation: nil
-        ),
-        WorkoutSample(
-            title: "預防腰痛",
-            info: "轉到手臂有明顯緊繃感為止",
-            totalRepeat: 1,
-            totalCount: 4,
-            perDuration: 3,
-            workoutImage: [#imageLiteral(resourceName: "02反向高抬腿1.png"), #imageLiteral(resourceName: "02反向高抬腿2.png")],
-            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-            practiceAnnotation: nil
-        )
-    ]
+//    var workoutSet = [
+//        WorkoutSample(
+//            title: "看電視順便做",
+//            info: "轉到手臂有明顯緊繃感為止",
+//            totalRepeat: 1,
+//            totalCount: 3,
+//            perDuration: 2,
+//            workoutImage: [#imageLiteral(resourceName: "01毛巾捲腹運動1.png"), #imageLiteral(resourceName: "01毛巾捲腹運動2.png")],
+//            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+//            practiceAnnotation: nil
+//        ),
+//        WorkoutSample(
+//            title: "預防腰痛",
+//            info: "轉到手臂有明顯緊繃感為止",
+//            totalRepeat: 1,
+//            totalCount: 4,
+//            perDuration: 3,
+//            workoutImage: [#imageLiteral(resourceName: "02反向高抬腿1.png"), #imageLiteral(resourceName: "02反向高抬腿2.png")],
+//            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+//            practiceAnnotation: nil
+//        )
+//    ]
     
     var workoutArray: [WorkoutSet]?
     
@@ -101,11 +102,12 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         updateBarProgress()
         
 //        barProgressView.setProgress(currentTIme, animated: false)
-        let currentWorkout = workoutSet[workoutIndex]
+        guard let workoutArray = workoutArray else { return }
+        let currentWorkout = workoutArray[workoutIndex]
         workoutImageView.animationImages = [
-            currentWorkout.workoutImage[0],
-            currentWorkout.workoutImage[1]
-        ]
+            UIImage(named: currentWorkout.images[0]),
+            UIImage(named: currentWorkout.images[1])
+            ] as? [UIImage]
         
         workoutImageView.animationDuration = currentWorkout.perDuration
         workoutImageView.startAnimating()
@@ -136,15 +138,17 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func changeTitleAndRepeatText() {
         
-        let currentWorkout = workoutSet[workoutIndex]
+        guard let workoutArray = workoutArray else { return }
+        
+        let currentWorkout = workoutArray[workoutIndex]
         
         workoutTitleLabel.text = currentWorkout.title
-        infoLabel.text = currentWorkout.info
+        infoLabel.text = currentWorkout.hint
         
         counter = 1
-        repeatLabel.text = "\(self.counter)/\(currentWorkout.totalCount)次"
+        repeatLabel.text = "\(self.counter)/\(currentWorkout.count)次"
         
-        changeRepeatCounts(totalCount: currentWorkout.totalCount, timeInterval: currentWorkout.perDuration)
+        changeRepeatCounts(totalCount: currentWorkout.count, timeInterval: currentWorkout.perDuration)
         
         repeatCollectionView.reloadData()
         
@@ -168,7 +172,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                 self.moveToNextVC()
                 
                 // Repeat within current workout
-                if self.currentRepeat < self.workoutSet[self.workoutIndex].totalRepeat {
+                guard let workoutArray = self.workoutArray else { return }
+                
+                if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
                     self.currentRepeat += 1
                     self.changeTitleAndRepeatText()
                     self.updateBarProgress()
@@ -203,9 +209,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func moveToNextVC() {
         
-        if currentRepeat == workoutSet[workoutIndex].totalRepeat && workoutIndex == (workoutSet.count - 1) {
+        guard let workoutArray = workoutArray else { return }
+        
+        if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (workoutArray.count - 1) {
             performSegue(withIdentifier: "finishWorkout", sender: self)
-        } else if currentRepeat == workoutSet[workoutIndex].totalRepeat {
+        } else if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat {
             performSegue(withIdentifier: "startRest", sender: self)
         } else {
             return
@@ -218,7 +226,10 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
 extension WorkoutViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return workoutSet[workoutIndex].totalRepeat
+        
+        guard let workoutArray = workoutArray else { return 0 }
+        
+        return workoutArray[workoutIndex].workoutSetRepeat
     }
     
     func collectionView(
@@ -234,8 +245,9 @@ extension WorkoutViewController: UICollectionViewDataSource {
         
         var bgColorArray = [UIColor?]()
         var textColorArray = [UIColor?]()
+        guard let workoutArray = workoutArray else { return cell }
         
-        for _ in 0..<workoutSet[workoutIndex].totalRepeat {
+        for _ in 0..<workoutArray[workoutIndex].workoutSetRepeat {
             let defaultViewColor = UIColor.B5
             bgColorArray.append(defaultViewColor)
             
@@ -267,8 +279,9 @@ extension WorkoutViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
+        guard let workoutArray = workoutArray else { return CGSize() }
         let collectionViewWidth = repeatCollectionView.bounds.width
-        let cellSpace = Int(collectionViewWidth) / workoutSet[workoutIndex].totalRepeat
+        let cellSpace = Int(collectionViewWidth) / workoutArray[workoutIndex].workoutSetRepeat
         return CGSize(width: cellSpace, height: 25)
     }
     

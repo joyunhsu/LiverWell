@@ -11,12 +11,14 @@ import UIKit
 class NavigationViewController: UINavigationController {
     
     var workoutMinutes: Float?
+    var workoutArray: [WorkoutSet]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let rootViewController = viewControllers.first as? CountDownViewController {
             rootViewController.workoutMinutes = workoutMinutes
+            rootViewController.workoutArray = workoutArray
         }
 
     }

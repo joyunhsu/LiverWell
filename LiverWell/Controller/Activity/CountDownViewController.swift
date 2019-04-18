@@ -15,6 +15,7 @@ class CountDownViewController: UIViewController {
     var timer = Timer()
     var counter = 5
     var workoutMinutes: Float?
+    var workoutArray: [WorkoutSet]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class CountDownViewController: UIViewController {
         if let desVC = segue.destination as? WorkoutViewController,
             let workoutMinutes = workoutMinutes {
             desVC.workoutMinutes = workoutMinutes
+            desVC.workoutArray = workoutArray
         }
         
         if let pauseVC = segue.destination as? PauseViewController {

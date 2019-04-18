@@ -1,0 +1,529 @@
+[
+    {
+      "train": {
+        "title": "一點一滴訓練肌肉\n打造健康的易瘦體質",
+        "caption": "肌肉消耗的熱量是脂肪的十倍。活化肌肉，就算只是走路時抬頭挺胸、縮肚子也會帶來效果！",
+        "workout": [
+          {
+            "title": "看電視一邊做",
+            "id": "0/train/workout/0",
+            "icon": "Icon_Workout_TV",
+            "description": "看電視時順便動一動，肌力訓練好簡單！",
+            "workoutSet": [
+              {
+                "title": "手臂平舉旋轉",
+                "thumbnail": "Train_TV_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_1TV_01ArmSpin1",
+                  "Train_1TV_01ArmSpin2"
+                ],
+                "description": "1. 雙臂向兩側伸直，雙手握拳，豎起大拇指。\n2. 維持雙臂高度，慢慢將大拇指往下轉，轉到手臂有明顯緊繃感為止。上下轉動算一次。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
+                  "轉動手腕時，肩膀可能會發出喀擦喀擦的聲響，因使用到平常少用的肌肉所致",
+                  "不疼痛為原則，適度調整動作：如果覺得痛，可以調整手臂高度，或是不要轉動整個手臂"
+                ]
+              },
+              {
+                "title": "手肘左右拉伸",
+                "thumbnail": "Train_TV_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_1TV_02ArmStretch1",
+                  "Train_1TV_02ArmStretch2"
+                ],
+                "description": "1. 抬頭挺胸，雙手十指緊扣放後腦勺。上半身保持不動，將手肘往右下方拉，盡量慢慢拉到不能拉為止。\n2. 換邊，依相同方式將手肘往左下方拉。左右來回算一組。",
+                "repeat": 2,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
+                  "以不疼痛為原則，適度調整動作：如果雙手十指緊扣，置於頭部後方有困難，可以抓毛巾試試看。"
+                ]
+              },
+              {
+                "title": "平舉手臂後拉",
+                "thumbnail": "Train_TV_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_1TV_03ArmToBack1",
+                  "Train_1TV_03ArmToBack2"
+                ],
+                "description": "1. 雙手手肘彎曲，舉至肩膀高度、胸部上方位置。雙手指尖可輕輕交疊或相觸。\n2. 雙手手肘向後推，感覺兩邊肩胛骨好像要碰在一起。",
+                "repeat": 2,
+                "count": 10,
+                "perDuration": 4
+              },
+              {
+                "title": "肩胛骨伸展",
+                "thumbnail": "Train_TV_04",
+                "hint": "慢慢將上半身抬起、捲起身體",
+                "images": [
+                  "Train_1TV_04ArmLift1",
+                  "Train_1TV_04ArmLift2"
+                ],
+                "description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+                "repeat": 2,
+                "count": 12,
+                "perDuration": 4,
+                "annotation": [
+                  "動作時，注意頸部不可過度用力，盡量放鬆。避免低頭、壓迫頸椎。",
+                  "以不疼痛為原則，適度調整動作：身體柔軟度好的人可以縮短毛巾間距。反之，身體僵硬的人則拉大間距，待動作熟悉後再慢慢縮短毛巾長度。"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "預防腰痛",
+            "id": "0/train/workout/1",
+            "icon": "Icon_Workout_BackPain",
+            "description": "每天簡單做，腰痛遠離我！",
+            "workoutSet": [
+              {
+                "title": "毛巾捲腹運動",
+                "thumbnail": "Train_BackPain_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_2BackPain_01Towel1",
+                  "Train_2BackPain_01Towel2"
+                ],
+                "description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": [
+                  "請勿使用頸部的力量起身，盡量以腹部的力量，以免受傷。"
+                ]
+              },
+              {
+                "title": "反向高抬腿",
+                "thumbnail": "Train_BackPain_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_2BackPain_02BackThigh1",
+                  "Train_2BackPain_02BackThigh2"
+                ],
+                "description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4
+              },
+              {
+                "title": "橋式運動",
+                "thumbnail": "Train_BackPain_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_2BackPain_03Bridge1",
+                  "Train_2BackPain_03Bridge2"
+                ],
+                "description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
+                "repeat": 3,
+                "count": 5,
+                "perDuration": 10
+              },
+              {
+                "title": "靠牆深蹲",
+                "thumbnail": "Train_BackPain_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_2BackPain_04BackWall1",
+                  "Train_2BackPain_04BackWall2"
+                ],
+                "description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 6,
+                "annotation": null
+              }
+            ]
+          },
+          {
+            "title": "全身訓練",
+            "id": "0/train/workout/2",
+            "icon": "Icon_Workout_WholeBody",
+            "description": "活絡身心，全身一起動一動！",
+            "workoutSet": [
+              {
+                "title": "早安彎腰式",
+                "thumbnail": "Train_WholeBody_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_3Whole_01Morning1",
+                  "Train_3Whole_01Morning2"
+                ],
+                "description": "1. 站姿，雙腳打開與骨盆同寬，雙臂交叉於肩上。\n2. 腰背挺直，膝蓋可自然彎曲，像鞠躬般慢慢彎腰呈現90度。完成後用腰部的力量慢慢抬起上半身，回到動作1的姿勢。",
+                "repeat": 3,
+                "count": 20,
+                "perDuration": 6,
+                "annotation": null
+              },
+              {
+                "title": "大風車運動",
+                "thumbnail": "Train_WholeBody_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_3Whole_02Windmill1",
+                  "Train_3Whole_02Windmill2"
+                ],
+                "description": "1. 呈大字型站姿，雙手往兩側伸直。\n2. 彎腰，同時用右手指尖碰左腳踝，讓雙臂畫出半圓形，動作越大越好。進行時雙臂維持伸直狀態。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 6,
+                "annotation": null
+              },
+              {
+                "title": "反向高抬腿",
+                "thumbnail": "Train_WholeBody_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_3Whole_03BackThigh1",
+                  "Train_3Whole_03BackThigh2"
+                ],
+                "description": "1. 四足跪地趴在瑜珈墊上，雙手打開與肩同寬，雙腳膝蓋打開與骨盆同寬。\n2. 骨盆固定不動，將右腳向後伸直，充分刺激臀部後側肌肉。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": null
+              },
+              {
+                "title": "蜥蜴運動",
+                "thumbnail": "Train_WholeBody_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_3Whole_04Lizard1",
+                  "Train_3Whole_04Lizard2"
+                ],
+                "description": "1. 站姿，十指緊扣置於後腦勺。\n2. 保持身體重心，將身體往側邊捲起，讓右手肘與右膝相碰充分延展側腹部。完成後換邊。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 4,
+                "annotation": null
+              }
+            ]
+          },
+          {
+            "title": "上半身訓練",
+            "id": "0/train/workout/3",
+            "icon": "Icon_Workout_UpperBody",
+            "description": "聚焦上半身，不費力！",
+            "workoutSet": [
+              {
+                "title": "肩胛骨伸展",
+                "thumbnail": "Train_UpperBody_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_4Upper_01ArmLift1",
+                  "Train_4Upper_01ArmLift2"
+                ],
+                "description": "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": [
+                  "動作時，注意頸部不可過度用力，盡量放鬆。避免低頭、壓迫頸椎。", 
+                  "以不疼痛為原則，適度調整動作：身體柔軟度好的人可以縮短毛巾間距。反之，身體僵硬的人則拉大間距，待動作熟悉後再慢慢縮短毛巾長度。"
+                ]
+              },
+              {
+                "title": "晾衣繩運動",
+                "thumbnail": "Train_UpperBody_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_4Upper_02RopeMove1",
+                  "Train_4Upper_02RopeMove2"
+                ],
+                "description": "1. 站姿，雙腳張開與肩同寬，雙手往兩側伸直。\n2. 下半身固定不動，將上半身往右推，進行時手臂不可晃動。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 0,
+                "annotation": null
+              },
+              {
+                "title": "手碰手側腹延展",
+                "thumbnail": "Train_UpperBody_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_4Upper_03HandtoHand1",
+                  "Train_4Upper_03HandtoHand2"
+                ],
+                "description": "1. 站姿，雙腳打開與肩同寬，雙手手肘彎曲並抬起至肩膀高度；雙手指尖輕輕交疊或相觸即可。\n2. 下半身保持不動，將上半身向右彎，盡量伸展側腹部。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 4,
+                "annotation": null
+              },
+              {
+                "title": "毛巾捲腹運動",
+                "thumbnail": "Train_UpperBody_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_4Upper_04Towel1",
+                  "Train_4Upper_04Towel2"
+                ],
+                "description": "1. 躺姿，背部緊貼瑜伽墊，雙手握住毛巾兩端，再用毛巾支撐後腦勺。屈膝，雙腳張開與骨盆同寬。\n2. 腹部用力，慢慢將上半身抬起、捲起身體。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": [
+                  "請勿使用頸部的力量起身，盡量以腹部的力量，以免受傷。"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "下半身訓練",
+            "id": "0/train/workout/4",
+            "icon": "Icon_Workout_LowerBody",
+            "description": "",
+            "workoutSet": [
+              {
+                "title": "躺姿側抬腿",
+                "thumbnail": "Train_LowerBody_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_5Lower_01LegLift1",
+                  "Train_5Lower_01LegLift2"
+                ],
+                "description": "1. 右側躺，緊貼地面的右腳彎成直角，左腳伸直盡可能和上半身呈一直線。\n2. 用手摸摸看側腹部和大腿外側肌肉是否有出力，同時慢慢將左腳向上抬起。",
+                "repeat": 2,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": null
+              },
+              {
+                "title": "橋式運動",
+                "thumbnail": "Train_LowerBody_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_5Lower_02Bridge1",
+                  "Train_5Lower_02Bridge2"
+                ],
+                "description": "1. 躺姿，背部緊貼瑜伽墊；屈膝，雙腳張開與骨盆同寬，雙手自然擺放於身體兩側。\n2. 雙腳推地，慢慢將骨盆抬起，使身體到大腿呈一直線；大腿和臀部肌肉持續用力，停留1~2秒。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 6,
+                "annotation": null
+              },
+              {
+                "title": "挺胸弓箭步",
+                "thumbnail": "Train_LowerBody_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_5Lower_03Arrow1",
+                  "Train_5Lower_03Arrow2"
+                ],
+                "description": "1. 左腳在前，右腳在後站開，左腳腳掌緊貼地面，右腳腳跟抬起。十指緊扣放在後腦勺，上半身重心稍微往後躺，將重心放在右後腳上。\n2. 向下蹲坐，讓右腳膝蓋近乎碰到地面；保持上半身挺直穩定，勿歪斜。",
+                "repeat": 3,
+                "count": 15,
+                "perDuration": 8,
+                "annotation": null
+              },
+              {
+                "title": "靠牆深蹲",
+                "thumbnail": "Train_LowerBody_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Train_5Lower_04BackWall1",
+                  "Train_5Lower_04BackWall2"
+                ],
+                "description": "1. 背部貼直靠牆，腳往前站約2-3步，腳跟牆面的距離為膝關節彎曲呈直角時，膝蓋不超過腳掌。\n2. 彎曲膝關節與髖關節，保持臀部和背部靠在牆上，大腿與地面平行，與小腿垂直。",
+                "repeat": 3,
+                "count": 10,
+                "perDuration": 8,
+                "annotation": [
+                  "大腿和小腿之間的夾角不要小於90度，蹲的太深會明顯增加髕股關節的壓力。"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stretch": {
+        "title": "伸展活絡身體\n提升基礎代謝三成",
+        "caption": "年過四十的減肥適合用緩和運動提升代謝，而不是吃力的運動減重。善用零碎時間做做伸展運動吧！",
+        "workout": [
+          {
+            "title": "久坐伸展",
+            "id": "1/stretch/workout/0",
+            "icon": "Icon_Workout_LongSit",
+            "description": "",
+            "workoutSet": [
+              {
+                "title": "上半身轉體",
+                "thumbnail": "Stretch_Sit_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_6Sitting_01UpperSpin1",
+                  "Stretch_6Sitting_01UpperSpin2"
+                ],
+                "description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "立姿彎腰",
+                "thumbnail": "Stretch_Sit_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_6Sitting_02Bow1",
+                  "Stretch_6Sitting_02Bow2"
+                ],
+                "description": "1. 坐在椅子上，背挺直。\n2. 以右肩帶動上半身慢慢向左側扭轉，直到腰部微微緊繃為止。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "背部肌肉伸展",
+                "thumbnail": "Stretch_Sit_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_6Sitting_03SitPush1",
+                  "Stretch_6Sitting_03SitPush2"
+                ],
+                "description": "1. 坐在椅子上，雙手抓住桌子邊緣。\n2. 下巴內收後，使力將坐著的椅子慢慢往後推。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
+              },
+              {
+                "title": "扶椅子伸展腿部",
+                "thumbnail": "Stretch_Sit_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_6Sitting_04LegStretch1",
+                  "Stretch_6Sitting_04LegStretch2"
+                ],
+                "description": "1. 站姿，手扶椅背。右腳向後跨開，重心放在左側。\n2. 膝蓋慢慢彎曲下壓，使右側膝蓋伸直且腳後跟緊貼地面。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              }
+            ]
+          },
+          {
+            "title": "久站伸展",
+            "id": "1/stretch/workout/1",
+            "icon": "Icon_Workout_LongStand",
+            "description": "",
+            "workoutSet": [
+              {
+                "title": "直膝伸展",
+                "thumbnail": "Stretch_Stand_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_7Standing_01FootStretch1",
+                  "Stretch_7Standing_01FootStretch2"
+                ],
+                "description": "1. 一腳膝蓋伸直，做出腳勾的動作。\n2. 挺直腰背讓肚子靠近大腿，伸展小腿、大腿後側的肌群。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "小腿前側伸展",
+                "thumbnail": "Stretch_Stand_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_7Standing_02FootPress1",
+                  "Stretch_7Standing_02FootPress2"
+                ],
+                "description": "1. 將腳背輕壓在台階上，做出腳板往下的踮腳尖動作。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "踮腳走",
+                "thumbnail": "Stretch_Stand_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_7Standing_03TipWalk"
+                ],
+                "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
+              },
+              {
+                "title": "勾腳走",
+                "thumbnail": "Stretch_Stand_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_7Standing_04TipWalk"
+                ],
+                "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              }
+            ]
+          },
+          {
+            "title": "睡前舒緩",
+            "id": "1/stretch/workout/2",
+            "icon": "Icon_Workout_BeforeSleep",
+            "description": "",
+            "workoutSet": [
+              {
+                "title": "雙腿內側伸展",
+                "thumbnail": "Stretch_Sleep_01",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_8Sleep_01SitBow1",
+                  "Stretch_8Sleep_01SitBow2"
+                ],
+                "description": "1. 盤腿坐下，雙腳腳底合併。用手抓著腳踝，盡量將腳跟往身體的方向拉。\n2. 上半身緩緩向前傾。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "臀部、後背、腹肌伸展",
+                "thumbnail": "Stretch_Sleep_02",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_8Sleep_02BackBow1",
+                  "Stretch_8Sleep_02BackBow2"
+                ],
+                "description": "1. 仰躺屈膝，雙手抱住膝蓋，緩緩地吸氣，維持二十至三十秒。\n2. 抬起頭，將視線對著肚子，依邊抬起臀部讓膝蓋更靠近身體，一邊緩緩地吐氣。維持二十至三十秒。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              },
+              {
+                "title": "腰部轉體運動",
+                "thumbnail": "Stretch_Sleep_03",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_8Sleep_03LaySpin1",
+                  "Stretch_8Sleep_03LaySpin2"
+                ],
+                "description": "1. 仰躺攤開雙手，立起膝蓋。\n2. 雙肩貼著床，將膝蓋向右邊倒下，頭部轉向左邊。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 10
+              },
+              {
+                "title": "全身伸展",
+                "thumbnail": "Stretch_Sleep_04",
+                "hint": "雙手握住毛巾兩端後往上伸直",
+                "images": [
+                  "Stretch_8Sleep_04Lay"
+                ],
+                "description": "1. 將枕頭或浴巾捲成圓筒形放在腰部下方， 仰躺舉起雙手，放鬆全身的力氣。維持二十至三十秒。",
+                "repeat": 1,
+                "count": 10,
+                "perDuration": 15
+              }  
+            ]
+          }
+        ]
+      }
+    }
+  ]

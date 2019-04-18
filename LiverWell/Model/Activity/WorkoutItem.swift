@@ -15,13 +15,15 @@ struct WorkoutSet: Codable {
     let title: String
     let thumbnail: String
     let count: Int
+    let workoutSetRepeat: Int
+    let hint: String
     let description: String
-    let perDuration, workoutSetRepeat: Int
+    let perDuration: Double
     let annotation: [String]?
     let images: [String]
     
     enum CodingKeys: String, CodingKey {
-        case count, description, title, images, thumbnail
+        case count, description, title, images, thumbnail, hint
         case perDuration
         case workoutSetRepeat = "repeat"
         case annotation
