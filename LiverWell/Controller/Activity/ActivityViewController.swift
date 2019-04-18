@@ -8,26 +8,6 @@
 
 import UIKit
 
-struct WorkoutSample {
-
-    let title: String
-
-    let info: String
-
-    let totalRepeat: Int
-
-    let totalCount: Int
-
-    let perDuration: Double
-
-    let workoutImage: [UIImage]
-
-    let practiceDescription: String
-
-    let practiceAnnotation: [String]?
-
-}
-
 class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
     
     deinit {
@@ -191,6 +171,7 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
             stretchDestination.idUrl = passItem.id
 
         }
+
     }
 
 }

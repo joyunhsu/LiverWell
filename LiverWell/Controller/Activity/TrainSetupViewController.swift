@@ -70,7 +70,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
         guard let idUrl = idUrl else { return }
         
-        workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, error) in
+        workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, _ ) in
             self.workoutElement = workoutElement
         }
         
@@ -95,6 +95,10 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             let workoutMinutes = selectedTime {
             desVC.workoutMinutes = workoutMinutes
             desVC.workoutArray = workoutElement?.workoutSet
+        }
+        
+        if let practiceVC = segue.destination as? PracticeViewController {
+            practiceVC.workoutArray = workoutElement?.workoutSet
         }
     }
     

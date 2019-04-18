@@ -17,6 +17,21 @@ class PracticeViewController: UIViewController, UICollectionViewDelegate, UITabl
     @IBOutlet weak var previousBtn: UIButton!
     
     @IBOutlet weak var nextBtn: UIButton!
+    
+    @IBOutlet weak var workoutImageView: UIImageView!
+    
+    var workoutArray: [WorkoutSet]?
+    
+    var workoutIndex: Int = 0 {
+        didSet {
+            tableView.reloadData()
+            
+            setupBtn()
+            
+            setupGifImage()
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +55,68 @@ class PracticeViewController: UIViewController, UICollectionViewDelegate, UITabl
             secondCell,
             forCellReuseIdentifier: String(describing: SecondActivityInfoTableViewCell.self)
         )
+        
+        setupGifImage()
+        
+        setupBtn()
 
+    }
+    
+    private func setupGifImage() {
+        
+        guard let workoutArray = workoutArray else { return }
+        let currentWorkout = workoutArray[workoutIndex]
+        workoutImageView.animationImages = [
+            UIImage(named: currentWorkout.images[0]),
+            UIImage(named: currentWorkout.images[1])
+            ] as? [UIImage]
+        
+        workoutImageView.animationDuration = currentWorkout.perDuration
+        workoutImageView.startAnimating()
+        
+    }
+    
+    private func setupBtn() {
+        
+        if workoutIndex > 0 {
+            previousBtn.backgroundColor = .Orange
+        } else {
+            previousBtn.backgroundColor = .B3
+        }
+        
+        if workoutIndex < 3 {
+            nextBtn.backgroundColor = .Orange
+        } else {
+            nextBtn.backgroundColor = .B3
+        }
+        
+    }
+    
+    @IBAction func previousBtnPressed(_ sender: UIButton) {
+        
+        nextBtn.isEnabled = true
+        
+        if workoutIndex > 0 {
+            workoutIndex -= 1
+            previousBtn.isEnabled = true
+        } else {
+            previousBtn.isEnabled = false
+            
+        }
+        
+    }
+    
+    @IBAction func nextBtnPressed(_ sender: UIButton) {
+        
+        previousBtn.isEnabled = true
+        
+        if workoutIndex < 3 {
+            workoutIndex += 1
+            nextBtn.isEnabled = true
+        } else {
+            nextBtn.isEnabled = false
+        }
+        
     }
     
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
@@ -70,11 +146,21 @@ extension PracticeViewController: UITableViewDataSource {
         
         guard let secondCell = cellReuse as? SecondActivityInfoTableViewCell else { return cell }
         
-        switch indexPath.row {
+        guard let currentWorkout = workoutArray?[workoutIndex] else { return cell }
+        
+        if indexPath.row == 0 {
             
-        case 0: return firstCell
+            firstCell.layoutView(title: currentWorkout.title, description: currentWorkout.description)
             
-        default: return secondCell
+            return firstCell
+            
+        } else {
+            
+            guard let annotation = currentWorkout.annotation else { return UITableViewCell() }
+            
+            secondCell.layoutView(annotation: annotation[0])
+            
+            return secondCell
             
         }
     }

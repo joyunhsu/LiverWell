@@ -400,7 +400,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01毛巾捲腹運動1" translatesAutoresizingMaskIntoConstraints="NO" id="DNF-xq-DTY">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DNF-xq-DTY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
                                             <color key="backgroundColor" name="Beige"/>
                                         </imageView>
@@ -453,6 +453,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="previousBtnPressed:" destination="cvd-0b-R8C" eventType="touchUpInside" id="7ra-Re-tmb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-9L-tlR">
                                         <rect key="frame" x="285" y="10" width="80" height="40"/>
@@ -469,6 +472,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="nextBtnPressed:" destination="cvd-0b-R8C" eventType="touchUpInside" id="Igz-A6-Pha"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -533,6 +539,7 @@
                         <outlet property="previousBtn" destination="0nK-3h-FPN" id="KqU-co-28v"/>
                         <outlet property="progressCollectionView" destination="dl9-Iz-7vR" id="YKx-T9-bAa"/>
                         <outlet property="tableView" destination="xep-89-tpk" id="ft1-QN-ENt"/>
+                        <outlet property="workoutImageView" destination="DNF-xq-DTY" id="YoV-nq-VtM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhI-aD-wXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1483,7 +1490,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="01毛巾捲腹運動1" width="375" height="240"/>
         <image name="Background_SetupStretch" width="375" height="270"/>
         <image name="Background_SetupTrain" width="375" height="320"/>
         <image name="Button_10min_Normal" width="96" height="96"/>
@@ -1514,8 +1520,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jqG-cN-yFC"/>
-        <segue reference="hdZ-Mn-LOm"/>
-        <segue reference="N32-zC-2Fu"/>
+        <segue reference="Urd-Z5-Ftp"/>
+        <segue reference="V9S-5g-iX7"/>
+        <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

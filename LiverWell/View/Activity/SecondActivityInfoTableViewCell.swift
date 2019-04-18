@@ -9,6 +9,8 @@
 import UIKit
 
 class SecondActivityInfoTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var annotationLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +20,12 @@ class SecondActivityInfoTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func layoutView(annotation: String) {
+        
+        annotationLabel.text = annotation
+        
     }
 
 }
