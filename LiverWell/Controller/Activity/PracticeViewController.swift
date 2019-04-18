@@ -174,9 +174,10 @@ extension PracticeViewController: UITableViewDataSource {
 extension PracticeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard let workoutSet = workoutSet else { return 0 }
-//        return workoutSet.count
-        return 4
+        
+        guard let workoutArray = workoutArray else { return 0 }
+        
+        return workoutArray.count
     }
     
     // swiftlint:disable identifier_name

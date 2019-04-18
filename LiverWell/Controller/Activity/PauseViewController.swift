@@ -20,6 +20,10 @@ class PauseViewController: UIViewController, UITableViewDelegate {
     
     var maxTime: Float = 0.0
     
+    var workoutArray: [WorkoutSet]?
+    
+    var workoutIndex = 0
+    
     @IBAction func resumeWorkoutPressed(_ sender: UIButton) {
         
         dismiss(animated: false)
@@ -52,6 +56,29 @@ class PauseViewController: UIViewController, UITableViewDelegate {
         )
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        setupGif()
+        
+        tableView.reloadData()
+        
+    }
+    
+    private func setupGif() {
+        
+        guard let workoutArray = workoutArray else { return }
+        let currentWorkout = workoutArray[workoutIndex]
+        workoutImageView.animationImages = [
+            UIImage(named: currentWorkout.images[0]),
+            UIImage(named: currentWorkout.images[1])
+            ] as? [UIImage]
+        
+        workoutImageView.animationDuration = currentWorkout.perDuration
+        workoutImageView.startAnimating()
+        
+    }
 
 }
 
@@ -76,11 +103,21 @@ extension PauseViewController: UITableViewDataSource {
         
         guard let secondCell = cellReuse as? SecondActivityInfoTableViewCell else { return cell }
         
-        switch indexPath.row {
+        guard let currentWorkout = workoutArray?[workoutIndex] else { return cell }
         
-        case 0: return firstCell
+        if indexPath.row == 0 {
             
-        default: return secondCell
+            firstCell.layoutView(title: currentWorkout.title, description: currentWorkout.description)
+            
+            return firstCell
+            
+        } else {
+            
+            guard let annotation = currentWorkout.annotation else { return UITableViewCell() }
+            
+            secondCell.layoutView(annotation: annotation[0])
+            
+            return secondCell
             
         }
     }

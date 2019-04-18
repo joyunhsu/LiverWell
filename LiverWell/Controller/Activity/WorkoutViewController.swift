@@ -34,29 +34,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var counter = 1
     
-//    var workoutSet = [
-//        WorkoutSample(
-//            title: "看電視順便做",
-//            info: "轉到手臂有明顯緊繃感為止",
-//            totalRepeat: 1,
-//            totalCount: 3,
-//            perDuration: 2,
-//            workoutImage: [#imageLiteral(resourceName: "01毛巾捲腹運動1.png"), #imageLiteral(resourceName: "01毛巾捲腹運動2.png")],
-//            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-//            practiceAnnotation: nil
-//        ),
-//        WorkoutSample(
-//            title: "預防腰痛",
-//            info: "轉到手臂有明顯緊繃感為止",
-//            totalRepeat: 1,
-//            totalCount: 4,
-//            perDuration: 3,
-//            workoutImage: [#imageLiteral(resourceName: "02反向高抬腿1.png"), #imageLiteral(resourceName: "02反向高抬腿2.png")],
-//            practiceDescription: "1. 雙臂往下拉至後頸部，慢慢感受肩胛骨周圍肌肉受到刺激；注意頸部不可過度施力。雙手向上、向下算一次。\n2. 抬頭挺胸，雙手握住毛巾兩端後往上伸直。進行時，手臂放在身後。",
-//            practiceAnnotation: nil
-//        )
-//    ]
-    
     var workoutArray: [WorkoutSet]?
     
     var workoutIndex = 0
@@ -102,6 +79,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         updateBarProgress()
         
 //        barProgressView.setProgress(currentTIme, animated: false)
+        
+        setupGif()
+        
+    }
+    
+    private func setupGif() {
+        
         guard let workoutArray = workoutArray else { return }
         let currentWorkout = workoutArray[workoutIndex]
         workoutImageView.animationImages = [
@@ -133,6 +117,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         if let pauseVC = segue.destination as? PauseViewController {
             pauseVC.currentTime = self.currentTIme
             pauseVC.maxTime = maxTime
+            pauseVC.workoutArray = workoutArray
+            pauseVC.workoutIndex = workoutIndex
         }
     }
     

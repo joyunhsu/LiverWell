@@ -51,6 +51,7 @@ class CountDownViewController: UIViewController {
         if let pauseVC = segue.destination as? PauseViewController {
             pauseVC.currentTime = 0
             pauseVC.maxTime = 1
+            pauseVC.workoutArray = workoutArray
         }
     }
 }
