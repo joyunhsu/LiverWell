@@ -7,7 +7,7 @@
         "workout": [
           {
             "title": "看電視一邊做",
-            "id": "while-watch-tv",
+            "id": "0/train/workout/0",
             "icon": "Icon_Workout_TV",
             "description": "看電視時順便動一動，肌力訓練好簡單！",
             "workoutSet": [
@@ -74,7 +74,7 @@
           },
           {
             "title": "預防腰痛",
-            "id": "prevent-backPain",
+            "id": "0/train/workout/1",
             "icon": "Icon_Workout_BackPain",
             "description": "每天簡單做，腰痛遠離我！",
             "workoutSet": [
@@ -134,7 +134,7 @@
           },
           {
             "title": "全身訓練",
-            "id": "wholeBody-training",
+            "id": "0/train/workout/2",
             "icon": "Icon_Workout_WholeBody",
             "description": "活絡身心，全身一起動一動！",
             "workoutSet": [
@@ -194,7 +194,7 @@
           },
           {
             "title": "上半身訓練",
-            "id": "upperBody-training",
+            "id": "0/train/workout/3",
             "icon": "Icon_Workout_UpperBody",
             "description": "聚焦上半身，不費力！",
             "workoutSet": [
@@ -259,7 +259,7 @@
           },
           {
             "title": "下半身訓練",
-            "id": "lowerBody-training",
+            "id": "0/train/workout/4",
             "icon": "Icon_Workout_LowerBody",
             "description": "",
             "workoutSet": [
@@ -329,7 +329,7 @@
         "workout": [
           {
             "title": "久坐伸展",
-            "id": "longSit-stretch",
+            "id": "1/stretch/workout/0",
             "icon": "Icon_Workout_LongSit",
             "description": "",
             "workoutSet": [
@@ -385,7 +385,7 @@
           },
           {
             "title": "久站伸展",
-            "id": "longStand-stretch",
+            "id": "1/stretch/workout/1",
             "icon": "Icon_Workout_LongStand",
             "description": "",
             "workoutSet": [
@@ -439,7 +439,7 @@
           },
           {
             "title": "睡前舒緩",
-            "id": "before-sleep",
+            "id": "1/stretch/workout/2",
             "icon": "Icon_Workout_BeforeSleep",
             "description": "",
             "workoutSet": [

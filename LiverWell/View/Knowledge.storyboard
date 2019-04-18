@@ -37,7 +37,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjW-xy-Y9G">
                                             <rect key="frame" x="20" y="57" width="99.5" height="44"/>
-                                            <color key="backgroundColor" red="0.53333333333333333" green="0.792156862745098" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="G1"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="TjU-b4-f2X"/>
                                             </constraints>
@@ -62,8 +62,11 @@
                                                     <size key="value" width="0.0" height="2"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="categoryBtnPressed:" destination="mOc-7K-zMz" eventType="touchUpInside" id="kpy-GH-bVv"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlN-SR-rBT">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlN-SR-rBT">
                                             <rect key="frame" x="131.5" y="57" width="99.5" height="44"/>
                                             <color key="backgroundColor" red="0.96862745098039216" green="0.47843137254901957" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -87,8 +90,11 @@
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="categoryBtnPressed:" destination="mOc-7K-zMz" eventType="touchUpInside" id="GpY-xA-Qly"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zH-ty-YGy">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zH-ty-YGy">
                                             <rect key="frame" x="243" y="57" width="112" height="44"/>
                                             <color key="backgroundColor" red="0.98039215690000003" green="0.79215686269999996" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -115,6 +121,9 @@
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="categoryBtnPressed:" destination="mOc-7K-zMz" eventType="touchUpInside" id="9iw-eh-eSr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,6 +247,9 @@
                         <outlet property="liverBtn" destination="9zH-ty-YGy" id="wZV-mW-qNi"/>
                         <outlet property="tableView" destination="ILA-cr-EfX" id="k3f-Xg-geS"/>
                         <outlet property="workoutBtn" destination="DlN-SR-rBT" id="kHh-sF-rGg"/>
+                        <outletCollection property="categoryBtns" destination="CjW-xy-Y9G" collectionClass="NSMutableArray" id="9tL-xQ-nvs"/>
+                        <outletCollection property="categoryBtns" destination="DlN-SR-rBT" collectionClass="NSMutableArray" id="MEm-yT-0bn"/>
+                        <outletCollection property="categoryBtns" destination="9zH-ty-YGy" collectionClass="NSMutableArray" id="8kE-oA-088"/>
                         <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" modalTransitionStyle="crossDissolve" id="XJF-Av-EMH"/>
                     </connections>
                 </viewController>
@@ -346,6 +358,9 @@
         </namedColor>
         <namedColor name="B5">
             <color red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="G1">
+            <color red="0.53333333333333333" green="0.792156862745098" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Orange">
             <color red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

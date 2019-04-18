@@ -10,6 +10,14 @@ import UIKit
 import MBCircularProgressBar
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
+    
+    let homeObjectManager = HomeObjectManager()
+    
+    var homeObject: HomeObject? {
+        didSet {
+            workoutCollectionView.reloadData()
+        }
+    }
 
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
 
@@ -38,6 +46,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        homeObjectManager.getHomeObject(homeStatus: .resting) { [weak self] (homeObject, error) in
+            self?.homeObject = homeObject
+        }
+        
         workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, error) in
             self?.trainElements = train
         }
@@ -64,8 +76,9 @@ extension HomeViewController: UICollectionViewDataSource {
 
         if collectionView == workoutCollectionView {
 
-//            return manager.groups[1].items.count
-            return trainElements?.count ?? 0
+            guard let workoutSet = homeObject?.workoutSet else { return 0 }
+            
+            return workoutSet.count
 
         } else if collectionView == weekProgressCollectionView {
 
@@ -87,9 +100,11 @@ extension HomeViewController: UICollectionViewDataSource {
 
             guard let homeCell = cell as? HomeCollectionViewCell else { return cell }
 
-            let item = manager.groups[1].items[indexPath.row]
+//            let item = manager.groups[1].items[indexPath.row]
+            
+            guard let workoutElement = homeObject?.workoutSet[indexPath.row] else { return cell }
 
-            homeCell.layoutCell(image: item.image)
+            homeCell.layoutCell(image: workoutElement.buttonImage)
 
             return homeCell
 

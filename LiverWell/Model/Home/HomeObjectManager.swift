@@ -1,14 +1,14 @@
 //
-//  WorkoutManager.swift
+//  HomeObjectManager.swift
 //  LiverWell
 //
-//  Created by 徐若芸 on 2019/4/16.
+//  Created by 徐若芸 on 2019/4/18.
 //  Copyright © 2019 Jo Hsu. All rights reserved.
 //
 
 import Foundation
 
-class WorkoutManager {
+class HomeObjectManager {
     
     let decoder = JSONDecoder()
     let session: URLSession
@@ -20,14 +20,14 @@ class WorkoutManager {
     convenience init() {
         self.init(configuration: .default)
     }
-
-    func getWorkout(
-        activity: ActivityItems,
-        completionHandler completion: @escaping ([WorkoutElement]?, Error?
-        ) -> Void) {
     
+    func getHomeObject(
+        homeStatus: HomeStatus,
+        completionHandler completion: @escaping (HomeObject?, Error?
+        ) -> Void) {
+        
         guard let url = URL(
-            string: "https://liver-well.firebaseio.com/activityVC/\(activity.url())/workout.json"
+            string: "https://liver-well.firebaseio.com/homeVC/\(homeStatus.url()).json"
             ) else { return }
         
         let request = URLRequest(url: url)
@@ -39,11 +39,11 @@ class WorkoutManager {
             DispatchQueue.main.async {
                 
                 do {
-                    let workouts: [WorkoutElement] = try self.decoder.decode(
-                        [WorkoutElement].self,
+                    let homeObject: HomeObject = try self.decoder.decode(
+                        HomeObject.self,
                         from: data)
-                    
-                    completion(workouts, nil)
+                    print(homeObject)
+                    completion(homeObject, nil)
                     
                 } catch {
                     

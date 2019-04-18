@@ -12,9 +12,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
 
-    func layoutCell(image: UIImage?) {
+    func layoutCell(image: String) {
 
-        imageView.image = image
+        imageView.image = UIImage(named: image)
 
     }
 

@@ -1,0 +1,64 @@
+[
+	{
+		"status": "resting",
+		"title": "休息中",
+		"background": "Background_Orange",
+		"workoutSet": [
+			{
+				"title": "看電視一邊做",
+				"buttonImage": "Icon_Home_WatchTV",
+				"id": "0/train/workout/0" 
+			},
+			{
+				"title": "預防腰痛",
+				"buttonImage": "Icon_Home_BackPain",
+				"id": "0/train/workout/1"
+			},
+			{
+				"title": "全身運動",
+				"buttonImage": "Icon_Home_WholeBody",
+				"id": "0/train/workout/2"
+			},
+			{
+				"title": "上半身運動",
+				"buttonImage": "Icon_Home_UpperBody",
+				"id": "0/train/workout/3"
+			},
+			{
+				"title": "下半身運動",
+				"buttonImage": "Icon_Home_LowerBody",
+				"id": "0/train/workout/4"
+
+			}
+		]
+	},
+	{
+		"status": "working",
+		"title": "工作中",
+		"background": "Background_Green",
+		"workoutSet": [
+			{
+				"title": "久坐伸展",
+				"buttonImage": "Icon_Home_LongSit",
+				"id": "1/stretch/workout/0" 
+			},
+			{
+				"title": "久站伸展",
+				"buttonImage": "Icon_Home_LongStand",
+				"id": "1/stretch/workout/1" 
+			}
+		]
+	},
+	{
+		"status": "beforeSleep",
+		"title": "準備就寢",
+		"background": "Background_Purple",
+		"workoutSet": [
+			{
+				"title": "睡前舒緩運動",
+				"buttonImage": "Icon_Home_BeforeSleep",
+				"id": "1/stretch/workout/2" 
+			}
+		]
+	}
+]

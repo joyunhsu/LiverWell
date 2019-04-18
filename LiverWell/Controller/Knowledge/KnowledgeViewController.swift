@@ -18,6 +18,28 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var categoryBtns: [UIButton]!
+    
+    @IBAction func categoryBtnPressed(_ sender: UIButton) {
+        
+        for btn in categoryBtns {
+            
+            btn.isSelected = false
+            
+            btn.backgroundColor = .B1
+            
+        }
+        
+        sender.isSelected = true
+        
+        selectCategory(withTag: sender.tag)
+        
+    }
+    
+    private func selectCategory(withTag: Int) {
+        
+    }
+    
     let knowledgeManager = KnowledgeManager()
     
     var knowledges: [Knowledge]? {
