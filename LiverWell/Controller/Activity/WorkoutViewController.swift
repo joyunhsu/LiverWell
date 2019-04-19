@@ -7,10 +7,12 @@
 //
 
 import UIKit
-import Kingfisher
+import AVFoundation
 
 // swiftlint:disable identifier_name
 class WorkoutViewController: UIViewController, UICollectionViewDelegate {
+    
+    var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var workoutTitleLabel: UILabel!
     
@@ -46,20 +48,36 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var currentTIme: Float = 0.0
     
-    var soundIsOn: Bool = true
+    var soundIsOn: Bool = true // offIcon -> selected
     
     @IBAction func toggleSonudBtnPressed(_ sender: UIButton) {
         
-        soundIsOn = !soundIsOn
-        
         if soundIsOn == true {
             
-            soundBtn.isSelected = false
+            audioPlayer.volume = 0
+            
+            soundBtn.isSelected = false // onIcon -> default
             
         } else {
             
+            audioPlayer.volume = 1
+            
             soundBtn.isSelected = true
             
+        }
+        
+        soundIsOn = !soundIsOn
+        
+    }
+    
+    private func setupAudioPlayer() {
+        
+        let sound = Bundle.main.path(forResource: "Mermaid", ofType: "mp3")
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        } catch {
+            print(error)
         }
         
     }
@@ -68,6 +86,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        
+        setupAudioPlayer()
+//        audioPlayer.play()
 
     }
     
@@ -81,6 +102,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
 //        barProgressView.setProgress(currentTIme, animated: false)
         
         setupGif()
+        
+//        audioPlayer.play()
         
     }
     
@@ -103,6 +126,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         repeatTimer?.invalidate()
         barTimer?.invalidate()
         repeatCountingText = [String]()
+        audioPlayer.pause()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

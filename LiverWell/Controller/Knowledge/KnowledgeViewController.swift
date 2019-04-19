@@ -95,10 +95,6 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    private func selectCategory(withTag: Int) {
-        
-    }
-    
     let knowledgeManager = KnowledgeManager()
     
     var knowledgeList = [Knowledge]() {
@@ -154,7 +150,7 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
         
         if let detailVC = segue.destination as? DetailKnowledgeViewController {
             
-            detailVC.knowledge = knowledgeList[(tableView.indexPathForSelectedRow?.row)!]
+            detailVC.knowledge = list[(tableView.indexPathForSelectedRow?.row)!]
             
         }
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CountDownViewController: UIViewController {
     
@@ -16,11 +17,17 @@ class CountDownViewController: UIViewController {
     var counter = 5
     var workoutMinutes: Float?
     var workoutArray: [WorkoutSet]?
+    
+    var audioPlayer = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         countDownLabel.text = "\(counter)"
+        
+        setupAudioPlayer()
+        
+        audioPlayer.play()
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -35,10 +42,26 @@ class CountDownViewController: UIViewController {
         if counter > 0 {
             counter -= 1
             countDownLabel.text = String(format: "%d", counter)
+
+            audioPlayer.play()
+        
         } else {
             performSegue(withIdentifier: "startWorkout", sender: self)
             timer.invalidate()
         }
+        
+    }
+    
+    private func setupAudioPlayer() {
+        
+        let sound = Bundle.main.path(forResource: "Countdown", ofType: "mp3")
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        } catch {
+            print(error)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

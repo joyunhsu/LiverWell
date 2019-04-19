@@ -18,6 +18,8 @@
 		6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */; };
 		6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C422547FB600BECC70 /* HomeViewController.swift */; };
 		6E664C012269281300221184 /* KnowledgeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C002269281300221184 /* KnowledgeItem.swift */; };
+		6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0622699EC300221184 /* Mermaid.mp3 */; };
+		6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C082269A6FC00221184 /* Countdown.mp3 */; };
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
@@ -86,6 +88,8 @@
 		6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6E4B74C422547FB600BECC70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6E664C002269281300221184 /* KnowledgeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeItem.swift; sourceTree = "<group>"; };
+		6E664C0622699EC300221184 /* Mermaid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mermaid.mp3; sourceTree = "<group>"; };
+		6E664C082269A6FC00221184 /* Countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Countdown.mp3; sourceTree = "<group>"; };
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +195,24 @@
 				6E9599C2225A33D200BC1D9A /* WeekProgressCollectionViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		6E664C022269936C00221184 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E664C03226993D300221184 /* Sound */,
+				6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6E664C03226993D300221184 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				6E664C082269A6FC00221184 /* Countdown.mp3 */,
+				6E664C0622699EC300221184 /* Mermaid.mp3 */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		6E73AC4D226877AE00CA5347 /* Third Party Wrapper */ = {
@@ -389,11 +411,11 @@
 			children = (
 				6E73AC4D226877AE00CA5347 /* Third Party Wrapper */,
 				6EA8CBDE2253683C000859FD /* Extension */,
+				6E664C022269936C00221184 /* Resources */,
 				6EA8CBCB22533248000859FD /* Controller */,
 				6EA8CBCC22533253000859FD /* View */,
 				6EA8CBCE22533261000859FD /* Model */,
 				6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */,
-				6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */,
 				6EFDDEAF2251E41300C1B8B3 /* Info.plist */,
 				6EE01FB82264DCA90026C911 /* GoogleService-Info.plist */,
 			);
@@ -483,6 +505,8 @@
 				6EE01FB7226433360026C911 /* Auth.storyboard in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
+				6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */,
+				6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */,
 				6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */,
 				6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */,
 			);
