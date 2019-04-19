@@ -12,8 +12,6 @@ import AVFoundation
 // swiftlint:disable identifier_name
 class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
-    var audioPlayer = AVAudioPlayer()
-    
     @IBOutlet weak var workoutTitleLabel: UILabel!
     
     @IBOutlet weak var infoLabel: UILabel!
@@ -31,6 +29,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     var barTimer: Timer?
     
     var repeatTimer: Timer?
+    
+    var doneSoundTimer: Timer?
     
     var startTime = 0
     
@@ -54,13 +54,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         if soundIsOn == true {
             
-            audioPlayer.volume = 0
+            doneAudioPlayer.volume = 0
             
             soundBtn.isSelected = false // onIcon -> default
             
         } else {
             
-            audioPlayer.volume = 1
+            doneAudioPlayer.volume = 1
             
             soundBtn.isSelected = true
             
@@ -70,12 +70,34 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    private func setupAudioPlayer() {
+    var countAudioPlayer = AVAudioPlayer()
+    
+    var doneAudioPlayer = AVAudioPlayer()
+    
+    var countSoundFileName = 1
+    
+    var doneCounting = 1
+    
+    private func setAndPlayCountSound(soundFile: Int) {
         
-        let sound = Bundle.main.path(forResource: "Mermaid", ofType: "mp3")
+        let sound = Bundle.main.path(forResource: String(soundFile), ofType: "mp3")
         
         do {
-            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            try countAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        } catch {
+            print(error)
+        }
+        
+        countAudioPlayer.play()
+        
+    }
+    
+    private func setupDoneAudioPlayer() {
+        
+        let sound = Bundle.main.path(forResource: "DonePerCount", ofType: "mp3")
+        
+        do {
+            try doneAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
         } catch {
             print(error)
         }
@@ -87,8 +109,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         self.navigationItem.hidesBackButton = true
         
-        setupAudioPlayer()
-//        audioPlayer.play()
+//        setAndPlayCountSound(soundFile: 1)
+        
+        setupDoneAudioPlayer()
+        
+        setAndPlayCountSound(soundFile: self.countSoundFileName)
+        
+        countSoundFileName += 1
 
     }
     
@@ -102,8 +129,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
 //        barProgressView.setProgress(currentTIme, animated: false)
         
         setupGif()
-        
-//        audioPlayer.play()
         
     }
     
@@ -126,7 +151,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         repeatTimer?.invalidate()
         barTimer?.invalidate()
         repeatCountingText = [String]()
-        audioPlayer.pause()
+        doneAudioPlayer.pause()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -176,6 +201,10 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             if self.counter < totalCount {
                 self.repeatLabel.text = self.repeatCountingText[self.counter]
                 self.counter += 1
+                
+                self.setAndPlayCountSound(soundFile: self.countSoundFileName)
+                self.countSoundFileName += 1
+                
             } else {
                 self.repeatTimer?.invalidate()
                 self.barTimer?.invalidate()
@@ -190,12 +219,24 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                     self.updateBarProgress()
                     
                 } else {
-                    // Finish repo in current workout, ready for next
+                // Finish repo in current workout, ready for next
                     self.workoutIndex += 1
                     self.currentRepeat = 1
                 
                 }
             }
+        })
+        
+        doneSoundTimer = Timer.scheduledTimer(withTimeInterval: timeInterval / 2, repeats: true, block: { (_) in
+            
+            self.doneCounting += 1
+            
+            if self.doneCounting % 2 == 0 {
+                
+                self.doneAudioPlayer.play()
+                
+            }
+            
         })
     }
     

@@ -20,6 +20,22 @@
 		6E664C012269281300221184 /* KnowledgeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C002269281300221184 /* KnowledgeItem.swift */; };
 		6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0622699EC300221184 /* Mermaid.mp3 */; };
 		6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C082269A6FC00221184 /* Countdown.mp3 */; };
+		6E664C0B2269A98300221184 /* DonePerCount.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0A2269A98300221184 /* DonePerCount.mp3 */; };
+		6E664C1C2269A9DB00221184 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0D2269A9DA00221184 /* 3.mp3 */; };
+		6E664C1D2269A9DB00221184 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0E2269A9DA00221184 /* 10.mp3 */; };
+		6E664C1E2269A9DB00221184 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0F2269A9DA00221184 /* 4.mp3 */; };
+		6E664C1F2269A9DB00221184 /* 13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C102269A9DA00221184 /* 13.mp3 */; };
+		6E664C202269A9DB00221184 /* 11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C112269A9DA00221184 /* 11.mp3 */; };
+		6E664C212269A9DB00221184 /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C122269A9DA00221184 /* 6.mp3 */; };
+		6E664C222269A9DB00221184 /* 12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C132269A9DA00221184 /* 12.mp3 */; };
+		6E664C232269A9DB00221184 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C142269A9DA00221184 /* 2.mp3 */; };
+		6E664C242269A9DB00221184 /* 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C152269A9DB00221184 /* 7.mp3 */; };
+		6E664C252269A9DB00221184 /* 15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C162269A9DB00221184 /* 15.mp3 */; };
+		6E664C262269A9DB00221184 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C172269A9DB00221184 /* 1.mp3 */; };
+		6E664C272269A9DB00221184 /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C182269A9DB00221184 /* 9.mp3 */; };
+		6E664C282269A9DB00221184 /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C192269A9DB00221184 /* 5.mp3 */; };
+		6E664C292269A9DB00221184 /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C1A2269A9DB00221184 /* 8.mp3 */; };
+		6E664C2A2269A9DB00221184 /* 14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C1B2269A9DB00221184 /* 14.mp3 */; };
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
@@ -90,6 +106,22 @@
 		6E664C002269281300221184 /* KnowledgeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeItem.swift; sourceTree = "<group>"; };
 		6E664C0622699EC300221184 /* Mermaid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mermaid.mp3; sourceTree = "<group>"; };
 		6E664C082269A6FC00221184 /* Countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Countdown.mp3; sourceTree = "<group>"; };
+		6E664C0A2269A98300221184 /* DonePerCount.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DonePerCount.mp3; sourceTree = "<group>"; };
+		6E664C0D2269A9DA00221184 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		6E664C0E2269A9DA00221184 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		6E664C0F2269A9DA00221184 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		6E664C102269A9DA00221184 /* 13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 13.mp3; sourceTree = "<group>"; };
+		6E664C112269A9DA00221184 /* 11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11.mp3; sourceTree = "<group>"; };
+		6E664C122269A9DA00221184 /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		6E664C132269A9DA00221184 /* 12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12.mp3; sourceTree = "<group>"; };
+		6E664C142269A9DA00221184 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		6E664C152269A9DB00221184 /* 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 7.mp3; sourceTree = "<group>"; };
+		6E664C162269A9DB00221184 /* 15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 15.mp3; sourceTree = "<group>"; };
+		6E664C172269A9DB00221184 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		6E664C182269A9DB00221184 /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
+		6E664C192269A9DB00221184 /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
+		6E664C1A2269A9DB00221184 /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		6E664C1B2269A9DB00221184 /* 14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 14.mp3; sourceTree = "<group>"; };
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,10 +241,34 @@
 		6E664C03226993D300221184 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				6E664C0C2269A9CE00221184 /* Counting */,
 				6E664C082269A6FC00221184 /* Countdown.mp3 */,
+				6E664C0A2269A98300221184 /* DonePerCount.mp3 */,
 				6E664C0622699EC300221184 /* Mermaid.mp3 */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		6E664C0C2269A9CE00221184 /* Counting */ = {
+			isa = PBXGroup;
+			children = (
+				6E664C172269A9DB00221184 /* 1.mp3 */,
+				6E664C142269A9DA00221184 /* 2.mp3 */,
+				6E664C0D2269A9DA00221184 /* 3.mp3 */,
+				6E664C0F2269A9DA00221184 /* 4.mp3 */,
+				6E664C192269A9DB00221184 /* 5.mp3 */,
+				6E664C122269A9DA00221184 /* 6.mp3 */,
+				6E664C152269A9DB00221184 /* 7.mp3 */,
+				6E664C1A2269A9DB00221184 /* 8.mp3 */,
+				6E664C182269A9DB00221184 /* 9.mp3 */,
+				6E664C0E2269A9DA00221184 /* 10.mp3 */,
+				6E664C112269A9DA00221184 /* 11.mp3 */,
+				6E664C132269A9DA00221184 /* 12.mp3 */,
+				6E664C102269A9DA00221184 /* 13.mp3 */,
+				6E664C1B2269A9DB00221184 /* 14.mp3 */,
+				6E664C162269A9DB00221184 /* 15.mp3 */,
+			);
+			path = Counting;
 			sourceTree = "<group>";
 		};
 		6E73AC4D226877AE00CA5347 /* Third Party Wrapper */ = {
@@ -495,17 +551,33 @@
 			files = (
 				6E9599C12259C4B200BC1D9A /* SecondActivityInfoTableViewCell.xib in Resources */,
 				6E9599B92259315C00BC1D9A /* SetupActivityTableViewCell.xib in Resources */,
+				6E664C1D2269A9DB00221184 /* 10.mp3 in Resources */,
+				6E664C1E2269A9DB00221184 /* 4.mp3 in Resources */,
+				6E664C292269A9DB00221184 /* 8.mp3 in Resources */,
+				6E664C242269A9DB00221184 /* 7.mp3 in Resources */,
+				6E664C202269A9DB00221184 /* 11.mp3 in Resources */,
+				6E664C282269A9DB00221184 /* 5.mp3 in Resources */,
 				6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */,
+				6E664C2A2269A9DB00221184 /* 14.mp3 in Resources */,
 				6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */,
+				6E664C232269A9DB00221184 /* 2.mp3 in Resources */,
 				6E49C9942253DA28006536A2 /* Knowledge.storyboard in Resources */,
+				6E664C272269A9DB00221184 /* 9.mp3 in Resources */,
 				6E49C9902253DA08006536A2 /* Home.storyboard in Resources */,
+				6E664C212269A9DB00221184 /* 6.mp3 in Resources */,
 				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
+				6E664C0B2269A98300221184 /* DonePerCount.mp3 in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
+				6E664C262269A9DB00221184 /* 1.mp3 in Resources */,
 				6EE01FB7226433360026C911 /* Auth.storyboard in Resources */,
+				6E664C222269A9DB00221184 /* 12.mp3 in Resources */,
+				6E664C252269A9DB00221184 /* 15.mp3 in Resources */,
 				6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */,
+				6E664C1C2269A9DB00221184 /* 3.mp3 in Resources */,
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
 				6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */,
+				6E664C1F2269A9DB00221184 /* 13.mp3 in Resources */,
 				6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */,
 				6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */,
 				6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */,
