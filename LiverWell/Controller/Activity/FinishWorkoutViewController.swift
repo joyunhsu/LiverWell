@@ -24,6 +24,7 @@ class FinishWorkoutViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
 //            self.navigationController?.pushViewController(homeVC, animated: true)
             self.navigationController?.show(homeVC, sender: true)
+            
         })
     }
 

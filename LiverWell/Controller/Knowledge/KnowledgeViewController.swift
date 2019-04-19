@@ -22,18 +22,77 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func categoryBtnPressed(_ sender: UIButton) {
         
-        for btn in categoryBtns {
+        if sender.isSelected == true {
             
-            btn.isSelected = false
+            for btn in categoryBtns {
+                
+                btn.isSelected = false
+                
+            }
             
-            btn.backgroundColor = .B1
+        } else {
+            
+            for btn in categoryBtns {
+                
+                btn.isSelected = false
+                
+            }
+            
+            sender.isSelected = true
             
         }
         
-        sender.isSelected = true
+        setupCategoryBtnView(
+            foodIsSelected: foodBtn.isSelected,
+            workoutIsSelected: workoutBtn.isSelected,
+            liverIsSelected: liverBtn.isSelected
+        )
         
-        selectCategory(withTag: sender.tag)
+        selectListWithIndex(sender)
         
+    }
+    
+    private func selectListWithIndex(_ sender: UIButton) {
+        
+        selectedIndex = sender.tag
+        
+        if foodBtn.isSelected == false && workoutBtn.isSelected == false && liverBtn.isSelected == false {
+            selectedIndex = 0
+            foodBtn.backgroundColor = .G1
+            workoutBtn.backgroundColor = .Orange
+            liverBtn.backgroundColor = .Yellow
+        }
+        
+    }
+    
+    private func setupCategoryBtnView(foodIsSelected: Bool, workoutIsSelected: Bool, liverIsSelected: Bool) {
+        
+        let foodColor = foodIsSelected ? UIColor.G1 : UIColor.B1
+        
+        let workoutColor = workoutIsSelected ? UIColor.Orange : UIColor.B1
+        
+        let liverColor = liverIsSelected ? UIColor.Yellow : UIColor.B1
+    
+        foodBtn.backgroundColor = foodColor
+        
+        workoutBtn.backgroundColor = workoutColor
+        
+        liverBtn.backgroundColor = liverColor
+        
+    }
+    
+    var listArray: [[Knowledge]] {
+        return [knowledgeList, foodList, workoutList, fattyLiverList]
+    }
+    
+    var list: [Knowledge] {
+        return listArray[selectedIndex]
+    }
+    
+    var selectedIndex = 0 {
+        didSet {
+            tableView.reloadData()
+        }
     }
     
     private func selectCategory(withTag: Int) {
@@ -42,27 +101,41 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
     
     let knowledgeManager = KnowledgeManager()
     
-    var knowledges: [Knowledge]? {
-        
+    var knowledgeList = [Knowledge]() {
         didSet {
-         
             tableView.reloadData()
-            
         }
-        
     }
     
     var selectedKnowledge: Knowledge?
+    
+    var foodList = [Knowledge]()
+    
+    var workoutList = [Knowledge]()
+    
+    var fattyLiverList = [Knowledge]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        knowledgeManager.getKnowledge { (knowledges, error) in
+        knowledgeManager.getKnowledge { (knowledgeList, _ ) in
             
-            self.knowledges = knowledges
+            guard let knowledgeList = knowledgeList else { return }
+            
+            self.knowledgeList = knowledgeList
+            
+            self.filterList()
             
         }
 
+    }
+    
+    private func filterList() {
+        
+        foodList = knowledgeList.filter({ return $0.category == "food" })
+        workoutList = knowledgeList.filter({ return $0.category == "workout" })
+        fattyLiverList = knowledgeList.filter({ return $0.category == "fattyLiver" })
+        
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,7 +154,7 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
         
         if let detailVC = segue.destination as? DetailKnowledgeViewController {
             
-            detailVC.knowledge = knowledges?[(tableView.indexPathForSelectedRow?.row)!]
+            detailVC.knowledge = knowledgeList[(tableView.indexPathForSelectedRow?.row)!]
             
         }
         
@@ -92,7 +165,8 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
 extension KnowledgeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return knowledges?.count ?? 0
+        
+        return list.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,9 +177,9 @@ extension KnowledgeViewController: UITableViewDataSource {
         
         guard let knowledgeCell = cell as? KnowledgeTableViewCell else { return cell }
         
-        guard let knowledge = knowledges?[indexPath.row] else { return cell }
+        let listSelected = list[indexPath.row]
         
-        knowledgeCell.layoutView(category: knowledge.category, title: knowledge.title)
+        knowledgeCell.layoutView(category: listSelected.category, title: listSelected.title)
         
         knowledgeCell.selectionStyle = .none
         

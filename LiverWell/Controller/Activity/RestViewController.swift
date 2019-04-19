@@ -41,20 +41,20 @@ class RestViewController: UIViewController {
         
         barProgressView.progress = currentTime / maxTime
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-//            self.navigationController?.popViewController(animated: false)
-//        })
-        
     }
     
     @objc func updateTimer() {
+        
         if counter > 0 {
             counter -= 1
             countDownLabel.text = String(format: "%d", counter)
             progressView.value = CGFloat(30 - counter)
+            
         } else {
+            
             self.navigationController?.popViewController(animated: false)
             timer.invalidate()
+            
         }
     }
 

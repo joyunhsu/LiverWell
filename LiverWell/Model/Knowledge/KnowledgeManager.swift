@@ -57,15 +57,3 @@ class KnowledgeManager {
     }
     
 }
-
-struct Knowledge: Codable {
-    
-    let category: String
-    
-    let content: String
-    
-    let title: String
-    
-    let image: String?
-    
-}
