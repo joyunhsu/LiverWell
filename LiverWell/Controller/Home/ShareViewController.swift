@@ -14,6 +14,8 @@ class ShareViewController: UIViewController {
     
     @IBOutlet weak var weeklyStatusBtn: UIButton!
     
+    @IBOutlet weak var todayStatusView: UIView!
+    
     @IBOutlet var statusBtns: [UIButton]!
     
     @IBAction func selectStatusBtnPressed(_ sender: UIButton) {
@@ -42,6 +44,25 @@ class ShareViewController: UIViewController {
     
     @IBAction func shareBtnPressed(_ sender: UIButton) {
         
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        
+        let renderedImage = renderer.image { (UIGraphicsRendererContext) in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        // Image to share
+        let image = renderedImage
+        
+        // set up activity view controller
+        let imageToShare = [image]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        // exclude some activity types from the list (optional)
+//        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

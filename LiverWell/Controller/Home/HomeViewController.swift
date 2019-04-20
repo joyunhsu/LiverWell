@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         let now = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M月dd日"
+        dateFormatter.dateFormat = "MM月dd日"
         var convertedDate = dateFormatter.string(from: now)
         
         let dayFormatter = DateFormatter()
