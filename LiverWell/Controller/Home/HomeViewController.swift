@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    @IBOutlet weak var timeLabel: UILabel!
+    
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var background: UIImageView!
@@ -38,12 +40,38 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         setupStatus(homeStatus: .resting)
         
-//        setupView()
-
+        showToday()
+        
+    }
+    
+    private func showToday() {
+        
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M月dd日"
+        var convertedDate = dateFormatter.string(from: now)
+        
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "EEEE"
+        var convertedChineseDay = dayFormatter.string(from: now)
+        var chineseDay: String {
+            switch convertedChineseDay {
+            case "Monday": return "星期一"
+            case "Tuesday": return "星期二"
+            case "Wedneday": return "星期三"
+            case "Thursday": return "星期四"
+            case "Friday": return "星期五"
+            case "Saturday": return "星期六"
+            default: return "星期日"
+            }
+        }
+        
+        timeLabel.text = "\(convertedDate) \(chineseDay)"
+        
     }
     
     private func setupStatus(homeStatus: HomeStatus) {
-        homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, error) in
+        homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
         }
     }

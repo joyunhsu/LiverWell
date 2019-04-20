@@ -417,6 +417,7 @@
                         <outlet property="background" destination="9HI-Hg-yOK" id="fRT-iY-D9S"/>
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
+                        <outlet property="timeLabel" destination="VaG-O6-Gve" id="Q2e-Oq-Mr0"/>
                         <outlet property="trainProgressView" destination="kx9-dL-Iax" id="7GV-Fi-M2E"/>
                         <outlet property="weekProgressCollectionView" destination="DvP-Xr-RAC" id="t4E-Oe-rz8"/>
                         <outlet property="workoutCollectionView" destination="47e-1i-T6o" id="qSr-ik-jXk"/>

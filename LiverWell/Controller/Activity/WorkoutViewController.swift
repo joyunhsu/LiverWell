@@ -52,33 +52,42 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBAction func toggleSonudBtnPressed(_ sender: UIButton) {
         
+        soundIsOn = !soundIsOn
+        
         if soundIsOn == true {
-            
-            doneAudioPlayer.volume = 0
-            
-            soundBtn.isSelected = false // onIcon -> default
-            
-        } else {
             
             doneAudioPlayer.volume = 1
             
-            soundBtn.isSelected = true
+            countAudioPlayer.volume = 1
+            
+            soundBtn.isSelected = true // onIcon -> default
+            
+        } else {
+            
+            doneAudioPlayer.volume = 0
+            
+            countAudioPlayer.volume = 0
+            
+            soundBtn.isSelected = false
             
         }
         
-        soundIsOn = !soundIsOn
-        
     }
     
-    var countAudioPlayer = AVAudioPlayer()
+    var countAudioPlayer: AVAudioPlayer!
     
-    var doneAudioPlayer = AVAudioPlayer()
+    var doneAudioPlayer: AVAudioPlayer!
     
     var countSoundFileName = 1
     
     var doneCounting = 1
     
     private func setAndPlayCountSound(soundFile: Int) {
+        
+        if countAudioPlayer != nil {
+            
+            countAudioPlayer.stop()
+        }
         
         let sound = Bundle.main.path(forResource: String(soundFile), ofType: "mp3")
         
@@ -90,6 +99,14 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         countAudioPlayer.play()
         
+        if soundIsOn == true {
+            
+            countAudioPlayer.volume = 1
+            
+        } else {
+            
+            countAudioPlayer.volume = 0
+        }
     }
     
     private func setupDoneAudioPlayer() {
@@ -148,10 +165,15 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        
         repeatTimer?.invalidate()
         barTimer?.invalidate()
+        doneSoundTimer?.invalidate()
+        
         repeatCountingText = [String]()
-        doneAudioPlayer.pause()
+        
+        doneAudioPlayer.stop()
+        countAudioPlayer.pause()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -217,6 +239,10 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                     self.currentRepeat += 1
                     self.changeTitleAndRepeatText()
                     self.updateBarProgress()
+                    
+                    self.doneCounting = 1
+                    self.countSoundFileName = 1
+                    self.countAudioPlayer.play()
                     
                 } else {
                 // Finish repo in current workout, ready for next
