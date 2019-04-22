@@ -44,14 +44,42 @@ class AuthViewController: UIViewController {
             
             // 註冊成功並顯示已登入
             self.showMsg("已登入")
+            
+            self.createUserDocument()
+            
+        }
+        
+    }
+    
+    private func createUserDocument() {
+        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            
+            let userName = signupNameTextfield.text
+            
+            // 創建以用戶UID為名的document
+            AppDelegate.db.collection("users").document(uid).setData([
+                "name": userName
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
         }
         
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         
-        Auth.auth().signIn(withEmail: loginEmailTextfield.text!, password: loginPasswordTextfield.text!) { (user, error) in
-            if (error != nil) {
+        Auth.auth().signIn(
+        withEmail: loginEmailTextfield.text!,
+        password: loginPasswordTextfield.text!
+        ) { (user, error) in
+            if error != nil {
                 let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "Error", style: .cancel, handler: nil)
                 alert.addAction(defaultAction)

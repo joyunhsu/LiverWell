@@ -15,6 +15,10 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // swiftlint:disable identifier_name
+    static let db = Firestore.firestore()
+    // swiftlint:enable identifier_name
 
     func application(
         _ application: UIApplication,
@@ -22,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
 
         FirebaseApp.configure()
-        
+
         Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
 
             guard user != nil else {

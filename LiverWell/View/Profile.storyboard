@@ -634,6 +634,9 @@
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="IRV-dC-qCa" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="MKO-yy-Pla"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" name="Beige"/>
@@ -722,6 +725,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4D-Hc-R0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2297" y="1957"/>
+        </scene>
+        <!--Record Weight View Controller-->
+        <scene sceneID="6Ca-7u-Yng">
+            <objects>
+                <viewController id="IRV-dC-qCa" customClass="RecordWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W3e-zu-X4q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="458"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGT-dV-Uhb">
+                                <rect key="frame" x="16" y="20" width="343" height="418"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-oJ-1aU">
+                                        <rect key="frame" x="156" y="359" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="確定"/>
+                                        <connections>
+                                            <action selector="dismissBtnPressed:" destination="IRV-dC-qCa" eventType="touchUpInside" id="svH-h6-cDO"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入體重" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Ee-s8e">
+                                        <rect key="frame" x="46" y="183" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EGT-dV-Uhb" firstAttribute="leading" secondItem="xlg-Ya-C24" secondAttribute="leading" constant="16" id="2GN-gv-FG7"/>
+                            <constraint firstItem="xlg-Ya-C24" firstAttribute="trailing" secondItem="EGT-dV-Uhb" secondAttribute="trailing" constant="16" id="7eW-U6-BwR"/>
+                            <constraint firstItem="xlg-Ya-C24" firstAttribute="bottom" secondItem="EGT-dV-Uhb" secondAttribute="bottom" constant="20" id="Ryl-Tp-Jys"/>
+                            <constraint firstItem="EGT-dV-Uhb" firstAttribute="top" secondItem="xlg-Ya-C24" secondAttribute="top" constant="20" id="cq9-5k-cNL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xlg-Ya-C24"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="zKt-Ee-s8e" id="286-Eb-aok"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skm-d2-fPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3093.5999999999999" y="1956.521739130435"/>
         </scene>
         <!--我的-->
         <scene sceneID="Vpq-YD-FIV">

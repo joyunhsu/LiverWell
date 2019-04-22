@@ -47,23 +47,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         determineStatus(
             workStartHours: 9,
-            workEndHours: 18,
-            sleepStartHours: 23
+            workEndHours: 18
         )
         
     }
     
     private func determineStatus(
         workStartHours: Int,
-        workEndHours: Int,
-        sleepStartHours: Int
+        workEndHours: Int
         ) {
         
         let now = Date()
         
         let workStart = now.dateAt(hours: workStartHours, minutes: 0)
         let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
-        let sleepStart = now.dateAt(hours: sleepStartHours, minutes: 0)
+        let sleepStart = now.dateAt(hours: 21, minutes: 30)
         let sleepEnd = now.dateAt(hours: 5, minutes: 0)
         
         if now >= workStart && now <= workEnd {
