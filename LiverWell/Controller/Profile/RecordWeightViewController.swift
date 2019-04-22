@@ -23,22 +23,35 @@ class RecordWeightViewController: UIViewController {
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
-        let userRef = AppDelegate.db.collection("users").document(uid)
+        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
-        guard let weight = textField.text else { return }
-        // Update document without overwriting
-        userRef.updateData([
+        guard let weightText = textField.text else { return }
+        let weight = Double(weightText)
+        
+        // Add a new document with a generated id
+        var ref: DocumentReference? = nil
+        ref = AppDelegate.db.collection("users").document(uid).collection("weight").addDocument(data: [
             "weight" : weight,
             "created_time": time
-        ]) { (error) in
-            if let error = error {
-                print("Error updating document: \(error)")
-            } else {
-                print("Document succesfully updated")
-            }
-        }
+            ], completion: { (error) in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                } else {
+                    print("Document added with ID: \(ref?.documentID)")
+                }
+        })
         
-        print(weight)
+        // Update document without overwriting
+//        userRef.updateData([
+//            "weight" : weight,
+//            "created_time": time
+//        ]) { (error) in
+//            if let error = error {
+//                print("Error updating document: \(error)")
+//            } else {
+//                print("Document succesfully updated")
+//            }
+//        }
         
         // Add a new document with a generated ID
 //        var ref: DocumentReference? = nil

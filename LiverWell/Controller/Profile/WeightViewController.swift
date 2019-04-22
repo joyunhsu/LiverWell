@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Firebase
 
 // swiftlint:disable identifier_name
 class WeightViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegate {
@@ -23,10 +24,37 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
 
         setChartValues()
         setupChartView()
+        readWeight()
         
     }
     
-    func setChartValues(_ count: Int = 20) {
+    private func readWeight() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        
+        AppDelegate.db.collection("users").document(uid).collection("weight").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in snapshot!.documents {
+                    guard let weight = document.get("weight") as? Double else { return }
+                    print("----------")
+                    print(weight)
+                    
+                    if let createdTime = document.get("created_time") as? Timestamp {
+                        let date = createdTime.dateValue()
+                        print("-----------")
+                        print(date)
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+    private func setChartValues(_ count: Int = 20) {
         let values = (0..<count).map { (i) -> ChartDataEntry in
             
             let val = Double(arc4random_uniform(UInt32(count)) + 3)
@@ -63,7 +91,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             locations: colorLocations)!
     }
     
-    func setupChartView() {
+    private func setupChartView() {
         
         // Remove horizonatal line, right value label, legend below chart
         self.lineChartView.xAxis.drawGridLinesEnabled = false
