@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4e-g0-bSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="48h-l9-7Xp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--我的-->
+        <!--Profile View Controller-->
         <scene sceneID="Rdl-pS-mzI">
             <objects>
                 <viewController id="O4e-g0-bSq" customClass="ProfileViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,19 +20,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E6-YG-pP4">
-                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="209" width="375" height="458"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-f3-FMd" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="750" height="502"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="750" height="458"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I42-uK-9Yk" userLabel="Weight Container View">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="502"/>
+                                                <rect key="frame" x="375" y="0.0" width="375" height="458"/>
                                                 <connections>
                                                     <segue destination="PLR-Ib-s6K" kind="embed" id="tZE-Gx-b0f"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjd-m7-4pr" userLabel="Status Container View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="458"/>
                                                 <connections>
                                                     <segue destination="H9a-jP-nbk" kind="embed" id="vg4-fZ-a98"/>
                                                 </connections>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnc-Vv-jlR" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="145"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="145"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-rS-HzF" userLabel="Underline">
                                         <rect key="frame" x="0.0" y="142" width="375" height="3"/>
@@ -137,6 +137,9 @@
                                         </constraints>
                                         <color key="tintColor" name="B1"/>
                                         <state key="normal" image="Icon_Profile_Setting"/>
+                                        <connections>
+                                            <segue destination="OXy-3O-9Ug" kind="show" id="sB4-z7-5Eh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,7 +176,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pca-XO-rzh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的" id="BnL-td-FYm"/>
+                    <navigationItem key="navigationItem" id="DR5-Ar-8eC"/>
                     <connections>
                         <outlet property="indicatorLeadingConstraint" destination="ida-Ry-36r" id="OEK-2t-K0H"/>
                         <outlet property="indicatorView" destination="zlb-Fs-vg9" id="lbi-ML-Mmr"/>
@@ -186,7 +189,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5J-PU-D9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970" y="1103"/>
+            <point key="canvasLocation" x="1908" y="1102.3988005997003"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="vqZ-Tb-q9z">
+            <objects>
+                <viewController id="OXy-3O-9Ug" customClass="SettingViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kr2-x9-3M1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fd-jf-DKL">
+                                <rect key="frame" x="160" y="100" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tel-s3-NLO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gBY-B7-YpM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gev-Xk-3sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2676" y="1101.4992503748126"/>
         </scene>
         <!--Status View Controller-->
         <scene sceneID="yUN-e2-dn5">
@@ -488,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKO-MK-3Vz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.79999999999995" y="1956.521739130435"/>
+            <point key="canvasLocation" x="1535" y="1957"/>
         </scene>
         <!--Weight View Controller-->
         <scene sceneID="Xyg-J5-4Jp">
@@ -692,7 +718,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4D-Hc-R0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346" y="1957"/>
+            <point key="canvasLocation" x="2297" y="1957"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="Vpq-YD-FIV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="48h-l9-7Xp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" id="BnL-td-FYm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ei2-sa-FBq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O4e-g0-bSq" kind="relationship" relationship="rootViewController" id="Eo4-zt-FFy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG8-nD-Ufe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="1102"/>
         </scene>
     </scenes>
     <resources>
