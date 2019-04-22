@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
-
+    
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var indicatorLeadingConstraint: NSLayoutConstraint!
@@ -29,12 +31,35 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
         scrollView.delegate = self
         
+        getUserName()
+        
+    }
+    
+    private func getUserName() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        let userRef = AppDelegate.db.collection("users").document(user.uid)
+        
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let name = document.get("name")
+                guard let parsedName = name as? String else { return }
+                self.userNameLabel.text = parsedName
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -182,6 +182,7 @@
                         <outlet property="indicatorView" destination="zlb-Fs-vg9" id="lbi-ML-Mmr"/>
                         <outlet property="scrollView" destination="2E6-YG-pP4" id="zNV-QA-Owr"/>
                         <outlet property="statusContainerView" destination="Vjd-m7-4pr" id="Dnl-E7-sDb"/>
+                        <outlet property="userNameLabel" destination="CYG-d2-zDj" id="BOc-zd-czs"/>
                         <outlet property="weightContainerView" destination="I42-uK-9Yk" id="Qjl-Gl-Pbc"/>
                         <outletCollection property="orderBtns" destination="6V8-FV-R1s" collectionClass="NSMutableArray" id="atB-8z-PT0"/>
                         <outletCollection property="orderBtns" destination="nPM-BZ-foL" collectionClass="NSMutableArray" id="51A-Gz-9mM"/>
