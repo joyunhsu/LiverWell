@@ -13,27 +13,45 @@ class RecordWeightViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    var weight: String?
+//    var weight: String?
     
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
         let timestamp = NSDate().timeIntervalSince1970
         let myTimeInterval = TimeInterval(timestamp)
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
-        textField.text = weight
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
         
-        // Add a new document with a generated ID
-        var ref: DocumentReference? = nil
-        ref = AppDelegate.db.collection("users").addDocument(data: [
-            "weight": weight,
+        let userRef = AppDelegate.db.collection("users").document(uid)
+        
+        guard let weight = textField.text else { return }
+        // Update document without overwriting
+        userRef.updateData([
+            "weight" : weight,
             "created_time": time
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
+        ]) { (error) in
+            if let error = error {
+                print("Error updating document: \(error)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document succesfully updated")
             }
         }
+        
+        print(weight)
+        
+        // Add a new document with a generated ID
+//        var ref: DocumentReference? = nil
+//        ref = AppDelegate.db.collection("users").addDocument(data: [
+//            "weight": weight,
+//            "created_time": time
+//        ]) { err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            } else {
+//                print("Document added with ID: \(ref!.documentID)")
+//            }
+//        }
         
         dismiss(animated: true)
     }
