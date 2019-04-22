@@ -38,9 +38,51 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupStatus(homeStatus: .resting)
-        
         showToday()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        determineStatus(
+            workStartHours: 9,
+            workEndHours: 18,
+            sleepStartHours: 23
+        )
+        
+    }
+    
+    private func determineStatus(
+        workStartHours: Int,
+        workEndHours: Int,
+        sleepStartHours: Int
+        ) {
+        
+        let now = Date()
+        
+        let workStart = now.dateAt(hours: workStartHours, minutes: 0)
+        let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
+        let sleepStart = now.dateAt(hours: sleepStartHours, minutes: 0)
+        let sleepEnd = now.dateAt(hours: 5, minutes: 0)
+        
+        if now >= workStart && now <= workEnd {
+            setupStatus(homeStatus: .working)
+        } else if now >= workEnd && now <= sleepStart {
+            setupStatus(homeStatus: .resting)
+        } else if now >= sleepEnd && now <= workStart {
+            setupStatus(homeStatus: .resting)
+        } else {
+            setupStatus(homeStatus: .beforeSleep)
+        }
+        
+//        let hour = NSCalendar.current.component(.hour, from: NSDate() as Date)
+//
+//        switch hourMinute {
+//        case 0...7: setupStatus(homeStatus: .resting)
+//        case 15...23: setupStatus(homeStatus: .working)
+//        default: setupStatus(homeStatus: .resting)
+//        }
         
     }
     
@@ -48,7 +90,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         let now = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM月dd日"
+        dateFormatter.dateFormat = "M月d日"
         var convertedDate = dateFormatter.string(from: now)
         
         let dayFormatter = DateFormatter()

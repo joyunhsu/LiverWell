@@ -203,6 +203,9 @@
                                 <rect key="frame" x="160" y="100" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutBtnPressed:" destination="OXy-3O-9Ug" eventType="touchUpInside" id="nf2-bh-5ja"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

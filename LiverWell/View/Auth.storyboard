@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="3Ib-sc-PnN">
             <objects>
-                <viewController id="I1X-ML-Y6K" sceneMemberID="viewController">
+                <viewController id="I1X-ML-Y6K" customClass="AuthViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fN9-3p-Q4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,6 +72,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signupBtnPressed:" destination="I1X-ML-Y6K" eventType="touchUpInside" id="DKV-Sz-ekN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffk-Te-DTH">
                                 <rect key="frame" x="127.5" y="466" width="120" height="30"/>
@@ -82,6 +85,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="I1X-ML-Y6K" eventType="touchUpInside" id="0bZ-Yg-OrI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,6 +118,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zig-0w-KD2"/>
                     </view>
+                    <connections>
+                        <outlet property="loginEmailTextfield" destination="8nQ-YU-ZcJ" id="lFD-Lm-IIZ"/>
+                        <outlet property="loginPasswordTextfield" destination="aRW-hE-c8B" id="2sd-hJ-Nrg"/>
+                        <outlet property="signupEmailTextField" destination="g76-23-jRt" id="HBD-tm-qOp"/>
+                        <outlet property="signupNameTextfield" destination="zfN-tE-rLS" id="5ad-Wz-TPb"/>
+                        <outlet property="signupPasswordTextfield" destination="Sac-aP-AjR" id="Yu8-Qh-cnX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nR-7a-RVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

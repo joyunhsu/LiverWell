@@ -70,6 +70,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - IQKeyboardManagerSwift (6.0.4)
   - Kingfisher (5.1.1)
   - leveldb-library (1.20)
   - MBCircularProgressBar (0.3.5)
@@ -86,6 +87,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - IQKeyboardManagerSwift (= 6.0.4)
   - Kingfisher
   - MBCircularProgressBar
   - SwiftLint
@@ -104,6 +106,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
     - MBCircularProgressBar
@@ -123,12 +126,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: d4a11068af4f34defa5608d08f42e21e7888e0a9
+PODFILE CHECKSUM: dc03fc3af420399b4c26df87225d710eb6b8caa7
 
 COCOAPODS: 1.6.0

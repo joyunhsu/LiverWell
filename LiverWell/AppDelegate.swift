@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
+
         FirebaseApp.configure()
+        
+        Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+
+            guard user != nil else {
+
+                //Login
+
+                let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+
+                self?.window?.rootViewController = storyboard.instantiateInitialViewController()
+
+                return
+            }
+
+            //Lobby
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            self?.window?.rootViewController = storyboard.instantiateInitialViewController()
+
+        }
+        
+        IQKeyboardManager.shared.enable = true
+        
         return true
     }
 

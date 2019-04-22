@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SettingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    @IBAction func logOutBtnPressed(_ sender: UIButton) {
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                dismiss(animated: true, completion: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 
 }
