@@ -72,9 +72,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    var countAudioPlayer: AVAudioPlayer!
+    var countAudioPlayer = AVAudioPlayer()
     
-    var doneAudioPlayer: AVAudioPlayer!
+    var doneAudioPlayer = AVAudioPlayer()
     
     var countSoundFileName = 1
     
@@ -82,10 +82,10 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func setAndPlayCountSound(soundFile: Int) {
         
-        if countAudioPlayer != nil {
-            
-            countAudioPlayer.stop()
-        }
+//        if countAudioPlayer != nil {
+//
+//            countAudioPlayer.stop()
+//        }
         
         let sound = Bundle.main.path(forResource: String(soundFile), ofType: "mp3")
         
@@ -123,9 +123,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        
-//        setAndPlayCountSound(soundFile: 1)
-        
+
         setupDoneAudioPlayer()
         
         setAndPlayCountSound(soundFile: self.countSoundFileName)
@@ -147,6 +145,19 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        repeatTimer?.invalidate()
+        barTimer?.invalidate()
+        doneSoundTimer?.invalidate()
+        
+        repeatCountingText = [String]()
+        
+        doneAudioPlayer.pause()
+        countAudioPlayer.pause()
+    }
+    
     private func setupGif() {
         
         guard let workoutArray = workoutArray else { return }
@@ -159,19 +170,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         workoutImageView.animationDuration = currentWorkout.perDuration
         workoutImageView.startAnimating()
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        repeatTimer?.invalidate()
-        barTimer?.invalidate()
-        doneSoundTimer?.invalidate()
-        
-        repeatCountingText = [String]()
-        
-        doneAudioPlayer.stop()
-        countAudioPlayer.pause()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -200,7 +198,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         workoutTitleLabel.text = currentWorkout.title
         infoLabel.text = currentWorkout.hint
         
-        counter = 1
+//        counter = 1
         repeatLabel.text = "\(self.counter)/\(currentWorkout.count)次"
         
         changeRepeatCounts(totalCount: currentWorkout.count, timeInterval: currentWorkout.perDuration)
@@ -219,6 +217,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         repeatTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
             
             if self.counter < totalCount {
+                // 一個rep裡數數
                 self.repeatLabel.text = self.repeatCountingText[self.counter]
                 self.counter += 1
                 
@@ -226,24 +225,32 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                 self.countSoundFileName += 1
                 
             } else {
+                
+                // 進入下一個 rep
                 self.repeatTimer?.invalidate()
                 self.barTimer?.invalidate()
+                self.doneSoundTimer?.invalidate()
                 self.moveToNextVC()
                 
-                // Repeat within current workout
                 guard let workoutArray = self.workoutArray else { return }
                 
+                // 判斷是否完成所有的rep
                 if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
                     self.currentRepeat += 1
+                    
+                    self.counter = 1
                     self.changeTitleAndRepeatText()
+                    
                     self.updateBarProgress()
                     
                     self.doneCounting = 1
+                    
                     self.countSoundFileName = 1
-                    self.countAudioPlayer.play()
+                    self.setAndPlayCountSound(soundFile: self.countSoundFileName)
+                    self.countSoundFileName += 1
                     
                 } else {
-                // Finish repo in current workout, ready for next
+                // 完成一個動作的所有rep，換下一個動作
                     self.workoutIndex += 1
                     self.currentRepeat = 1
                 
