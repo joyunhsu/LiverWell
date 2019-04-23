@@ -27,6 +27,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     struct WeightData {
         let createdTime: String
+        let documentID: String
         let weight: Double
     }
 
@@ -39,10 +40,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        readWeight()
-//    }
-    
     private func readWeight() {
         
         guard let user = Auth.auth().currentUser else { return }
@@ -50,7 +47,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
-        weightRef.order(by: "created_time", descending: true).getDocuments { (snapshot, error) in
+        weightRef.order(by: "created_time", descending: true).getDocuments { [weak self] (snapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
@@ -65,13 +62,86 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                     dateFormatter.dateFormat = "M月d日"
                     let convertedDate = dateFormatter.string(from: date)
                     
-                    self.weightDataArray.append(WeightData(createdTime: convertedDate, weight: weight))
-                    print("-----------------")
-                    print(self.weightDataArray)
+                    self?.weightDataArray.append(
+                        WeightData(
+                            createdTime: convertedDate,
+                            documentID: document.documentID,
+                            weight: weight
+                        )
+                    )
+//                    print("-----------------")
+//                    print(self.weightDataArray)
                     
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Cloud Firestore
+        guard let user = Auth.auth().currentUser else { return }
+        
+        let weightRef = AppDelegate.db.collection("users").document(user.uid).collection("weight")
+        
+        let documentID = self.weightDataArray[indexPath.row].documentID
+//        print("-----------")
+//        print(documentID)
+        
+        let optionMenu = UIAlertController(title: "編輯體重資料", message: "", preferredStyle: .actionSheet)
+        
+        let editAction = UIAlertAction(title: "修改體重", style: .default) { [weak self] (action) in
+            
+            // Update document without overwriting
+            weightRef.document(documentID).updateData([
+                "weight": 80
+            ]) { (error) in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Document succesfully updated")
+                }
+            }
+            
+            self?.weightDataArray = [WeightData]()
+            
+            self?.readWeight()
+            
+            self?.tableView.reloadData()
+        }
+        
+        let deleteAction = UIAlertAction(title: "刪除", style: .default) { [weak self] (action) in
+        
+            // Delete document
+            weightRef.document(documentID).delete() { (error) in
+                    if let error = error {
+                        print("Error updating document: \(error)")
+                    } else {
+                        print("Document succesfully updated")
+                    }
+                }
+            
+            self?.weightDataArray = [WeightData]()
+            
+            self?.readWeight()
+            
+            self?.tableView.reloadData()
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+            optionMenu.dismiss(animated: true, completion: nil)
+        }
+        
+        optionMenu.addAction(editAction)
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+        
+    }
+    
+    private func editWeight() {
         
     }
     

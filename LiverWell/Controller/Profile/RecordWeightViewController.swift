@@ -41,18 +41,6 @@ class RecordWeightViewController: UIViewController {
                 }
         })
         
-        // Update document without overwriting
-//        userRef.updateData([
-//            "weight" : weight,
-//            "created_time": time
-//        ]) { (error) in
-//            if let error = error {
-//                print("Error updating document: \(error)")
-//            } else {
-//                print("Document succesfully updated")
-//            }
-//        }
-        
         // Add a new document with a generated ID
 //        var ref: DocumentReference? = nil
 //        ref = AppDelegate.db.collection("users").addDocument(data: [
