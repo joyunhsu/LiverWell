@@ -30,8 +30,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var repeatTimer: Timer?
     
-    var doneSoundTimer: Timer?
-    
     var counter = 1
     
     var workoutArray: [WorkoutSet]?
@@ -81,11 +79,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     var doneCounting = 1
     
     private func setAndPlayCountSound(soundFile: Int) {
-        
-//        if countAudioPlayer != nil {
-//
-//            countAudioPlayer.stop()
-//        }
         
         let sound = Bundle.main.path(forResource: String(soundFile), ofType: "mp3")
         
@@ -150,7 +143,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         repeatTimer?.invalidate()
         barTimer?.invalidate()
-        doneSoundTimer?.invalidate()
         
         repeatCountingText = [String]()
         
@@ -214,61 +206,64 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             repeatCountingText.append(repeatCount)
         }
         
-        repeatTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { (_) in
+        var beat = 0
+        
+        repeatTimer = Timer.scheduledTimer(withTimeInterval: timeInterval / 2, repeats: true, block: { (_) in
             
-            if self.counter < totalCount {
-                // 一個rep裡數數
-                self.repeatLabel.text = self.repeatCountingText[self.counter]
-                self.counter += 1
+            beat += 1
+            
+            print(beat)
+            
+            if beat % 2 == 0 {
                 
-                self.setAndPlayCountSound(soundFile: self.countSoundFileName)
-                self.countSoundFileName += 1
-                
-            } else {
-                
-                // 進入下一個 rep
-                self.repeatTimer?.invalidate()
-                self.barTimer?.invalidate()
-                self.doneSoundTimer?.invalidate()
-                self.moveToNextVC()
-                
-                guard let workoutArray = self.workoutArray else { return }
-                
-                // 判斷是否完成所有的rep
-                if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
-                    self.currentRepeat += 1
+                if self.counter < totalCount {
+                    // 一個rep裡數數
+                    self.repeatLabel.text = self.repeatCountingText[self.counter]
+                    self.counter += 1
                     
-                    self.counter = 1
-                    self.changeTitleAndRepeatText()
-                    
-                    self.updateBarProgress()
-                    
-                    self.doneCounting = 1
-                    
-                    self.countSoundFileName = 1
                     self.setAndPlayCountSound(soundFile: self.countSoundFileName)
                     self.countSoundFileName += 1
                     
                 } else {
-                // 完成一個動作的所有rep，換下一個動作
-                    self.workoutIndex += 1
-                    self.currentRepeat = 1
-                
+                    
+                    // 進入下一個 rep
+                    self.repeatTimer?.invalidate()
+                    self.barTimer?.invalidate()
+                    self.moveToNextVC()
+                    
+                    guard let workoutArray = self.workoutArray else { return }
+                    
+                    // 判斷是否完成所有的rep
+                    if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
+                        self.currentRepeat += 1
+                        
+                        self.counter = 1
+                        self.changeTitleAndRepeatText()
+                        
+                        self.updateBarProgress()
+                        
+                        self.doneCounting = 1
+                        
+                        self.countSoundFileName = 1
+                        self.setAndPlayCountSound(soundFile: self.countSoundFileName)
+                        self.countSoundFileName += 1
+                        
+                    } else {
+                        // 完成一個動作的所有rep，換下一個動作
+                        self.workoutIndex += 1
+                        self.currentRepeat = 1
+                        
+                    }
                 }
+                
+            } else if beat % 2 == 1 {
+                    
+                    self.doneAudioPlayer.play()
+                
             }
+            
         })
         
-        doneSoundTimer = Timer.scheduledTimer(withTimeInterval: timeInterval / 2, repeats: true, block: { (_) in
-            
-            self.doneCounting += 1
-            
-            if self.doneCounting % 2 == 0 {
-                
-                self.doneAudioPlayer.play()
-                
-            }
-            
-        })
     }
     
     private func updateBarProgress() {
