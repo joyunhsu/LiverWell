@@ -636,7 +636,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <segue destination="IRV-dC-qCa" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="MKO-yy-Pla"/>
+                                                <segue destination="IRV-dC-qCa" kind="presentation" identifier="recordWeight" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="MKO-yy-Pla"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -725,6 +725,7 @@
                         <outlet property="levelCollectionView" destination="eZ8-5o-zdm" id="PMC-jF-oUg"/>
                         <outlet property="lineChartView" destination="lzI-79-6MP" id="X8y-4b-yZT"/>
                         <outlet property="tableView" destination="lJk-PA-32X" id="ss6-mm-1Yx"/>
+                        <segue destination="IRV-dC-qCa" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Dg6-vd-ZOI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4D-Hc-R0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -747,18 +748,49 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="確定"/>
                                         <connections>
-                                            <action selector="dismissBtnPressed:" destination="IRV-dC-qCa" eventType="touchUpInside" id="svH-h6-cDO"/>
+                                            <action selector="confirmBtnPressed:" destination="IRV-dC-qCa" eventType="touchUpInside" id="uLb-JG-spY"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入體重" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Ee-s8e">
-                                        <rect key="frame" x="46" y="183" width="250" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入體重" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Ee-s8e">
+                                        <rect key="frame" x="40" y="183" width="263" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記錄今天的體重" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sam-wG-DKc">
+                                        <rect key="frame" x="110.5" y="112" width="122" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT8-6j-jR8">
+                                        <rect key="frame" x="16" y="16" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Euz-Gi-e6O"/>
+                                            <constraint firstAttribute="width" constant="24" id="QTh-P1-OLX"/>
+                                        </constraints>
+                                        <state key="normal" image="Icon_Home_Dismiss"/>
+                                        <connections>
+                                            <action selector="dismissBtnPressed:" destination="IRV-dC-qCa" eventType="touchUpInside" id="qXM-q7-elS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="sam-wG-DKc" firstAttribute="centerX" secondItem="EGT-dV-Uhb" secondAttribute="centerX" id="9Iw-LY-KJq"/>
+                                    <constraint firstItem="sam-wG-DKc" firstAttribute="top" secondItem="EGT-dV-Uhb" secondAttribute="top" constant="112" id="Eri-kn-nai"/>
+                                    <constraint firstItem="zKt-Ee-s8e" firstAttribute="top" secondItem="sam-wG-DKc" secondAttribute="bottom" constant="50" id="NVv-Os-A8K"/>
+                                    <constraint firstItem="DT8-6j-jR8" firstAttribute="leading" secondItem="EGT-dV-Uhb" secondAttribute="leading" constant="16" id="YKA-3n-B9g"/>
+                                    <constraint firstAttribute="trailing" secondItem="zKt-Ee-s8e" secondAttribute="trailing" constant="40" id="hyd-AJ-M3e"/>
+                                    <constraint firstItem="DT8-6j-jR8" firstAttribute="top" secondItem="EGT-dV-Uhb" secondAttribute="top" constant="16" id="lKC-Dl-Bne"/>
+                                    <constraint firstItem="zKt-Ee-s8e" firstAttribute="leading" secondItem="EGT-dV-Uhb" secondAttribute="leading" constant="40" id="tOj-N0-dLo"/>
+                                    <constraint firstItem="zKt-Ee-s8e" firstAttribute="centerX" secondItem="EGT-dV-Uhb" secondAttribute="centerX" id="yUs-Q0-rES"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -771,6 +803,7 @@
                         <viewLayoutGuide key="safeArea" id="xlg-Ya-C24"/>
                     </view>
                     <connections>
+                        <outlet property="confirmBtn" destination="ccj-oJ-1aU" id="XGd-Ld-iTV"/>
                         <outlet property="textField" destination="zKt-Ee-s8e" id="286-Eb-aok"/>
                     </connections>
                 </viewController>
@@ -801,6 +834,7 @@
     <resources>
         <image name="Background_Profile_Status" width="375" height="390"/>
         <image name="Background_Weight" width="375" height="425"/>
+        <image name="Icon_Home_Dismiss" width="24" height="24"/>
         <image name="Icon_Profile_Setting" width="24" height="24"/>
         <image name="Icon_Profile_Star" width="11" height="11"/>
         <image name="Image_UserProfile" width="66" height="66"/>
@@ -821,4 +855,7 @@
             <color red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dg6-vd-ZOI"/>
+    </inferredMetricsTieBreakers>
 </document>
