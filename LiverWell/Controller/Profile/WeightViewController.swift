@@ -40,6 +40,25 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
     }
     
+    @IBAction func recordWeightPressed(_ sender: UIButton) {
+        
+        let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let desVC = profileStoryboard.instantiateViewController(withIdentifier: "RecordWeightViewController")
+        guard let recordWeightVC = desVC as? RecordWeightViewController else { return }
+        recordWeightVC.weightDocumentID = nil
+        recordWeightVC.reloadDataAfterUpdate = { [weak self] in
+            
+            self?.weightDataArray = [WeightData]()
+            
+            self?.readWeight()
+            
+            self?.tableView.reloadData()
+            
+        }
+        
+        present(recordWeightVC, animated: true)
+    }
+    
     private func readWeight() {
         
         guard let user = Auth.auth().currentUser else { return }
@@ -69,8 +88,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                             weight: weight
                         )
                     )
-//                    print("-----------------")
-//                    print(self.weightDataArray)
                     
                 }
             }
@@ -91,22 +108,22 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         let editAction = UIAlertAction(title: "修改體重", style: .default) { [weak self] (action) in
             
-            // Update document without overwriting
-            weightRef.document(documentID).updateData([
-                "weight": 80
-            ]) { (error) in
-                if let error = error {
-                    print("Error updating document: \(error)")
-                } else {
-                    print("Document succesfully updated")
-                }
+            let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let desVC = profileStoryboard.instantiateViewController(withIdentifier: "RecordWeightViewController")
+            guard let recordWeightVC = desVC as? RecordWeightViewController else { return }
+            recordWeightVC.weightDocumentID = documentID
+            recordWeightVC.reloadDataAfterUpdate = { [weak self] in
+                
+                self?.weightDataArray = [WeightData]()
+                
+                self?.readWeight()
+                
+                self?.tableView.reloadData()
+                
             }
             
-            self?.weightDataArray = [WeightData]()
+            self?.present(recordWeightVC, animated: true)
             
-            self?.readWeight()
-            
-            self?.tableView.reloadData()
         }
         
         let deleteAction = UIAlertAction(title: "刪除", style: .default) { [weak self] (action) in
@@ -137,26 +154,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         optionMenu.addAction(cancelAction)
         
         self.present(optionMenu, animated: true, completion: nil)
-        
-    }
-    
-    private func editWeight() {
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let presentVC = segue.destination as? RecordWeightViewController else { return }
-        
-        presentVC.reloadDataAfterUpdate = { [weak self] in
-            
-            self?.weightDataArray = [WeightData]()
-            
-            self?.readWeight()
-            
-            self?.tableView.reloadData()
-            
-        }
         
     }
     

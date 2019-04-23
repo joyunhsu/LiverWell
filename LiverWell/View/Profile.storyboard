@@ -636,7 +636,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <segue destination="IRV-dC-qCa" kind="presentation" identifier="recordWeight" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="MKO-yy-Pla"/>
+                                                <action selector="recordWeightPressed:" destination="PLR-Ib-s6K" eventType="touchUpInside" id="fKN-5t-7EN"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -725,7 +725,6 @@
                         <outlet property="levelCollectionView" destination="eZ8-5o-zdm" id="PMC-jF-oUg"/>
                         <outlet property="lineChartView" destination="lzI-79-6MP" id="X8y-4b-yZT"/>
                         <outlet property="tableView" destination="lJk-PA-32X" id="ss6-mm-1Yx"/>
-                        <segue destination="IRV-dC-qCa" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Dg6-vd-ZOI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4D-Hc-R0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -735,13 +734,13 @@
         <!--Record Weight View Controller-->
         <scene sceneID="6Ca-7u-Yng">
             <objects>
-                <viewController id="IRV-dC-qCa" customClass="RecordWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordWeightViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IRV-dC-qCa" customClass="RecordWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W3e-zu-X4q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="458"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGT-dV-Uhb">
-                                <rect key="frame" x="16" y="20" width="343" height="418"/>
+                                <rect key="frame" x="16" y="40" width="343" height="607"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-oJ-1aU">
                                         <rect key="frame" x="156" y="359" width="31" height="30"/>
@@ -805,6 +804,7 @@
                     <connections>
                         <outlet property="confirmBtn" destination="ccj-oJ-1aU" id="XGd-Ld-iTV"/>
                         <outlet property="textField" destination="zKt-Ee-s8e" id="286-Eb-aok"/>
+                        <outlet property="titleLabel" destination="sam-wG-DKc" id="JuL-HP-o97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="skm-d2-fPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -855,7 +855,4 @@
             <color red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Dg6-vd-ZOI"/>
-    </inferredMetricsTieBreakers>
 </document>
