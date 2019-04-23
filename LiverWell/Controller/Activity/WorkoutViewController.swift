@@ -32,8 +32,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var doneSoundTimer: Timer?
     
-    var startTime = 0
-    
     var counter = 1
     
     var workoutArray: [WorkoutSet]?
@@ -46,7 +44,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var workoutMinutes: Float?
     
-    var currentTIme: Float = 0.0
+    var currentTime: Float = 0.0
     
     var soundIsOn: Bool = true // offIcon -> selected
     
@@ -181,12 +179,12 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         guard let workoutMinutes = workoutMinutes else { return }
         let maxTime = workoutMinutes * 60.0
         if let destination = segue.destination as? RestViewController {
-            destination.currentTime = self.currentTIme
+            destination.currentTime = self.currentTime
             destination.maxTime = maxTime
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
-            pauseVC.currentTime = self.currentTIme
+            pauseVC.currentTime = self.currentTime
             pauseVC.maxTime = maxTime
             pauseVC.workoutArray = workoutArray
             pauseVC.workoutIndex = workoutIndex
@@ -271,13 +269,13 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         guard let workoutMinutes = workoutMinutes else { return }
         let maxTime = workoutMinutes * 60.0
         
-        currentTIme += 1.0
-        barProgressView.progress = self.currentTIme/maxTime
+        currentTime += 1.0
+        barProgressView.progress = self.currentTime/maxTime
         
         barTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
-            if self.currentTIme < maxTime {
-                self.currentTIme += 1.0
-                self.barProgressView.progress = self.currentTIme/maxTime
+            if self.currentTime < maxTime {
+                self.currentTime += 1.0
+                self.barProgressView.progress = self.currentTime/maxTime
             } else {
                 return
             }

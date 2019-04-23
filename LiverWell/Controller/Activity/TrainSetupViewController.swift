@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
@@ -33,6 +34,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             startBtn.backgroundColor = .Orange
         }
     }
+    
+    var recordTrainTime: Int?
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -116,8 +119,34 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func unwindtoSetup(segue: UIStoryboardSegue) {
         
-    }
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        guard let workoutElement = workoutElement else { return }
+        
+        guard let recordTrainTime = recordTrainTime else { return }
+        
+        if recordTrainTime > 0 {
+            AppDelegate.db.collection("users").document(user.uid).collection("workout").addDocument(
+                data: [
+                    "activity_type": "train",
+                    "title": workoutElement.title,
+                    "workout_time": recordTrainTime,
+                    "created_time": time
+            ]) { (error) in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Document succesfully updated")
+                }
+            }
+        }
 
+        
+        }
 }
 
 extension TrainSetupViewController: UITableViewDataSource {

@@ -66,6 +66,12 @@ class PauseViewController: UIViewController, UITableViewDelegate {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let desVC = segue.destination
+        guard let trainSetupVC = desVC as? TrainSetupViewController else { return }
+        trainSetupVC.recordTrainTime = lroundf(currentTime / 60)
+    }
+    
     private func setupGif() {
         
         guard let workoutArray = workoutArray else { return }
