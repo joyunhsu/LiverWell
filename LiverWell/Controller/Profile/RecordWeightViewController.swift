@@ -13,7 +13,7 @@ class RecordWeightViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-//    var weight: String?
+    var reloadDataAfterUpdate: (() -> Void)?
     
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
         let timestamp = NSDate().timeIntervalSince1970
@@ -21,23 +21,23 @@ class RecordWeightViewController: UIViewController {
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
         guard let user = Auth.auth().currentUser else { return }
+        
         let uid = user.uid
         
-        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
-        
         guard let weightText = textField.text else { return }
+        
         let weight = Double(weightText)
         
         // Add a new document with a generated id
         var ref: DocumentReference? = nil
         ref = AppDelegate.db.collection("users").document(uid).collection("weight").addDocument(data: [
-            "weight" : weight,
+            "weight": weight as Any,
             "created_time": time
             ], completion: { (error) in
                 if let error = error {
                     print("Error adding document: \(error)")
                 } else {
-                    print("Document added with ID: \(ref?.documentID)")
+                    print("Document added with ID: \(String(describing: ref?.documentID))")
                 }
         })
         
@@ -65,6 +65,10 @@ class RecordWeightViewController: UIViewController {
 //                print("Document added with ID: \(ref!.documentID)")
 //            }
 //        }
+        
+        guard let closure = reloadDataAfterUpdate else { return }
+        
+        closure()
         
         dismiss(animated: true)
     }

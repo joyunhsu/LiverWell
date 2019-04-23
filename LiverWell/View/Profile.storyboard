@@ -699,6 +699,10 @@
                                                 <constraint firstItem="nSP-eb-fQM" firstAttribute="centerY" secondItem="3bK-kb-vxh" secondAttribute="centerY" id="dJA-K9-ies"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="3bK-kb-vxh" id="zFE-rP-4BX"/>
+                                            <outlet property="weightLabel" destination="nSP-eb-fQM" id="mNQ-B5-aeV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

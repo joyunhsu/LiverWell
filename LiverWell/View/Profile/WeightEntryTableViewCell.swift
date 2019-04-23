@@ -9,6 +9,10 @@
 import UIKit
 
 class WeightEntryTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var weightLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +23,14 @@ class WeightEntryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func layoutView(date: String, weight: Double) {
+        
+        dateLabel.text = date
+        
+        weightLabel.text = "\(weight)Kg"
+        
     }
 
 }

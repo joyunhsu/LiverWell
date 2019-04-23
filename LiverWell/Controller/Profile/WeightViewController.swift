@@ -18,6 +18,17 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     @IBOutlet weak var levelCollectionView: UICollectionView!
     
     @IBOutlet weak var lineChartView: LineChartView!
+    
+    var weightDataArray = [WeightData]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    struct WeightData {
+        let createdTime: String
+        let weight: Double
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,28 +39,54 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        readWeight()
+//    }
+    
     private func readWeight() {
         
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
-        AppDelegate.db.collection("users").document(uid).collection("weight").getDocuments { (snapshot, error) in
+        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
+        
+        weightRef.order(by: "created_time", descending: true).getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
                 for document in snapshot!.documents {
-                    guard let weight = document.get("weight") as? Double else { return }
-                    print("----------")
-                    print(weight)
                     
-                    if let createdTime = document.get("created_time") as? Timestamp {
-                        let date = createdTime.dateValue()
-                        print("-----------")
-                        print(date)
-                    }
+                    guard let weight = document.get("weight") as? Double else { return }
+                    
+                    guard let createdTime = document.get("created_time") as? Timestamp else { return }
+                    
+                    let date = createdTime.dateValue()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "M月d日"
+                    let convertedDate = dateFormatter.string(from: date)
+                    
+                    self.weightDataArray.append(WeightData(createdTime: convertedDate, weight: weight))
+                    print("-----------------")
+                    print(self.weightDataArray)
                     
                 }
             }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let presentVC = segue.destination as? RecordWeightViewController else { return }
+        
+        presentVC.reloadDataAfterUpdate = { [weak self] in
+            
+            self?.weightDataArray = [WeightData]()
+            
+            self?.readWeight()
+            
+            self?.tableView.reloadData()
+            
         }
         
     }
@@ -158,12 +195,17 @@ extension WeightViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return weightDataArray.count
     }
 
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeightEntryTableViewCell", for: indexPath)
+        guard let weightCell = cell as? WeightEntryTableViewCell else { return cell }
+        
+        let weightData = weightDataArray[indexPath.row]
+        
+        weightCell.layoutView(date: weightData.createdTime, weight: weightData.weight)
         
         return cell
     }
