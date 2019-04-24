@@ -380,9 +380,6 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
                                                             <real key="value" value="100"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                            <real key="value" value="60"/>
-                                                        </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
                                                             <real key="value" value="15"/>
@@ -407,8 +404,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ad-Ng-olD">
-                                                    <rect key="frame" x="275.5" y="123" width="78" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ad-Ng-olD">
+                                                    <rect key="frame" x="275.5" y="123" width="27" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="A6k-2V-Fsl"/>
                                                     </constraints>
@@ -416,8 +413,8 @@
                                                     <color key="textColor" name="B1"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqm-Hb-p7p">
-                                                    <rect key="frame" x="21.5" y="123" width="78" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqm-Hb-p7p">
+                                                    <rect key="frame" x="72.5" y="123" width="27" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="dld-9A-ZNh"/>
                                                     </constraints>
@@ -442,9 +439,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="progressView" destination="cd5-Ge-XgB" id="bAK-BG-eFS"/>
+                                            <outlet property="stretchLabel" destination="Dqm-Hb-p7p" id="n3X-Dq-Z7w"/>
+                                            <outlet property="trainLabel" destination="9Ad-Ng-olD" id="7Or-VA-hgJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityEntryTableViewCell" rowHeight="70" id="h7x-nR-rKy" userLabel="DetailWorkout Cell" customClass="ActivityEntryTableViewCell" customModule="LiverWell" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityEntryTableViewCell" rowHeight="70" id="h7x-nR-rKy" userLabel="ActivityEntry Cell" customClass="ActivityEntryTableViewCell" customModule="LiverWell" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="710" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7x-nR-rKy" id="KRL-RB-vLz">
@@ -493,6 +492,12 @@
                                                 <constraint firstItem="hBj-Sr-dhj" firstAttribute="leading" secondItem="KRL-RB-vLz" secondAttribute="leading" constant="20" id="uSv-Tc-C9c"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="colorView" destination="hBj-Sr-dhj" id="twG-qC-2tH"/>
+                                            <outlet property="percentageLabel" destination="fA3-ri-IWs" id="jnj-ss-Yav"/>
+                                            <outlet property="timeLabel" destination="XXn-C6-y1h" id="NYC-o8-UhT"/>
+                                            <outlet property="titleLabel" destination="SDQ-FM-Dbh" id="PUb-r6-Nxm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

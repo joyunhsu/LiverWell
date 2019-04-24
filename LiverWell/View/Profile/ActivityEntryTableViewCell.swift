@@ -9,16 +9,38 @@
 import UIKit
 
 class ActivityEntryTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var percentageLabel: UILabel!
+    
+    @IBOutlet weak var colorView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func layoutView(title: String, time: Int, percentage: Int, activityType: String) {
+        
+        timeLabel.text = "\(time)分鐘"
+        
+        titleLabel.text = title
+        
+        percentageLabel.text = "\(percentage)%"
+        
+        switch activityType {
+        case "train": return colorView.backgroundColor = .Orange
+        default: return colorView.backgroundColor = .G1
+        }
+        
     }
 
 }

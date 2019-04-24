@@ -29,6 +29,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         let createdTime: String
         let documentID: String
         let weight: Double
+        
+//        init() {
+//            <#statements#>
+//        }
     }
 
     override func viewDidLoad() {
