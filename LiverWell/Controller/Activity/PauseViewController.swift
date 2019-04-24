@@ -68,8 +68,17 @@ class PauseViewController: UIViewController, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let desVC = segue.destination
-        guard let trainSetupVC = desVC as? TrainSetupViewController else { return }
-        trainSetupVC.recordTrainTime = lroundf(currentTime / 60)
+        
+        if let setupVC = desVC as? TrainSetupViewController {
+            setupVC.recordTrainTime = lroundf(currentTime / 60)
+        } else if let setupVC = desVC as? StretchSetupViewController {
+            setupVC.recordStretchTime = lroundf(currentTime / 60)
+        }
+//        guard let trainSetupVC = desVC as? TrainSetupViewController else { return }
+//        trainSetupVC.recordTrainTime = lroundf(currentTime / 60)
+//
+//        guard let stretchSetupVC = desVC as? StretchSetupViewController else { return }
+//        stretchSetupVC.recordStretchTime = lroundf(currentTime / 60)
     }
     
     private func setupGif() {
@@ -91,7 +100,17 @@ class PauseViewController: UIViewController, UITableViewDelegate {
 extension PauseViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+//        guard let currentWorkout = workoutArray?[workoutIndex] else { return 0 }
+//
+//        if currentWorkout.annotation != nil {
+//            return 2
+//        } else {
+//            return 1
+//        }
+        
         return 2
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

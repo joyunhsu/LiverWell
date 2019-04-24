@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StretchSetupViewController: UIViewController, UITableViewDelegate {
     
@@ -35,6 +36,8 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     }
     
     var idUrl: String?
+    
+    var recordStretchTime: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,47 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
         iconImageView.image = UIImage(named: workoutElement.icon)
         
         descriptionLabel.text = workoutElement.description
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let desVC = segue.destination as? StretchNavViewController {
+//            desVC.workoutMinutes = workoutMinutes
+            desVC.workoutArray = workoutElement?.workoutSet
+        }
+        
+        if let practiceVC = segue.destination as? PracticeViewController {
+            practiceVC.workoutArray = workoutElement?.workoutSet
+        }
+    }
+    
+    @IBAction func unwindtoSetup(segue: UIStoryboardSegue) {
+        
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        guard let workoutElement = workoutElement else { return }
+        
+        guard let recordStretchTime = recordStretchTime else { return }
+        
+        if recordStretchTime > 0 {
+            AppDelegate.db.collection("users").document(user.uid).collection("workout").addDocument(
+                data: [
+                    "activity_type": "stretch",
+                    "title": workoutElement.title,
+                    "workout_time": recordStretchTime,
+                    "created_time": time
+            ]) { (error) in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Stretch Workout Time Document succesfully updated")
+                }
+            }
+        }
         
     }
 }

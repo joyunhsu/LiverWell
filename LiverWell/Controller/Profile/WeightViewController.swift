@@ -104,7 +104,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         let documentID = self.weightDataArray[indexPath.row].documentID
         
         // Action sheet setup
-        let optionMenu = UIAlertController(title: "編輯體重資料", message: "", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "編輯體重資料", message: nil, preferredStyle: .actionSheet)
         
         let editAction = UIAlertAction(title: "修改體重", style: .default) { [weak self] (action) in
             

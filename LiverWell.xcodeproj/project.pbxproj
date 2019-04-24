@@ -40,6 +40,8 @@
 		6E664C30226DA55100221184 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C2F226DA55100221184 /* Date+Extension.swift */; };
 		6E664C32226DC05700221184 /* RecordWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C31226DC05600221184 /* RecordWeightViewController.swift */; };
 		6E664C34226F867D00221184 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C33226F867C00221184 /* 4.mp3 */; };
+		6E664C3622700F7800221184 /* StretchWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3522700F7800221184 /* StretchWorkoutViewController.swift */; };
+		6E664C3822701E3D00221184 /* StretchNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3722701E3D00221184 /* StretchNavViewController.swift */; };
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
@@ -130,6 +132,8 @@
 		6E664C2F226DA55100221184 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		6E664C31226DC05600221184 /* RecordWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordWeightViewController.swift; sourceTree = "<group>"; };
 		6E664C33226F867C00221184 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		6E664C3522700F7800221184 /* StretchWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchWorkoutViewController.swift; sourceTree = "<group>"; };
+		6E664C3722701E3D00221184 /* StretchNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchNavViewController.swift; sourceTree = "<group>"; };
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 				6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */,
 				6E892A3E225EE8E300742339 /* CountDownViewController.swift */,
 				6E892A42225F022600742339 /* WorkoutViewController.swift */,
+				6E664C3722701E3D00221184 /* StretchNavViewController.swift */,
+				6E664C3522700F7800221184 /* StretchWorkoutViewController.swift */,
 				6E892A40225F01C600742339 /* PauseViewController.swift */,
 				6E892A442260466900742339 /* RestViewController.swift */,
 				6E892A482260752000742339 /* FinishWorkoutViewController.swift */,
@@ -728,9 +734,11 @@
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
 				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EE0200A22683B740026C911 /* HomeObject.swift in Sources */,
+				6E664C3622700F7800221184 /* StretchWorkoutViewController.swift in Sources */,
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
 				6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */,
 				6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */,
+				6E664C3822701E3D00221184 /* StretchNavViewController.swift in Sources */,
 				6EE0200C2268536A0026C911 /* WorkoutElementManager.swift in Sources */,
 				6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */,
 				6E4B74C02254618D00BECC70 /* UIStoryboard+Extension.swift in Sources */,

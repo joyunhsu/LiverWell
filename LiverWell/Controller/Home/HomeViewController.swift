@@ -129,12 +129,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == workoutCollectionView {
 
+            guard let homeObject = homeObject else { return }
+            
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-            let desVC = mainStoryboard.instantiateViewController(withIdentifier: "TrainSetupViewController")
-            guard let trainVC = desVC as? TrainSetupViewController else { return }
-//            trainVC.loadViewIfNeeded()
-            trainVC.idUrl = homeObject?.workoutSet[indexPath.item].id
-            self.present(trainVC, animated: true)
+            
+            if homeObject.status == "resting" {
+                
+                let desVC = mainStoryboard.instantiateViewController(withIdentifier: "TrainSetupViewController")
+                guard let trainVC = desVC as? TrainSetupViewController else { return }
+                trainVC.idUrl = homeObject.workoutSet[indexPath.item].id
+                self.present(trainVC, animated: true)
+                
+            } else {
+            
+                let desVC = mainStoryboard.instantiateViewController(withIdentifier: "StretchSetupViewController")
+                guard let stretchVC = desVC as? StretchSetupViewController else { return }
+                stretchVC.idUrl = homeObject.workoutSet[indexPath.item].id
+                self.present(stretchVC, animated: true)
+                
+            }
 
         }
     }

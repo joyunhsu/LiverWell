@@ -140,13 +140,12 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
                 if let error = error {
                     print("Error updating document: \(error)")
                 } else {
-                    print("Document succesfully updated")
+                    print("Train Workout Time Document succesfully updated")
                 }
             }
         }
-
         
-        }
+    }
 }
 
 extension TrainSetupViewController: UITableViewDataSource {

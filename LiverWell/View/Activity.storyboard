@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBn-ko-B93" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="-76"/>
+            <point key="canvasLocation" x="2655" y="-76"/>
         </scene>
         <!--Train Setup View Controller-->
         <scene sceneID="wS0-fp-Kts">
@@ -1216,7 +1216,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ycv-gG-08J">
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <connections>
-                                                <segue destination="Bpo-gw-dbe" kind="unwind" unwindAction="unwindtoSetupWithSegue:" id="SdV-zT-eWG"/>
+                                                <segue destination="Bpo-gw-dbe" kind="unwind" unwindAction="unwindtoSetupWithSegue:" id="GNt-oA-6Kj"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1280,10 +1280,10 @@
             </objects>
             <point key="canvasLocation" x="4804" y="-779"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Stretch Nav View Controller-->
         <scene sceneID="YBF-ZS-2xJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BdS-Ji-WdV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BdS-Ji-WdV" customClass="StretchNavViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Swj-9F-Hg5">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1301,7 +1301,7 @@
         <!--5分鐘肌力訓練-->
         <scene sceneID="8RR-Gj-oqF">
             <objects>
-                <viewController title="5分鐘肌力訓練" id="qk0-2E-hnh" sceneMemberID="viewController">
+                <viewController title="5分鐘肌力訓練" id="qk0-2E-hnh" customClass="StretchWorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kcJ-S8-Wha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1432,7 +1432,7 @@
                                 <color key="progressTintColor" name="Orange"/>
                                 <color key="trackTintColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKE-aH-n5b">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKE-aH-n5b">
                                 <rect key="frame" x="339" y="89" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ERN-HI-IKY"/>
@@ -1519,8 +1519,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Urd-Z5-Ftp"/>
-        <segue reference="V9S-5g-iX7"/>
+        <segue reference="jqG-cN-yFC"/>
+        <segue reference="hdZ-Mn-LOm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>
