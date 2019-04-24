@@ -417,6 +417,7 @@
                     <tabBarItem key="tabBarItem" title="首頁" id="1Ot-Iz-Ji4"/>
                     <connections>
                         <outlet property="background" destination="9HI-Hg-yOK" id="fRT-iY-D9S"/>
+                        <outlet property="remainingTimeLabel" destination="OaE-As-Syo" id="XRv-ty-gMa"/>
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
                         <outlet property="timeLabel" destination="VaG-O6-Gve" id="Q2e-Oq-Mr0"/>

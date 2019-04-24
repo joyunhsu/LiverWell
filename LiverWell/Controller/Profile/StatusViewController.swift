@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Firebase
 
 class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
 
@@ -40,7 +41,13 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
     }
     
-    func barChartViewSetup() {
+    private func getWorkoutData() {
+        
+        
+        
+    }
+    
+    private func barChartViewSetup() {
         
         // toggle YValue
         for set in chartView.data!.dataSets {
@@ -74,7 +81,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
     }
     
-    func barChartUpdate () {
+    private func barChartUpdate () {
         
         // Basic set up of plan chart
         
@@ -103,7 +110,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     }
     
         // swiftlint:disable identifier_name
-    func setChartData(count: Int, range: UInt32) {
+    private func setChartData(count: Int, range: UInt32) {
         let yVals = (0..<count).map { (i) -> BarChartDataEntry in
             let mult = range + 1
             let val1 = Double(arc4random_uniform(mult) + mult / 2)

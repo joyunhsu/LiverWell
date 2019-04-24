@@ -8,6 +8,7 @@
 
 import UIKit
 import MBCircularProgressBar
+import Firebase
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     
@@ -29,11 +30,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
 
-    @IBOutlet weak var stretchProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var stretchProgressView: MBCircularProgressBarView! // 後面、加總
 
     @IBOutlet weak var workoutCollectionView: UICollectionView!
 
     @IBOutlet weak var weekProgressCollectionView: UICollectionView!
+    
+    @IBOutlet weak var remainingTimeLabel: UILabel!
+    
+    var tempTrainWorkoutTime = 0
+    
+    var trainWorkoutTime: Int? {
+        didSet {
+            if stretchWorkoutTime != nil || trainWorkoutTime != nil {
+                showTodayWorkoutProgress()
+            }
+        }
+    }
+    
+    var tempStretchWorkoutTime = 0
+    
+    var stretchWorkoutTime: Int? {
+        didSet {
+            if stretchWorkoutTime != nil || trainWorkoutTime != nil {
+                showTodayWorkoutProgress()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +72,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             workStartHours: 9,
             workEndHours: 18
         )
+        
+        getTodayWorkoutProgress()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        trainWorkoutTime = nil
+        
+        tempStretchWorkoutTime = 0
+        
+        stretchWorkoutTime = nil
+        
+        tempTrainWorkoutTime = 0
         
     }
     
@@ -73,14 +110,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         } else {
             setupStatus(homeStatus: .beforeSleep)
         }
-        
-//        let hour = NSCalendar.current.component(.hour, from: NSDate() as Date)
-//
-//        switch hourMinute {
-//        case 0...7: setupStatus(homeStatus: .resting)
-//        case 15...23: setupStatus(homeStatus: .working)
-//        default: setupStatus(homeStatus: .resting)
-//        }
         
     }
     
@@ -114,6 +143,78 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
         }
+        
+    }
+    
+    private func showTodayWorkoutProgress() {
+        
+        guard let stretchWorkoutTime = stretchWorkoutTime, let trainWorkoutTime = trainWorkoutTime else { return }
+        
+        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
+        
+        if totalWorkoutTime > 15 {
+            
+            stretchProgressView.value = 15
+            
+            trainProgressView.value = CGFloat(trainWorkoutTime * 15 / totalWorkoutTime)
+            
+            remainingTimeLabel.text = "0分鐘"
+            
+            
+        } else {
+            
+            stretchProgressView.value = CGFloat(totalWorkoutTime)
+            
+            trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            
+            remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
+            
+        }
+        
+    }
+    
+    private func getTodayWorkoutProgress() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
+        
+        workoutRef.whereField("activity_type", isEqualTo: "train").getDocuments { [weak self] (snapshot, error) in
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in snapshot!.documents {
+                    
+                    guard let workoutTime = document.get("workout_time") as? Int else { return }
+                    
+                    self?.tempTrainWorkoutTime += workoutTime
+                    
+                }
+            }
+            
+            self?.trainWorkoutTime = self?.tempTrainWorkoutTime
+        
+        }
+        
+        workoutRef.whereField("activity_type", isEqualTo: "stretch").getDocuments { [weak self] (snapshot, error) in
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in snapshot!.documents {
+                    
+                    guard let workoutTime = document.get("workout_time") as? Int else { return }
+                    
+                    self?.tempStretchWorkoutTime += workoutTime
+                    
+                }
+            }
+            
+            self?.stretchWorkoutTime = self?.tempStretchWorkoutTime
+            
+        }
+        
     }
     
     private func setupView() {
@@ -148,7 +249,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                 self.present(stretchVC, animated: true)
                 
             }
-
         }
     }
 
