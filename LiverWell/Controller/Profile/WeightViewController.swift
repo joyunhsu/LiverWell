@@ -189,7 +189,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             referenceTimeInterval: referenceTimeInterval,
             dateFormatter: formatter)
         
-        var reverseArray = weightDataArray.reversed()
+        let reverseArray = weightDataArray.reversed() // 時間排序由舊到新
         
         var entries = [ChartDataEntry]()
         for weightData in reverseArray {

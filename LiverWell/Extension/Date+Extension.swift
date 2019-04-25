@@ -12,16 +12,16 @@ extension Date {
     
     // swiftlint:disable identifier_name
     var millisecondsSince1970: Int64 {
-        return Int64((self.timeIntervalSince1970 * 1000.0).rounded())
+        return Int64((self.timeIntervalSince1970 * 1000.0).rounded()) // Date to millisecond
         //RESOLVED CRASH HERE
     }
     
     init(milliseconds: Int) {
-        self = Date(timeIntervalSince1970: TimeInterval(milliseconds / 1000))
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds / 1000)) // millisecond to Date
     }
 
-    func dateAt(hours: Int, minutes: Int) -> Date
-    {
+    func dateAt(hours: Int, minutes: Int) -> Date {
+        
         let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         
         //get the month/day/year componentsfor today's date.

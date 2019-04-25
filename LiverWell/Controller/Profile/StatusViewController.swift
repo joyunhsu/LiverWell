@@ -11,19 +11,6 @@ import Charts
 import Firebase
 
 // swiftlint:disable identifier_name
-struct WorkoutData {
-    let displayCreatedTime: String
-    let createdTime: Timestamp
-    let workoutTime: Int
-    let title: String
-    let activityType: String
-}
-
-struct ActivityEntry {
-    let title: String
-    let time: Int
-    let activityType: String
-}
 
 class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
 
@@ -76,11 +63,26 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         axisFormatDelegate = self
 
-        barChartUpdate()
+        setChartData(count: 7, range: 60)
+        
         barChartViewSetup()
         
         getWeeklyWorkoutData()
-
+        
+        let dateComponents = DateComponents(calendar: Calendar.current, year: 2018, month: 11, day: 30)
+        let date = dateComponents.date
+        let calendar = Calendar.current
+//        print("------------")
+//        print(calendar.veryShortMonthSymbols)
+        
+        let today = Date()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: -7, to: today)
+        print("------------")
+        print(tomorrow)
+        let weekBefore = Calendar.current.date(byAdding: .month, value: 1, to: today)
+        print("------------")
+        print(weekBefore)
+        
     }
     
     private func getWeeklyWorkoutData() {
@@ -89,9 +91,11 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
         
+        let today = Date()
+        
         workoutRef
             .whereField("created_time", isLessThan: Date())
-//            .whereField("created_time", isGreaterThan: Date(timeIntervalSince1970: <#T##TimeInterval#>))
+            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
             .order(by: "created_time", descending: true)
             .getDocuments { [weak self] (snapshot, error) in
             
@@ -117,7 +121,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                     self?.workoutDataArray.append(
                         WorkoutData(
                             displayCreatedTime: convertedDate,
-                            createdTime: createdTime,
+                            createdTime: date,
                             workoutTime: workoutTime,
                             title: title,
                             activityType: activityType)
@@ -135,6 +139,12 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 self.setupActivityEntry()
                 
         }
+        
+    }
+    
+    private func filterByDate() {
+        
+        
         
     }
     
@@ -252,10 +262,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 //        chartView.animate(yAxisDuration: 1.5)
         
         // Toggle Icon
-        for set in chartView.data!.dataSets {
-            set.drawIconsEnabled = !set.drawIconsEnabled
-        }
-        chartView.setNeedsDisplay()
+//        for set in chartView.data!.dataSets {
+//            set.drawIconsEnabled = !set.drawIconsEnabled
+//        }
+//        chartView.setNeedsDisplay()
         
         // Remove horizonatal line, right value label, legend below chart
         self.chartView.xAxis.drawGridLinesEnabled = false
@@ -270,7 +280,56 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
     }
     
-    private func barChartUpdate () {
+    private func setChartData(count: Int, range: UInt32) {
+        
+        var referenceTimeInterval: TimeInterval = 0
+//        if let minTimeInterval = (weightDataArray.map({ $0.createdTime.millisecondsSince1970})).min() {
+//            referenceTimeInterval = TimeInterval(minTimeInterval)
+//        }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        formatter.locale = Locale.current
+        
+        let xValuesNumberFormatter = ChartsDateXAxisFormatter(
+            referenceTimeInterval: referenceTimeInterval,
+            dateFormatter: formatter)
+        
+        let yVals = (0..<count).map { (i) -> BarChartDataEntry in
+//            let timeInterval = weightData.createdTime.timeIntervalSince1970
+//            let xValue = (timeInterval - referenceTimeInterval) / (3600 * 24)
+            
+            let dailyTrain = 50.0
+            let dailyStretch = 30.0
+            
+            return BarChartDataEntry(x: Double(i), yValues: [dailyTrain, dailyStretch], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
+        }
+        
+        chartView.xAxis.valueFormatter = xValuesNumberFormatter
+        
+        let set = BarChartDataSet(values: yVals, label: "Weekly Status")
+        set.drawIconsEnabled = false
+        set.colors = [
+            NSUIColor(cgColor: UIColor.Orange!.cgColor),
+            NSUIColor(cgColor: UIColor.G1!.cgColor)
+        ]
+        
+        let data = BarChartData(dataSet: set)
+        data.setValueFont(.systemFont(ofSize: 7, weight: .light))
+//        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        data.setValueTextColor(.white)
+        data.barWidth = 0.4
+        
+        chartView.fitBars = true
+        chartView.data = data
+        
+        // Add string to xAxis
+//        let xAxisValue = chartView.xAxis
+//        xAxisValue.valueFormatter = axisFormatDelegate
+    }
+    
+    private func barChartUpdate () { // 沒用到
         
         // Basic set up of plan chart
         let entry1 = BarChartDataEntry(x: 1.0, y: Double(50))
@@ -294,38 +353,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         // Refresh chart with new data
         chartView.notifyDataSetChanged()
         
-        setChartData(count: 7, range: 60)
-    }
-    
-        // swiftlint:disable identifier_name
-    private func setChartData(count: Int, range: UInt32) {
-        let yVals = (0..<count).map { (i) -> BarChartDataEntry in
-            let mult = range + 1
-            let val1 = Double(arc4random_uniform(mult) + mult / 2)
-            let val2 = Double(arc4random_uniform(mult) + mult / 2)
-            
-            return BarChartDataEntry(x: Double(i), yValues: [val1, val2], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
-        }
-        
-        let set = BarChartDataSet(values: yVals, label: "Weekly Status")
-        set.drawIconsEnabled = false
-        set.colors = [
-            NSUIColor(cgColor: UIColor.Orange!.cgColor),
-            NSUIColor(cgColor: UIColor.G1!.cgColor)
-        ]
-        
-        let data = BarChartData(dataSet: set)
-        data.setValueFont(.systemFont(ofSize: 7, weight: .light))
-        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
-        data.setValueTextColor(.white)
-        data.barWidth = 0.4
-        
-        chartView.fitBars = true
-        chartView.data = data
-        
-        // Add string to xAxis
-        let xAxisValue = chartView.xAxis
-        xAxisValue.valueFormatter = axisFormatDelegate
     }
 
 }

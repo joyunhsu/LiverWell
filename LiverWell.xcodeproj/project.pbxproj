@@ -87,6 +87,7 @@
 		6EE0200822683B630026C911 /* HomeObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200722683B630026C911 /* HomeObjectManager.swift */; };
 		6EE0200A22683B740026C911 /* HomeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200922683B740026C911 /* HomeObject.swift */; };
 		6EE0200C2268536A0026C911 /* WorkoutElementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0200B2268536A0026C911 /* WorkoutElementManager.swift */; };
+		6EE3182322718F3600283EEB /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3182222718F3600283EEB /* StatusItem.swift */; };
 		6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */; };
 		6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B0225B3792003A104C /* ProfileViewController.swift */; };
 		6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B2225B37A3003A104C /* StatusViewController.swift */; };
@@ -180,6 +181,7 @@
 		6EE0200722683B630026C911 /* HomeObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObjectManager.swift; sourceTree = "<group>"; };
 		6EE0200922683B740026C911 /* HomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObject.swift; sourceTree = "<group>"; };
 		6EE0200B2268536A0026C911 /* WorkoutElementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutElementManager.swift; sourceTree = "<group>"; };
+		6EE3182222718F3600283EEB /* StatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItem.swift; sourceTree = "<group>"; };
 		6EE614AC225B3250003A104C /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
 		6EE614B0225B3792003A104C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EE614B2225B37A3003A104C /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */,
+				6EE3182222718F3600283EEB /* StatusItem.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				6E892A43225F022600742339 /* WorkoutViewController.swift in Sources */,
 				6E892A41225F01C600742339 /* PauseViewController.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
+				6EE3182322718F3600283EEB /* StatusItem.swift in Sources */,
 				6E9599C02259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
 				6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */,
