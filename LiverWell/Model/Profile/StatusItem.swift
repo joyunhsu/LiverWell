@@ -9,8 +9,8 @@
 import Foundation
 
 struct WorkoutData {
-    let displayCreatedTime: String
-    let createdTime: Date
+    let convertedDate: String
+    let timestampToDate: Date
     let workoutTime: Int
     let title: String
     let activityType: String

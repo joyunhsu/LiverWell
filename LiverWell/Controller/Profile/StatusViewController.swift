@@ -45,6 +45,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     var longStandSum = 0
     var beforeSleepSum = 0
     
+    var monSum = [0, 0] // [train, stretch]
+    var tueSum = [0, 0]
+    
     let week = ["ㄧ", "二", "三", "四", "五", "六", "日"]
     
     lazy var formatter: NumberFormatter = {
@@ -69,19 +72,16 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         getWeeklyWorkoutData()
         
-        let dateComponents = DateComponents(calendar: Calendar.current, year: 2018, month: 11, day: 30)
-        let date = dateComponents.date
-        let calendar = Calendar.current
+//        let today = Date()
+//
 //        print("------------")
-//        print(calendar.veryShortMonthSymbols)
-        
-        let today = Date()
-        let tomorrow = Calendar.current.date(byAdding: .day, value: -7, to: today)
-        print("------------")
-        print(tomorrow)
-        let weekBefore = Calendar.current.date(byAdding: .month, value: 1, to: today)
-        print("------------")
-        print(weekBefore)
+//        print(getMonday(myDate: today))
+//
+//        print("------------")
+//        print(today.startOfWeek)
+//
+//        print("------------")
+//        print(today.endOfWeek)
         
     }
     
@@ -94,7 +94,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let today = Date()
         
         workoutRef
-            .whereField("created_time", isLessThan: Date())
+            .whereField("created_time", isLessThan: today)
             .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
             .order(by: "created_time", descending: true)
             .getDocuments { [weak self] (snapshot, error) in
@@ -104,15 +104,13 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
             } else {
                 for document in snapshot!.documents {
                     
-//                    print("----------------------------")
-//                    print("\(document.documentID) => \(document.data())")
-                    
                     guard let createdTime = document.get("created_time") as? Timestamp else { return }
                     
                     let date = createdTime.dateValue()
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "M月d日"
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
                     let convertedDate = dateFormatter.string(from: date)
+                    let convertedToday = dateFormatter.string(from: today)
                     
                     guard let activityType = document.get("activity_type") as? String else { return }
                     guard let title = document.get("title") as? String else { return }
@@ -120,8 +118,8 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                     
                     self?.workoutDataArray.append(
                         WorkoutData(
-                            displayCreatedTime: convertedDate,
-                            createdTime: date,
+                            convertedDate: convertedDate,
+                            timestampToDate: date,
                             workoutTime: workoutTime,
                             title: title,
                             activityType: activityType)
@@ -138,13 +136,40 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 
                 self.setupActivityEntry()
                 
+                self.filterByDate()
+                
         }
         
     }
     
+    private func getMonday(myDate: Date) -> Date {
+        var cal = Calendar.current
+//        cal.firstWeekday = 2
+        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
+        comps.weekday = 3 // monday should be 2???
+        let mondayInWeek = cal.date(from: comps)!
+        return mondayInWeek
+    }
+    
     private func filterByDate() {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
+        let today = Date()
+
+        let monTrain = self.workoutDataArray.filter({
+            $0.convertedDate == dateFormatter.string(from: today.startOfWeek!)
+            && $0.activityType == "train" })
+        
+        let monStretch = self.workoutDataArray.filter({
+            $0.convertedDate == dateFormatter.string(from: today.startOfWeek!)
+                && $0.activityType == "stretch" })
+        
+        self.monSum = [timeSumOf(array: monTrain), timeSumOf(array: monStretch)]
+        
+        print(monSum)
+        print(dateFormatter.string(from: today.startOfWeek!))
         
     }
     
