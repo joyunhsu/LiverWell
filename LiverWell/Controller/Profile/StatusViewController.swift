@@ -47,6 +47,11 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     var monSum = [0, 0] // [train, stretch]
     var tueSum = [0, 0]
+    var wedSum = [0, 0]
+    var thuSum = [0, 0]
+    var friSum = [0, 0]
+    var satSum = [0, 0]
+    var sunSum = [0, 0]
     
     let week = ["ㄧ", "二", "三", "四", "五", "六", "日"]
     
@@ -128,48 +133,65 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 }
             }
                 
-                guard let self = self else { return }
-//                print("----------------------------")
-//                print(self.workoutDataArray)
+                self?.filterArrayGetSum()
                 
-                self.filterArrayGetSum()
+                self?.setupActivityEntry()
                 
-                self.setupActivityEntry()
-                
-                self.filterByDate()
+                self?.sortWeekStackData()
                 
         }
         
     }
     
-    private func getMonday(myDate: Date) -> Date {
-        var cal = Calendar.current
-//        cal.firstWeekday = 2
-        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: myDate)
-        comps.weekday = 3 // monday should be 2???
-        let mondayInWeek = cal.date(from: comps)!
-        return mondayInWeek
-    }
-    
-    private func filterByDate() {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+    private func sortWeekStackData() {
         
         let today = Date()
-
-        let monTrain = self.workoutDataArray.filter({
-            $0.convertedDate == dateFormatter.string(from: today.startOfWeek!)
-            && $0.activityType == "train" })
         
-        let monStretch = self.workoutDataArray.filter({
-            $0.convertedDate == dateFormatter.string(from: today.startOfWeek!)
-                && $0.activityType == "stretch" })
+        guard let monday = today.startOfWeek else { return }
         
-        self.monSum = [timeSumOf(array: monTrain), timeSumOf(array: monStretch)]
+        guard let tuesday = Calendar.current.date(byAdding: .day, value: 1, to: monday) else { return }
         
-        print(monSum)
-        print(dateFormatter.string(from: today.startOfWeek!))
+        guard let wednesday = Calendar.current.date(byAdding: .day, value: 2, to: monday) else { return }
+        
+        guard let thursday = Calendar.current.date(byAdding: .day, value: 3, to: monday) else { return }
+        
+        guard let friday = Calendar.current.date(byAdding: .day, value: 4, to: monday) else { return }
+        
+        guard let saturday = Calendar.current.date(byAdding: .day, value: 5, to: monday) else { return }
+        
+        guard let sunday = Calendar.current.date(byAdding: .day, value: 6, to: monday) else { return }
+        
+        self.monSum = filterByDayAndType(day: monday)
+        
+        self.tueSum = filterByDayAndType(day: tuesday)
+        
+        self.wedSum = filterByDayAndType(day: wednesday)
+        
+        self.thuSum = filterByDayAndType(day: thursday)
+        
+        self.friSum = filterByDayAndType(day: friday)
+        
+        self.satSum = filterByDayAndType(day: saturday)
+        
+        self.sunSum = filterByDayAndType(day: sunday)
+        
+    }
+    
+    private func filterByDayAndType(day: Date) -> [Int] {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let dayTrain = workoutDataArray.filter({
+            $0.convertedDate == dateFormatter.string(from: day) && $0.activityType == "train"
+        })
+        
+        let dayStretch = workoutDataArray.filter({
+            $0.convertedDate == dateFormatter.string(from: day) && $0.activityType == "stretch"
+        })
+        
+        return [timeSumOf(array: dayTrain), timeSumOf(array: dayStretch)]
         
     }
     
