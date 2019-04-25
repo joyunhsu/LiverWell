@@ -22,11 +22,14 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     var weightDataArray = [WeightData]() {
         didSet {
             tableView.reloadData()
+            
+            setChartValues()
         }
     }
     
     struct WeightData {
-        let createdTime: String
+        let createdTimeString: String
+        let createdTime: Date
         let documentID: String
         let weight: Double
         
@@ -38,7 +41,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setChartValues()
+//        setChartValues()
         setupChartView()
         readWeight()
         
@@ -87,7 +90,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                     
                     self?.weightDataArray.append(
                         WeightData(
-                            createdTime: convertedDate,
+                            createdTimeString: convertedDate,
+                            createdTime: date,
                             documentID: document.documentID,
                             weight: weight
                         )
@@ -147,6 +151,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
             self?.tableView.reloadData()
             
+            self?.setChartValues()
+            
         }
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
@@ -161,14 +167,51 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
     }
     
-    private func setChartValues(_ count: Int = 20) {
-        let values = (0..<count).map { (i) -> ChartDataEntry in
-            
-            let val = Double(arc4random_uniform(UInt32(count)) + 3)
-            return ChartDataEntry(x: Double(i), y: val)
+    private func setChartValues() {
+//        let values = (0..<count).map { (i) -> ChartDataEntry in
+//
+//            let val = Double(arc4random_uniform(UInt32(count)) + 3)
+//            return ChartDataEntry(x: Double(i), y: val)
+//
+//        }
+        
+        var referenceTimeInterval: TimeInterval = 0
+        if let minTimeInterval = (weightDataArray.map({ $0.createdTime.millisecondsSince1970})).min() {
+            referenceTimeInterval = TimeInterval(minTimeInterval)
         }
         
-        let lineDataSet = LineChartDataSet(values: values, label: "Weight Chart")
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        formatter.locale = Locale.current
+        
+        let xValuesNumberFormatter = ChartsDateXAxisFormatter(
+            referenceTimeInterval: referenceTimeInterval,
+            dateFormatter: formatter)
+        
+        var reverseArray = weightDataArray.reversed()
+        
+        var entries = [ChartDataEntry]()
+        for weightData in reverseArray {
+            let timeInterval = weightData.createdTime.timeIntervalSince1970
+            let xValue = (timeInterval - referenceTimeInterval) / (3600 * 24)
+            
+            let yValue = weightData.weight
+            let entry = ChartDataEntry(x: xValue, y: yValue)
+            entries.append(entry)
+        }
+        
+//        let values = (0..<weightDataArray.count).map { (i) -> ChartDataEntry in
+//
+//            let val = weightDataArray[i].weight
+//            let xval = weightDataArray[i].createdTime.millisecondsSince1970
+//            return ChartDataEntry(x: Double(i), y: val)
+//
+//        }
+        
+        lineChartView.xAxis.valueFormatter = xValuesNumberFormatter
+        
+        let lineDataSet = LineChartDataSet(values: entries, label: "Weight Chart")
         lineDataSet.circleRadius = 2.5
         lineDataSet.circleColors = [UIColor.B1!]
         lineDataSet.circleHoleRadius = 0
@@ -275,7 +318,7 @@ extension WeightViewController: UITableViewDataSource {
         
         let weightData = weightDataArray[indexPath.row]
         
-        weightCell.layoutView(date: weightData.createdTime, weight: weightData.weight)
+        weightCell.layoutView(date: weightData.createdTimeString, weight: weightData.weight)
         
         return cell
     }

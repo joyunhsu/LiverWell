@@ -42,6 +42,7 @@
 		6E664C34226F867D00221184 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C33226F867C00221184 /* 4.mp3 */; };
 		6E664C3622700F7800221184 /* StretchWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3522700F7800221184 /* StretchWorkoutViewController.swift */; };
 		6E664C3822701E3D00221184 /* StretchNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3722701E3D00221184 /* StretchNavViewController.swift */; };
+		6E664C3A22712DE000221184 /* ChartsDateXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */; };
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
@@ -134,6 +135,7 @@
 		6E664C33226F867C00221184 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
 		6E664C3522700F7800221184 /* StretchWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchWorkoutViewController.swift; sourceTree = "<group>"; };
 		6E664C3722701E3D00221184 /* StretchNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchNavViewController.swift; sourceTree = "<group>"; };
+		6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDateXAxisFormatter.swift; sourceTree = "<group>"; };
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		6EA2EA702254942B0039B39F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				6E664C2C226D86BB00221184 /* SettingViewController.swift in Sources */,
 				6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */,
 				6EE0200622683A700026C911 /* WorkoutItem.swift in Sources */,
+				6E664C3A22712DE000221184 /* ChartsDateXAxisFormatter.swift in Sources */,
 				6E664C2E226D8B8100221184 /* AuthViewController.swift in Sources */,
 				6E664C30226DA55100221184 /* Date+Extension.swift in Sources */,
 				6E892A472260593100742339 /* RepeatCollectionViewCell.swift in Sources */,
