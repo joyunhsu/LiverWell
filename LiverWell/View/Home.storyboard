@@ -306,8 +306,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-dL-Iax" customClass="MBCircularProgressBarView">
                                 <rect key="frame" x="110.5" y="422" width="154" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-ao-xx6">
-                                        <rect key="frame" x="54" y="48.5" width="46" height="51"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-ao-xx6">
+                                        <rect key="frame" x="58.5" y="48.5" width="37.5" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="nOW-HN-HKP"/>
                                         </constraints>
@@ -421,6 +421,7 @@
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
                         <outlet property="timeLabel" destination="VaG-O6-Gve" id="Q2e-Oq-Mr0"/>
+                        <outlet property="todayWorkoutTimeLabel" destination="bcz-ao-xx6" id="ZiP-hK-qka"/>
                         <outlet property="trainProgressView" destination="kx9-dL-Iax" id="7GV-Fi-M2E"/>
                         <outlet property="weekProgressCollectionView" destination="DvP-Xr-RAC" id="t4E-Oe-rz8"/>
                         <outlet property="workoutCollectionView" destination="47e-1i-T6o" id="qSr-ik-jXk"/>

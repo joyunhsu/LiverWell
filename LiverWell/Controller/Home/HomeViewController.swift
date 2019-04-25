@@ -31,6 +31,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
 
     @IBOutlet weak var stretchProgressView: MBCircularProgressBarView! // 後面、加總
+    
+    @IBOutlet weak var todayWorkoutTimeLabel: UILabel!
 
     @IBOutlet weak var workoutCollectionView: UICollectionView!
 
@@ -152,6 +154,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
         
+        todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
+        
         if totalWorkoutTime > 15 {
             
             stretchProgressView.value = 15
@@ -159,7 +163,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             trainProgressView.value = CGFloat(trainWorkoutTime * 15 / totalWorkoutTime)
             
             remainingTimeLabel.text = "0分鐘"
-            
             
         } else {
             
@@ -175,11 +178,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     private func getTodayWorkoutProgress() {
         
+        let today = Date()
+        
         guard let user = Auth.auth().currentUser else { return }
         
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
         
-        workoutRef.whereField("activity_type", isEqualTo: "train").getDocuments { [weak self] (snapshot, error) in
+        workoutRef
+            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -1, to: today))
+            .whereField("activity_type", isEqualTo: "train").getDocuments { [weak self] (snapshot, error) in
             
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -197,7 +204,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         }
         
-        workoutRef.whereField("activity_type", isEqualTo: "stretch").getDocuments { [weak self] (snapshot, error) in
+        workoutRef
+            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -1, to: today))
+            .whereField("activity_type", isEqualTo: "stretch").getDocuments { [weak self] (snapshot, error) in
             
             if let error = error {
                 print("Error getting documents: \(error)")

@@ -77,17 +77,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         getWeeklyWorkoutData()
         
-//        let today = Date()
-//
-//        print("------------")
-//        print(getMonday(myDate: today))
-//
-//        print("------------")
-//        print(today.startOfWeek)
-//
-//        print("------------")
-//        print(today.endOfWeek)
-        
     }
     
     private func getWeeklyWorkoutData() {
@@ -99,7 +88,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let today = Date()
         
         workoutRef
-            .whereField("created_time", isLessThan: today)
+//            .whereField("created_time", isLessThan: today)
             .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
             .order(by: "created_time", descending: true)
             .getDocuments { [weak self] (snapshot, error) in
@@ -115,7 +104,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let convertedDate = dateFormatter.string(from: date)
-                    let convertedToday = dateFormatter.string(from: today)
                     
                     guard let activityType = document.get("activity_type") as? String else { return }
                     guard let title = document.get("title") as? String else { return }
@@ -133,17 +121,18 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 }
             }
                 
-                self?.filterArrayGetSum()
+                self?.sortByTitle()
+                
+                self?.sortByType()
+                
+                self?.sortByDayAndType()
                 
                 self?.setupActivityEntry()
-                
-                self?.sortWeekStackData()
-                
         }
         
     }
     
-    private func sortWeekStackData() {
+    private func sortByDayAndType() {
         
         let today = Date()
         
@@ -195,48 +184,50 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
     }
     
-    private func filterArrayGetSum() {
+    private func sortByTitle() {
         
-        // train array
-        let trainArray = self.workoutDataArray.filter({ $0.activityType == "train"})
-        self.trainTimeSum = timeSumOf(array: trainArray)
+        self.watchTVSum = getWorkoutSumBy(title: "看電視一邊做")
         
-        // stretch array
-        let stretchArray = self.workoutDataArray.filter({ $0.activityType == "stretch"})
-        self.stretchTimeSum = timeSumOf(array: stretchArray)
+        self.backPainSum = getWorkoutSumBy(title: "預防腰痛")
         
-        // watchTV array
-        let watchTVArray = self.workoutDataArray.filter({ $0.title == "看電視一邊做"})
-        self.watchTVSum = timeSumOf(array: watchTVArray)
+        self.wholeBodySum = getWorkoutSumBy(title: "全身訓練")
         
-        // backPain array
-        let backPainArray = self.workoutDataArray.filter({ $0.title == "預防腰痛"})
-        self.backPainSum = timeSumOf(array: backPainArray)
+        self.upperBodySum = getWorkoutSumBy(title: "上半身訓練")
         
-        // wholeBody array
-        let wholeBodyArray = self.workoutDataArray.filter({ $0.title == "全身訓練"})
-        self.wholeBodySum = timeSumOf(array: wholeBodyArray)
+        self.lowerBodySum = getWorkoutSumBy(title: "下半身訓練")
         
-        // upperBody array
-        let upperBodyArray = self.workoutDataArray.filter({ $0.title == "上半身訓練"})
-        self.upperBodySum = timeSumOf(array: upperBodyArray)
+        self.longSitSum = getWorkoutSumBy(title: "久坐伸展")
         
-        // lowerBody array
-        let lowerBodyArray = self.workoutDataArray.filter({ $0.title == "下半身訓練"})
-        self.lowerBodySum = timeSumOf(array: lowerBodyArray)
+        self.longStandSum = getWorkoutSumBy(title: "久站伸展")
         
-        // longSit array
-        let longSitArray = self.workoutDataArray.filter({ $0.title == "久坐伸展"})
-        self.longSitSum = timeSumOf(array: longSitArray)
+        self.beforeSleepSum = getWorkoutSumBy(title: "睡前舒緩")
         
-        // longStand array
-        let longStandArray = self.workoutDataArray.filter({ $0.title == "久站伸展"})
-        self.longStandSum = timeSumOf(array: longStandArray)
+    }
+    
+    private func sortByType() {
         
-        // beforeSleep array
-        let beforeSleepArray = self.workoutDataArray.filter({ $0.title == "睡前舒緩"})
-        self.beforeSleepSum = timeSumOf(array: beforeSleepArray)
+        self.trainTimeSum = getWorkoutSumBy(type: "train")
         
+        self.stretchTimeSum = getWorkoutSumBy(type: "stretch")
+        
+    }
+    
+    private func getWorkoutSumBy(title: String) -> Int {
+        
+        let array = self.workoutDataArray.filter({
+            $0.title == title
+        })
+        
+        return timeSumOf(array: array)
+    }
+    
+    private func getWorkoutSumBy(type: String) -> Int {
+        
+        let array = self.workoutDataArray.filter({
+            $0.activityType == type
+        })
+        
+        return timeSumOf(array: array)
     }
     
     private func timeSumOf(array: [WorkoutData]) -> Int {
@@ -452,7 +443,11 @@ extension StatusViewController: UITableViewDataSource {
             
             let activityEntry = activityEntryArray[indexPath.row]
              
-            entryCell.layoutView(title: activityEntry.title, time: activityEntry.time, percentage: percentageOf(entry: activityEntry.time), activityType: activityEntry.activityType)
+            entryCell.layoutView(
+                title: activityEntry.title,
+                time: activityEntry.time,
+                percentage: percentageOf(entry: activityEntry.time),
+                activityType: activityEntry.activityType)
             
             return entryCell
             
