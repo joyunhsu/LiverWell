@@ -10,6 +10,7 @@ import UIKit
 import MBCircularProgressBar
 import Firebase
 
+// swiftlint:disable cyclomatic_complexity
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     let homeObjectManager = HomeObjectManager()
@@ -42,9 +43,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     var tempTrainWorkoutTime = 0
     
-    var trainWorkoutTime: Int? {
+    var todayTrainTime: Int? {
         didSet {
-            if stretchWorkoutTime != nil || trainWorkoutTime != nil {
+            if todayStretchTime != nil || todayTrainTime != nil {
                 showTodayWorkoutProgress()
             }
         }
@@ -52,13 +53,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     var tempStretchWorkoutTime = 0
     
-    var stretchWorkoutTime: Int? {
+    var todayStretchTime: Int? {
         didSet {
-            if stretchWorkoutTime != nil || trainWorkoutTime != nil {
+            if todayStretchTime != nil || todayTrainTime != nil {
                 showTodayWorkoutProgress()
             }
         }
     }
+    
+    var monSum = 0
+    var tueSum = 0
+    var wedSum = 0
+    var thuSum = 0
+    var friSum = 0
+    var satSum = 0
+    var sunSum = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,17 +84,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             workEndHours: 18
         )
         
-        getTodayWorkoutProgress()
+        getThisWeekProgress()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        trainWorkoutTime = nil
+        todayTrainTime = nil
         
         tempStretchWorkoutTime = 0
         
-        stretchWorkoutTime = nil
+        todayStretchTime = nil
         
         tempTrainWorkoutTime = 0
         
@@ -145,12 +154,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
         }
-        
     }
     
     private func showTodayWorkoutProgress() {
         
-        guard let stretchWorkoutTime = stretchWorkoutTime, let trainWorkoutTime = trainWorkoutTime else { return }
+        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
         
         let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
         
@@ -176,17 +184,32 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    private func getTodayWorkoutProgress() {
+    private func getThisWeekProgress() {
         
         let today = Date()
+        
+        guard let monday = today.startOfWeek else { return }
+        
+        guard let tuesday = Calendar.current.date(byAdding: .day, value: 1, to: monday) else { return }
+        
+        guard let wednesday = Calendar.current.date(byAdding: .day, value: 2, to: monday) else { return }
+        
+        guard let thursday = Calendar.current.date(byAdding: .day, value: 3, to: monday) else { return }
+        
+        guard let friday = Calendar.current.date(byAdding: .day, value: 4, to: monday) else { return }
+        
+        guard let saturday = Calendar.current.date(byAdding: .day, value: 5, to: monday) else { return }
+        
+        guard let sunday = Calendar.current.date(byAdding: .day, value: 6, to: monday) else { return }
         
         guard let user = Auth.auth().currentUser else { return }
         
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
         
         workoutRef
-            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -1, to: today))
-            .whereField("activity_type", isEqualTo: "train").getDocuments { [weak self] (snapshot, error) in
+            .whereField("created_time", isGreaterThan: monday)
+            .order(by: "created_time", descending: false)
+            .getDocuments { [weak self] (snapshot, error) in
             
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -194,34 +217,56 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                 for document in snapshot!.documents {
                     
                     guard let workoutTime = document.get("workout_time") as? Int else { return }
+                    guard let createdTime = document.get("created_time") as? Timestamp else { return }
+                    guard let activityType = document.get("activity_type") as? String else { return }
                     
-                    self?.tempTrainWorkoutTime += workoutTime
+                    let date = createdTime.dateValue()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let convertedDate = dateFormatter.string(from: date)
                     
+                    guard let self = self else { return }
+                    
+                    if convertedDate == dateFormatter.string(from: today) && activityType == "train" {
+                        self.tempTrainWorkoutTime += workoutTime
+                    } else if convertedDate == dateFormatter.string(from: today) && activityType == "stretch" {
+                        self.tempStretchWorkoutTime += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: monday) {
+                        self.monSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: tuesday) {
+                        self.tueSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: wednesday) {
+                        self.wedSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: thursday) {
+                        self.thuSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: friday) {
+                        self.friSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: saturday) {
+                        self.satSum += workoutTime
+                    }
+                    
+                    if convertedDate == dateFormatter.string(from: sunday) {
+                        self.sunSum += workoutTime
+                    }
                 }
             }
             
-            self?.trainWorkoutTime = self?.tempTrainWorkoutTime
-        
-        }
-        
-        workoutRef
-            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -1, to: today))
-            .whereField("activity_type", isEqualTo: "stretch").getDocuments { [weak self] (snapshot, error) in
-            
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in snapshot!.documents {
-                    
-                    guard let workoutTime = document.get("workout_time") as? Int else { return }
-                    
-                    self?.tempStretchWorkoutTime += workoutTime
-                    
-                }
-            }
-            
-            self?.stretchWorkoutTime = self?.tempStretchWorkoutTime
-            
+            self?.todayTrainTime = self?.tempTrainWorkoutTime
+
+            self?.todayStretchTime = self?.tempStretchWorkoutTime
+                
         }
         
     }

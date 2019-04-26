@@ -128,6 +128,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 self?.sortByDayAndType()
                 
                 self?.setupActivityEntry()
+                
         }
         
     }
