@@ -16,5 +16,21 @@ class WeekProgressCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressView: MBCircularProgressBarView!
 
     @IBOutlet weak var completeImage: UIImageView!
+    
+    func layoutView(value: Int) {
+        
+        if value == 0 {
+            progressView.isHidden = true
+            completeImage.image = UIImage(named: "Icon_Home_NoValue")
+            return
+        } else if value >= 15 {
+            progressView.isHidden = true
+            completeImage.image = UIImage(named: "Icon_Home_Complete")
+        } else {
+            progressView.isHidden = false
+            progressView.value = CGFloat(integerLiteral: value)
+        }
+        
+    }
 
 }

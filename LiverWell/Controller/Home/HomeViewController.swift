@@ -68,6 +68,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     var friSum = 0
     var satSum = 0
     var sunSum = 0
+    
+    var dailyValue: [Int] {
+        return [monSum, tueSum, wedSum, thuSum, friSum, satSum, sunSum]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -260,12 +264,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     if convertedDate == dateFormatter.string(from: sunday) {
                         self.sunSum += workoutTime
                     }
+                    
                 }
             }
             
             self?.todayTrainTime = self?.tempTrainWorkoutTime
 
             self?.todayStretchTime = self?.tempStretchWorkoutTime
+                
+            self?.weekProgressCollectionView.reloadData()
                 
         }
         
@@ -356,6 +363,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
 
             progressCell.day.text = days[indexPath.item]
+            progressCell.layoutView(value: self.dailyValue[indexPath.item])
 
             return progressCell
 
