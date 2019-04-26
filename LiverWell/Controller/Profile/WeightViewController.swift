@@ -10,7 +10,6 @@ import UIKit
 import Charts
 import Firebase
 
-// swiftlint:disable identifier_name
 class WeightViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +21,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     var weightDataArray = [WeightData]() {
         didSet {
             tableView.reloadData()
-            
             setChartValues()
         }
     }
@@ -32,10 +30,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         let createdTime: Date
         let documentID: String
         let weight: Double
-        
-//        init() {
-//            <#statements#>
-//        }
     }
 
     override func viewDidLoad() {
@@ -73,7 +67,9 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
-        weightRef.order(by: "created_time", descending: true).getDocuments { [weak self] (snapshot, error) in
+        weightRef
+            .order(by: "created_time", descending: true) // 由新到舊
+            .getDocuments { [weak self] (snapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
@@ -168,12 +164,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     }
     
     private func setChartValues() {
-//        let values = (0..<count).map { (i) -> ChartDataEntry in
-//
-//            let val = Double(arc4random_uniform(UInt32(count)) + 3)
-//            return ChartDataEntry(x: Double(i), y: val)
-//
-//        }
         
         var referenceTimeInterval: TimeInterval = 0
         if let minTimeInterval = (weightDataArray.map({ $0.createdTime.millisecondsSince1970})).min() {

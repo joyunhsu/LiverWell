@@ -52,6 +52,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     var friSum = [0, 0]
     var satSum = [0, 0]
     var sunSum = [0, 0]
+    var weekSum: [[Int]] {
+        return [monSum, tueSum, wedSum, thuSum, friSum, satSum, sunSum]
+    }
     
     let week = ["ㄧ", "二", "三", "四", "五", "六", "日"]
     
@@ -71,9 +74,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         axisFormatDelegate = self
 
-        setChartData(count: 7, range: 60)
+//        setChartData(count: 7, range: 60)
         
-        barChartViewSetup()
+//        barChartViewSetup()
         
         getWeeklyWorkoutData()
         
@@ -88,9 +91,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let today = Date()
         
         workoutRef
-//            .whereField("created_time", isLessThan: today)
+            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 0, to: today))
             .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
-            .order(by: "created_time", descending: true)
+            .order(by: "created_time", descending: false) // 由舊到新
             .getDocuments { [weak self] (snapshot, error) in
             
             if let error = error {
@@ -128,6 +131,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 self?.sortByDayAndType()
                 
                 self?.setupActivityEntry()
+                
+                self?.setChartData(count: 7, range: 60)
+                
+                self?.barChartViewSetup()
                 
         }
         
@@ -321,31 +328,13 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     private func setChartData(count: Int, range: UInt32) {
         
-        var referenceTimeInterval: TimeInterval = 0
-//        if let minTimeInterval = (weightDataArray.map({ $0.createdTime.millisecondsSince1970})).min() {
-//            referenceTimeInterval = TimeInterval(minTimeInterval)
-//        }
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        formatter.locale = Locale.current
-        
-        let xValuesNumberFormatter = ChartsDateXAxisFormatter(
-            referenceTimeInterval: referenceTimeInterval,
-            dateFormatter: formatter)
-        
         let yVals = (0..<count).map { (i) -> BarChartDataEntry in
-//            let timeInterval = weightData.createdTime.timeIntervalSince1970
-//            let xValue = (timeInterval - referenceTimeInterval) / (3600 * 24)
-            
-            let dailyTrain = 50.0
-            let dailyStretch = 30.0
-            
-            return BarChartDataEntry(x: Double(i), yValues: [dailyTrain, dailyStretch], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
+
+            let dailyTrain = weekSum[i][0]
+            let dailyStretch = weekSum[i][1]
+
+            return BarChartDataEntry(x: Double(i), yValues: [Double(dailyTrain), Double(dailyStretch)], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
         }
-        
-        chartView.xAxis.valueFormatter = xValuesNumberFormatter
         
         let set = BarChartDataSet(values: yVals, label: "Weekly Status")
         set.drawIconsEnabled = false
@@ -356,7 +345,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let data = BarChartData(dataSet: set)
         data.setValueFont(.systemFont(ofSize: 7, weight: .light))
-//        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         data.setValueTextColor(.white)
         data.barWidth = 0.4
         
@@ -364,8 +353,8 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         chartView.data = data
         
         // Add string to xAxis
-//        let xAxisValue = chartView.xAxis
-//        xAxisValue.valueFormatter = axisFormatDelegate
+        let xAxisValue = chartView.xAxis
+        xAxisValue.valueFormatter = axisFormatDelegate
     }
     
     private func barChartUpdate () { // 沒用到
