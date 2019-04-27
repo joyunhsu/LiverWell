@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 class RecordWeightViewController: UIViewController, UITextFieldDelegate {
     
@@ -86,8 +87,10 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             confirmBtn.isEnabled = true
+            confirmBtn.backgroundColor = .G1
         } else {
             confirmBtn.isEnabled = false
+            confirmBtn.backgroundColor = .B3
         }
         
         return true
@@ -99,9 +102,10 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         
-        if textField.text == "" {
+//        if textField.text == "" {
             confirmBtn.isEnabled = false
-        }
+            confirmBtn.backgroundColor = .B3
+//        }
         
         if weightDocumentID != nil {
             titleLabel.text = "修改體重"

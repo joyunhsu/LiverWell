@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3364F3060856F44441AE5F18 /* Pods_LiverWell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE3BE5E27CBD19E7110EDF /* Pods_LiverWell.framework */; };
+		6E2CAC93227484BA00C27748 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC92227484BA00C27748 /* LogInViewController.swift */; };
+		6E2CAC952274852700C27748 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC942274852700C27748 /* SignUpFirstViewController.swift */; };
+		6E2CAC972274854200C27748 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC962274854200C27748 /* SignUpSecondViewController.swift */; };
+		6E2CAC992274863600C27748 /* SignUpThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC982274863600C27748 /* SignUpThirdViewController.swift */; };
 		6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E49C98D2253D8FD006536A2 /* ActivityItem.swift */; };
 		6E49C9902253DA08006536A2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C98F2253DA08006536A2 /* Home.storyboard */; };
 		6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9912253DA1A006536A2 /* Activity.storyboard */; };
@@ -44,6 +48,7 @@
 		6E664C3822701E3D00221184 /* StretchNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3722701E3D00221184 /* StretchNavViewController.swift */; };
 		6E664C3A22712DE000221184 /* ChartsDateXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */; };
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
+		6E761ED02274DC6F00FD2C88 /* SignUpFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E761ECF2274DC6F00FD2C88 /* SignUpFourthViewController.swift */; };
 		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
 		6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */; };
@@ -102,6 +107,10 @@
 
 /* Begin PBXFileReference section */
 		637F95320E52C74D97EDA766 /* Pods-LiverWell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiverWell.release.xcconfig"; path = "Target Support Files/Pods-LiverWell/Pods-LiverWell.release.xcconfig"; sourceTree = "<group>"; };
+		6E2CAC92227484BA00C27748 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		6E2CAC942274852700C27748 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
+		6E2CAC962274854200C27748 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
+		6E2CAC982274863600C27748 /* SignUpThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdViewController.swift; sourceTree = "<group>"; };
 		6E49C98D2253D8FD006536A2 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		6E49C98F2253DA08006536A2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6E49C9912253DA1A006536A2 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
@@ -138,6 +147,7 @@
 		6E664C3722701E3D00221184 /* StretchNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchNavViewController.swift; sourceTree = "<group>"; };
 		6E664C3922712DDF00221184 /* ChartsDateXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDateXAxisFormatter.swift; sourceTree = "<group>"; };
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		6E761ECF2274DC6F00FD2C88 /* SignUpFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFourthViewController.swift; sourceTree = "<group>"; };
 		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
 		6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectinoViewCell.swift; sourceTree = "<group>"; };
@@ -218,12 +228,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E2CAC912274839C00C27748 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6E664C2D226D8B8100221184 /* AuthViewController.swift */,
+				6E2CAC92227484BA00C27748 /* LogInViewController.swift */,
+				6E2CAC942274852700C27748 /* SignUpFirstViewController.swift */,
+				6E2CAC962274854200C27748 /* SignUpSecondViewController.swift */,
+				6E2CAC982274863600C27748 /* SignUpThirdViewController.swift */,
+				6E761ECF2274DC6F00FD2C88 /* SignUpFourthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		6E49C99822545F86006536A2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */,
 				6E892A18225C8B8400742339 /* ChartBaseViewController.swift */,
-				6E664C2D226D8B8100221184 /* AuthViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -350,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				6E49C99822545F86006536A2 /* Base */,
+				6E2CAC912274839C00C27748 /* Auth */,
 				6E4B74C322547F8100BECC70 /* Home */,
 				6EA8CBDA22533E84000859FD /* Activity */,
 				6E9599AE2258B86000BC1D9A /* Knowledge */,
@@ -704,6 +727,7 @@
 			files = (
 				6E664C32226DC05700221184 /* RecordWeightViewController.swift in Sources */,
 				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
+				6E2CAC992274863600C27748 /* SignUpThirdViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
 				6EE01FDF2267842C0026C911 /* KnowledgeManager.swift in Sources */,
@@ -721,10 +745,12 @@
 				6E664C012269281300221184 /* KnowledgeItem.swift in Sources */,
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
 				6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */,
+				6E2CAC952274852700C27748 /* SignUpFirstViewController.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */,
 				6EAA7A32225A7B740054AA69 /* DetailKnowledgeViewController.swift in Sources */,
 				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,
+				6E2CAC972274854200C27748 /* SignUpSecondViewController.swift in Sources */,
 				6E892A43225F022600742339 /* WorkoutViewController.swift in Sources */,
 				6E892A41225F01C600742339 /* PauseViewController.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
@@ -739,6 +765,7 @@
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
 				6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */,
 				6E892A492260752000742339 /* FinishWorkoutViewController.swift in Sources */,
+				6E2CAC93227484BA00C27748 /* LogInViewController.swift in Sources */,
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
 				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EE0200A22683B740026C911 /* HomeObject.swift in Sources */,
@@ -756,6 +783,7 @@
 				6EE614B3225B37A3003A104C /* StatusViewController.swift in Sources */,
 				6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */,
 				6EE0200822683B630026C911 /* HomeObjectManager.swift in Sources */,
+				6E761ED02274DC6F00FD2C88 /* SignUpFourthViewController.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,
 				6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */,
 				6EA2EA74225494890039B39F /* HomeItem.swift in Sources */,

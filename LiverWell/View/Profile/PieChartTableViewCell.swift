@@ -31,15 +31,24 @@ class PieChartTableViewCell: UITableViewCell {
         
         let totalSum = trainSum + stretchSum
         
-        let trainProportion = lround(Double(trainSum * 100 / totalSum))
+        if totalSum != 0 {
+            
+            let trainProportion = lround(Double(trainSum * 100 / totalSum))
+            
+            let stretchProportion = 100 - trainProportion
+            
+            progressView.value = CGFloat(trainSum * 100 / totalSum)
+            
+            stretchLabel.text = "\(stretchProportion)%"
+            
+            trainLabel.text = "\(trainProportion)%"
+            
+        } else {
+            
+            return
+            
+        }
         
-        let stretchProportion = 100 - trainProportion
-        
-        progressView.value = CGFloat(trainSum * 100 / totalSum)
-        
-        stretchLabel.text = "\(stretchProportion)%"
-        
-        trainLabel.text = "\(trainProportion)%"
     }
 
 }

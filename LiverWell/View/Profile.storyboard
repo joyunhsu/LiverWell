@@ -594,7 +594,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Weight" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-KL-rQV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="425.00000000000011"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="425"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="425" id="3Ic-Gu-kNc"/>
                                             </constraints>
@@ -748,7 +748,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-oJ-1aU">
                                         <rect key="frame" x="24" y="290" width="295" height="44"/>
-                                        <color key="backgroundColor" name="G1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="mhW-ZR-vus"/>
                                         </constraints>
@@ -758,7 +757,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
-                                                <real key="value" value="5"/>
+                                                <real key="value" value="22"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -772,7 +771,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="lWBorderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
