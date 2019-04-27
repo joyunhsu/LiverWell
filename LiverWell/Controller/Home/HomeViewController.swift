@@ -27,6 +27,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var remainTimeLabel: UIButton!
+    
     @IBOutlet weak var background: UIImageView!
     
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!

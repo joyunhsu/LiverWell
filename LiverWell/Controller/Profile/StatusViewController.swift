@@ -91,8 +91,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let today = Date()
         
         workoutRef
-            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 0, to: today))
-            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
+//            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 0, to: today))
+//            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: -6, to: today))
+            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 0, to: today.endOfWeek!))
+            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: 0, to: today.startOfWeek!))
             .order(by: "created_time", descending: false) // 由舊到新
             .getDocuments { [weak self] (snapshot, error) in
             

@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Orange" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-Hg-yOK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Loading" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-Hg-yOK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="555" id="vnX-Rp-ohk"/>
@@ -268,9 +268,6 @@
                                     <constraint firstAttribute="width" secondItem="NEx-o8-1iQ" secondAttribute="height" multiplier="1:1" id="vv9-D1-Wba"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
@@ -335,9 +332,6 @@
                                     <constraint firstItem="bcz-ao-xx6" firstAttribute="centerY" secondItem="kx9-dL-Iax" secondAttribute="centerY" constant="-3" id="uYK-e3-ps7"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
@@ -417,6 +411,7 @@
                     <tabBarItem key="tabBarItem" title="首頁" id="1Ot-Iz-Ji4"/>
                     <connections>
                         <outlet property="background" destination="9HI-Hg-yOK" id="fRT-iY-D9S"/>
+                        <outlet property="remainTimeLabel" destination="pUN-zc-JzO" id="MAd-kK-ghE"/>
                         <outlet property="remainingTimeLabel" destination="OaE-As-Syo" id="XRv-ty-gMa"/>
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
@@ -942,7 +937,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background_Orange" width="375" height="555"/>
+        <image name="Background_Loading" width="375" height="555"/>
         <image name="Background_Oval" width="375" height="330"/>
         <image name="Background_Share" width="345" height="345"/>
         <image name="Button_TodayStatus_Normal" width="72" height="72"/>
