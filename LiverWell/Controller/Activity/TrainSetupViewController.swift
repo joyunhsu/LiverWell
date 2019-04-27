@@ -19,7 +19,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     var workoutElement: WorkoutElement? {
         didSet {
-            
+            startBtn.isHidden = false
+            tableView.isHidden = false
             tableView.reloadData()
             setupView()
             
@@ -80,6 +81,11 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         }
         
         startBtn.isEnabled = false
+        startBtn.isHidden = true
+        
+        if self.workoutElement == nil {
+            tableView.isHidden = true
+        }
 
     }
     

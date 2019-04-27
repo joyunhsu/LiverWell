@@ -25,7 +25,7 @@ class RestViewController: UIViewController {
     
     var timer = Timer()
     
-    var counter = 10
+    var counter = 30
     
     var currentTime: Float = 0.0
     

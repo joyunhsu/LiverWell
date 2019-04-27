@@ -25,6 +25,19 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         return [statusContainerView, weightContainerView]
 
     }
+    
+    @IBAction func logOutBtnPressed(_ sender: UIButton) {
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                dismiss(animated: true, completion: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

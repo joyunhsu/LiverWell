@@ -344,7 +344,7 @@
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="運動標題" id="sxF-Vi-Lig">
+                                    <navigationItem id="sxF-Vi-Lig">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dkU-lW-EvP">
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <connections>
@@ -668,7 +668,7 @@
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="運動標題" id="8ru-nv-czv">
+                                    <navigationItem id="8ru-nv-czv">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="bQ5-KD-MWR">
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <connections>
@@ -698,6 +698,7 @@
                         <outlet property="descriptionLabel" destination="vYn-pj-R9E" id="Er9-FP-RUq"/>
                         <outlet property="iconImageView" destination="BEY-YV-2BK" id="M0e-4w-dP7"/>
                         <outlet property="navBarItem" destination="8ru-nv-czv" id="UfN-7J-1SE"/>
+                        <outlet property="startBtn" destination="Ll1-kt-0IB" id="n4h-Jm-NsV"/>
                         <outlet property="tableView" destination="czN-5Q-7YG" id="ROi-4L-K4G"/>
                         <outlet property="workoutTimeLabel" destination="vP9-x0-5Rg" id="QVI-WM-X6j"/>
                     </connections>

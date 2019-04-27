@@ -267,12 +267,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.8" y="991.75412293853083"/>
+            <point key="canvasLocation" x="1922" y="992"/>
         </scene>
         <!--Detail Knowledge View Controller-->
         <scene sceneID="A3N-MA-9We">
             <objects>
-                <viewController id="ukl-Hp-9N0" customClass="DetailKnowledgeViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="ukl-Hp-9N0" customClass="DetailKnowledgeViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sps-na-Ida">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

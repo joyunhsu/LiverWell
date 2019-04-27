@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class FinishWorkoutViewController: UIViewController {
     
@@ -31,9 +30,13 @@ class FinishWorkoutViewController: UIViewController {
         let desVC = segue.destination
         
         if let setupVC = desVC as? TrainSetupViewController {
+            
             setupVC.recordTrainTime = lroundf(currentTime / 60)
+            
         } else if let setupVC = desVC as? StretchSetupViewController {
+            
             setupVC.recordStretchTime = lroundf(currentTime / 60)
+            
         }
         
     }

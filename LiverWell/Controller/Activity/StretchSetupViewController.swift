@@ -16,7 +16,9 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var workoutTimeLabel: UILabel!
-
+    
+    @IBOutlet weak var startBtn: UIButton!
+    
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
         dismiss(animated: true)
@@ -31,6 +33,10 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     
     var workoutElement: WorkoutElement? {
         didSet {
+            tableView.isHidden = false
+            
+            startBtn.isHidden = false
+            
             tableView.reloadData()
             
             setupView()
@@ -52,6 +58,12 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
         workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, error) in
             self.workoutElement = workoutElement
         }
+        
+        if workoutElement == nil {
+            tableView.isHidden = true
+        }
+        
+        startBtn.isHidden = true
 
     }
     
