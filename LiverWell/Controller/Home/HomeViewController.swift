@@ -116,20 +116,34 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         ) {
         
         let now = Date()
+        guard let sunday = now.endOfWeek else { return }
+        guard let saturday = Calendar.current.date(byAdding: .day, value: -1, to: sunday) else { return }
         
         let workStart = now.dateAt(hours: workStartHours, minutes: 0)
         let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
         let sleepStart = now.dateAt(hours: 21, minutes: 30)
         let sleepEnd = now.dateAt(hours: 5, minutes: 0)
         
-        if now >= workStart && now <= workEnd {
-            setupStatus(homeStatus: .working)
-        } else if now >= workEnd && now <= sleepStart {
-            setupStatus(homeStatus: .resting)
-        } else if now >= sleepEnd && now <= workStart {
-            setupStatus(homeStatus: .resting)
+        if now >= saturday || now <= sunday {
+            
+            if now >= sleepEnd && now <= sleepStart {
+                setupStatus(homeStatus: .resting)
+            } else {
+                setupStatus(homeStatus: .beforeSleep)
+            }
+            
         } else {
-            setupStatus(homeStatus: .beforeSleep)
+            
+            if now >= workStart && now <= workEnd {
+                setupStatus(homeStatus: .working)
+            } else if now >= workEnd && now <= sleepStart {
+                setupStatus(homeStatus: .resting)
+            } else if now >= sleepEnd && now <= workStart {
+                setupStatus(homeStatus: .resting)
+            } else {
+                setupStatus(homeStatus: .beforeSleep)
+            }
+            
         }
         
     }

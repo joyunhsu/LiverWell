@@ -17,6 +17,10 @@ class RestViewController: UIViewController {
     
     @IBOutlet weak var barProgressView: UIProgressView!
     
+    @IBOutlet weak var nextWorkoutTItle: UILabel!
+    
+    @IBOutlet weak var nextWorkoutImage: UIImageView!
+
     var navTitle: String?
     
     var timer = Timer()
@@ -27,10 +31,28 @@ class RestViewController: UIViewController {
     
     var maxTime: Float = 0.0
     
+    var workoutArray: [WorkoutSet]?
+    
+    var workoutIndex = 0
+    
+    @IBAction func skipRestBtnPressed(_ sender: UIButton) {
+        
+        self.navigationController?.popViewController(animated: false)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        
+        let nextIndex = workoutIndex + 1
+        
+        guard let nextWorkout = workoutArray?[nextIndex] else { return }
+        
+        nextWorkoutTItle.text = nextWorkout.title
+        
+        nextWorkoutImage.image = UIImage(named: nextWorkout.thumbnail)
         
         countDownLabel.text = "\(counter)"
         

@@ -152,6 +152,9 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         doneAudioPlayer.pause()
         countAudioPlayer.pause()
+        
+        counter = 0
+        countSoundFileName = 1
     }
     
     private func setupGif() {
@@ -176,6 +179,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             destination.currentTime = self.currentTime
             destination.maxTime = maxTime
             destination.navTitle = navTitle
+            destination.workoutArray = workoutArray
+            destination.workoutIndex = workoutIndex
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
@@ -184,6 +189,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             pauseVC.workoutArray = workoutArray
             pauseVC.workoutIndex = workoutIndex
         }
+        
+        if let finishVC = segue.destination as? FinishWorkoutViewController {
+            finishVC.currentTime = self.currentTime
+        }
+        
     }
     
     private func changeTitleAndRepeatText() {
@@ -217,7 +227,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             
             beat += 1
             
-            print(beat)
+//            print(beat)
             
             if beat % 2 == 0 {
                 

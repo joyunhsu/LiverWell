@@ -123,6 +123,8 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
             self.filterList()
             
         }
+        
+        self.navigationController?.isNavigationBarHidden = true
 
     }
     

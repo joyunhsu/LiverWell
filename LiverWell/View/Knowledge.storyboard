@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mOc-7K-zMz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gLW-qa-mH2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--肝好知識-->
+        <!--Knowledge View Controller-->
         <scene sceneID="Hpp-sb-4qf">
             <objects>
                 <viewController id="mOc-7K-zMz" customClass="KnowledgeViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILA-cr-EfX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="gSP-eu-rIS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -253,7 +253,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9cf-5a-ldE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="肝好知識" id="Wcw-gL-lCZ"/>
+                    <navigationItem key="navigationItem" id="aez-rg-Dwr"/>
                     <connections>
                         <outlet property="foodBtn" destination="CjW-xy-Y9G" id="B5i-Wv-D6Q"/>
                         <outlet property="liverBtn" destination="9zH-ty-YGy" id="wZV-mW-qNi"/>
@@ -262,12 +262,12 @@
                         <outletCollection property="categoryBtns" destination="CjW-xy-Y9G" collectionClass="NSMutableArray" id="9tL-xQ-nvs"/>
                         <outletCollection property="categoryBtns" destination="DlN-SR-rBT" collectionClass="NSMutableArray" id="MEm-yT-0bn"/>
                         <outletCollection property="categoryBtns" destination="9zH-ty-YGy" collectionClass="NSMutableArray" id="8kE-oA-088"/>
-                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" modalTransitionStyle="coverVertical" id="XJF-Av-EMH"/>
+                        <segue destination="ukl-Hp-9N0" kind="push" identifier="knowledgeDetail" id="XJF-Av-EMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="991.75412293853083"/>
+            <point key="canvasLocation" x="1944.8" y="991.75412293853083"/>
         </scene>
         <!--Detail Knowledge View Controller-->
         <scene sceneID="A3N-MA-9We">
@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-7v-hfd">
-                                <rect key="frame" x="16" y="36" width="343" height="615"/>
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-iW-6Hp">
                                         <rect key="frame" x="305" y="16" width="22" height="27"/>
@@ -308,7 +308,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz4-YX-hKN">
-                                        <rect key="frame" x="134.5" y="565" width="74" height="34"/>
+                                        <rect key="frame" x="134.5" y="521" width="74" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="L7t-uV-37m"/>
                                         </constraints>
@@ -350,6 +350,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PFZ-aS-Wu1"/>
                     </view>
+                    <navigationItem key="navigationItem" id="q31-GY-6dn"/>
                     <connections>
                         <outlet property="bookMarkBtn" destination="eWc-iW-6Hp" id="ic9-BP-fKY"/>
                         <outlet property="contentLabel" destination="824-QJ-DGe" id="i30-VK-Bu1"/>
@@ -358,7 +359,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Taz-Ea-CaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="992"/>
+            <point key="canvasLocation" x="2744.8000000000002" y="991.75412293853083"/>
+        </scene>
+        <!--肝好知識-->
+        <scene sceneID="nLr-c3-Gkh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gLW-qa-mH2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="肝好知識" id="Wcw-gL-lCZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dBV-kj-Rdb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mOc-7K-zMz" kind="relationship" relationship="rootViewController" id="DDM-GX-hqX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYu-Op-2rw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1105" y="992"/>
         </scene>
     </scenes>
     <resources>

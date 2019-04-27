@@ -7,25 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
 class FinishWorkoutViewController: UIViewController {
+    
+    var currentTime: Float = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.navigationItem.hidesBackButton = true
         self.navigationController?.isNavigationBarHidden = true
         
-        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeVC = homeStoryboard.instantiateViewController(
-            withIdentifier: String(describing: HomeViewController.self)
-        )
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-//            self.navigationController?.pushViewController(homeVC, animated: true)
-            self.navigationController?.show(homeVC, sender: true)
+            
+            self.performSegue(withIdentifier: "unwindToSetupVC", sender: self)
             
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let desVC = segue.destination
+        
+        if let setupVC = desVC as? TrainSetupViewController {
+            setupVC.recordTrainTime = lroundf(currentTime / 60)
+        } else if let setupVC = desVC as? StretchSetupViewController {
+            setupVC.recordStretchTime = lroundf(currentTime / 60)
+        }
+        
     }
 
 }

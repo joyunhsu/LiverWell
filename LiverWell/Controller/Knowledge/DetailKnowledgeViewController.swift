@@ -38,7 +38,9 @@ class DetailKnowledgeViewController: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         
-        dismiss(animated: true)
+//        dismiss(animated: true)
+        
+        self.navigationController?.popViewController(animated: true)
         
     }
 
@@ -48,6 +50,8 @@ class DetailKnowledgeViewController: UIViewController {
         titleLabel.text = knowledge?.title
         
         contentLabel.text = knowledge?.content
+        
+//        self.navigationController?.isNavigationBarHidden = true
 
     }
 

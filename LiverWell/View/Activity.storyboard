@@ -1015,6 +1015,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="跳過休息"/>
+                                <connections>
+                                    <action selector="skipRestBtnPressed:" destination="XvZ-sX-8C0" eventType="touchUpInside" id="u4V-af-Ar9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="休息一下" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmB-C5-lMo">
                                 <rect key="frame" x="127" y="109" width="121.5" height="40"/>
@@ -1127,6 +1130,8 @@
                     <connections>
                         <outlet property="barProgressView" destination="KCR-ny-CE4" id="UEL-HK-WZi"/>
                         <outlet property="countDownLabel" destination="Zz6-Nw-9Ug" id="euL-bL-0e3"/>
+                        <outlet property="nextWorkoutImage" destination="nhs-Uf-NGj" id="lH6-rj-nAW"/>
+                        <outlet property="nextWorkoutTItle" destination="Y0u-1B-Veg" id="u8m-UF-7pM"/>
                         <outlet property="progressView" destination="yBM-IV-WCt" id="GYC-yK-Qc6"/>
                     </connections>
                 </viewController>
@@ -1159,8 +1164,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DMe-1I-lpZ"/>
                     </view>
+                    <connections>
+                        <segue destination="5BI-xT-dU4" kind="unwind" identifier="unwindToSetupVC" unwindAction="unwindtoSetupWithSegue:" id="tLU-4J-s1u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gc-Jn-gsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5BI-xT-dU4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7289" y="-11"/>
         </scene>
