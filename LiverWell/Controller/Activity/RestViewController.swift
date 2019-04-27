@@ -17,6 +17,8 @@ class RestViewController: UIViewController {
     
     @IBOutlet weak var barProgressView: UIProgressView!
     
+    var navTitle: String?
+    
     var timer = Timer()
     
     var counter = 10

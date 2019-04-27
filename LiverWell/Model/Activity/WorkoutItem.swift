@@ -8,6 +8,7 @@
 
 struct WorkoutElement: Codable {
     let description, icon, id, title: String
+    let time: Int?
     let workoutSet: [WorkoutSet]
 }
 

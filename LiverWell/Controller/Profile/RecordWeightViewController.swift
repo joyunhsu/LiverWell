@@ -9,19 +9,6 @@
 import UIKit
 import Firebase
 
-//enum Weekday {
-//    case Monday
-//    case Tuesday
-//}
-//
-//struct dateComponent {
-//    let weekday: Weekday
-//    
-//    init(data: Data) {
-//        <#statements#>
-//    }
-//}
-
 class RecordWeightViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!

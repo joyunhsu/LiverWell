@@ -95,12 +95,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         
         todayTrainTime = nil
-        
         tempStretchWorkoutTime = 0
         
         todayStretchTime = nil
-        
         tempTrainWorkoutTime = 0
+        
+        monSum = 0
+        tueSum = 0
+        wedSum = 0
+        thuSum = 0
+        friSum = 0
+        satSum = 0
+        sunSum = 0
         
     }
     

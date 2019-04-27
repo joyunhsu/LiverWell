@@ -26,6 +26,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var soundBtn: UIButton!
     
+    var navTitle: String?
+    
     var barTimer: Timer?
     
     var repeatTimer: Timer?
@@ -116,6 +118,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        
+        navigationItem.title = navTitle
 
         setupDoneAudioPlayer()
         
@@ -171,6 +175,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         if let destination = segue.destination as? RestViewController {
             destination.currentTime = self.currentTime
             destination.maxTime = maxTime
+            destination.navTitle = navTitle
         }
         
         if let pauseVC = segue.destination as? PauseViewController {

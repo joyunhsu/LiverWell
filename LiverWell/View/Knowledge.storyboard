@@ -262,7 +262,7 @@
                         <outletCollection property="categoryBtns" destination="CjW-xy-Y9G" collectionClass="NSMutableArray" id="9tL-xQ-nvs"/>
                         <outletCollection property="categoryBtns" destination="DlN-SR-rBT" collectionClass="NSMutableArray" id="MEm-yT-0bn"/>
                         <outletCollection property="categoryBtns" destination="9zH-ty-YGy" collectionClass="NSMutableArray" id="8kE-oA-088"/>
-                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" modalTransitionStyle="crossDissolve" id="XJF-Av-EMH"/>
+                        <segue destination="ukl-Hp-9N0" kind="presentation" identifier="knowledgeDetail" modalTransitionStyle="coverVertical" id="XJF-Av-EMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>

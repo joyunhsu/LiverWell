@@ -35,6 +35,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         }
     }
     
+    var selectedTimeWorkoutTitle: String?
+    
     var recordTrainTime: Int?
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
@@ -98,6 +100,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             let workoutMinutes = selectedTime {
             desVC.workoutMinutes = workoutMinutes
             desVC.workoutArray = workoutElement?.workoutSet
+            desVC.navTitle = selectedTimeWorkoutTitle
         }
         
         if let practiceVC = segue.destination as? PracticeViewController {
@@ -109,10 +112,13 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
         if tag == 0 {
             selectedTime = 5.0
+            selectedTimeWorkoutTitle = "5分鐘肌力訓練"
         } else if tag == 1 {
             selectedTime = 10.0
+            selectedTimeWorkoutTitle = "10分鐘肌力訓練"
         } else if tag == 2 {
             selectedTime = 15.0
+            selectedTimeWorkoutTitle = "15分鐘肌力訓練"
         }
         
     }

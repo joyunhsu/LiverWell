@@ -16,4 +16,6 @@ struct Knowledge: Codable {
     
     let image: String?
     
+    let index: Int
+    
 }

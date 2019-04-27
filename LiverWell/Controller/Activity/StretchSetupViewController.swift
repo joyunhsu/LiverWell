@@ -14,6 +14,8 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var iconImageView: UIImageView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var workoutTimeLabel: UILabel!
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -62,6 +64,10 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
         iconImageView.image = UIImage(named: workoutElement.icon)
         
         descriptionLabel.text = workoutElement.description
+        
+        guard let time = workoutElement.time else { return }
+        
+        workoutTimeLabel.text = "\(time)分鐘"
         
     }
     

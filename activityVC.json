@@ -348,6 +348,7 @@
         "workout": [
           {
             "title": "久坐伸展",
+            "time": 5,
             "id": "1/stretch/workout/0",
             "icon": "Icon_Workout_LongSit",
             "description": "",
@@ -408,6 +409,7 @@
           },
           {
             "title": "久站伸展",
+            "time": 5,
             "id": "1/stretch/workout/1",
             "icon": "Icon_Workout_LongStand",
             "description": "",
@@ -443,6 +445,7 @@
                 "thumbnail": "Stretch_Stand_03",
                 "hint": "雙手握住毛巾兩端後往上伸直",
                 "images": [
+                  "Stretch_7Standing_03TipWalk",
                   "Stretch_7Standing_03TipWalk"
                 ],
                 "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
@@ -455,6 +458,7 @@
                 "thumbnail": "Stretch_Stand_04",
                 "hint": "雙手握住毛巾兩端後往上伸直",
                 "images": [
+                  "Stretch_7Standing_04TipWalk",
                   "Stretch_7Standing_04TipWalk"
                 ],
                 "description": "1. 利用小腿前、後側肌肉輪流出力，可以促進腿部循環，還能達到肌肉互相抑制的效果，強迫對側肌肉放鬆、休息。",
@@ -466,6 +470,7 @@
           },
           {
             "title": "睡前舒緩",
+            "time": 10,
             "id": "1/stretch/workout/2",
             "icon": "Icon_Workout_BeforeSleep",
             "description": "",
@@ -514,6 +519,7 @@
                 "thumbnail": "Stretch_Sleep_04",
                 "hint": "雙手握住毛巾兩端後往上伸直",
                 "images": [
+                  "Stretch_8Sleep_04Lay",
                   "Stretch_8Sleep_04Lay"
                 ],
                 "description": "1. 將枕頭或浴巾捲成圓筒形放在腰部下方， 仰躺舉起雙手，放鬆全身的力氣。維持二十至三十秒。",

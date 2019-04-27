@@ -13,28 +13,54 @@ class CountDownViewController: UIViewController {
     
     @IBOutlet weak var countDownLabel: UILabel!
     
+    @IBOutlet weak var workoutTItle: UILabel!
+    
+    @IBOutlet weak var workoutImage: UIImageView!
+    
     var timer = Timer()
     var counter = 5
     var workoutMinutes: Float?
     var workoutArray: [WorkoutSet]?
+    var navTitle: String?
     
     var audioPlayer = AVAudioPlayer()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        countDownLabel.text = "\(counter)"
+        timer.invalidate()
         
-        setupAudioPlayer()
-        
-        audioPlayer.play()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
             target: self,
             selector: #selector(updateTimer),
             userInfo: nil,
-            repeats: true)
+            repeats: true
+        )
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        countDownLabel.text = "\(counter)"
+        
+        guard let workoutArray = workoutArray else { return }
+        
+        workoutImage.image = UIImage(named: workoutArray[0].thumbnail)
+        
+        workoutTItle.text = workoutArray[0].title
+        
+        setupAudioPlayer()
+        
+        audioPlayer.play()
+        
+        navigationItem.title = navTitle
         
     }
     
@@ -69,6 +95,7 @@ class CountDownViewController: UIViewController {
             let workoutMinutes = workoutMinutes {
             desVC.workoutMinutes = workoutMinutes
             desVC.workoutArray = workoutArray
+            desVC.navTitle = navTitle
         }
         
         if let pauseVC = segue.destination as? PauseViewController {

@@ -699,6 +699,7 @@
                         <outlet property="iconImageView" destination="BEY-YV-2BK" id="M0e-4w-dP7"/>
                         <outlet property="navBarItem" destination="8ru-nv-czv" id="UfN-7J-1SE"/>
                         <outlet property="tableView" destination="czN-5Q-7YG" id="ROi-4L-K4G"/>
+                        <outlet property="workoutTimeLabel" destination="vP9-x0-5Rg" id="QVI-WM-X6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnO-eo-3LA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -791,6 +792,8 @@
                     <navigationItem key="navigationItem" title="5分鐘肌力訓練" id="ok1-2d-OHJ"/>
                     <connections>
                         <outlet property="countDownLabel" destination="V2r-Tc-hBz" id="fEe-Ce-e9C"/>
+                        <outlet property="workoutImage" destination="2Bl-uH-4z4" id="pBJ-cx-rhu"/>
+                        <outlet property="workoutTItle" destination="akl-hD-Fha" id="kZP-Qe-Kfw"/>
                         <segue destination="RZU-Ov-b75" kind="show" identifier="startWorkout" animates="NO" id="9NU-HS-VUS"/>
                     </connections>
                 </viewController>
@@ -1519,8 +1522,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jqG-cN-yFC"/>
-        <segue reference="hdZ-Mn-LOm"/>
-        <segue reference="4QL-8V-gIM"/>
+        <segue reference="Urd-Z5-Ftp"/>
+        <segue reference="V9S-5g-iX7"/>
+        <segue reference="N32-zC-2Fu"/>
     </inferredMetricsTieBreakers>
 </document>

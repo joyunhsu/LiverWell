@@ -12,6 +12,7 @@ class NavigationViewController: UINavigationController {
     
     var workoutMinutes: Float?
     var workoutArray: [WorkoutSet]?
+    var navTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class NavigationViewController: UINavigationController {
         if let rootViewController = viewControllers.first as? CountDownViewController {
             rootViewController.workoutMinutes = workoutMinutes
             rootViewController.workoutArray = workoutArray
+            rootViewController.navTitle = navTitle
         }
 
     }

@@ -130,7 +130,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
         }
         
-        let deleteAction = UIAlertAction(title: "刪除", style: .default) { [weak self] (action) in
+        let deleteAction = UIAlertAction(title: "刪除", style: .destructive) { [weak self] (action) in
         
             // Delete document
             weightRef.document(documentID).delete() { (error) in
@@ -190,14 +190,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             let entry = ChartDataEntry(x: xValue, y: yValue)
             entries.append(entry)
         }
-        
-//        let values = (0..<weightDataArray.count).map { (i) -> ChartDataEntry in
-//
-//            let val = weightDataArray[i].weight
-//            let xval = weightDataArray[i].createdTime.millisecondsSince1970
-//            return ChartDataEntry(x: Double(i), y: val)
-//
-//        }
         
         lineChartView.xAxis.valueFormatter = xValuesNumberFormatter
         

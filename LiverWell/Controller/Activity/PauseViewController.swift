@@ -74,11 +74,7 @@ class PauseViewController: UIViewController, UITableViewDelegate {
         } else if let setupVC = desVC as? StretchSetupViewController {
             setupVC.recordStretchTime = lroundf(currentTime / 60)
         }
-//        guard let trainSetupVC = desVC as? TrainSetupViewController else { return }
-//        trainSetupVC.recordTrainTime = lroundf(currentTime / 60)
-//
-//        guard let stretchSetupVC = desVC as? StretchSetupViewController else { return }
-//        stretchSetupVC.recordStretchTime = lroundf(currentTime / 60)
+        
     }
     
     private func setupGif() {

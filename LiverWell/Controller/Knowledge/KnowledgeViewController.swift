@@ -179,6 +179,8 @@ extension KnowledgeViewController: UITableViewDataSource {
         
         knowledgeCell.selectionStyle = .none
         
+//        knowledgeCell.bookMarkBtn.tag = indexPath.row
+        
         return knowledgeCell
     }
 
