@@ -54,7 +54,7 @@ class SignUpFirstViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             nextBtn.isEnabled = true
-            nextBtn.backgroundColor = .G1
+            nextBtn.backgroundColor = .Orange
         } else {
             nextBtn.isEnabled = false
             nextBtn.backgroundColor = .B3
