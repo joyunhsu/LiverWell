@@ -13,7 +13,9 @@ import Firebase
 // swiftlint:disable identifier_name
 
 class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
-
+    
+    @IBOutlet weak var weekStartEndLabel: UILabel!
+    
     @IBOutlet weak var chartView: BarChartView!
 
     @IBOutlet weak var tableView: UITableView!
@@ -73,12 +75,16 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         chartView.delegate = self
         
         axisFormatDelegate = self
-
-//        setChartData(count: 7, range: 60)
-        
-//        barChartViewSetup()
         
         getWeeklyWorkoutData()
+        
+        let today = Date()
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+        guard let monday = referenceDay.startOfWeek else { return }
+        guard let sunday = referenceDay.endOfWeek else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M月d日"
+        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
         
     }
     
@@ -90,9 +96,15 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let today = Date()
         
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+        
+        guard let monday = referenceDay.startOfWeek else { return }
+        
+        guard let sunday = referenceDay.endOfWeek else { return }
+        
         workoutRef
-            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 1, to: today.endOfWeek!))
-            .whereField("created_time", isGreaterThan: Calendar.current.date(byAdding: .day, value: 0, to: today.startOfWeek!))
+            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 1, to: sunday))
+            .whereField("created_time", isGreaterThan: monday)
             .order(by: "created_time", descending: false) // 由舊到新
             .getDocuments { [weak self] (snapshot, error) in
             
@@ -144,7 +156,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let today = Date()
         
-        guard let monday = today.startOfWeek else { return }
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+        
+        guard let monday = referenceDay.startOfWeek else { return }
         
         guard let tuesday = Calendar.current.date(byAdding: .day, value: 1, to: monday) else { return }
         

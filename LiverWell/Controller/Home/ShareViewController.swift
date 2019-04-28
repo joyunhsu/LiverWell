@@ -12,11 +12,11 @@ import MBCircularProgressBar
 
 class ShareViewController: UIViewController, ChartViewDelegate {
     
-    @IBOutlet weak var todayStatusBtn: UIButton!
-    
-    @IBOutlet weak var weeklyStatusBtn: UIButton!
-    
-    @IBOutlet var statusBtns: [UIButton]!
+//    @IBOutlet weak var todayStatusBtn: UIButton!
+//
+//    @IBOutlet weak var weeklyStatusBtn: UIButton!
+//
+//    @IBOutlet var statusBtns: [UIButton]!
     
     @IBOutlet weak var todayStatusView: UIView!
     
@@ -43,19 +43,19 @@ class ShareViewController: UIViewController, ChartViewDelegate {
     
     var dailyValue = [Int]()
     
-    @IBAction func selectStatusBtnPressed(_ sender: UIButton) {
-        
-        for btn in statusBtns {
-            
-            btn.isSelected = false
-            
-        }
-        
-        sender.isSelected = true
-        
-        selectStatus(withTag: sender.tag)
-        
-    }
+//    @IBAction func selectStatusBtnPressed(_ sender: UIButton) {
+//
+//        for btn in statusBtns {
+//
+//            btn.isSelected = false
+//
+//        }
+//
+//        sender.isSelected = true
+//
+//        selectStatus(withTag: sender.tag)
+//
+//    }
     
     func selectStatus(withTag tag: Int) {
         

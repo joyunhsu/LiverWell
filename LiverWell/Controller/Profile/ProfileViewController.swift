@@ -11,6 +11,8 @@ import Firebase
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
+    
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var indicatorView: UIView!
