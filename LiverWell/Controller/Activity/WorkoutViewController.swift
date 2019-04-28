@@ -48,6 +48,14 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var soundIsOn: Bool = true // offIcon -> selected
     
+    var timeBasedWorkoutArray = [WorkoutSet]()
+    
+    var timeBase = 2
+    
+//    var totalTimeRepeat = 1 // 5, 10, 15min
+//
+//    var currentTimeRepeat = 1
+    
     @IBAction func toggleSonudBtnPressed(_ sender: UIButton) {
         
         soundIsOn = !soundIsOn
@@ -126,6 +134,12 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         setAndPlayCountSound(soundFile: self.countSoundFileName)
         
         countSoundFileName += 1
+        
+        guard let workoutArray = workoutArray else { return }
+        
+        for _ in 1...timeBase {
+            timeBasedWorkoutArray.append(contentsOf: workoutArray)
+        }
 
     }
     
@@ -160,7 +174,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     private func setupGif() {
         
         guard let workoutArray = workoutArray else { return }
-        let currentWorkout = workoutArray[workoutIndex]
+        let currentWorkout = timeBasedWorkoutArray[workoutIndex]
         workoutImageView.animationImages = [
             UIImage(named: currentWorkout.images[0]),
             UIImage(named: currentWorkout.images[1])
@@ -179,14 +193,14 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             destination.currentTime = self.currentTime
             destination.maxTime = maxTime
             destination.navTitle = navTitle
-            destination.workoutArray = workoutArray
+            destination.workoutArray = timeBasedWorkoutArray
             destination.workoutIndex = workoutIndex
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
             pauseVC.currentTime = self.currentTime
             pauseVC.maxTime = maxTime
-            pauseVC.workoutArray = workoutArray
+            pauseVC.workoutArray = timeBasedWorkoutArray
             pauseVC.workoutIndex = workoutIndex
         }
         
@@ -200,7 +214,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         guard let workoutArray = workoutArray else { return }
         
-        let currentWorkout = workoutArray[workoutIndex]
+        let currentWorkout = timeBasedWorkoutArray[workoutIndex]
         
         workoutTitleLabel.text = currentWorkout.title
         infoLabel.text = currentWorkout.hint
@@ -220,6 +234,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             let repeatCount = "\(i)/\(totalCount)次"
             repeatCountingText.append(repeatCount)
         }
+        
+        guard let workoutArray = self.workoutArray else { return }
         
         var beat = 0
         
@@ -246,10 +262,8 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                     self.barTimer?.invalidate()
                     self.moveToNextVC()
                     
-                    guard let workoutArray = self.workoutArray else { return }
-                    
                     // 判斷是否完成所有的rep
-                    if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
+                    if self.currentRepeat < self.timeBasedWorkoutArray[self.workoutIndex].workoutSetRepeat {
                         self.currentRepeat += 1
                         
                         self.counter = 1
@@ -267,7 +281,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
                         // 完成一個動作的所有rep，換下一個動作
                         self.workoutIndex += 1
                         self.currentRepeat = 1
-                        
                     }
                 }
                 
@@ -303,9 +316,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         guard let workoutArray = workoutArray else { return }
         
-        if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (workoutArray.count - 1) {
+//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return }
+        
+        if currentRepeat == timeBasedWorkoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (timeBasedWorkoutArray.count - 1) {
             performSegue(withIdentifier: "finishWorkout", sender: self)
-        } else if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat {
+        } else if currentRepeat == timeBasedWorkoutArray[workoutIndex].workoutSetRepeat {
             performSegue(withIdentifier: "startRest", sender: self)
         } else {
             return
@@ -321,7 +336,9 @@ extension WorkoutViewController: UICollectionViewDataSource {
         
         guard let workoutArray = workoutArray else { return 0 }
         
-        return workoutArray[workoutIndex].workoutSetRepeat
+//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return 0 }
+        
+        return timeBasedWorkoutArray[workoutIndex].workoutSetRepeat
     }
     
     func collectionView(
@@ -338,8 +355,9 @@ extension WorkoutViewController: UICollectionViewDataSource {
         var bgColorArray = [UIColor?]()
         var textColorArray = [UIColor?]()
         guard let workoutArray = workoutArray else { return cell }
+//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return cell }
         
-        for _ in 0..<workoutArray[workoutIndex].workoutSetRepeat {
+        for _ in 0..<timeBasedWorkoutArray[workoutIndex].workoutSetRepeat {
             let defaultViewColor = UIColor.B5
             bgColorArray.append(defaultViewColor)
             
@@ -372,8 +390,9 @@ extension WorkoutViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
         guard let workoutArray = workoutArray else { return CGSize() }
+//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return CGSize() }
         let collectionViewWidth = repeatCollectionView.bounds.width
-        let cellSpace = Int(collectionViewWidth) / workoutArray[workoutIndex].workoutSetRepeat
+        let cellSpace = Int(collectionViewWidth) / timeBasedWorkoutArray[workoutIndex].workoutSetRepeat
         return CGSize(width: cellSpace, height: 25)
     }
     
