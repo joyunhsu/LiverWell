@@ -181,20 +181,8 @@
                                                                 <constraint firstAttribute="height" constant="1.5" id="jMg-yX-OB5"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEI-VM-1Wt">
-                                                            <rect key="frame" x="303" y="45.5" width="22" height="27"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="22" id="RSX-Ol-XNS"/>
-                                                                <constraint firstAttribute="height" constant="27" id="j9S-J5-viM"/>
-                                                            </constraints>
-                                                            <state key="normal" image="Icon_Knowledge_Unmarked"/>
-                                                            <state key="selected" image="Icon_Knowledge_Marked"/>
-                                                            <connections>
-                                                                <action selector="bookMarkBtnPressed:" destination="8is-GH-Rv7" eventType="touchUpInside" id="Zyl-SW-9ZF"/>
-                                                            </connections>
-                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="減重的敵人都是白色的：白飯、白土司、白砂糖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-GI-tfc">
-                                                            <rect key="frame" x="18" y="47.5" width="267" height="50"/>
+                                                            <rect key="frame" x="18" y="47.5" width="307" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="NpX-0H-8J0"/>
                                                             </constraints>
@@ -205,17 +193,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="cEI-VM-1Wt" firstAttribute="centerY" secondItem="xxF-Au-l95" secondAttribute="centerY" id="Ihk-Xt-wyK"/>
                                                         <constraint firstItem="iwn-GI-tfc" firstAttribute="leading" secondItem="xxF-Au-l95" secondAttribute="leading" constant="18" id="O9G-wB-dIc"/>
                                                         <constraint firstItem="pbX-dN-9bC" firstAttribute="top" secondItem="xxF-Au-l95" secondAttribute="top" constant="14" id="Onq-ZI-8ho"/>
                                                         <constraint firstItem="07b-HZ-Sje" firstAttribute="top" secondItem="pbX-dN-9bC" secondAttribute="bottom" constant="2" id="RNJ-Xy-ccB"/>
                                                         <constraint firstItem="07b-HZ-Sje" firstAttribute="width" secondItem="pbX-dN-9bC" secondAttribute="width" id="ThR-dX-GAv"/>
                                                         <constraint firstAttribute="height" constant="118" id="Zpn-oi-sEk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="iwn-GI-tfc" secondAttribute="trailing" constant="18" id="ahZ-ww-TQs"/>
                                                         <constraint firstItem="iwn-GI-tfc" firstAttribute="top" secondItem="07b-HZ-Sje" secondAttribute="bottom" constant="8" id="jjW-bd-U5k"/>
                                                         <constraint firstItem="07b-HZ-Sje" firstAttribute="leading" secondItem="xxF-Au-l95" secondAttribute="leading" constant="18" id="sxt-Ar-7VU"/>
-                                                        <constraint firstAttribute="trailing" secondItem="cEI-VM-1Wt" secondAttribute="trailing" constant="18" id="v97-Tq-uJg"/>
                                                         <constraint firstItem="pbX-dN-9bC" firstAttribute="leading" secondItem="xxF-Au-l95" secondAttribute="leading" constant="18" id="xwH-ym-yRv"/>
-                                                        <constraint firstItem="cEI-VM-1Wt" firstAttribute="leading" secondItem="iwn-GI-tfc" secondAttribute="trailing" constant="18" id="yAB-xa-U9d"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -227,7 +213,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="bookMarkBtn" destination="cEI-VM-1Wt" id="QnP-Cc-Hbg"/>
                                             <outlet property="categoryLabel" destination="pbX-dN-9bC" id="93j-zR-7JK"/>
                                             <outlet property="titleLabel" destination="iwn-GI-tfc" id="blO-xS-Etc"/>
                                             <outlet property="underlineView" destination="07b-HZ-Sje" id="Ifp-aF-8YV"/>
@@ -267,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h98-4x-gMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922" y="992"/>
+            <point key="canvasLocation" x="1920.8" y="991.75412293853083"/>
         </scene>
         <!--Detail Knowledge View Controller-->
         <scene sceneID="A3N-MA-9We">
@@ -280,26 +265,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-7v-hfd">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-iW-6Hp">
-                                        <rect key="frame" x="305" y="16" width="22" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="kTj-fP-QtN"/>
-                                            <constraint firstAttribute="height" constant="27" id="kog-SZ-LP7"/>
-                                        </constraints>
-                                        <state key="normal" image="Icon_Knowledge_Unmarked"/>
-                                        <state key="selected" image="Icon_Knowledge_Marked"/>
-                                        <connections>
-                                            <action selector="bookMarkBtnPressed:" destination="ukl-Hp-9N0" eventType="touchUpInside" id="wTc-8b-iRQ"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="減重的敵人都是白色的：白飯、白土司、白砂糖" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-AI-Ojb">
-                                        <rect key="frame" x="16" y="59" width="311" height="53"/>
+                                        <rect key="frame" x="16" y="36" width="311" height="53"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="824-QJ-DGe">
-                                        <rect key="frame" x="16" y="132" width="311" height="243.5"/>
+                                        <rect key="frame" x="16" y="109" width="311" height="243.5"/>
                                         <string key="text">澱粉含有醣類，為人體重要營養來源，若都不吃含澱粉食物，身體、大腦將缺乏葡萄糖供應，體內會分泌酮體取代葡萄糖，而酮體能抑制食慾，所以這在減重初期確實有幫助。
  
 不過長期下來，這樣吃卻可能引起酮酸中毒，甚至腎功能受損，反而有損健康。在含澱粉食物選擇上，應挑糙米、地瓜、玉米等五穀根莖類，避開白麵包、白麵條、白飯、白饅頭等，因白色澱粉類食物易使體重增加不利減重。</string>
@@ -325,13 +298,11 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kz4-YX-hKN" secondAttribute="bottom" constant="16" id="HJu-sV-Zq5"/>
                                     <constraint firstItem="824-QJ-DGe" firstAttribute="top" secondItem="L7b-AI-Ojb" secondAttribute="bottom" constant="20" id="IHL-yV-XZ0"/>
-                                    <constraint firstItem="L7b-AI-Ojb" firstAttribute="top" secondItem="eWc-iW-6Hp" secondAttribute="bottom" constant="16" id="Kk3-sb-Wvf"/>
                                     <constraint firstItem="kz4-YX-hKN" firstAttribute="centerX" secondItem="I7B-7v-hfd" secondAttribute="centerX" id="L8Z-OL-4JV"/>
                                     <constraint firstAttribute="trailing" secondItem="L7b-AI-Ojb" secondAttribute="trailing" constant="16" id="LrV-3s-5d2"/>
-                                    <constraint firstItem="eWc-iW-6Hp" firstAttribute="top" secondItem="I7B-7v-hfd" secondAttribute="top" constant="16" id="U17-vj-HPJ"/>
+                                    <constraint firstItem="L7b-AI-Ojb" firstAttribute="top" secondItem="I7B-7v-hfd" secondAttribute="top" constant="36" id="T8S-nh-CwQ"/>
                                     <constraint firstItem="824-QJ-DGe" firstAttribute="leading" secondItem="I7B-7v-hfd" secondAttribute="leading" constant="16" id="ckY-AD-gW7"/>
                                     <constraint firstItem="L7b-AI-Ojb" firstAttribute="leading" secondItem="I7B-7v-hfd" secondAttribute="leading" constant="16" id="d6n-1l-SQy"/>
-                                    <constraint firstAttribute="trailing" secondItem="eWc-iW-6Hp" secondAttribute="trailing" constant="16" id="pQC-tv-x5k"/>
                                     <constraint firstAttribute="trailing" secondItem="824-QJ-DGe" secondAttribute="trailing" constant="16" id="qSb-EQ-CA5"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -352,7 +323,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="q31-GY-6dn"/>
                     <connections>
-                        <outlet property="bookMarkBtn" destination="eWc-iW-6Hp" id="ic9-BP-fKY"/>
                         <outlet property="contentLabel" destination="824-QJ-DGe" id="i30-VK-Bu1"/>
                         <outlet property="titleLabel" destination="L7b-AI-Ojb" id="E5W-qp-tAs"/>
                     </connections>
@@ -383,8 +353,6 @@
     </scenes>
     <resources>
         <image name="Background_Knowledge" width="375" height="667"/>
-        <image name="Icon_Knowledge_Marked" width="22" height="27"/>
-        <image name="Icon_Knowledge_Unmarked" width="22" height="27"/>
         <namedColor name="B1">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

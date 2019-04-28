@@ -43,6 +43,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
+    var todayDate = ""
+    
     var tempTrainWorkoutTime = 0
     
     var todayTrainTime: Int? {
@@ -112,6 +114,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
+        
+        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
+        
+        if let desVC = segue.destination as? ShareViewController {
+            desVC.dailyValue = dailyValue
+            desVC.loadViewIfNeeded()
+            desVC.todayTotalTimeLabel.text = "\(totalWorkoutTime)"
+            desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
+            desVC.stretchTimeLabel.text = "\(stretchWorkoutTime)分鐘"
+            desVC.todayDateLabel.text = todayDate
+            desVC.stretchProgressView.value = CGFloat(stretchWorkoutTime)
+            desVC.trainProgressView.value = CGFloat(trainWorkoutTime)
+        }
+        
+    }
+    
     private func determineStatus(
         workStartHours: Int,
         workEndHours: Int
@@ -173,6 +194,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         }
         
         timeLabel.text = "\(convertedDate) \(chineseDay)"
+        todayDate = "\(convertedDate) \(chineseDay)"
         
     }
     

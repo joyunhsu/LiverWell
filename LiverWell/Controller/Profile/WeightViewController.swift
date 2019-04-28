@@ -39,6 +39,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         setupChartView()
         readWeight()
         
+        levelCollectionView.isHidden = true
+        
     }
     
     @IBAction func recordWeightPressed(_ sender: UIButton) {

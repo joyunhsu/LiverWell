@@ -22,6 +22,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var weeklyStatusView: UIView!
     
+    // today status
     @IBOutlet weak var weekProgressCollectionView: UICollectionView!
     
     @IBOutlet weak var trainProgressView: MBCircularProgressBarView!
@@ -30,7 +31,17 @@ class ShareViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: BarChartView!
     
+    @IBOutlet weak var stretchTimeLabel: UILabel!
+    
+    @IBOutlet weak var trainTimeLabel: UILabel!
+    
+    @IBOutlet weak var todayTotalTimeLabel: UILabel!
+    
+    @IBOutlet weak var todayDateLabel: UILabel!
+
     var selectedImageIndex = 0
+    
+    var dailyValue = [Int]()
     
     @IBAction func selectStatusBtnPressed(_ sender: UIButton) {
         
@@ -127,6 +138,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
         barChartViewSetup()
         
     }
+    
     
     func barChartViewSetup() {
         
@@ -246,6 +258,8 @@ extension ShareViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
             
             progressCell.day.text = days[indexPath.item]
+        
+            progressCell.layoutView(value: self.dailyValue[indexPath.item])
             
             return progressCell
         

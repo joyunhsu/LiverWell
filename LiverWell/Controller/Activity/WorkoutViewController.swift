@@ -50,11 +50,16 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     var timeBasedWorkoutArray = [WorkoutSet]()
     
-    var timeBase = 2
-    
-//    var totalTimeRepeat = 1 // 5, 10, 15min
-//
-//    var currentTimeRepeat = 1
+    var timeBase: Int {
+        if workoutMinutes == 5 {
+            return 1
+        } else if workoutMinutes == 10 {
+            return 2
+        } else {
+            return 3
+        }
+        
+    } // 5 (1), 10 (2), 15 (3) min
     
     @IBAction func toggleSonudBtnPressed(_ sender: UIButton) {
         
