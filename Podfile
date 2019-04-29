@@ -17,5 +17,7 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
 pod 'Kingfisher'
 pod 'IQKeyboardManagerSwift', '6.0.4'
+pod 'Fabric'
+pod 'Crashlytics'
 
 end
