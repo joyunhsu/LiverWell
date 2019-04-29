@@ -10,14 +10,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class AuthViewController: UIViewController {
+class AuthViewController: STBaseViewController {
     
     @IBOutlet weak var sloganLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sloganLabel.text = "每天15分鐘動一動，\n遠離脂肪肝"
+        sloganLabel.text = "每天15分鐘動一動，\n遠離脂肪肝！"
 
     }
     

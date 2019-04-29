@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpThirdViewController: UIViewController, UITextFieldDelegate {
+class SignUpThirdViewController: STBaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var currentWeightTextfield: UITextField!
     
@@ -50,7 +50,7 @@ class SignUpThirdViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             nextBtn.isEnabled = true
-            nextBtn.backgroundColor = .G1
+            nextBtn.backgroundColor = .B1
         } else {
             nextBtn.isEnabled = false
             nextBtn.backgroundColor = .B3

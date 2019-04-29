@@ -57,7 +57,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
             if !text.isEmpty {
                 loginBtn.isEnabled = true
-                loginBtn.backgroundColor = .G1
+                loginBtn.backgroundColor = .Orange
             } else {
                 loginBtn.isEnabled = false
                 loginBtn.backgroundColor = .B3

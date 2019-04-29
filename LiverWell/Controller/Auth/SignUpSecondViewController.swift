@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpSecondViewController: UIViewController, UITextFieldDelegate {
+class SignUpSecondViewController: STBaseViewController, UITextFieldDelegate {
     
     var signupEmail: String?
     
@@ -55,7 +55,7 @@ class SignUpSecondViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             nextBtn.isEnabled = true
-            nextBtn.backgroundColor = .G1
+            nextBtn.backgroundColor = .B1
         } else {
             nextBtn.isEnabled = false
             nextBtn.backgroundColor = .B3

@@ -147,7 +147,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         let sleepStart = now.dateAt(hours: 21, minutes: 30)
         let sleepEnd = now.dateAt(hours: 5, minutes: 0)
         
-        if now >= saturday || now <= sunday {
+        if now >= saturday && now <= sunday {
             
             if now >= sleepEnd && now <= sleepStart {
                 setupStatus(homeStatus: .resting)

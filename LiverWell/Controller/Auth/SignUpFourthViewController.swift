@@ -68,7 +68,7 @@ class SignUpFourthViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             startBtn.isEnabled = true
-            startBtn.backgroundColor = .G1
+            startBtn.backgroundColor = .Orange
         } else {
             startBtn.isEnabled = false
             startBtn.backgroundColor = .B3
