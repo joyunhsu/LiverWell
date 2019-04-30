@@ -23,6 +23,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    @IBOutlet weak var suggestTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -84,6 +86,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         if UIScreen.main.nativeBounds.height == 1136 {
             statusRemainTimeLabel.isHidden = true
+        } else {
+//            suggestTopConstraint.constant = 20
         }
         
     }
@@ -461,8 +465,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         insetForSectionAt section: Int) -> UIEdgeInsets {
 
         if collectionView == workoutCollectionView {
+            
+            let height = CGFloat(119) // collectionView.visibleCells[0].frame.height
+            let viewHeight = collectionView.frame.size.height
+            let toBottomUp = viewHeight - height
 
-            return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 16, bottom: toBottomUp, right: 0)
 
         } else {
 

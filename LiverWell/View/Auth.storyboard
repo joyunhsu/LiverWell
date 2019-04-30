@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Auth" translatesAutoresizingMaskIntoConstraints="NO" id="Nyd-zP-m3j">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrQ-X4-K1B">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
@@ -89,8 +89,8 @@
                             <constraint firstItem="zig-0w-KD2" firstAttribute="trailing" secondItem="G8k-Aq-p6n" secondAttribute="trailing" constant="50" id="4HI-er-zE3"/>
                             <constraint firstItem="zig-0w-KD2" firstAttribute="bottom" secondItem="nrQ-X4-K1B" secondAttribute="bottom" constant="40" id="LAp-s6-6Tz"/>
                             <constraint firstItem="G8k-Aq-p6n" firstAttribute="centerX" secondItem="fN9-3p-Q4l" secondAttribute="centerX" id="PHP-Zg-EnU"/>
-                            <constraint firstItem="zig-0w-KD2" firstAttribute="bottom" secondItem="Nyd-zP-m3j" secondAttribute="bottom" id="TFK-lO-Hl0"/>
-                            <constraint firstItem="Nyd-zP-m3j" firstAttribute="top" secondItem="zig-0w-KD2" secondAttribute="top" id="VgX-Lm-lhW"/>
+                            <constraint firstAttribute="bottom" secondItem="Nyd-zP-m3j" secondAttribute="bottom" id="TFK-lO-Hl0"/>
+                            <constraint firstItem="Nyd-zP-m3j" firstAttribute="top" secondItem="fN9-3p-Q4l" secondAttribute="top" id="VgX-Lm-lhW"/>
                             <constraint firstItem="G8k-Aq-p6n" firstAttribute="leading" secondItem="zig-0w-KD2" secondAttribute="leading" constant="50" id="Xny-a7-4Lx"/>
                             <constraint firstItem="grj-Zl-wYm" firstAttribute="leading" secondItem="zig-0w-KD2" secondAttribute="leading" constant="36" id="Yk6-xV-mx2"/>
                             <constraint firstItem="nrQ-X4-K1B" firstAttribute="leading" secondItem="zig-0w-KD2" secondAttribute="leading" constant="36" id="acw-4y-4cj"/>
