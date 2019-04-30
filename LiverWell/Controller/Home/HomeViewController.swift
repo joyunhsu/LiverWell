@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var statusLabel: UILabel!
     
-    @IBOutlet weak var remainTimeLabel: UIButton!
+    @IBOutlet weak var statusRemainTimeLabel: UILabel!
     
     @IBOutlet weak var background: UIImageView!
     
@@ -81,6 +81,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         showToday()
+        
+        if UIScreen.main.nativeBounds.height == 1136 {
+            statusRemainTimeLabel.isHidden = true
+        }
         
     }
     
