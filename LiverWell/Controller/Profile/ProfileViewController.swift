@@ -30,14 +30,26 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
         
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                dismiss(animated: true, completion: nil)
-            } catch let error as NSError {
-                print(error.localizedDescription)
+        let optionMenu = UIAlertController(title: "登出帳戶", message: "確定要從帳戶登出？", preferredStyle: .alert)
+        
+        let logoutAction = UIAlertAction(title: "登出", style: .default) { [weak self] (action) in
+            if Auth.auth().currentUser != nil {
+                do {
+                    try Auth.auth().signOut()
+                    self?.dismiss(animated: true, completion: nil)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
             }
         }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { [weak self] (action) in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        optionMenu.addAction(logoutAction)
+        optionMenu.addAction(cancelAction)
+        present(optionMenu, animated: true, completion: nil)
         
     }
 
@@ -61,8 +73,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                 let name = document.get("name")
                 guard let parsedName = name as? String else { return }
                 self.userNameLabel.text = parsedName
-//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                print("Document data: \(dataDescription)")
             } else {
                 print("Document does not exist")
             }

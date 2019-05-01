@@ -19,5 +19,6 @@ pod 'Kingfisher'
 pod 'IQKeyboardManagerSwift', '6.0.4'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'TTTAttributedLabel'
 
 end

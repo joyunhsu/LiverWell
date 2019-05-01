@@ -124,6 +124,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
   - SwiftLint (0.30.1)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Charts
@@ -138,6 +139,7 @@ DEPENDENCIES:
   - Kingfisher
   - MBCircularProgressBar
   - SwiftLint
+  - TTTAttributedLabel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -166,6 +168,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SwiftLint
+    - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
@@ -193,7 +196,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 80b413b324143cdba518966474742318f577289e
+PODFILE CHECKSUM: 9ae34f0c211ee38ae813a79577f800e6dadca3a3
 
 COCOAPODS: 1.6.0

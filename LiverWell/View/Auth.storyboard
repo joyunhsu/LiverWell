@@ -467,7 +467,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您目前的體重？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVq-TH-w0g">
                                 <rect key="frame" x="109.5" y="84" width="156.5" height="27"/>
@@ -550,7 +550,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您期望的體重？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO6-Z6-MhV">
                                 <rect key="frame" x="109.5" y="84" width="156.5" height="27"/>
@@ -565,15 +565,26 @@
                                     <constraint firstAttribute="height" constant="1" id="xtJ-NU-ifG"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點擊開始的同時，表示您同意 Liverwell 的資料使用政策與使用條款" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-J2-Nao" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="87.5" y="541" width="200" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="EbA-FJ-1hM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="W1Y-J2-Nao" firstAttribute="centerX" secondItem="p5C-6Z-cSv" secondAttribute="centerX" id="3g0-nf-Qi3"/>
                             <constraint firstItem="Muh-vW-EuD" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HK5-yd-ff3"/>
                             <constraint firstItem="s9t-Vp-f4I" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HPv-R6-wdg"/>
                             <constraint firstItem="cO6-Z6-MhV" firstAttribute="centerX" secondItem="p5C-6Z-cSv" secondAttribute="centerX" id="RP6-Bf-jBw"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="leading" secondItem="s9t-Vp-f4I" secondAttribute="leading" id="SXg-Yl-q6T"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="trailing" secondItem="s9t-Vp-f4I" secondAttribute="trailing" id="Wfe-F7-0IA"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="bottom" secondItem="s9t-Vp-f4I" secondAttribute="bottom" id="WsC-EH-l7y"/>
+                            <constraint firstItem="Muh-vW-EuD" firstAttribute="top" secondItem="W1Y-J2-Nao" secondAttribute="bottom" constant="15" id="Z11-Pd-gIj"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="Muh-vW-EuD" secondAttribute="trailing" constant="36" id="ZpI-s1-zqP"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="bottom" secondItem="Muh-vW-EuD" secondAttribute="bottom" constant="40" id="cA9-Vf-Ty5"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="s9t-Vp-f4I" secondAttribute="trailing" constant="36" id="d7e-8J-Pei"/>
@@ -583,13 +594,14 @@
                         <viewLayoutGuide key="safeArea" id="p5C-6Z-cSv"/>
                     </view>
                     <connections>
+                        <outlet property="attributedLabel" destination="W1Y-J2-Nao" id="erB-XY-t8Y"/>
                         <outlet property="expectWeightTextfield" destination="s9t-Vp-f4I" id="CtT-49-omB"/>
                         <outlet property="startBtn" destination="Muh-vW-EuD" id="Fxd-7m-aZn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9g-9L-nOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4182" y="463"/>
+            <point key="canvasLocation" x="4181.6000000000004" y="462.8185907046477"/>
         </scene>
     </scenes>
     <resources>

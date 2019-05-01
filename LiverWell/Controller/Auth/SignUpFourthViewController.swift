@@ -8,12 +8,15 @@
 
 import UIKit
 import Firebase
+import TTTAttributedLabel
 
-class SignUpFourthViewController: UIViewController, UITextFieldDelegate {
+class SignUpFourthViewController: UIViewController, UITextFieldDelegate, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var expectWeightTextfield: UITextField!
     
     @IBOutlet weak var startBtn: UIButton!
+    
+    @IBOutlet weak var attributedLabel: TTTAttributedLabel!
     
     var signupEmail: String?
     
@@ -31,6 +34,59 @@ class SignUpFourthViewController: UIViewController, UITextFieldDelegate {
         startBtn.isEnabled = false
         startBtn.backgroundColor = .B3
         
+        setup()
+        
+    }
+    
+    private func setup() {
+        
+        attributedLabel.numberOfLines = 0
+        let strPP = "隱私權條款"
+        let string = "點擊開始的同時，表示您同意 Liverwell 的\(strPP)"
+        let nsString = string as NSString
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        
+        let fullAttributedString = NSAttributedString(string:string, attributes: [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray.cgColor,
+            ])
+        attributedLabel.textAlignment = .center
+        attributedLabel.attributedText = fullAttributedString
+        
+//        let rangeTC = nsString.range(of: strTC)
+        let rangePP = nsString.range(of: strPP)
+        
+        let ppLinkAttributes: [String: Any] = [
+            NSAttributedString.Key.foregroundColor.rawValue: UIColor.B1!.cgColor,
+            NSAttributedString.Key.underlineStyle.rawValue: false
+        ]
+        let ppActiveLinkAttributes: [String: Any] = [
+            NSAttributedString.Key.foregroundColor.rawValue: UIColor.B1!.cgColor,
+            NSAttributedString.Key.underlineStyle.rawValue: false
+        ]
+        
+        attributedLabel.activeLinkAttributes = ppActiveLinkAttributes
+        attributedLabel.linkAttributes = ppLinkAttributes
+        
+//        let urlTC = URL(string: "action://TC")!
+        let urlPP = URL(string: "https://www.joyunhsu.com/privacy-policy")!
+//        attributedLable.addLink(to: urlTC, with: rangeTC)
+        attributedLabel.addLink(to: urlPP, with: rangePP)
+        
+        attributedLabel.textColor = UIColor.lightGray
+        attributedLabel.delegate = self
+        
+    }
+    
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        if url.absoluteString == "action://TC" {
+            print("TC click")
+        } else if url.absoluteString == "https://www.joyunhsu.com/privacy-policy" {
+            print("PP click")
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        }
     }
     
     @IBAction func signupBtnPressed(_ sender: UIButton) {
