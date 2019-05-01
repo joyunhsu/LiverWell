@@ -336,8 +336,8 @@
 				6EE614B0225B3792003A104C /* ProfileViewController.swift */,
 				6EE614B2225B37A3003A104C /* StatusViewController.swift */,
 				6EE614B4225B37B9003A104C /* WeightViewController.swift */,
-				6E664C2B226D86BA00221184 /* SettingViewController.swift */,
 				6E664C31226DC05600221184 /* RecordWeightViewController.swift */,
+				6E664C2B226D86BA00221184 /* SettingViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

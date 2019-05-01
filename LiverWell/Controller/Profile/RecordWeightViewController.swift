@@ -55,6 +55,13 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "M月d日"
+//            let convertedDate = dateFormatter.string(from: time as Date)
+//            dateFormatter.date(from: convertedDate)
+            
+            
+            
             // Add a new document with a generated id
             var ref: DocumentReference? = nil
             ref = weightRef.addDocument(data: [
