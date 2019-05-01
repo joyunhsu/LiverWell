@@ -1,5 +1,5 @@
 //
-//  SignupSecondViewController.swift
+//  SignUpThirdViewController.swift
 //  LiverWell
 //
 //  Created by 徐若芸 on 2019/4/27.
@@ -8,40 +8,35 @@
 
 import UIKit
 
-class SignUpSecondViewController: STBaseViewController, UITextFieldDelegate {
+class CurrentWeightViewController: STBaseViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var currentWeightTextfield: UITextField!
+    
+    @IBOutlet weak var nextBtn: UIButton!
     
     var signupEmail: String?
     
     var signupPassword: String?
     
-    @IBOutlet weak var signupNameTextfield: UITextField!
+    var userName: String?
     
-    @IBOutlet weak var nextBtn: UIButton!
-    
-    @IBAction func nextBtnPressed(_ sender: UIButton) {
-        
-        if self.signupNameTextfield.text == "" {
-            self.showMsg("請輸入用戶名稱")
-            return
-        }
-
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signupNameTextfield.delegate = self
+        currentWeightTextfield.delegate = self
         
         nextBtn.isEnabled = false
         nextBtn.backgroundColor = .B3
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let desVC = segue.destination as? SignUpThirdViewController {
+        if let desVC = segue.destination as? ExpectedWeightViewController {
             desVC.signupEmail = signupEmail
             desVC.signupPassword = signupPassword
-            desVC.userName = signupNameTextfield.text
+            desVC.userName = userName
+            desVC.currentWeight = currentWeightTextfield.text!
         }
     }
     
@@ -65,18 +60,4 @@ class SignUpSecondViewController: STBaseViewController, UITextFieldDelegate {
         
     }
     
-    func showMsg(_ message: String) {
-        
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        
-        let alertAction = UIAlertAction(title: "確定", style: .default) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-        
-        alert.addAction(alertAction)
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-
 }

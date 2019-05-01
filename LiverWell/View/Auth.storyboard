@@ -46,7 +46,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gj6-Ok-bUF" kind="show" id="F8C-KE-nza"/>
+                                    <segue destination="ELB-Ne-cnh" kind="show" id="dZ9-EY-wLh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grj-Zl-wYm">
@@ -216,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="-309.89505247376314"/>
         </scene>
-        <!--Sign Up Second View Controller-->
+        <!--User Name View Controller-->
         <scene sceneID="jKL-cb-5pW">
             <objects>
-                <viewController id="ELB-Ne-cnh" customClass="SignUpSecondViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ELB-Ne-cnh" customClass="UserNameViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cql-ji-Ccx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deR-gi-moV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688.8000000000002" y="462.8185907046477"/>
+            <point key="canvasLocation" x="1862" y="463"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6s8-jT-FUe">
@@ -320,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="201" y="54"/>
         </scene>
-        <!--Sign Up First View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="Jl0-Sm-HqW">
             <objects>
-                <viewController id="gj6-Ok-bUF" customClass="SignUpFirstViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gj6-Ok-bUF" customClass="SignUpViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ina-zz-swg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +334,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Xdf-Hx-cOx"/>
                                 </constraints>
-                                <state key="normal" title="下一步">
+                                <state key="normal" title="開始">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -352,8 +352,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextBtnPressed:" destination="gj6-Ok-bUF" eventType="touchUpInside" id="lFm-4x-lNn"/>
-                                    <segue destination="ELB-Ne-cnh" kind="show" id="wzq-id-mrt"/>
+                                    <action selector="signupBtnPressed:" destination="gj6-Ok-bUF" eventType="touchUpInside" id="wrR-s0-iWQ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZk-yA-1ph">
@@ -391,17 +390,29 @@
                                     <constraint firstAttribute="height" constant="1" id="09E-XE-BK2"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點擊開始的同時，表示您同意 Liverwell 的資料使用政策與使用條款" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJz-Dq-twr" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="87.5" y="530" width="200" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="dp2-6O-hTS"/>
+                                    <constraint firstAttribute="width" constant="200" id="y1x-oq-Q72"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YZk-yA-1ph" firstAttribute="leading" secondItem="9OO-hh-cCJ" secondAttribute="leading" constant="36" id="9E7-FJ-xT0"/>
                             <constraint firstItem="jhv-Q1-mdR" firstAttribute="leading" secondItem="9OO-hh-cCJ" secondAttribute="leading" constant="36" id="9S8-Di-LA2"/>
                             <constraint firstItem="4pO-Yp-HeR" firstAttribute="leading" secondItem="I0Y-23-jAo" secondAttribute="leading" id="Aux-Sf-w1x"/>
+                            <constraint firstItem="jhv-Q1-mdR" firstAttribute="top" secondItem="LJz-Dq-twr" secondAttribute="bottom" constant="26" id="DF4-23-5qf"/>
                             <constraint firstItem="aiB-v6-9hS" firstAttribute="bottom" secondItem="YZk-yA-1ph" secondAttribute="bottom" id="DxY-5y-kcF"/>
                             <constraint firstItem="I0Y-23-jAo" firstAttribute="leading" secondItem="YZk-yA-1ph" secondAttribute="leading" id="JSr-qz-vT2"/>
                             <constraint firstItem="YZk-yA-1ph" firstAttribute="top" secondItem="cRO-eC-fvx" secondAttribute="bottom" constant="40" id="KLt-cy-KWD"/>
                             <constraint firstItem="I0Y-23-jAo" firstAttribute="trailing" secondItem="YZk-yA-1ph" secondAttribute="trailing" id="UMk-4m-nRL"/>
                             <constraint firstItem="cRO-eC-fvx" firstAttribute="centerX" secondItem="9OO-hh-cCJ" secondAttribute="centerX" id="f8w-CZ-TSJ"/>
+                            <constraint firstItem="LJz-Dq-twr" firstAttribute="centerX" secondItem="9OO-hh-cCJ" secondAttribute="centerX" id="fYj-my-Aoq"/>
                             <constraint firstItem="cRO-eC-fvx" firstAttribute="top" secondItem="9OO-hh-cCJ" secondAttribute="top" constant="20" id="iB9-cC-cXx"/>
                             <constraint firstItem="aiB-v6-9hS" firstAttribute="leading" secondItem="YZk-yA-1ph" secondAttribute="leading" id="mcC-7W-bJW"/>
                             <constraint firstItem="9OO-hh-cCJ" firstAttribute="trailing" secondItem="YZk-yA-1ph" secondAttribute="trailing" constant="36" id="o9x-66-VkL"/>
@@ -416,19 +427,20 @@
                         <viewLayoutGuide key="safeArea" id="9OO-hh-cCJ"/>
                     </view>
                     <connections>
-                        <outlet property="nextBtn" destination="jhv-Q1-mdR" id="ddC-fH-sAg"/>
+                        <outlet property="attributedLabel" destination="LJz-Dq-twr" id="09b-7m-Vs9"/>
                         <outlet property="signupEmailTextField" destination="YZk-yA-1ph" id="zGR-sr-lPQ"/>
                         <outlet property="signupPasswordTextfield" destination="I0Y-23-jAo" id="pgV-8h-tJH"/>
+                        <outlet property="startBtn" destination="jhv-Q1-mdR" id="Zt9-pM-0Hv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56a-u9-pkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="463"/>
+            <point key="canvasLocation" x="4124" y="463"/>
         </scene>
-        <!--Sign Up Third View Controller-->
+        <!--Current Weight View Controller-->
         <scene sceneID="Cn7-YU-P8M">
             <objects>
-                <viewController id="41b-nZ-fwc" customClass="SignUpThirdViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="41b-nZ-fwc" customClass="CurrentWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGN-Hc-VMF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,12 +518,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbX-1W-gYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3450" y="463"/>
+            <point key="canvasLocation" x="2628" y="463"/>
         </scene>
-        <!--Sign Up Fourth View Controller-->
+        <!--Expected Weight View Controller-->
         <scene sceneID="n9w-pT-yqd">
             <objects>
-                <viewController id="cOM-bg-n43" customClass="SignUpFourthViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cOM-bg-n43" customClass="ExpectedWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FrI-sQ-yu9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -522,7 +534,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Pjz-Av-AB8"/>
                                 </constraints>
-                                <state key="normal" title="開始">
+                                <state key="normal" title="下一步">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -540,7 +552,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="signupBtnPressed:" destination="cOM-bg-n43" eventType="touchUpInside" id="dfI-H0-cz7"/>
+                                    <segue destination="gj6-Ok-bUF" kind="show" id="dsg-hz-hHO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="目標體重" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-Vp-f4I">
@@ -565,26 +577,15 @@
                                     <constraint firstAttribute="height" constant="1" id="xtJ-NU-ifG"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點擊開始的同時，表示您同意 Liverwell 的資料使用政策與使用條款" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-J2-Nao" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="87.5" y="541" width="200" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="EbA-FJ-1hM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="W1Y-J2-Nao" firstAttribute="centerX" secondItem="p5C-6Z-cSv" secondAttribute="centerX" id="3g0-nf-Qi3"/>
                             <constraint firstItem="Muh-vW-EuD" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HK5-yd-ff3"/>
                             <constraint firstItem="s9t-Vp-f4I" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HPv-R6-wdg"/>
                             <constraint firstItem="cO6-Z6-MhV" firstAttribute="centerX" secondItem="p5C-6Z-cSv" secondAttribute="centerX" id="RP6-Bf-jBw"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="leading" secondItem="s9t-Vp-f4I" secondAttribute="leading" id="SXg-Yl-q6T"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="trailing" secondItem="s9t-Vp-f4I" secondAttribute="trailing" id="Wfe-F7-0IA"/>
                             <constraint firstItem="Y7h-iw-dDS" firstAttribute="bottom" secondItem="s9t-Vp-f4I" secondAttribute="bottom" id="WsC-EH-l7y"/>
-                            <constraint firstItem="Muh-vW-EuD" firstAttribute="top" secondItem="W1Y-J2-Nao" secondAttribute="bottom" constant="15" id="Z11-Pd-gIj"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="Muh-vW-EuD" secondAttribute="trailing" constant="36" id="ZpI-s1-zqP"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="bottom" secondItem="Muh-vW-EuD" secondAttribute="bottom" constant="40" id="cA9-Vf-Ty5"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="s9t-Vp-f4I" secondAttribute="trailing" constant="36" id="d7e-8J-Pei"/>
@@ -594,14 +595,96 @@
                         <viewLayoutGuide key="safeArea" id="p5C-6Z-cSv"/>
                     </view>
                     <connections>
-                        <outlet property="attributedLabel" destination="W1Y-J2-Nao" id="erB-XY-t8Y"/>
                         <outlet property="expectWeightTextfield" destination="s9t-Vp-f4I" id="CtT-49-omB"/>
-                        <outlet property="startBtn" destination="Muh-vW-EuD" id="Fxd-7m-aZn"/>
+                        <outlet property="nextBtn" destination="Muh-vW-EuD" id="G71-sY-43t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9g-9L-nOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4181.6000000000004" y="462.8185907046477"/>
+            <point key="canvasLocation" x="3391" y="463"/>
+        </scene>
+        <!--Sign Up Fourth View Controller-->
+        <scene sceneID="UAl-TC-4G8">
+            <objects>
+                <viewController id="Jtm-r9-jmj" customClass="SignUpFourthViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E2S-OZ-xt4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-Lc-jqM">
+                                <rect key="frame" x="36" y="583" width="303" height="44"/>
+                                <color key="backgroundColor" name="B3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XDt-jm-1HA"/>
+                                </constraints>
+                                <state key="normal" title="下一步">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWShadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="lWShadowOffset">
+                                        <size key="value" width="0.0" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lWShadowColor">
+                                        <color key="value" name="B1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signupBtnPressed:" destination="Jtm-r9-jmj" eventType="touchUpInside" id="oob-rV-xIO"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="目標體重" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1y0-ZG-uIY">
+                                <rect key="frame" x="36" y="107" width="303" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3fH-Qt-1me"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您每日的上下班時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJK-IN-eQe">
+                                <rect key="frame" x="87" y="40" width="201" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWM-iK-iY9">
+                                <rect key="frame" x="36" y="150" width="303" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="baP-ii-lbz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sJK-IN-eQe" firstAttribute="top" secondItem="jSX-XX-Mjs" secondAttribute="top" constant="20" id="0x7-IW-IvS"/>
+                            <constraint firstItem="1y0-ZG-uIY" firstAttribute="top" secondItem="sJK-IN-eQe" secondAttribute="bottom" constant="40" id="4Rt-hB-gas"/>
+                            <constraint firstItem="jSX-XX-Mjs" firstAttribute="trailing" secondItem="syV-Lc-jqM" secondAttribute="trailing" constant="36" id="ARe-P8-knv"/>
+                            <constraint firstItem="1y0-ZG-uIY" firstAttribute="leading" secondItem="jSX-XX-Mjs" secondAttribute="leading" constant="36" id="ToE-6g-rpZ"/>
+                            <constraint firstItem="syV-Lc-jqM" firstAttribute="leading" secondItem="jSX-XX-Mjs" secondAttribute="leading" constant="36" id="VbQ-Ss-oTE"/>
+                            <constraint firstItem="jWM-iK-iY9" firstAttribute="leading" secondItem="1y0-ZG-uIY" secondAttribute="leading" id="YMG-Ma-QDB"/>
+                            <constraint firstItem="sJK-IN-eQe" firstAttribute="centerX" secondItem="jSX-XX-Mjs" secondAttribute="centerX" id="hgK-SQ-xyl"/>
+                            <constraint firstItem="jWM-iK-iY9" firstAttribute="bottom" secondItem="1y0-ZG-uIY" secondAttribute="bottom" id="ltQ-gc-KZr"/>
+                            <constraint firstItem="jWM-iK-iY9" firstAttribute="trailing" secondItem="1y0-ZG-uIY" secondAttribute="trailing" id="qkM-mf-rgx"/>
+                            <constraint firstItem="jSX-XX-Mjs" firstAttribute="trailing" secondItem="1y0-ZG-uIY" secondAttribute="trailing" constant="36" id="w1W-YP-1ly"/>
+                            <constraint firstItem="jSX-XX-Mjs" firstAttribute="bottom" secondItem="syV-Lc-jqM" secondAttribute="bottom" constant="40" id="xr2-Ze-oVP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jSX-XX-Mjs"/>
+                    </view>
+                    <connections>
+                        <outlet property="expectWeightTextfield" destination="1y0-ZG-uIY" id="9MF-6L-xDH"/>
+                        <outlet property="startBtn" destination="syV-Lc-jqM" id="95C-Pl-3RQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPS-NA-3BY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3390" y="1221"/>
         </scene>
     </scenes>
     <resources>

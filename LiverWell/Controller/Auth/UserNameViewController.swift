@@ -1,5 +1,5 @@
 //
-//  SIgnUpFirstViewController.swift
+//  SignupSecondViewController.swift
 //  LiverWell
 //
 //  Created by 徐若芸 on 2019/4/27.
@@ -8,40 +8,41 @@
 
 import UIKit
 
-class SignUpFirstViewController: STBaseViewController, UITextFieldDelegate {
+class UserNameViewController: STBaseViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var signupEmailTextField: UITextField!
+    var signupEmail: String?
     
-    @IBOutlet weak var signupPasswordTextfield: UITextField!
+    var signupPassword: String?
+    
+    @IBOutlet weak var signupNameTextfield: UITextField!
     
     @IBOutlet weak var nextBtn: UIButton!
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
         
-        if self.signupEmailTextField.text == "" || self.signupPasswordTextfield.text == "" {
-            self.showMsg("請輸入email和密碼")
+        if self.signupNameTextfield.text == "" {
+            self.showMsg("請輸入用戶名稱")
             return
         }
-        
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signupPasswordTextfield.delegate = self
+        signupNameTextfield.delegate = self
         
         nextBtn.isEnabled = false
         nextBtn.backgroundColor = .B3
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let desVC = segue.destination as? SignUpSecondViewController {
-            desVC.signupEmail = signupEmailTextField.text
-            desVC.signupPassword = signupPasswordTextfield.text
+        if let desVC = segue.destination as? CurrentWeightViewController {
+            desVC.signupEmail = signupEmail
+            desVC.signupPassword = signupPassword
+            desVC.userName = signupNameTextfield.text
         }
-
     }
     
     func textField(
@@ -68,7 +69,7 @@ class SignUpFirstViewController: STBaseViewController, UITextFieldDelegate {
         
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alertAction = UIAlertAction(title: "確定", style: .default) { (action) in
             alert.dismiss(animated: true, completion: nil)
         }
         

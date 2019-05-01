@@ -1,16 +1,16 @@
 //
-//  SignUpThirdViewController.swift
+//  SignUpFourthViewController.swift
 //  LiverWell
 //
-//  Created by 徐若芸 on 2019/4/27.
+//  Created by 徐若芸 on 2019/4/28.
 //  Copyright © 2019 Jo Hsu. All rights reserved.
 //
 
 import UIKit
 
-class SignUpThirdViewController: STBaseViewController, UITextFieldDelegate {
-    
-    @IBOutlet weak var currentWeightTextfield: UITextField!
+class ExpectedWeightViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var expectWeightTextfield: UITextField!
     
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -20,23 +20,24 @@ class SignUpThirdViewController: STBaseViewController, UITextFieldDelegate {
     
     var userName: String?
     
+    var currentWeight: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentWeightTextfield.delegate = self
+        expectWeightTextfield.delegate = self
         
         nextBtn.isEnabled = false
         nextBtn.backgroundColor = .B3
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let desVC = segue.destination as? SignUpFourthViewController {
-            desVC.signupEmail = signupEmail
-            desVC.signupPassword = signupPassword
+        if let desVC = segue.destination as? SignUpViewController {
             desVC.userName = userName
-            desVC.currentWeight = currentWeightTextfield.text!
+            desVC.currentWeight = currentWeight
+            desVC.expectedWeight = expectWeightTextfield.text!
         }
     }
     
@@ -50,7 +51,7 @@ class SignUpThirdViewController: STBaseViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             nextBtn.isEnabled = true
-            nextBtn.backgroundColor = .B1
+            nextBtn.backgroundColor = .Orange
         } else {
             nextBtn.isEnabled = false
             nextBtn.backgroundColor = .B3
@@ -60,4 +61,18 @@ class SignUpThirdViewController: STBaseViewController, UITextFieldDelegate {
         
     }
     
+    func showMsg(_ message: String) {
+        
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(alertAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+
 }
