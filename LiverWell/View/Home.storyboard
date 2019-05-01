@@ -245,10 +245,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-dL-Iax" customClass="MBCircularProgressBarView">
                                         <rect key="frame" x="90.5" y="0.0" width="194.5" height="194.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-ao-xx6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-ao-xx6">
                                                 <rect key="frame" x="78.5" y="72" width="37.5" height="51"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="51" id="5Mf-Qv-a97"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="51" id="5Mf-Qv-a97"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="42"/>
                                                 <color key="textColor" name="B1"/>
@@ -266,7 +266,9 @@
                                             <constraint firstItem="qaq-6G-OR9" firstAttribute="centerX" secondItem="bcz-ao-xx6" secondAttribute="centerX" id="DRZ-GM-biA"/>
                                             <constraint firstItem="qaq-6G-OR9" firstAttribute="top" secondItem="bcz-ao-xx6" secondAttribute="bottom" constant="8" id="WZt-1m-LKs"/>
                                             <constraint firstItem="bcz-ao-xx6" firstAttribute="centerX" secondItem="kx9-dL-Iax" secondAttribute="centerX" id="fhi-7D-jeH"/>
-                                            <constraint firstItem="bcz-ao-xx6" firstAttribute="centerY" secondItem="kx9-dL-Iax" secondAttribute="centerY" id="u71-Jw-BFL"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qaq-6G-OR9" secondAttribute="bottom" constant="20" id="jtg-K8-USx"/>
+                                            <constraint firstItem="bcz-ao-xx6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kx9-dL-Iax" secondAttribute="top" constant="15" id="k4U-qe-8fK"/>
+                                            <constraint firstItem="bcz-ao-xx6" firstAttribute="centerY" secondItem="kx9-dL-Iax" secondAttribute="centerY" priority="750" id="u71-Jw-BFL"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
@@ -417,6 +419,7 @@
                     <connections>
                         <outlet property="background" destination="9HI-Hg-yOK" id="fRT-iY-D9S"/>
                         <outlet property="remainingTimeLabel" destination="OaE-As-Syo" id="XRv-ty-gMa"/>
+                        <outlet property="shareBtn" destination="XZq-tS-KC0" id="bbO-hp-6y2"/>
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="statusRemainTimeLabel" destination="zAd-bj-swh" id="dMT-o0-hvo"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
@@ -532,10 +535,10 @@
                                         <rect key="frame" x="0.0" y="60" width="343" height="345"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Share" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-Nn-73A">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="191"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="345"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOy-Dj-FeX" userLabel="Stretch Progress Bar View" customClass="MBCircularProgressBarView">
-                                                <rect key="frame" x="171.5" y="123.5" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="94.5" y="123.5" width="154" height="154"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bOy-Dj-FeX" secondAttribute="height" multiplier="1:1" id="rIj-1k-htd"/>
@@ -574,10 +577,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-et-COr" customClass="MBCircularProgressBarView">
-                                                <rect key="frame" x="171.5" y="123.5" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="94.5" y="123.5" width="154" height="154"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-6X-LzE">
-                                                        <rect key="frame" x="-13.5" y="48" width="27" height="51"/>
+                                                        <rect key="frame" x="63.5" y="48" width="27" height="51"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="51" id="dbv-Gj-lE0"/>
                                                         </constraints>
@@ -586,7 +589,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG7-XA-RKN">
-                                                        <rect key="frame" x="-14.5" y="99" width="29" height="17"/>
+                                                        <rect key="frame" x="62.5" y="99" width="29" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="KqU-QQ-P5b"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="dUj-kl-u9K"/>
@@ -637,7 +640,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlP-V2-ZAe">
-                                                <rect key="frame" x="87" y="149.5" width="49.5" height="21"/>
+                                                <rect key="frame" x="87" y="303.5" width="49.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="YNm-yY-Dqf"/>
                                                 </constraints>
@@ -646,7 +649,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zin-hV-Orz">
-                                                <rect key="frame" x="203" y="149.5" width="57" height="21"/>
+                                                <rect key="frame" x="203" y="303.5" width="57" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="aBS-zP-rBZ"/>
                                                 </constraints>
@@ -759,17 +762,24 @@
                                                 </connections>
                                             </collectionView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Label_Stretch" translatesAutoresizingMaskIntoConstraints="NO" id="a6q-1G-TBe">
-                                                <rect key="frame" x="76.5" y="125.5" width="70" height="20"/>
+                                                <rect key="frame" x="76.5" y="279.5" width="70" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="EkM-qw-DBr"/>
                                                     <constraint firstAttribute="height" constant="20" id="avs-9O-qtG"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Label_Train" translatesAutoresizingMaskIntoConstraints="NO" id="Wv8-08-uiv">
-                                                <rect key="frame" x="196.5" y="125.5" width="70" height="20"/>
+                                                <rect key="frame" x="196.5" y="279.5" width="70" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="A87-rc-WHC"/>
                                                     <constraint firstAttribute="height" constant="20" id="Tgh-yn-6ib"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Share_AppInfo" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-nr-b53">
+                                                <rect key="frame" x="11.5" y="12" width="320" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="320" id="6JU-rl-cft"/>
+                                                    <constraint firstAttribute="height" constant="30" id="iga-lp-Dvd"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -778,10 +788,13 @@
                                             <constraint firstItem="Dge-fN-mkE" firstAttribute="centerX" secondItem="fkL-Nn-73A" secondAttribute="centerX" id="0Vg-IL-oDE"/>
                                             <constraint firstItem="a6q-1G-TBe" firstAttribute="top" secondItem="bOy-Dj-FeX" secondAttribute="bottom" constant="2" id="0aA-9e-GVI"/>
                                             <constraint firstAttribute="height" constant="345" id="68r-Zk-NF8"/>
+                                            <constraint firstItem="HM8-nr-b53" firstAttribute="leading" secondItem="oVX-Gx-ohz" secondAttribute="leading" constant="11.5" id="6j3-Z6-kOL"/>
                                             <constraint firstItem="Dge-fN-mkE" firstAttribute="top" secondItem="oVX-Gx-ohz" secondAttribute="top" constant="52" id="87m-4L-RTo"/>
                                             <constraint firstItem="Wv8-08-uiv" firstAttribute="centerX" secondItem="oVX-Gx-ohz" secondAttribute="centerX" constant="60" id="FY8-dq-nRR"/>
                                             <constraint firstItem="zin-hV-Orz" firstAttribute="centerX" secondItem="Wv8-08-uiv" secondAttribute="centerX" id="Fxe-Yk-OkO"/>
+                                            <constraint firstItem="Dge-fN-mkE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oVX-Gx-ohz" secondAttribute="leading" constant="11" id="GNN-yz-neg"/>
                                             <constraint firstItem="bOy-Dj-FeX" firstAttribute="centerX" secondItem="dKc-et-COr" secondAttribute="centerX" id="GWu-g3-7Xz"/>
+                                            <constraint firstItem="HM8-nr-b53" firstAttribute="top" secondItem="oVX-Gx-ohz" secondAttribute="top" constant="12" id="Guy-fC-UuU"/>
                                             <constraint firstItem="fkL-Nn-73A" firstAttribute="leading" secondItem="oVX-Gx-ohz" secondAttribute="leading" id="Hsv-5a-kUL"/>
                                             <constraint firstItem="fkL-Nn-73A" firstAttribute="top" secondItem="oVX-Gx-ohz" secondAttribute="top" id="IcQ-jf-dL5"/>
                                             <constraint firstAttribute="trailing" secondItem="fkL-Nn-73A" secondAttribute="trailing" id="JYa-2o-RUO"/>
@@ -794,8 +807,10 @@
                                             <constraint firstItem="bOy-Dj-FeX" firstAttribute="centerX" secondItem="oVX-Gx-ohz" secondAttribute="centerX" id="YSe-3s-I6N"/>
                                             <constraint firstItem="VlP-V2-ZAe" firstAttribute="top" secondItem="fkL-Nn-73A" secondAttribute="bottom" constant="-41.5" id="cWa-Uq-Ifr"/>
                                             <constraint firstItem="bOy-Dj-FeX" firstAttribute="top" secondItem="wQG-kY-fHs" secondAttribute="bottom" constant="4" id="dEl-Lb-3Lt"/>
+                                            <constraint firstAttribute="trailing" secondItem="HM8-nr-b53" secondAttribute="trailing" constant="11.5" id="dyF-ne-xZ4"/>
                                             <constraint firstItem="Wv8-08-uiv" firstAttribute="top" secondItem="a6q-1G-TBe" secondAttribute="top" id="jUo-wT-5gQ"/>
                                             <constraint firstItem="zin-hV-Orz" firstAttribute="top" secondItem="Wv8-08-uiv" secondAttribute="bottom" constant="4" id="nH6-dO-THj"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dge-fN-mkE" secondAttribute="trailing" constant="11" id="saa-oo-3xO"/>
                                             <constraint firstItem="dKc-et-COr" firstAttribute="width" secondItem="bOy-Dj-FeX" secondAttribute="width" id="t1L-vO-Y3G"/>
                                             <constraint firstItem="wQG-kY-fHs" firstAttribute="centerX" secondItem="oVX-Gx-ohz" secondAttribute="centerX" id="uM0-Af-2EL"/>
                                             <constraint firstItem="zin-hV-Orz" firstAttribute="top" secondItem="fkL-Nn-73A" secondAttribute="bottom" constant="-41.5" id="uv2-mB-q03"/>
@@ -907,6 +922,7 @@
         <image name="Icon_Home_WatchTV" width="165" height="119"/>
         <image name="Label_Stretch" width="69" height="20"/>
         <image name="Label_Train" width="70" height="20"/>
+        <image name="Share_AppInfo" width="320" height="30"/>
         <image name="TrainAndStretch" width="164" height="14"/>
         <namedColor name="B1">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

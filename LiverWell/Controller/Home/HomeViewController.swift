@@ -29,6 +29,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var shareBtn: UIButton!
+    
     @IBOutlet weak var statusRemainTimeLabel: UILabel!
     
     @IBOutlet weak var background: UIImageView!
@@ -53,6 +55,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         didSet {
             if todayStretchTime != nil || todayTrainTime != nil {
                 showTodayWorkoutProgress()
+                shareBtn.isEnabled = true
             }
         }
     }
@@ -63,6 +66,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         didSet {
             if todayStretchTime != nil || todayTrainTime != nil {
                 showTodayWorkoutProgress()
+                shareBtn.isEnabled = true
             }
         }
     }
@@ -83,6 +87,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         showToday()
+        
+        shareBtn.isEnabled = false
         
         if UIScreen.main.nativeBounds.height == 1136 {
             statusRemainTimeLabel.isHidden = true
@@ -193,7 +199,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             switch convertedChineseDay {
             case "Monday": return "星期一"
             case "Tuesday": return "星期二"
-            case "Wedneday": return "星期三"
+            case "Wednesday": return "星期三"
             case "Thursday": return "星期四"
             case "Friday": return "星期五"
             case "Saturday": return "星期六"
