@@ -139,7 +139,6 @@ class ShareViewController: UIViewController, ChartViewDelegate {
         
     }
     
-    
     func barChartViewSetup() {
         
         // toggle YValue

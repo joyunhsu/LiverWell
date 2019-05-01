@@ -141,7 +141,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
             desVC.stretchTimeLabel.text = "\(stretchWorkoutTime)分鐘"
             desVC.todayDateLabel.text = todayDate
-            desVC.stretchProgressView.value = CGFloat(stretchWorkoutTime)
+            desVC.stretchProgressView.value = CGFloat(stretchWorkoutTime + trainWorkoutTime)
             desVC.trainProgressView.value = CGFloat(trainWorkoutTime)
         }
         

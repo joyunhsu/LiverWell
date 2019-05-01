@@ -39,6 +39,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         setupChartView()
         readWeight()
         
+        
         levelCollectionView.isHidden = true
         
     }

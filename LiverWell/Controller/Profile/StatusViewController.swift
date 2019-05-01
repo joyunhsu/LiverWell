@@ -20,6 +20,49 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var nextWeekBtn: UIButton!
+    
+    @IBOutlet weak var previousWeekBtn: UIButton!
+    
+    var weeksBeforeCount = 0 {
+        didSet {
+            if weeksBeforeCount == 0 {
+                nextWeekBtn.isHidden = true
+            } else {
+                nextWeekBtn.isHidden = false
+            }
+        }
+    }
+    
+    @IBAction func nextWeekBtnPressed(_ sender: UIButton) {
+        workoutDataArray = [WorkoutData]()
+        weeksBeforeCount += 1
+        getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
+        
+        let today = Date()
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
+        guard let monday = referenceDay.startOfWeek else { return }
+        guard let sunday = referenceDay.endOfWeek else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M月d日"
+        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+        
+    }
+    
+    @IBAction func previousWeekBtnPressed(_ sender: UIButton) {
+        workoutDataArray = [WorkoutData]()
+        weeksBeforeCount -= 1
+        getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
+        
+        let today = Date()
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
+        guard let monday = referenceDay.startOfWeek else { return }
+        guard let sunday = referenceDay.endOfWeek else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M月d日"
+        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+    }
+    
     weak var axisFormatDelegate: IAxisValueFormatter?
     
     var workoutDataArray = [WorkoutData]()
@@ -76,7 +119,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         axisFormatDelegate = self
         
-        getWeeklyWorkoutData()
+        nextWeekBtn.isHidden = true
+        
+//        getWeeklyWorkoutData()
         
         let today = Date()
         guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
@@ -88,7 +133,17 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
     }
     
-    private func getWeeklyWorkoutData() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getWeeklyWorkoutData(weeksBefore: 0)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        workoutDataArray = [WorkoutData]()
+    }
+    
+    private func getWeeklyWorkoutData(weeksBefore: Int) {
         
         guard let user = Auth.auth().currentUser else { return }
         
@@ -96,7 +151,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let today = Date()
         
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBefore, to: today) else { return }
         
         guard let monday = referenceDay.startOfWeek else { return }
         
@@ -140,7 +195,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 
                 self?.sortByType()
                 
-                self?.sortByDayAndType()
+                self?.sortByDayAndType(weeksBefore: weeksBefore)
                 
                 self?.setupActivityEntry()
                 
@@ -152,11 +207,11 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
     }
     
-    private func sortByDayAndType() {
+    private func sortByDayAndType(weeksBefore: Int) {
         
         let today = Date()
         
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBefore, to: today) else { return }
         
         guard let monday = referenceDay.startOfWeek else { return }
         
