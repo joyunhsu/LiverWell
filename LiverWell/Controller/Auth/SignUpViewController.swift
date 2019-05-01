@@ -62,6 +62,11 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         let myTimeInterval = TimeInterval(timestamp)
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
+        let today = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年M月d日"
+        let convertedDate = dateFormatter.string(from: today)
+        
         let user = Auth.auth().currentUser
         
         if let user = user {
@@ -73,7 +78,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
             // 創建以用戶UID為名的document
             AppDelegate.db.collection("users").document(uid).setData([
                 "name": userName,
-                "current_weight": Double(currentWeight!),
+                "initial_weight": Double(currentWeight!),
                 "expected_weight": Double(expectedWeight!),
                 "signup_time": time
             ]) { err in
@@ -81,9 +86,28 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                    
+                    self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: time)
                 }
             }
+
         }
+    }
+    
+    private func addInitialWeight(uid: String, convertedDate: String, time: NSDate) {
+        
+        AppDelegate.db.collection("users").document(uid).collection("weight").document(convertedDate).setData(
+            [
+                "weight": Double(currentWeight!),
+                "created_time": time
+        ]) { (err) in
+            if let err = err {
+                print("Error add initial weight to document: \(err)")
+            } else {
+                print("Add initial weight to document successfully")
+            }
+        }
+        
     }
 
     override func viewDidLoad() {
