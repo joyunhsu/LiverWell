@@ -32,6 +32,11 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
         let myTimeInterval = TimeInterval(timestamp)
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
+        let today = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年M月d日"
+        let convertedDate = dateFormatter.string(from: today)
+        
         guard let user = Auth.auth().currentUser else { return }
 
         guard let weightText = textField.text else { return }
@@ -55,25 +60,18 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "M月d日"
-//            let convertedDate = dateFormatter.string(from: time as Date)
-//            dateFormatter.date(from: convertedDate)
-            
-            
-            
-            // Add a new document with a generated id
-            var ref: DocumentReference? = nil
-            ref = weightRef.addDocument(data: [
-                "weight": weight as Any,
+            let weightData: [String: Any] = [
+                "weight": weight,
                 "created_time": time
-                ], completion: { (error) in
-                    if let error = error {
-                        print("Error adding document: \(error)")
-                    } else {
-                        print("Document added with ID: \(String(describing: ref?.documentID))")
-                    }
-            })
+            ]
+            
+            weightRef.document(convertedDate).setData(weightData) { (err) in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Weight document successfully written!")
+                }
+            }
             
         }
         
