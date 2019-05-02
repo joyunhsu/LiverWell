@@ -38,29 +38,30 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         workoutDataArray = [WorkoutData]()
         weeksBeforeCount += 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
-        
-        let today = Date()
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
-        guard let monday = referenceDay.startOfWeek else { return }
-        guard let sunday = referenceDay.endOfWeek else { return }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M月d日"
-        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
-        
+        presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
     }
     
     @IBAction func previousWeekBtnPressed(_ sender: UIButton) {
         workoutDataArray = [WorkoutData]()
         weeksBeforeCount -= 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
-        
+        presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
+    }
+    
+    func presentWeekLabel(weeksBeforeCount: Int) {
         let today = Date()
         guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
         guard let monday = referenceDay.startOfWeek else { return }
         guard let sunday = referenceDay.endOfWeek else { return }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M月d日"
-        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+        
+        if weeksBeforeCount == 0 {
+            weekStartEndLabel.text = "本週記錄"
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "M月d日"
+            weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+        }
+        
     }
     
     weak var axisFormatDelegate: IAxisValueFormatter?
@@ -123,13 +124,14 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
 //        getWeeklyWorkoutData()
         
-        let today = Date()
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
-        guard let monday = referenceDay.startOfWeek else { return }
-        guard let sunday = referenceDay.endOfWeek else { return }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M月d日"
-        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+//        let today = Date()
+//        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
+//        guard let monday = referenceDay.startOfWeek else { return }
+//        guard let sunday = referenceDay.endOfWeek else { return }
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "M月d日"
+//        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+        weekStartEndLabel.text = "本週記錄"
         
     }
     

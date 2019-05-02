@@ -496,7 +496,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzI-79-6MP" customClass="LineChartView" customModule="Charts">
-                                            <rect key="frame" x="8" y="94" width="367" height="210"/>
+                                            <rect key="frame" x="8" y="94" width="359" height="210"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="210" id="bDz-u7-eo6"/>
@@ -569,7 +569,7 @@
                                         <constraint firstItem="eZ8-5o-zdm" firstAttribute="top" secondItem="lzI-79-6MP" secondAttribute="bottom" constant="6" id="moV-pQ-kha"/>
                                         <constraint firstItem="lzI-79-6MP" firstAttribute="top" secondItem="Xjy-px-7Qy" secondAttribute="bottom" constant="32" id="wzy-fs-gkM"/>
                                         <constraint firstItem="eZ8-5o-zdm" firstAttribute="leading" secondItem="1gt-vm-0f8" secondAttribute="leading" constant="20" id="xSV-CP-ebM"/>
-                                        <constraint firstAttribute="trailing" secondItem="lzI-79-6MP" secondAttribute="trailing" id="zBN-ab-wMa"/>
+                                        <constraint firstAttribute="trailing" secondItem="lzI-79-6MP" secondAttribute="trailing" constant="8" id="zBN-ab-wMa"/>
                                         <constraint firstItem="Xjy-px-7Qy" firstAttribute="leading" secondItem="1gt-vm-0f8" secondAttribute="leading" constant="38" id="zeI-s9-vZV"/>
                                     </constraints>
                                 </view>

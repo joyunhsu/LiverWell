@@ -160,8 +160,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
         let sleepStart = now.dateAt(hours: 21, minutes: 30)
         let sleepEnd = now.dateAt(hours: 5, minutes: 0)
+        let nowHour = Calendar.current.component(.hour, from: now)
         
         if now >= saturday && now <= sunday {
+            // weekend
+            statusRemainTimeLabel.text = "休息日好好放鬆，起身動一動！"
             
             if now >= sleepEnd && now <= sleepStart {
                 setupStatus(homeStatus: .resting)
@@ -170,15 +173,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             }
             
         } else {
+            // workday
+            let fromRestHour = workEndHours - nowHour
+//            let fromSleepHour = sleepStartHours - nowHour
             
             if now >= workStart && now <= workEnd {
                 setupStatus(homeStatus: .working)
+                statusRemainTimeLabel.text = "離休息時間還有 \(fromRestHour) 小時"
             } else if now >= workEnd && now <= sleepStart {
                 setupStatus(homeStatus: .resting)
+                statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
             } else if now >= sleepEnd && now <= workStart {
                 setupStatus(homeStatus: .resting)
+                statusRemainTimeLabel.text = "離工作時間還有 \(workStartHours - nowHour) 小時"
             } else {
                 setupStatus(homeStatus: .beforeSleep)
+                if nowHour > workEndHours {
+                    statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
+                } else if nowHour < workStartHours {
+                    statusRemainTimeLabel.text = "離工作時間還有 \(workStartHours - nowHour) 小時"
+                }
+                
             }
             
         }
