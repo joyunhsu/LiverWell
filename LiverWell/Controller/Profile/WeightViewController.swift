@@ -47,6 +47,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         }
     }
     
+    var initialWeight: Double = 0
+    var lastMonthWeight: Double = 0
+    var currentWeight: Double = 0
+    
     struct WeightData {
         let createdTimeString: String
         let createdTime: Date
@@ -96,8 +100,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         let startOfMonth = Date().startOfMonth()
         
         var weightChangeSinceStart: Double = 0
-        var initialWeight: Double = 0
-        var lastMonthWeight: Double = 0
         
         userDocRef
             .getDocument { (document, error) in
@@ -110,7 +112,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 let convertedDate = dateFormatter.string(from: date)
                 self.startMonthLabel.text = convertedDate
                 self.expectedWeightLabel.text = String(expected)
-                initialWeight = initial
+                self.initialWeight = initial
             } else {
                 print("Document does not exist: \(String(describing: error))")
             }
@@ -128,10 +130,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                     
                     guard let weight = document.get("weight") as? Double else { return }
                     
-                    lastMonthWeight = weight
-                    
-                    print("-------------")
-                    print("lastMonth:\(weight)")
+                    self.lastMonthWeight = weight
 
                 }
             }
@@ -148,13 +147,14 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                     for document in snapshot!.documents {
                         
                         guard let createdTime = document.get("created_time") as? Timestamp else { return }
-                        guard let currentWeight = document.get("weight") as? Double else { return }
+                        guard let weight = document.get("weight") as? Double else { return }
                         
                         let date = createdTime.dateValue()
                         let convertedDate = dateFormatter.string(from: date)
                         self?.currentMonthLabel.text = convertedDate
-                        
-                        let weightSinceStart = currentWeight - initialWeight
+                        self?.currentWeight = weight
+                
+                        let weightSinceStart = weight - self!.initialWeight
                         
                         if weightSinceStart > 0 {
                             self?.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
@@ -162,7 +162,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                             self?.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
                         }
                         
-                        let weightSinceMonth = currentWeight - lastMonthWeight
+                        let weightSinceMonth = weight - self!.lastMonthWeight
                         if weightSinceMonth > 0 {
                             self?.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
                             self?.progressView.progress = 0
@@ -239,6 +239,27 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 self?.readWeight()
                 
                 self?.tableView.reloadData()
+                
+                DispatchQueue.global().async {
+                    DispatchQueue.main.async {
+                        let weightSinceStart = self!.currentWeight - self!.initialWeight
+                        
+                        if weightSinceStart > 0 {
+                            self?.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
+                        } else {
+                            self?.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
+                        }
+                        
+                        let weightSinceMonth = self!.currentWeight - self!.lastMonthWeight
+                        if weightSinceMonth > 0 {
+                            self?.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
+                            self?.progressView.progress = 0
+                        } else {
+                            self?.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
+                            self?.progressView.progress = Float((0 - weightSinceMonth) / 1)
+                        }
+                    }
+                }
                 
             }
             

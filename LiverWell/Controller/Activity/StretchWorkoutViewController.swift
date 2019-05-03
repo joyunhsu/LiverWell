@@ -16,7 +16,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var infoLabel: UILabel!
     
-    @IBOutlet weak var repeatLabel: UILabel!
+    @IBOutlet weak var countDownLabel: UILabel!
     
     @IBOutlet weak var repeatCollectionView: UICollectionView!
     
@@ -197,7 +197,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         infoLabel.text = currentWorkout.hint
         
         //        counter = 1
-        repeatLabel.text = "\(self.counter)/\(currentWorkout.count)次"
+        countDownLabel.text = "\(self.counter)/\(currentWorkout.count)次"
         
         changeRepeatCounts(totalCount: currentWorkout.count, timeInterval: currentWorkout.perDuration)
         
@@ -224,7 +224,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
                 
                 if self.counter < totalCount {
                     // 一個rep裡數數
-                    self.repeatLabel.text = self.repeatCountingText[self.counter]
+                    self.countDownLabel.text = self.repeatCountingText[self.counter]
                     self.counter += 1
                     
                     self.setAndPlayCountSound(soundFile: self.countSoundFileName)

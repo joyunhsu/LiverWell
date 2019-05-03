@@ -1311,10 +1311,10 @@
             </objects>
             <point key="canvasLocation" x="4804" y="782"/>
         </scene>
-        <!--5分鐘肌力訓練-->
+        <!--伸展運動-->
         <scene sceneID="8RR-Gj-oqF">
             <objects>
-                <viewController title="5分鐘肌力訓練" id="qk0-2E-hnh" customClass="StretchWorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="伸展運動" id="qk0-2E-hnh" customClass="StretchWorkoutViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kcJ-S8-Wha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1487,9 +1487,9 @@
                     <navigationItem key="navigationItem" title="久坐伸展" id="18Z-PH-jvq"/>
                     <connections>
                         <outlet property="barProgressView" destination="RrI-ba-tNl" id="xCG-4o-y3Y"/>
+                        <outlet property="countDownLabel" destination="r38-13-jjz" id="XeZ-Y0-zjD"/>
                         <outlet property="infoLabel" destination="c5J-ro-nVx" id="7gf-uy-diA"/>
                         <outlet property="repeatCollectionView" destination="uIx-8N-6IW" id="rt0-QQ-afX"/>
-                        <outlet property="repeatLabel" destination="r38-13-jjz" id="hIu-go-e8v"/>
                         <outlet property="soundBtn" destination="QKE-aH-n5b" id="5Io-oe-jiK"/>
                         <outlet property="workoutImageView" destination="VYx-KE-WOy" id="aCQ-Ul-dKZ"/>
                         <outlet property="workoutTitleLabel" destination="dPY-pl-z4q" id="zaj-e3-DY9"/>
@@ -1534,6 +1534,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="jqG-cN-yFC"/>
         <segue reference="hdZ-Mn-LOm"/>
-        <segue reference="N32-zC-2Fu"/>
+        <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>
