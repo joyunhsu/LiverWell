@@ -100,6 +100,7 @@
 		6EE614B5225B37B9003A104C /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE614B4225B37B9003A104C /* WeightViewController.swift */; };
 		6EF064D3226258A4004FB6A8 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */; };
 		6EF064D52262D9D8004FB6A8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF064D42262D9D8004FB6A8 /* ShareViewController.swift */; };
+		6EF3388D227BFD0F00A65924 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3388C227BFD0E00A65924 /* Double+Extension.swift */; };
 		6EFDDEA22251E41100C1B8B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */; };
 		6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA72251E41100C1B8B3 /* Main.storyboard */; };
 		6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */; };
@@ -200,6 +201,7 @@
 		6EE614B4225B37B9003A104C /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		6EF064D2226258A4004FB6A8 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		6EF064D42262D9D8004FB6A8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		6EF3388C227BFD0E00A65924 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		6EFDDE9E2251E41100C1B8B3 /* LiverWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiverWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDDEA12251E41100C1B8B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFDDEA82251E41100C1B8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */,
 				6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */,
 				6E664C2F226DA55100221184 /* Date+Extension.swift */,
+				6EF3388C227BFD0E00A65924 /* Double+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				6E892A492260752000742339 /* FinishWorkoutViewController.swift in Sources */,
 				6E2CAC93227484BA00C27748 /* LogInViewController.swift in Sources */,
 				6E9599BC2259C49200BC1D9A /* FirstActivityInfoTableViewCell.swift in Sources */,
+				6EF3388D227BFD0F00A65924 /* Double+Extension.swift in Sources */,
 				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EE0200A22683B740026C911 /* HomeObject.swift in Sources */,
 				6E664C3622700F7800221184 /* StretchWorkoutViewController.swift in Sources */,

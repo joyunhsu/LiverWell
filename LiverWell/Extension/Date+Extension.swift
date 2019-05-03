@@ -37,6 +37,10 @@ extension Date {
         return gregorian.date(byAdding: .day, value: 7, to: sunday)
 //        return gregorian.date(byAdding: .day, value: 0, to: sunday)
     }
+    
+    func startOfMonth() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+    }
 
     func dateAt(hours: Int, minutes: Int) -> Date {
         
