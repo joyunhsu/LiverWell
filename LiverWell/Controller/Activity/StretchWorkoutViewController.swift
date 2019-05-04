@@ -196,8 +196,10 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         workoutTitleLabel.text = currentWorkout.title
         infoLabel.text = currentWorkout.hint
         
-        //        counter = 1
-        countDownLabel.text = "\(self.counter)/\(currentWorkout.count)次"
+//        countDownLabel.text = "\(self.counter)/\(currentWorkout.count)次"
+        
+        counter = workoutArray[workoutIndex].count
+        countDownLabel.text = "00:\(String(format: "%02d", self.counter))"
         
         changeRepeatCounts(totalCount: currentWorkout.count, timeInterval: currentWorkout.perDuration)
         
@@ -208,64 +210,88 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
     private func changeRepeatCounts(totalCount: Int, timeInterval: TimeInterval) {
         
         for i in 1...totalCount {
-            let repeatCount = "\(i)/\(totalCount)次"
+            let repeatCount = "00:\(i)"
             repeatCountingText.append(repeatCount)
         }
         
-        var beat = 0
+        let preapreTime = 5
         
-        repeatTimer = Timer.scheduledTimer(withTimeInterval: timeInterval / 2, repeats: true, block: { (_) in
+        repeatTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             
-            beat += 1
-            
-            print(beat)
-            
-            if beat % 2 == 0 {
+            if self.counter > 0 {
+                self.counter -= 1
+                self.countDownLabel.text = "00:\(String(format: "%02d", self.counter))"
+//                progressView.value = CGFloat(30 - counter)
                 
-                if self.counter < totalCount {
-                    // 一個rep裡數數
-                    self.countDownLabel.text = self.repeatCountingText[self.counter]
-                    self.counter += 1
+            } else {
+                
+                // 進入下一個 rep
+                self.repeatTimer?.invalidate()
+                self.barTimer?.invalidate()
+                self.moveToNextVC()
+                
+                guard let workoutArray = self.workoutArray else { return }
+                
+                // 判斷是否完成所有的rep
+                if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
+                    self.currentRepeat += 1
                     
+                    self.counter = 1
+                    self.changeTitleAndRepeatText()
+                    
+                    self.updateBarProgress()
+                    
+                    self.doneCounting = 1
+                    
+                    self.countSoundFileName = 1
                     self.setAndPlayCountSound(soundFile: self.countSoundFileName)
                     self.countSoundFileName += 1
                     
                 } else {
-                    
-                    // 進入下一個 rep
-                    self.repeatTimer?.invalidate()
-                    self.barTimer?.invalidate()
-                    self.moveToNextVC()
-                    
-                    guard let workoutArray = self.workoutArray else { return }
-                    
-                    // 判斷是否完成所有的rep
-                    if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
-                        self.currentRepeat += 1
-                        
-                        self.counter = 1
-                        self.changeTitleAndRepeatText()
-                        
-                        self.updateBarProgress()
-                        
-                        self.doneCounting = 1
-                        
-                        self.countSoundFileName = 1
-                        self.setAndPlayCountSound(soundFile: self.countSoundFileName)
-                        self.countSoundFileName += 1
-                        
-                    } else {
-                        // 完成一個動作的所有rep，換下一個動作
-                        self.workoutIndex += 1
-                        self.currentRepeat = 1
-                        
-                    }
+                    // 完成一個動作的所有rep，換下一個動作
+                    self.workoutIndex += 1
+                    self.currentRepeat = 1
+                
                 }
-                
-            } else if beat % 2 == 1 {
-                
-                self.doneAudioPlayer.play()
-                
+            
+//            if self.counter < totalCount {
+//                // 一個rep裡數數
+//                self.countDownLabel.text = self.repeatCountingText[self.counter]
+//                self.counter += 1
+//
+//                self.setAndPlayCountSound(soundFile: self.countSoundFileName)
+//                self.countSoundFileName += 1
+//
+//            } else {
+//
+//                // 進入下一個 rep
+//                self.repeatTimer?.invalidate()
+//                self.barTimer?.invalidate()
+//                self.moveToNextVC()
+//
+//                guard let workoutArray = self.workoutArray else { return }
+//
+//                // 判斷是否完成所有的rep
+//                if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
+//                    self.currentRepeat += 1
+//
+//                    self.counter = 1
+//                    self.changeTitleAndRepeatText()
+//
+//                    self.updateBarProgress()
+//
+//                    self.doneCounting = 1
+//
+//                    self.countSoundFileName = 1
+//                    self.setAndPlayCountSound(soundFile: self.countSoundFileName)
+//                    self.countSoundFileName += 1
+//
+//                } else {
+//                    // 完成一個動作的所有rep，換下一個動作
+//                    self.workoutIndex += 1
+//                    self.currentRepeat = 1
+//
+//                }
             }
             
         })
@@ -295,9 +321,10 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         guard let workoutArray = workoutArray else { return }
         
         if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (workoutArray.count - 1) {
-            performSegue(withIdentifier: "finishWorkout", sender: self)
+            performSegue(withIdentifier: "finishStretch", sender: self)
         } else if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat {
             performSegue(withIdentifier: "startRest", sender: self)
+            self.loadViewIfNeeded()
         } else {
             return
         }

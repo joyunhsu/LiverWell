@@ -162,7 +162,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         let sleepEnd = now.dateAt(hours: 5, minutes: 0)
         let nowHour = Calendar.current.component(.hour, from: now)
         
-        if now >= saturday && now <= sunday {
+        if now >= saturday && now <= Calendar.current.date(byAdding: .day, value: 1, to: sunday)! {
             // weekend
             statusRemainTimeLabel.text = "休息日好好放鬆，起身動一動！"
             

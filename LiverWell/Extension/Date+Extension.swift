@@ -25,8 +25,8 @@ extension Date {
         guard let sunday = gregorian.date(
             from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
             ) else { return nil }
-        return gregorian.date(byAdding: .day, value: 1, to: sunday)
-//        return gregorian.date(byAdding: .day, value: -6, to: sunday)
+//        return gregorian.date(byAdding: .day, value: 1, to: sunday)
+        return gregorian.date(byAdding: .day, value: -6, to: sunday)
     }
     
     var endOfWeek: Date? {
@@ -34,8 +34,8 @@ extension Date {
         guard let sunday = gregorian.date(
             from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
             ) else { return nil }
-        return gregorian.date(byAdding: .day, value: 7, to: sunday)
-//        return gregorian.date(byAdding: .day, value: 0, to: sunday)
+//        return gregorian.date(byAdding: .day, value: 7, to: sunday)
+        return gregorian.date(byAdding: .day, value: 0, to: sunday)
     }
     
     func startOfMonth() -> Date {
