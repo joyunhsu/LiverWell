@@ -84,25 +84,30 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
         
         navigationItem.title = navTitle
         
+        self.navigationItem.hidesBackButton = true
+        
         viewHeightConstraint.constant = 240
         
         guard let workoutArray = workoutArray else { return }
         let currentWorkout = workoutArray[workoutIndex]
         workoutImageView.image = UIImage(named: currentWorkout.images[0])
         
+        let maxTime = workoutMinutes! * 60.0
+        barProgressView.progress = currentTime / maxTime
+        
         counter = workoutArray[workoutIndex].count
         countDownLabel.text = "00:\(String(format: "%02d", self.counter))"
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             
-            UIView.animate(withDuration: 5.5) {
+            UIView.animate(withDuration: 7.9) {
                 self.viewHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
             
         })
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8, execute: {
             
             self.performSegue(withIdentifier: "startStretch", sender: self)
             
@@ -125,6 +130,8 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
             desVC.workoutMinutes = workoutMinutes
             desVC.workoutArray = workoutArray
             desVC.navTitle = navTitle
+            desVC.workoutIndex = workoutIndex
+            desVC.currentTime = currentTime
         }
         
         if let pauseVC = segue.destination as? PauseViewController {

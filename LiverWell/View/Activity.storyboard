@@ -1769,6 +1769,14 @@
                                     <constraint firstAttribute="height" constant="134" id="v8H-xX-Qzi"/>
                                 </constraints>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="IWU-aS-pCe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="Nt8-WA-EQT"/>
+                                </constraints>
+                                <color key="progressTintColor" name="Orange"/>
+                                <color key="trackTintColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1777,13 +1785,16 @@
                             <constraint firstItem="vjd-Za-37b" firstAttribute="centerX" secondItem="tJJ-xj-JbO" secondAttribute="centerX" id="Hid-PX-SUG"/>
                             <constraint firstItem="abQ-qJ-ogX" firstAttribute="centerX" secondItem="vjd-Za-37b" secondAttribute="centerX" id="Ljx-56-Thm"/>
                             <constraint firstItem="6GR-1d-5p0" firstAttribute="top" secondItem="I6B-fx-Xsx" secondAttribute="top" constant="90" id="PHP-7W-bTK"/>
+                            <constraint firstItem="IWU-aS-pCe" firstAttribute="trailing" secondItem="I6B-fx-Xsx" secondAttribute="trailing" id="QZu-kc-VLm"/>
                             <constraint firstItem="wtz-js-Eo3" firstAttribute="top" secondItem="tJJ-xj-JbO" secondAttribute="bottom" constant="26" id="RaL-hG-1aZ"/>
                             <constraint firstItem="uHa-Hs-0TF" firstAttribute="top" secondItem="6GR-1d-5p0" secondAttribute="bottom" constant="20" id="XJH-tJ-yut"/>
                             <constraint firstItem="vjd-Za-37b" firstAttribute="top" secondItem="abQ-qJ-ogX" secondAttribute="bottom" constant="8" id="YqG-t4-UYS"/>
+                            <constraint firstItem="IWU-aS-pCe" firstAttribute="top" secondItem="I6B-fx-Xsx" secondAttribute="top" id="bOb-3X-Mnm"/>
                             <constraint firstItem="tJJ-xj-JbO" firstAttribute="top" secondItem="vjd-Za-37b" secondAttribute="bottom" constant="25" id="iJf-Qo-Z2Z"/>
                             <constraint firstItem="I6B-fx-Xsx" firstAttribute="trailing" secondItem="wtz-js-Eo3" secondAttribute="trailing" id="iee-0Y-UMe"/>
                             <constraint firstItem="tJJ-xj-JbO" firstAttribute="centerX" secondItem="I6B-fx-Xsx" secondAttribute="centerX" id="jJ4-tn-1Wd"/>
                             <constraint firstItem="6GR-1d-5p0" firstAttribute="centerX" secondItem="N6t-20-2Yb" secondAttribute="centerX" id="kdl-pG-XH8"/>
+                            <constraint firstItem="IWU-aS-pCe" firstAttribute="leading" secondItem="I6B-fx-Xsx" secondAttribute="leading" id="l5f-Sr-3We"/>
                             <constraint firstItem="uHa-Hs-0TF" firstAttribute="centerX" secondItem="N6t-20-2Yb" secondAttribute="centerX" id="viZ-dL-rmv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I6B-fx-Xsx"/>
@@ -1792,6 +1803,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="9Vn-r6-1VU"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="barProgressView" destination="IWU-aS-pCe" id="ebT-tV-Oe3"/>
                         <outlet property="countDownLabel" destination="uHa-Hs-0TF" id="jYP-AF-PH3"/>
                         <outlet property="workoutImage" destination="tJJ-xj-JbO" id="nfo-eQ-ETU"/>
                         <outlet property="workoutTItle" destination="vjd-Za-37b" id="LxA-dW-6Ot"/>
@@ -1834,7 +1846,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p0i-ZF-yMl"/>
+        <segue reference="pTZ-RM-Rzg"/>
         <segue reference="hdZ-Mn-LOm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>

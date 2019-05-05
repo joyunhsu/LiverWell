@@ -184,7 +184,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         let maxTime = workoutMinutes * 60.0
         if let destination = segue.destination as? StretchCountdownViewController {
             destination.currentTime = self.currentTime
-            destination.maxTime = maxTime
+//            destination.maxTime = maxTime
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
@@ -192,6 +192,10 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
             pauseVC.maxTime = maxTime
             pauseVC.workoutArray = workoutArray
             pauseVC.workoutIndex = workoutIndex
+        }
+        
+        if let finishVC = segue.destination as? FinishWorkoutViewController {
+            finishVC.currentTime = self.currentTime
         }
     }
     
@@ -221,8 +225,6 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
             let repeatCount = "00:\(i)"
             repeatCountingText.append(repeatCount)
         }
-        
-        let preapreTime = 5
         
         repeatTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             
@@ -257,7 +259,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
                     
                 } else {
                     // 完成一個動作的所有rep，換下一個動作
-                    self.workoutIndex += 1
+//                    self.workoutIndex += 1
                     self.currentRepeat = 1
                 
                 }

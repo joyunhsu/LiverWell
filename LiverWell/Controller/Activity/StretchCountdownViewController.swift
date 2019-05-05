@@ -17,13 +17,16 @@ class StretchCountdownViewController: UIViewController {
     
     @IBOutlet weak var workoutImage: UIImageView!
     
+    @IBOutlet weak var barProgressView: UIProgressView!
+    
     var timer = Timer()
     var counter = 5
     var workoutMinutes: Float?
     var workoutArray: [WorkoutSet]?
+    var workoutIndex = 0
     var navTitle: String?
     var currentTime: Float = 0.0
-    var maxTime: Float = 0.0
+//    var maxTime: Float = 0.0
     
     var audioPlayer = AVAudioPlayer()
     
@@ -31,6 +34,10 @@ class StretchCountdownViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         timer.invalidate()
+        
+        counter = 5
+        
+        workoutIndex += 1
         
     }
     
@@ -49,18 +56,22 @@ class StretchCountdownViewController: UIViewController {
             repeats: true
         )
         
+        let maxTime = workoutMinutes! * 60.0
+        
+        barProgressView.progress = currentTime / maxTime
+        
+        guard let workoutArray = workoutArray else { return }
+        
+        workoutImage.image = UIImage(named: workoutArray[workoutIndex].thumbnail)
+        
+        workoutTItle.text = workoutArray[workoutIndex].title
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         countDownLabel.text = "\(counter)"
-        
-        guard let workoutArray = workoutArray else { return }
-        
-        workoutImage.image = UIImage(named: workoutArray[0].thumbnail)
-        
-        workoutTItle.text = workoutArray[0].title
         
         setupAudioPlayer()
         
@@ -100,14 +111,18 @@ class StretchCountdownViewController: UIViewController {
         if let desVC = segue.destination as? StretchPrepareViewController,
             let workoutMinutes = workoutMinutes {
             desVC.workoutMinutes = workoutMinutes
+            desVC.currentTime = currentTime
             desVC.workoutArray = workoutArray
             desVC.navTitle = navTitle
+            desVC.workoutIndex = workoutIndex
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
-            pauseVC.currentTime = 0
-            pauseVC.maxTime = 1
+            pauseVC.currentTime = self.currentTime
+            pauseVC.maxTime = workoutMinutes! * 60
             pauseVC.workoutArray = workoutArray
+            pauseVC.workoutIndex = workoutIndex
         }
+
     }
 }
