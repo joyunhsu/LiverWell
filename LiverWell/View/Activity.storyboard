@@ -1495,7 +1495,7 @@
                         <outlet property="workoutTitleLabel" destination="dPY-pl-z4q" id="zaj-e3-DY9"/>
                         <segue destination="FzE-w5-HUl" kind="show" identifier="finishStretch" id="hdZ-Mn-LOm"/>
                         <segue destination="xjT-hk-Syw" kind="unwind" identifier="unwindToCountdown" unwindAction="unwindtoCountdownWithSegue:" id="LvN-x7-Eh6"/>
-                        <segue destination="xjT-hk-Syw" kind="unwind" identifier="unwindToPrepare" unwindAction="unwindtoPrepareWithSegue:" id="giD-dB-Hw0"/>
+                        <segue destination="xjT-hk-Syw" kind="unwind" identifier="unwindToPrepare" animates="NO" unwindAction="unwindtoPrepareWithSegue:" id="giD-dB-Hw0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBG-n1-KWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1846,7 +1846,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pTZ-RM-Rzg"/>
+        <segue reference="p0i-ZF-yMl"/>
         <segue reference="hdZ-Mn-LOm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>

@@ -142,10 +142,6 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         updateBarProgress()
         
-        //        barProgressView.setProgress(currentTIme, animated: false)
-        
-//        setupGif()
-        
         guard let workoutArray = workoutArray else { return }
         let currentWorkout = workoutArray[workoutIndex]
         workoutImageView.image = UIImage(named: currentWorkout.images[1])
@@ -163,20 +159,6 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         doneAudioPlayer.pause()
         countAudioPlayer.pause()
     }
-    
-//    private func setupGif() {
-//
-//        guard let workoutArray = workoutArray else { return }
-//        let currentWorkout = workoutArray[workoutIndex]
-//        workoutImageView.animationImages = [
-//            UIImage(named: currentWorkout.images[0]),
-//            UIImage(named: currentWorkout.images[1])
-//            ] as? [UIImage]
-//
-//        workoutImageView.animationDuration = currentWorkout.perDuration
-//        workoutImageView.startAnimating()
-//
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -197,6 +179,14 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         if let finishVC = segue.destination as? FinishWorkoutViewController {
             finishVC.currentTime = self.currentTime
         }
+        
+        if let prepareVC = segue.destination as? StretchPrepareViewController {
+            prepareVC.currentTime = currentTime
+            currentRepeat += 1
+            prepareVC.currentRepeat = currentRepeat
+            prepareVC.repeatCollectionView.reloadData()
+            
+        }
     }
     
     private func changeTitleAndRepeatText() {
@@ -207,8 +197,6 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         workoutTitleLabel.text = currentWorkout.title
         infoLabel.text = currentWorkout.hint
-        
-//        countDownLabel.text = "\(self.counter)/\(currentWorkout.count)次"
         
         counter = workoutArray[workoutIndex].count
         countDownLabel.text = "00:\(String(format: "%02d", self.counter))"
@@ -244,7 +232,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
                 
                 // 判斷是否完成所有的rep
                 if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
-                    self.currentRepeat += 1
+//                    self.currentRepeat += 1
                     
                     self.counter = 1
                     self.changeTitleAndRepeatText()
@@ -263,45 +251,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
                     self.currentRepeat = 1
                 
                 }
-            
-//            if self.counter < totalCount {
-//                // 一個rep裡數數
-//                self.countDownLabel.text = self.repeatCountingText[self.counter]
-//                self.counter += 1
-//
-//                self.setAndPlayCountSound(soundFile: self.countSoundFileName)
-//                self.countSoundFileName += 1
-//
-//            } else {
-//
-//                // 進入下一個 rep
-//                self.repeatTimer?.invalidate()
-//                self.barTimer?.invalidate()
-//                self.moveToNextVC()
-//
-//                guard let workoutArray = self.workoutArray else { return }
-//
-//                // 判斷是否完成所有的rep
-//                if self.currentRepeat < workoutArray[self.workoutIndex].workoutSetRepeat {
-//                    self.currentRepeat += 1
-//
-//                    self.counter = 1
-//                    self.changeTitleAndRepeatText()
-//
-//                    self.updateBarProgress()
-//
-//                    self.doneCounting = 1
-//
-//                    self.countSoundFileName = 1
-//                    self.setAndPlayCountSound(soundFile: self.countSoundFileName)
-//                    self.countSoundFileName += 1
-//
-//                } else {
-//                    // 完成一個動作的所有rep，換下一個動作
-//                    self.workoutIndex += 1
-//                    self.currentRepeat = 1
-//
-//                }
+                
             }
             
         })

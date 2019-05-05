@@ -85,12 +85,23 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
         navigationItem.title = navTitle
         
         self.navigationItem.hidesBackButton = true
+    }
+    
+    @IBAction func unwindtoPrepare(segue: UIStoryboardSegue) {
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         viewHeightConstraint.constant = 240
         
         guard let workoutArray = workoutArray else { return }
         let currentWorkout = workoutArray[workoutIndex]
         workoutImageView.image = UIImage(named: currentWorkout.images[0])
+        
+        workoutTitleLabel.text = currentWorkout.title
+        infoLabel.text = currentWorkout.hint
         
         let maxTime = workoutMinutes! * 60.0
         barProgressView.progress = currentTime / maxTime
@@ -106,21 +117,19 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
             }
             
         })
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 8, execute: {
             
             self.performSegue(withIdentifier: "startStretch", sender: self)
             
         })
-
-    }
-    
-    @IBAction func unwindtoPrepare(segue: UIStoryboardSegue) {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+//        viewHeightConstraint.constant = 240
         
     }
     
@@ -132,6 +141,7 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
             desVC.navTitle = navTitle
             desVC.workoutIndex = workoutIndex
             desVC.currentTime = currentTime
+            desVC.currentRepeat = currentRepeat
         }
         
         if let pauseVC = segue.destination as? PauseViewController {
