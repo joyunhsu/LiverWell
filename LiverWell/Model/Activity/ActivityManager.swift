@@ -9,7 +9,7 @@
 class ActivityManager {
 
     let trainGroup = ActivityGroup(
-        firstLineTitle: " 一點一滴訓練肌肉 ",
+        firstLineTitle: " 一點一滴訓減重練肌肉 ",
         secondLineTitle: " 打造健康的易瘦體質 ",
         caption: "肌肉消耗的熱量是脂肪的十倍。活化肌肉，就算只是走路時抬頭挺胸、縮肚子也會帶來效果！",
         items: [

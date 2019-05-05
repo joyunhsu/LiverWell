@@ -1703,7 +1703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdT-KW-Aqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6462" y="779"/>
+            <point key="canvasLocation" x="6433" y="781"/>
         </scene>
         <!--伸展運動-->
         <scene sceneID="43e-kC-aEq">
@@ -1834,7 +1834,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jqG-cN-yFC"/>
+        <segue reference="p0i-ZF-yMl"/>
         <segue reference="hdZ-Mn-LOm"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>

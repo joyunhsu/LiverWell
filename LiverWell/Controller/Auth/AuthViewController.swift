@@ -10,15 +10,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class AuthViewController: STBaseViewController {
+class AuthViewController: STBaseViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var sloganLabel: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sloganLabel.text = "每天15分鐘動一動，\n遠離脂肪肝！"
-
+        scrollView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,4 +33,8 @@ class AuthViewController: STBaseViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
+    }
 }
