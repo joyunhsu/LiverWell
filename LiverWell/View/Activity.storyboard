@@ -1138,7 +1138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbN-3R-ARd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6818" y="-11"/>
+            <point key="canvasLocation" x="7252" y="-779"/>
         </scene>
         <!--Finish Workout View Controller-->
         <scene sceneID="psP-fn-sai">
@@ -1172,7 +1172,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gc-Jn-gsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5BI-xT-dU4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7642" y="-11"/>
+            <point key="canvasLocation" x="7950" y="-11"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="8zg-aB-A6q">
@@ -1304,7 +1304,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qk0-2E-hnh" kind="relationship" relationship="rootViewController" id="fR9-EY-rAf"/>
+                        <segue destination="Xdj-cM-DRT" kind="relationship" relationship="rootViewController" id="QMF-5s-9Yg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7J-GA-TZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1357,7 +1357,7 @@
                                 <color key="textColor" name="B1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重複動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-lA-awC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="維持動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-lA-awC">
                                 <rect key="frame" x="157" y="415" width="61.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="Att-WH-Rq6"/>
@@ -1484,7 +1484,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b4U-Wx-Z62"/>
                     </view>
-                    <navigationItem key="navigationItem" title="久坐伸展" id="18Z-PH-jvq"/>
+                    <navigationItem key="navigationItem" title="伸展運動" id="18Z-PH-jvq"/>
                     <connections>
                         <outlet property="barProgressView" destination="RrI-ba-tNl" id="xCG-4o-y3Y"/>
                         <outlet property="countDownLabel" destination="r38-13-jjz" id="XeZ-Y0-zjD"/>
@@ -1494,12 +1494,313 @@
                         <outlet property="workoutImageView" destination="VYx-KE-WOy" id="aCQ-Ul-dKZ"/>
                         <outlet property="workoutTitleLabel" destination="dPY-pl-z4q" id="zaj-e3-DY9"/>
                         <segue destination="FzE-w5-HUl" kind="show" identifier="finishStretch" id="hdZ-Mn-LOm"/>
-                        <segue destination="XvZ-sX-8C0" kind="show" identifier="startRest" animates="NO" id="L0i-6q-H9f"/>
+                        <segue destination="xjT-hk-Syw" kind="unwind" identifier="unwindToCountdown" unwindAction="unwindtoCountdownWithSegue:" id="LvN-x7-Eh6"/>
+                        <segue destination="xjT-hk-Syw" kind="unwind" identifier="unwindToPrepare" unwindAction="unwindtoPrepareWithSegue:" id="giD-dB-Hw0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBG-n1-KWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xjT-hk-Syw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5625" y="781"/>
+            <point key="canvasLocation" x="7252" y="780"/>
+        </scene>
+        <!--伸展運動-->
+        <scene sceneID="PTM-ft-Mwd">
+            <objects>
+                <viewController title="伸展運動" id="1J1-ok-BaP" customClass="StretchPrepareViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDc-yP-uMe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-7v-3ag">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.47843137250000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sOO-qO-rPU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="暫停運動"/>
+                                <connections>
+                                    <segue destination="4C1-hB-deh" kind="presentation" animates="NO" id="p0i-ZF-yMl"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-EM-DAb">
+                                <rect key="frame" x="0.0" y="69" width="375" height="240"/>
+                                <color key="backgroundColor" name="Beige"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="qtd-Gc-4rC"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-ZT-6RY" userLabel="Countdown View">
+                                <rect key="frame" x="0.0" y="69" width="375" height="240"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.47843137254901963" blue="0.14509803921568629" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="DQW-Ft-rOQ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛巾捲腹運動" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLS-DQ-iI5">
+                                <rect key="frame" x="120.5" y="331" width="134" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="i89-eW-IYL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="慢慢將上半身抬起、捲起身體" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-hx-O5H">
+                                <rect key="frame" x="94.5" y="365" width="186" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="iw1-pM-09D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預備動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-Nx-8EA">
+                                <rect key="frame" x="157" y="415" width="61.5" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Uc4-Tv-qN6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCi-Ej-3dk">
+                                <rect key="frame" x="134.5" y="441" width="106" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="82m-Hq-zh4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                <color key="textColor" name="B3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-ak-XWq">
+                                <rect key="frame" x="97" y="515" width="181" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="dgR-C8-1V4"/>
+                                    <constraint firstAttribute="width" constant="181" id="dxV-cG-O3n"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oRt-Vq-dmI">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepeatCollectionViewCell" id="6cp-b9-jmq" userLabel="RepeatCell" customClass="RepeatCollectionViewCell" customModule="LiverWell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyf-bE-dwr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="0sn-2Z-p5H"/>
+                                                        <constraint firstAttribute="height" constant="25" id="Lvt-P6-9Pg"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                                            <real key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-iw-OC7">
+                                                    <rect key="frame" x="9" y="4" width="7" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="c7Z-DF-xzk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ypw-iw-OC7" firstAttribute="centerX" secondItem="Yyf-bE-dwr" secondAttribute="centerX" id="4rT-cB-FPO"/>
+                                            <constraint firstItem="Yyf-bE-dwr" firstAttribute="centerX" secondItem="6cp-b9-jmq" secondAttribute="centerX" id="EVU-1P-lhR"/>
+                                            <constraint firstItem="ypw-iw-OC7" firstAttribute="centerY" secondItem="Yyf-bE-dwr" secondAttribute="centerY" id="OGA-Lu-mBf"/>
+                                            <constraint firstItem="Yyf-bE-dwr" firstAttribute="centerY" secondItem="6cp-b9-jmq" secondAttribute="centerY" id="sb2-R1-4mS"/>
+                                        </constraints>
+                                        <size key="customSize" width="25" height="25"/>
+                                        <connections>
+                                            <outlet property="cellBackground" destination="Yyf-bE-dwr" id="qg0-U5-AOh"/>
+                                            <outlet property="counterLabel" destination="ypw-iw-OC7" id="6km-od-OEl"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="1J1-ok-BaP" id="2LF-jd-Bwj"/>
+                                    <outlet property="delegate" destination="1J1-ok-BaP" id="kRh-1w-6hq"/>
+                                </connections>
+                            </collectionView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-oZ-Hrd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="oEV-xr-aL7"/>
+                                </constraints>
+                                <color key="progressTintColor" name="Orange"/>
+                                <color key="trackTintColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj8-V7-npx">
+                                <rect key="frame" x="339" y="89" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="1z6-uR-fDv"/>
+                                    <constraint firstAttribute="height" constant="20" id="hsI-7f-zUL"/>
+                                </constraints>
+                                <state key="normal" image="Icon_Workout_SoundOn"/>
+                                <state key="selected" image="Icon_Workout_SoundOff"/>
+                                <connections>
+                                    <action selector="toggleSonudBtnPressed:" destination="1J1-ok-BaP" eventType="touchUpInside" id="fyP-9R-8zN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fzc-Nx-8EA" firstAttribute="top" secondItem="LLG-hx-O5H" secondAttribute="bottom" constant="30" id="5Wf-y3-f2A"/>
+                            <constraint firstItem="iLS-DQ-iI5" firstAttribute="top" secondItem="ZjT-EM-DAb" secondAttribute="bottom" constant="22" id="G9D-gZ-Luk"/>
+                            <constraint firstItem="hLZ-bu-NJl" firstAttribute="trailing" secondItem="ZjT-EM-DAb" secondAttribute="trailing" id="KbF-WD-TC1"/>
+                            <constraint firstItem="Fzc-Nx-8EA" firstAttribute="centerX" secondItem="hLZ-bu-NJl" secondAttribute="centerX" id="UWB-jH-mLr"/>
+                            <constraint firstItem="eIS-ZT-6RY" firstAttribute="width" secondItem="ZjT-EM-DAb" secondAttribute="width" id="UYq-5w-9x1"/>
+                            <constraint firstItem="aj8-V7-npx" firstAttribute="top" secondItem="pyO-oZ-Hrd" secondAttribute="bottom" constant="20" id="VCj-bR-fck"/>
+                            <constraint firstItem="hLZ-bu-NJl" firstAttribute="bottom" secondItem="hvD-7v-3ag" secondAttribute="bottom" id="Wlu-QQ-DQZ"/>
+                            <constraint firstItem="egZ-ak-XWq" firstAttribute="top" secondItem="sCi-Ej-3dk" secondAttribute="bottom" constant="20" id="axH-4Q-ROj"/>
+                            <constraint firstItem="hvD-7v-3ag" firstAttribute="leading" secondItem="hLZ-bu-NJl" secondAttribute="leading" id="bqn-wl-Xk5"/>
+                            <constraint firstItem="egZ-ak-XWq" firstAttribute="centerX" secondItem="hLZ-bu-NJl" secondAttribute="centerX" id="dun-ay-X9j"/>
+                            <constraint firstAttribute="trailing" secondItem="hvD-7v-3ag" secondAttribute="trailing" id="eeM-eD-rqG"/>
+                            <constraint firstItem="LLG-hx-O5H" firstAttribute="top" secondItem="iLS-DQ-iI5" secondAttribute="bottom" constant="4" id="fej-2y-4eG"/>
+                            <constraint firstAttribute="trailing" secondItem="pyO-oZ-Hrd" secondAttribute="trailing" id="gx9-bT-wew"/>
+                            <constraint firstItem="pyO-oZ-Hrd" firstAttribute="leading" secondItem="vDc-yP-uMe" secondAttribute="leading" id="mop-6r-fhK"/>
+                            <constraint firstItem="sCi-Ej-3dk" firstAttribute="centerX" secondItem="hLZ-bu-NJl" secondAttribute="centerX" id="oGy-0R-7Tg"/>
+                            <constraint firstItem="pyO-oZ-Hrd" firstAttribute="top" secondItem="vDc-yP-uMe" secondAttribute="top" constant="64" id="qSt-WZ-0gu"/>
+                            <constraint firstItem="LLG-hx-O5H" firstAttribute="centerX" secondItem="hLZ-bu-NJl" secondAttribute="centerX" id="s6b-J1-a7C"/>
+                            <constraint firstItem="iLS-DQ-iI5" firstAttribute="centerX" secondItem="hLZ-bu-NJl" secondAttribute="centerX" id="snW-jd-ZDj"/>
+                            <constraint firstItem="ZjT-EM-DAb" firstAttribute="leading" secondItem="hLZ-bu-NJl" secondAttribute="leading" id="u68-V1-snN"/>
+                            <constraint firstItem="eIS-ZT-6RY" firstAttribute="bottom" secondItem="ZjT-EM-DAb" secondAttribute="bottom" id="vRH-qs-tLh"/>
+                            <constraint firstItem="hLZ-bu-NJl" firstAttribute="trailing" secondItem="aj8-V7-npx" secondAttribute="trailing" constant="16" id="wR8-9q-7E2"/>
+                            <constraint firstItem="ZjT-EM-DAb" firstAttribute="top" secondItem="pyO-oZ-Hrd" secondAttribute="bottom" id="wSl-c8-aZ9"/>
+                            <constraint firstItem="sCi-Ej-3dk" firstAttribute="top" secondItem="Fzc-Nx-8EA" secondAttribute="bottom" constant="4" id="xG6-Dd-4ti"/>
+                            <constraint firstItem="eIS-ZT-6RY" firstAttribute="centerX" secondItem="vDc-yP-uMe" secondAttribute="centerX" id="yvW-Lt-1uv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hLZ-bu-NJl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="伸展運動" id="1hi-yg-hAc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ngt-jg-j0x"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barProgressView" destination="pyO-oZ-Hrd" id="VZg-Vo-N5R"/>
+                        <outlet property="countDownLabel" destination="sCi-Ej-3dk" id="LcO-bg-JrJ"/>
+                        <outlet property="infoLabel" destination="LLG-hx-O5H" id="XJa-8C-rle"/>
+                        <outlet property="repeatCollectionView" destination="egZ-ak-XWq" id="rf5-4p-bMh"/>
+                        <outlet property="soundBtn" destination="aj8-V7-npx" id="wtX-hI-w4O"/>
+                        <outlet property="viewHeightConstraint" destination="DQW-Ft-rOQ" id="g1a-fI-2l4"/>
+                        <outlet property="workoutImageView" destination="ZjT-EM-DAb" id="bXZ-ch-yOK"/>
+                        <outlet property="workoutTitleLabel" destination="iLS-DQ-iI5" id="G4Q-u6-svz"/>
+                        <segue destination="qk0-2E-hnh" kind="show" identifier="startStretch" animates="NO" id="PdS-EY-L3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VdT-KW-Aqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6462" y="779"/>
+        </scene>
+        <!--伸展運動-->
+        <scene sceneID="43e-kC-aEq">
+            <objects>
+                <viewController id="Xdj-cM-DRT" customClass="StretchCountdownViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N6t-20-2Yb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtz-js-Eo3">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.47843137250000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rDT-qC-P3D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="暫停運動"/>
+                                <connections>
+                                    <segue destination="4C1-hB-deh" kind="presentation" animates="NO" id="pTZ-RM-Rzg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="準備開始" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GR-1d-5p0">
+                                <rect key="frame" x="152.5" y="154" width="70" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="hV4-0C-Kw6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHa-Hs-0TF">
+                                <rect key="frame" x="170" y="196" width="35.5" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="KCy-Ky-ISt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" name="Orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下一個動作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abQ-qJ-ogX">
+                                <rect key="frame" x="144" y="375" width="87" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Tkt-8H-2QX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛巾捲腹運動" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjd-Za-37b">
+                                <rect key="frame" x="120.5" y="405" width="134" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="rEF-Dh-cRS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" name="B1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train_BackPain_01" translatesAutoresizingMaskIntoConstraints="NO" id="tJJ-xj-JbO">
+                                <rect key="frame" x="82.5" y="457" width="210" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="ah8-mF-Wlj"/>
+                                    <constraint firstAttribute="height" constant="134" id="v8H-xX-Qzi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I6B-fx-Xsx" firstAttribute="bottom" secondItem="wtz-js-Eo3" secondAttribute="bottom" id="H5w-S5-HSd"/>
+                            <constraint firstItem="wtz-js-Eo3" firstAttribute="leading" secondItem="N6t-20-2Yb" secondAttribute="leading" id="H7w-0U-jKB"/>
+                            <constraint firstItem="vjd-Za-37b" firstAttribute="centerX" secondItem="tJJ-xj-JbO" secondAttribute="centerX" id="Hid-PX-SUG"/>
+                            <constraint firstItem="abQ-qJ-ogX" firstAttribute="centerX" secondItem="vjd-Za-37b" secondAttribute="centerX" id="Ljx-56-Thm"/>
+                            <constraint firstItem="6GR-1d-5p0" firstAttribute="top" secondItem="I6B-fx-Xsx" secondAttribute="top" constant="90" id="PHP-7W-bTK"/>
+                            <constraint firstItem="wtz-js-Eo3" firstAttribute="top" secondItem="tJJ-xj-JbO" secondAttribute="bottom" constant="26" id="RaL-hG-1aZ"/>
+                            <constraint firstItem="uHa-Hs-0TF" firstAttribute="top" secondItem="6GR-1d-5p0" secondAttribute="bottom" constant="20" id="XJH-tJ-yut"/>
+                            <constraint firstItem="vjd-Za-37b" firstAttribute="top" secondItem="abQ-qJ-ogX" secondAttribute="bottom" constant="8" id="YqG-t4-UYS"/>
+                            <constraint firstItem="tJJ-xj-JbO" firstAttribute="top" secondItem="vjd-Za-37b" secondAttribute="bottom" constant="25" id="iJf-Qo-Z2Z"/>
+                            <constraint firstItem="I6B-fx-Xsx" firstAttribute="trailing" secondItem="wtz-js-Eo3" secondAttribute="trailing" id="iee-0Y-UMe"/>
+                            <constraint firstItem="tJJ-xj-JbO" firstAttribute="centerX" secondItem="I6B-fx-Xsx" secondAttribute="centerX" id="jJ4-tn-1Wd"/>
+                            <constraint firstItem="6GR-1d-5p0" firstAttribute="centerX" secondItem="N6t-20-2Yb" secondAttribute="centerX" id="kdl-pG-XH8"/>
+                            <constraint firstItem="uHa-Hs-0TF" firstAttribute="centerX" secondItem="N6t-20-2Yb" secondAttribute="centerX" id="viZ-dL-rmv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I6B-fx-Xsx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="伸展運動" id="OaG-iQ-YpK">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9Vn-r6-1VU"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="countDownLabel" destination="uHa-Hs-0TF" id="jYP-AF-PH3"/>
+                        <outlet property="workoutImage" destination="tJJ-xj-JbO" id="nfo-eQ-ETU"/>
+                        <outlet property="workoutTItle" destination="vjd-Za-37b" id="LxA-dW-6Ot"/>
+                        <segue destination="1J1-ok-BaP" kind="show" identifier="prepareStretch" animates="NO" id="z5v-WN-HXf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Rh-92-by8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5596" y="779"/>
         </scene>
     </scenes>
     <resources>
@@ -1535,7 +1836,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="jqG-cN-yFC"/>
         <segue reference="hdZ-Mn-LOm"/>
-        <segue reference="L0i-6q-H9f"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

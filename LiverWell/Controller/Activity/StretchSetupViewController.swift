@@ -85,8 +85,12 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let desVC = segue.destination as? StretchNavViewController {
-//            desVC.workoutMinutes = workoutMinutes
-            desVC.workoutArray = workoutElement?.workoutSet
+            
+            guard let workoutElement = workoutElement else { return }
+            
+            desVC.workoutArray = workoutElement.workoutSet
+            desVC.workoutMinutes = Float(workoutElement.time!)
+            desVC.navTitle = workoutElement.title
         }
         
         if let practiceVC = segue.destination as? PracticeViewController {

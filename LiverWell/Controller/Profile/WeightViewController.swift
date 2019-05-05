@@ -308,8 +308,9 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         }
         
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
+//        formatter.dateStyle = .short
+//        formatter.timeStyle = .none
+        formatter.dateFormat = "M月d日"
         formatter.locale = Locale.current
         
         let xValuesNumberFormatter = ChartsDateXAxisFormatter(
@@ -334,10 +335,12 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         lineDataSet.circleRadius = 2.5
         lineDataSet.circleColors = [UIColor.B1!]
         lineDataSet.circleHoleRadius = 0
-        lineDataSet.lineWidth = 2.5
+        lineDataSet.lineWidth = 2
         lineDataSet.colors = [UIColor.Orange!]
+        lineDataSet.drawValuesEnabled = false // hide y-values
         
         let gradient = getGradientFilling()
+        lineDataSet.fillAlpha = 0.7
         lineDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
         lineDataSet.drawFilledEnabled = true
         let data = LineChartData(dataSet: lineDataSet)
@@ -347,8 +350,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     private func getGradientFilling() -> CGGradient {
         
-        let colorTop = UIColor.hexStringToUIColor(hex: "F77A25").cgColor
-        let colorBottom = UIColor.hexStringToUIColor(hex: "FCB24C").cgColor
+        let colorTop = UIColor.Yellow!.cgColor
+        let colorBottom = UIColor.Orange!.cgColor
+//        let colorTop = UIColor.hexStringToUIColor(hex: "F77A25").cgColor
+//        let colorBottom = UIColor.hexStringToUIColor(hex: "FCB24C").cgColor
         
         let gradientColors = [colorTop, colorBottom] as CFArray
         
@@ -368,6 +373,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         self.lineChartView.rightAxis.drawLabelsEnabled = false
         self.lineChartView.rightAxis.enabled = false
         self.lineChartView.legend.enabled = false
+        self.lineChartView.xAxis.axisLineColor = .clear
         
         // Change xAxis label from top to bottom
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom

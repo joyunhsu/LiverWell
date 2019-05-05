@@ -12,13 +12,15 @@ class StretchNavViewController: UINavigationController {
 
     var workoutMinutes: Float?
     var workoutArray: [WorkoutSet]?
+    var navTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let rootViewController = viewControllers.first as? StretchWorkoutViewController {
-//            rootViewController.workoutMinutes = workoutMinutes
+        if let rootViewController = viewControllers.first as? StretchCountdownViewController {
+            rootViewController.workoutMinutes = workoutMinutes
             rootViewController.workoutArray = workoutArray
+            rootViewController.navTitle = navTitle
         }
         
     }

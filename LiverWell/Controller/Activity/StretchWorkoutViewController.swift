@@ -26,6 +26,8 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var soundBtn: UIButton!
     
+    var navTitle: String?
+    
     var barTimer: Timer?
     
     var repeatTimer: Timer?
@@ -123,6 +125,8 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         self.navigationItem.hidesBackButton = true
         
+        navigationItem.title = navTitle
+        
         setupDoneAudioPlayer()
         
         setAndPlayCountSound(soundFile: self.countSoundFileName)
@@ -140,7 +144,11 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         //        barProgressView.setProgress(currentTIme, animated: false)
         
-        setupGif()
+//        setupGif()
+        
+        guard let workoutArray = workoutArray else { return }
+        let currentWorkout = workoutArray[workoutIndex]
+        workoutImageView.image = UIImage(named: currentWorkout.images[1])
         
     }
     
@@ -156,25 +164,25 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         countAudioPlayer.pause()
     }
     
-    private func setupGif() {
-        
-        guard let workoutArray = workoutArray else { return }
-        let currentWorkout = workoutArray[workoutIndex]
-        workoutImageView.animationImages = [
-            UIImage(named: currentWorkout.images[0]),
-            UIImage(named: currentWorkout.images[1])
-            ] as? [UIImage]
-        
-        workoutImageView.animationDuration = currentWorkout.perDuration
-        workoutImageView.startAnimating()
-        
-    }
+//    private func setupGif() {
+//
+//        guard let workoutArray = workoutArray else { return }
+//        let currentWorkout = workoutArray[workoutIndex]
+//        workoutImageView.animationImages = [
+//            UIImage(named: currentWorkout.images[0]),
+//            UIImage(named: currentWorkout.images[1])
+//            ] as? [UIImage]
+//
+//        workoutImageView.animationDuration = currentWorkout.perDuration
+//        workoutImageView.startAnimating()
+//
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let workoutMinutes = workoutMinutes else { return }
         let maxTime = workoutMinutes * 60.0
-        if let destination = segue.destination as? RestViewController {
+        if let destination = segue.destination as? StretchCountdownViewController {
             destination.currentTime = self.currentTime
             destination.maxTime = maxTime
         }
@@ -323,10 +331,10 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (workoutArray.count - 1) {
             performSegue(withIdentifier: "finishStretch", sender: self)
         } else if currentRepeat == workoutArray[workoutIndex].workoutSetRepeat {
-            performSegue(withIdentifier: "startRest", sender: self)
+            performSegue(withIdentifier: "unwindToCountdown", sender: self)
             self.loadViewIfNeeded()
         } else {
-            return
+            performSegue(withIdentifier: "unwindToPrepare", sender: self)
         }
         
     }
