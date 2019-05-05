@@ -133,7 +133,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         
         let fullAttributedString = NSAttributedString(string:string, attributes: [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.foregroundColor: UIColor.lightGray.cgColor,
+            NSAttributedString.Key.foregroundColor: UIColor.B1!.cgColor,
             ])
         attributedLabel.textAlignment = .center
         attributedLabel.attributedText = fullAttributedString
@@ -142,11 +142,11 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         let rangePP = nsString.range(of: strPP)
         
         let ppLinkAttributes: [String: Any] = [
-            NSAttributedString.Key.foregroundColor.rawValue: UIColor.B1!.cgColor,
+            NSAttributedString.Key.foregroundColor.rawValue: UIColor.Orange!.cgColor,
             NSAttributedString.Key.underlineStyle.rawValue: false
         ]
         let ppActiveLinkAttributes: [String: Any] = [
-            NSAttributedString.Key.foregroundColor.rawValue: UIColor.B1!.cgColor,
+            NSAttributedString.Key.foregroundColor.rawValue: UIColor.Orange!.cgColor,
             NSAttributedString.Key.underlineStyle.rawValue: false
         ]
         
@@ -183,7 +183,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         
         if !text.isEmpty {
             startBtn.isEnabled = true
-            startBtn.backgroundColor = .B1
+            startBtn.backgroundColor = .Orange
         } else {
             startBtn.isEnabled = false
             startBtn.backgroundColor = .B3

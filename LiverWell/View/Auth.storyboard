@@ -118,6 +118,15 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="lWShadowColor">
                                         <color key="value" name="B1"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lWBorderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lWCornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="z4q-x7-9bu" kind="show" id="8cK-Uj-Zfc"/>
@@ -169,6 +178,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Login" translatesAutoresizingMaskIntoConstraints="NO" id="e71-wb-CVx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eix-en-KMv">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -234,6 +246,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Eix-en-KMv" firstAttribute="top" secondItem="L4A-sS-KbU" secondAttribute="bottom" constant="-84" id="3Z2-CR-Oet"/>
+                            <constraint firstItem="e71-wb-CVx" firstAttribute="top" secondItem="L4A-sS-KbU" secondAttribute="top" id="4CP-V9-zfL"/>
                             <constraint firstItem="pWM-rD-nji" firstAttribute="top" secondItem="2Fg-nN-uTd" secondAttribute="bottom" constant="40" id="Iju-b2-1Xj"/>
                             <constraint firstItem="V1O-rC-mWU" firstAttribute="trailing" secondItem="2Fg-nN-uTd" secondAttribute="trailing" id="J4t-Jj-jjc"/>
                             <constraint firstItem="lle-Z3-VGA" firstAttribute="bottom" secondItem="pWM-rD-nji" secondAttribute="bottom" id="KiL-Y7-I3w"/>
@@ -245,8 +259,11 @@
                             <constraint firstItem="L4A-sS-KbU" firstAttribute="trailing" secondItem="Eix-en-KMv" secondAttribute="trailing" constant="36" id="YmS-I8-BLA"/>
                             <constraint firstItem="V1O-rC-mWU" firstAttribute="bottom" secondItem="2Fg-nN-uTd" secondAttribute="bottom" id="aXm-6C-qtJ"/>
                             <constraint firstItem="pWM-rD-nji" firstAttribute="height" secondItem="2Fg-nN-uTd" secondAttribute="height" id="bcU-SB-yv0"/>
+                            <constraint firstItem="L4A-sS-KbU" firstAttribute="bottom" secondItem="e71-wb-CVx" secondAttribute="bottom" id="buP-7D-8iF"/>
                             <constraint firstItem="2Fg-nN-uTd" firstAttribute="top" secondItem="Zmb-xK-Gk0" secondAttribute="bottom" constant="40" id="cPq-xA-i5d"/>
                             <constraint firstItem="L4A-sS-KbU" firstAttribute="bottom" secondItem="Eix-en-KMv" secondAttribute="bottom" constant="40" id="etS-qx-nx4"/>
+                            <constraint firstItem="L4A-sS-KbU" firstAttribute="trailing" secondItem="e71-wb-CVx" secondAttribute="trailing" id="hGA-qT-Egq"/>
+                            <constraint firstItem="e71-wb-CVx" firstAttribute="leading" secondItem="L4A-sS-KbU" secondAttribute="leading" id="nEN-1e-Drn"/>
                             <constraint firstItem="lle-Z3-VGA" firstAttribute="trailing" secondItem="pWM-rD-nji" secondAttribute="trailing" id="olv-tL-vDC"/>
                             <constraint firstItem="pWM-rD-nji" firstAttribute="trailing" secondItem="2Fg-nN-uTd" secondAttribute="trailing" id="osS-Hd-nNw"/>
                             <constraint firstItem="V1O-rC-mWU" firstAttribute="leading" secondItem="2Fg-nN-uTd" secondAttribute="leading" id="uYB-u4-bZF"/>
@@ -265,14 +282,17 @@
             </objects>
             <point key="canvasLocation" x="1862" y="-305"/>
         </scene>
-        <!--User Name View Controller-->
+        <!--步驟 1/4-->
         <scene sceneID="jKL-cb-5pW">
             <objects>
-                <viewController id="ELB-Ne-cnh" customClass="UserNameViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="步驟 1/4" id="ELB-Ne-cnh" customClass="UserNameViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cql-ji-Ccx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Login" translatesAutoresizingMaskIntoConstraints="NO" id="y31-gE-DLM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-aS-NxG">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -329,7 +349,11 @@
                             <constraint firstItem="EBa-cs-oLn" firstAttribute="trailing" secondItem="lIa-ju-pBv" secondAttribute="trailing" id="5Bd-3m-wXm"/>
                             <constraint firstItem="1HH-Eg-BhP" firstAttribute="top" secondItem="1Hd-5w-P3S" secondAttribute="top" constant="40" id="6YH-O8-sdd"/>
                             <constraint firstItem="1Hd-5w-P3S" firstAttribute="trailing" secondItem="LJv-aS-NxG" secondAttribute="trailing" constant="36" id="8Eo-dq-Vcd"/>
+                            <constraint firstItem="1Hd-5w-P3S" firstAttribute="trailing" secondItem="y31-gE-DLM" secondAttribute="trailing" id="ADq-lY-9lk"/>
+                            <constraint firstItem="y31-gE-DLM" firstAttribute="top" secondItem="1Hd-5w-P3S" secondAttribute="top" id="DXx-gd-BI0"/>
                             <constraint firstItem="lIa-ju-pBv" firstAttribute="top" secondItem="1HH-Eg-BhP" secondAttribute="bottom" constant="40" id="FwM-gR-fqi"/>
+                            <constraint firstItem="y31-gE-DLM" firstAttribute="bottom" secondItem="1Hd-5w-P3S" secondAttribute="bottom" id="MWD-pP-Hzh"/>
+                            <constraint firstItem="y31-gE-DLM" firstAttribute="leading" secondItem="1Hd-5w-P3S" secondAttribute="leading" id="Yn8-S6-975"/>
                             <constraint firstItem="EBa-cs-oLn" firstAttribute="leading" secondItem="lIa-ju-pBv" secondAttribute="leading" id="cDL-zQ-rqV"/>
                             <constraint firstItem="1Hd-5w-P3S" firstAttribute="bottom" secondItem="LJv-aS-NxG" secondAttribute="bottom" constant="40" id="cML-at-dGW"/>
                             <constraint firstItem="1Hd-5w-P3S" firstAttribute="trailing" secondItem="lIa-ju-pBv" secondAttribute="trailing" constant="36" id="nVJ-u7-cws"/>
@@ -347,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deR-gi-moV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="463"/>
+            <point key="canvasLocation" x="1861.5999999999999" y="462.8185907046477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6s8-jT-FUe">
@@ -369,14 +393,17 @@
             </objects>
             <point key="canvasLocation" x="201" y="54"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--步驟 4/4-->
         <scene sceneID="Jl0-Sm-HqW">
             <objects>
-                <viewController id="gj6-Ok-bUF" customClass="SignUpViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="步驟 4/4" id="gj6-Ok-bUF" customClass="SignUpViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ina-zz-swg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Login" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-Nw-g4s">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhv-Q1-mdR">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -448,6 +475,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpacing">
+                                        <real key="value" value="1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -459,10 +491,14 @@
                             <constraint firstItem="aiB-v6-9hS" firstAttribute="bottom" secondItem="YZk-yA-1ph" secondAttribute="bottom" id="DxY-5y-kcF"/>
                             <constraint firstItem="I0Y-23-jAo" firstAttribute="leading" secondItem="YZk-yA-1ph" secondAttribute="leading" id="JSr-qz-vT2"/>
                             <constraint firstItem="YZk-yA-1ph" firstAttribute="top" secondItem="cRO-eC-fvx" secondAttribute="bottom" constant="40" id="KLt-cy-KWD"/>
+                            <constraint firstItem="pfa-Nw-g4s" firstAttribute="bottom" secondItem="9OO-hh-cCJ" secondAttribute="bottom" id="LmH-W6-Sev"/>
+                            <constraint firstItem="pfa-Nw-g4s" firstAttribute="top" secondItem="9OO-hh-cCJ" secondAttribute="top" id="Qgv-fp-Jbr"/>
                             <constraint firstItem="I0Y-23-jAo" firstAttribute="trailing" secondItem="YZk-yA-1ph" secondAttribute="trailing" id="UMk-4m-nRL"/>
+                            <constraint firstItem="pfa-Nw-g4s" firstAttribute="leading" secondItem="9OO-hh-cCJ" secondAttribute="leading" id="dIp-YL-vul"/>
                             <constraint firstItem="cRO-eC-fvx" firstAttribute="centerX" secondItem="9OO-hh-cCJ" secondAttribute="centerX" id="f8w-CZ-TSJ"/>
                             <constraint firstItem="LJz-Dq-twr" firstAttribute="centerX" secondItem="9OO-hh-cCJ" secondAttribute="centerX" id="fYj-my-Aoq"/>
                             <constraint firstItem="cRO-eC-fvx" firstAttribute="top" secondItem="9OO-hh-cCJ" secondAttribute="top" constant="20" id="iB9-cC-cXx"/>
+                            <constraint firstItem="9OO-hh-cCJ" firstAttribute="trailing" secondItem="pfa-Nw-g4s" secondAttribute="trailing" id="jdd-ww-fRl"/>
                             <constraint firstItem="aiB-v6-9hS" firstAttribute="leading" secondItem="YZk-yA-1ph" secondAttribute="leading" id="mcC-7W-bJW"/>
                             <constraint firstItem="9OO-hh-cCJ" firstAttribute="trailing" secondItem="YZk-yA-1ph" secondAttribute="trailing" constant="36" id="o9x-66-VkL"/>
                             <constraint firstItem="I0Y-23-jAo" firstAttribute="height" secondItem="YZk-yA-1ph" secondAttribute="height" id="rdv-2k-yHY"/>
@@ -484,16 +520,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56a-u9-pkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4124" y="463"/>
+            <point key="canvasLocation" x="4124" y="462.8185907046477"/>
         </scene>
-        <!--Current Weight View Controller-->
+        <!--步驟 2/4-->
         <scene sceneID="Cn7-YU-P8M">
             <objects>
-                <viewController id="41b-nZ-fwc" customClass="CurrentWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="步驟 2/4" id="41b-nZ-fwc" customClass="CurrentWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGN-Hc-VMF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Login" translatesAutoresizingMaskIntoConstraints="NO" id="sqD-he-qy6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quy-ae-1Y9">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -546,7 +585,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="sqD-he-qy6" firstAttribute="top" secondItem="0L4-eE-Uhe" secondAttribute="top" id="041-Qd-e39"/>
+                            <constraint firstItem="sqD-he-qy6" firstAttribute="leading" secondItem="0L4-eE-Uhe" secondAttribute="leading" id="3Bg-MF-slb"/>
+                            <constraint firstItem="sqD-he-qy6" firstAttribute="bottom" secondItem="0L4-eE-Uhe" secondAttribute="bottom" id="AjO-2V-wFx"/>
                             <constraint firstItem="YVq-TH-w0g" firstAttribute="centerX" secondItem="0L4-eE-Uhe" secondAttribute="centerX" id="Frb-v6-kFf"/>
+                            <constraint firstItem="0L4-eE-Uhe" firstAttribute="trailing" secondItem="sqD-he-qy6" secondAttribute="trailing" id="GWe-TU-qxI"/>
                             <constraint firstItem="3PM-0b-eD1" firstAttribute="leading" secondItem="5PV-Ov-sag" secondAttribute="leading" id="GXk-SU-6rJ"/>
                             <constraint firstItem="0L4-eE-Uhe" firstAttribute="trailing" secondItem="5PV-Ov-sag" secondAttribute="trailing" constant="36" id="SDU-6c-pQl"/>
                             <constraint firstItem="3PM-0b-eD1" firstAttribute="bottom" secondItem="5PV-Ov-sag" secondAttribute="bottom" id="ZDP-QQ-OY1"/>
@@ -567,16 +610,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbX-1W-gYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="463"/>
+            <point key="canvasLocation" x="2628" y="462.8185907046477"/>
         </scene>
-        <!--Expected Weight View Controller-->
+        <!--步驟 3/4-->
         <scene sceneID="n9w-pT-yqd">
             <objects>
-                <viewController id="cOM-bg-n43" customClass="ExpectedWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="步驟 3/4" id="cOM-bg-n43" customClass="ExpectedWeightViewController" customModule="LiverWell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FrI-sQ-yu9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_Login" translatesAutoresizingMaskIntoConstraints="NO" id="71z-Vh-ym6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-vW-EuD">
                                 <rect key="frame" x="36" y="583" width="303" height="44"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -629,6 +675,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="71z-Vh-ym6" firstAttribute="top" secondItem="p5C-6Z-cSv" secondAttribute="top" id="2LF-ns-6v6"/>
                             <constraint firstItem="Muh-vW-EuD" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HK5-yd-ff3"/>
                             <constraint firstItem="s9t-Vp-f4I" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" constant="36" id="HPv-R6-wdg"/>
                             <constraint firstItem="cO6-Z6-MhV" firstAttribute="centerX" secondItem="p5C-6Z-cSv" secondAttribute="centerX" id="RP6-Bf-jBw"/>
@@ -639,6 +686,9 @@
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="bottom" secondItem="Muh-vW-EuD" secondAttribute="bottom" constant="40" id="cA9-Vf-Ty5"/>
                             <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="s9t-Vp-f4I" secondAttribute="trailing" constant="36" id="d7e-8J-Pei"/>
                             <constraint firstItem="cO6-Z6-MhV" firstAttribute="top" secondItem="p5C-6Z-cSv" secondAttribute="top" constant="40" id="giN-c3-YRr"/>
+                            <constraint firstItem="p5C-6Z-cSv" firstAttribute="trailing" secondItem="71z-Vh-ym6" secondAttribute="trailing" id="ol3-C0-UF5"/>
+                            <constraint firstItem="71z-Vh-ym6" firstAttribute="bottom" secondItem="p5C-6Z-cSv" secondAttribute="bottom" id="p8u-hN-93n"/>
+                            <constraint firstItem="71z-Vh-ym6" firstAttribute="leading" secondItem="p5C-6Z-cSv" secondAttribute="leading" id="sKa-S4-pCe"/>
                             <constraint firstItem="s9t-Vp-f4I" firstAttribute="top" secondItem="cO6-Z6-MhV" secondAttribute="bottom" constant="40" id="sdC-WG-1QR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p5C-6Z-cSv"/>
@@ -650,7 +700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9g-9L-nOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3391" y="463"/>
+            <point key="canvasLocation" x="3389.5999999999999" y="462.8185907046477"/>
         </scene>
         <!--Sign Up Fourth View Controller-->
         <scene sceneID="UAl-TC-4G8">
@@ -738,6 +788,7 @@
     </scenes>
     <resources>
         <image name="Background_Auth" width="375" height="667"/>
+        <image name="Background_Login" width="375" height="667"/>
         <image name="Intro_Auth_1" width="375" height="446"/>
         <image name="Intro_Auth_2" width="375" height="446"/>
         <image name="Intro_Auth_3" width="375" height="446"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpectedWeightViewController: UIViewController, UITextFieldDelegate {
+class ExpectedWeightViewController: STBaseViewController, UITextFieldDelegate {
 
     @IBOutlet weak var expectWeightTextfield: UITextField!
     
@@ -51,7 +51,7 @@ class ExpectedWeightViewController: UIViewController, UITextFieldDelegate {
         
         if !text.isEmpty {
             nextBtn.isEnabled = true
-            nextBtn.backgroundColor = .Orange
+            nextBtn.backgroundColor = .B1
         } else {
             nextBtn.isEnabled = false
             nextBtn.backgroundColor = .B3
