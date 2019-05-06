@@ -750,6 +750,12 @@
                                             <color key="progressTintColor" name="G1"/>
                                             <color key="trackTintColor" name="B5"/>
                                         </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3v-Eu-Dtp">
+                                            <rect key="frame" x="25" y="175" width="30" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_Profile_Star" translatesAutoresizingMaskIntoConstraints="NO" id="pMN-6B-Hhb">
                                             <rect key="frame" x="337" y="178" width="11" height="11"/>
                                             <constraints>
@@ -900,6 +906,8 @@
                                         <constraint firstItem="tWg-se-zsv" firstAttribute="top" secondItem="1gt-vm-0f8" secondAttribute="top" id="iXL-By-pxx"/>
                                         <constraint firstAttribute="trailing" secondItem="M6Z-Us-Yq6" secondAttribute="trailing" constant="20" id="kae-Ph-y8q"/>
                                         <constraint firstItem="eZ8-5o-zdm" firstAttribute="top" secondItem="lzI-79-6MP" secondAttribute="bottom" constant="6" id="moV-pQ-kha"/>
+                                        <constraint firstItem="G3v-Eu-Dtp" firstAttribute="leading" secondItem="gbV-JB-PBo" secondAttribute="leading" constant="5" id="pYc-1o-mVN"/>
+                                        <constraint firstItem="G3v-Eu-Dtp" firstAttribute="centerY" secondItem="gbV-JB-PBo" secondAttribute="centerY" id="tPS-eD-1yz"/>
                                         <constraint firstItem="9hT-xi-nCK" firstAttribute="top" secondItem="gbV-JB-PBo" secondAttribute="bottom" constant="58" id="vBV-EL-9eF"/>
                                         <constraint firstItem="lzI-79-6MP" firstAttribute="top" secondItem="Xjy-px-7Qy" secondAttribute="bottom" constant="30" id="wzy-fs-gkM"/>
                                         <constraint firstItem="eZ8-5o-zdm" firstAttribute="leading" secondItem="1gt-vm-0f8" secondAttribute="leading" constant="20" id="xSV-CP-ebM"/>
@@ -970,6 +978,7 @@
                         <outlet property="expectedWeightLabel" destination="oZd-8B-wmV" id="Zih-dO-4cc"/>
                         <outlet property="levelCollectionView" destination="eZ8-5o-zdm" id="PMC-jF-oUg"/>
                         <outlet property="lineChartView" destination="lzI-79-6MP" id="X8y-4b-yZT"/>
+                        <outlet property="progressLabel" destination="G3v-Eu-Dtp" id="Lw9-PF-Fwr"/>
                         <outlet property="progressView" destination="gbV-JB-PBo" id="CMn-T0-qqe"/>
                         <outlet property="startMonthLabel" destination="jiE-lB-7AI" id="sGy-G3-dVz"/>
                         <outlet property="statusCaptionLabel" destination="oGh-jS-5lQ" id="chd-2L-zCN"/>

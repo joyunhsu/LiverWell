@@ -62,7 +62,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
             
             doneAudioPlayer.volume = 1
             
-            countAudioPlayer.volume = 1
+            keepAudioPlayer.volume = 1
             
             soundBtn.isSelected = true // onIcon -> default
             
@@ -70,7 +70,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
             
             doneAudioPlayer.volume = 0
             
-            countAudioPlayer.volume = 0
+            keepAudioPlayer.volume = 0
             
             soundBtn.isSelected = false
             
@@ -78,7 +78,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    var countAudioPlayer = AVAudioPlayer()
+    var keepAudioPlayer = AVAudioPlayer()
     
     var doneAudioPlayer = AVAudioPlayer()
     
@@ -88,23 +88,23 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func setAndPlayCountSound(soundFile: Int) {
         
-        let sound = Bundle.main.path(forResource: String(soundFile), ofType: "mp3")
+        let sound = Bundle.main.path(forResource: "Keep", ofType: "mp3")
         
         do {
-            try countAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            try keepAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
         } catch {
             print(error)
         }
         
-        countAudioPlayer.play()
+        keepAudioPlayer.play()
         
         if soundIsOn == true {
             
-            countAudioPlayer.volume = 1
+            keepAudioPlayer.volume = 1
             
         } else {
             
-            countAudioPlayer.volume = 0
+            keepAudioPlayer.volume = 0
         }
     }
     
@@ -157,7 +157,7 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
         repeatCountingText = [String]()
         
         doneAudioPlayer.pause()
-        countAudioPlayer.pause()
+        keepAudioPlayer.pause()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -208,11 +208,6 @@ class StretchWorkoutViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func changeRepeatCounts(totalCount: Int, timeInterval: TimeInterval) {
-        
-        for i in 1...totalCount {
-            let repeatCount = "00:\(i)"
-            repeatCountingText.append(repeatCount)
-        }
         
         repeatTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             

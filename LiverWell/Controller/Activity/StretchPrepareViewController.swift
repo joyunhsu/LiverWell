@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // swiftlint:disable identifier_name
 class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
@@ -55,6 +56,20 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
     
     var soundIsOn: Bool = true // offIcon -> selected
     
+    var audioPlayer = AVAudioPlayer()
+    
+    private func setupAudioPlayer() {
+        
+        let sound = Bundle.main.path(forResource: "Prepare", ofType: "mp3")
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        } catch {
+            print(error)
+        }
+        
+    }
+    
     @IBAction func toggleSonudBtnPressed(_ sender: UIButton) {
         
         soundIsOn = !soundIsOn
@@ -85,6 +100,8 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
         navigationItem.title = navTitle
         
         self.navigationItem.hidesBackButton = true
+        
+        setupAudioPlayer()
     }
     
     @IBAction func unwindtoPrepare(segue: UIStoryboardSegue) {
@@ -123,6 +140,8 @@ class StretchPrepareViewController: UIViewController, UICollectionViewDelegate {
             self.performSegue(withIdentifier: "startStretch", sender: self)
             
         })
+        
+        audioPlayer.play()
         
     }
     

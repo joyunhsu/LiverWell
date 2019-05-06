@@ -12,6 +12,9 @@
 		6E2CAC952274852700C27748 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC942274852700C27748 /* SignUpViewController.swift */; };
 		6E2CAC972274854200C27748 /* UserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC962274854200C27748 /* UserNameViewController.swift */; };
 		6E2CAC992274863600C27748 /* CurrentWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CAC982274863600C27748 /* CurrentWeightViewController.swift */; };
+		6E40CAA9227FCA740099BF47 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAA8227FCA740099BF47 /* Int+Extension.swift */; };
+		6E40CAAC227FD7430099BF47 /* Keep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E40CAAA227FD7430099BF47 /* Keep.mp3 */; };
+		6E40CAAD227FD7430099BF47 /* Prepare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E40CAAB227FD7430099BF47 /* Prepare.mp3 */; };
 		6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E49C98D2253D8FD006536A2 /* ActivityItem.swift */; };
 		6E49C9902253DA08006536A2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C98F2253DA08006536A2 /* Home.storyboard */; };
 		6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9912253DA1A006536A2 /* Activity.storyboard */; };
@@ -115,6 +118,9 @@
 		6E2CAC942274852700C27748 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6E2CAC962274854200C27748 /* UserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewController.swift; sourceTree = "<group>"; };
 		6E2CAC982274863600C27748 /* CurrentWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeightViewController.swift; sourceTree = "<group>"; };
+		6E40CAA8227FCA740099BF47 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		6E40CAAA227FD7430099BF47 /* Keep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Keep.mp3; path = Counting/Keep.mp3; sourceTree = "<group>"; };
+		6E40CAAB227FD7430099BF47 /* Prepare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Prepare.mp3; path = Counting/Prepare.mp3; sourceTree = "<group>"; };
 		6E49C98D2253D8FD006536A2 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		6E49C98F2253DA08006536A2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6E49C9912253DA1A006536A2 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 			children = (
 				6E664C0C2269A9CE00221184 /* Counting */,
 				6E664C082269A6FC00221184 /* Countdown.mp3 */,
+				6E40CAAA227FD7430099BF47 /* Keep.mp3 */,
+				6E40CAAB227FD7430099BF47 /* Prepare.mp3 */,
 				6E664C0A2269A98300221184 /* DonePerCount.mp3 */,
 				6E664C0622699EC300221184 /* Mermaid.mp3 */,
 			);
@@ -480,6 +488,7 @@
 				6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */,
 				6E664C2F226DA55100221184 /* Date+Extension.swift */,
 				6EF3388C227BFD0E00A65924 /* Double+Extension.swift */,
+				6E40CAA8227FCA740099BF47 /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -625,11 +634,13 @@
 				6E49C9902253DA08006536A2 /* Home.storyboard in Resources */,
 				6E664C212269A9DB00221184 /* 6.mp3 in Resources */,
 				6E9599BD2259C49200BC1D9A /* FirstActivityInfoTableViewCell.xib in Resources */,
+				6E40CAAD227FD7430099BF47 /* Prepare.mp3 in Resources */,
 				6E664C0B2269A98300221184 /* DonePerCount.mp3 in Resources */,
 				6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */,
 				6E49C9962253DA37006536A2 /* Profile.storyboard in Resources */,
 				6E664C262269A9DB00221184 /* 1.mp3 in Resources */,
 				6EE01FB7226433360026C911 /* Auth.storyboard in Resources */,
+				6E40CAAC227FD7430099BF47 /* Keep.mp3 in Resources */,
 				6E664C222269A9DB00221184 /* 12.mp3 in Resources */,
 				6E664C252269A9DB00221184 /* 15.mp3 in Resources */,
 				6E664C34226F867D00221184 /* 4.mp3 in Resources */,
@@ -795,6 +806,7 @@
 				6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */,
 				6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
+				6E40CAA9227FCA740099BF47 /* Int+Extension.swift in Sources */,
 				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
 				6E892A452260466A00742339 /* RestViewController.swift in Sources */,
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
