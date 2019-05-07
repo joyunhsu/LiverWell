@@ -243,17 +243,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         if totalWorkoutTime > 15 {
             
-            stretchProgressView.value = 15
-            
-            trainProgressView.value = CGFloat(trainWorkoutTime * 15 / totalWorkoutTime)
+            UIView.animate(withDuration: 1.0) {
+                
+                self.stretchProgressView.value = 15
+                
+                self.trainProgressView.value = CGFloat(trainWorkoutTime * 15 / totalWorkoutTime)
+                
+            }
             
             remainingTimeLabel.text = "0分鐘"
             
         } else {
             
-            stretchProgressView.value = CGFloat(totalWorkoutTime)
-            
-            trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            UIView.animate(withDuration: 1.0) {
+                
+                self.stretchProgressView.value = CGFloat(totalWorkoutTime)
+                
+                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+                
+            }
             
             remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
             

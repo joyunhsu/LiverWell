@@ -205,6 +205,8 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 
                 self?.barChartViewSetup()
                 
+                self?.chartView.animate(yAxisDuration: 1)
+                
         }
         
     }
