@@ -35,10 +35,14 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     }
     
     @IBAction func nextWeekBtnPressed(_ sender: UIButton) {
+        print("---yo-----")
+        print(Date().timeIntervalSince1970)
         workoutDataArray = [WorkoutData]()
         weeksBeforeCount += 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
         presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
+        print("-----發大財-----")
+        print(Date().timeIntervalSince1970)
     }
     
     @IBAction func previousWeekBtnPressed(_ sender: UIButton) {
@@ -122,15 +126,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         nextWeekBtn.isHidden = true
         
-//        getWeeklyWorkoutData()
-        
-//        let today = Date()
-//        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0, to: today) else { return }
-//        guard let monday = referenceDay.startOfWeek else { return }
-//        guard let sunday = referenceDay.endOfWeek else { return }
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "M月d日"
-//        weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
         weekStartEndLabel.text = "本週記錄"
         
     }
@@ -171,24 +166,34 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
                 for document in snapshot!.documents {
                     
                     guard let createdTime = document.get("created_time") as? Timestamp else { return }
+
+                    var json = document.data()
                     
-                    let date = createdTime.dateValue()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    let convertedDate = dateFormatter.string(from: date)
+                    json["created_time"] = nil
                     
-                    guard let activityType = document.get("activity_type") as? String else { return }
-                    guard let title = document.get("title") as? String else { return }
-                    guard let workoutTime = document.get("workout_time") as? Int else { return }
+                    var item = try? document.decode(as: WorkoutData.self, data: json)
+
+                    item?.timestampToDate = createdTime.dateValue()
+
+                    self?.workoutDataArray.append(item!)
                     
-                    self?.workoutDataArray.append(
-                        WorkoutData(
-                            convertedDate: convertedDate,
-                            timestampToDate: date,
-                            workoutTime: workoutTime,
-                            title: title,
-                            activityType: activityType)
-                    )
+//                    let date = createdTime.dateValue()
+//                    let dateFormatter = DateFormatter()
+//                    dateFormatter.dateFormat = "yyyy-MM-dd"
+//                    let convertedDate = dateFormatter.string(from: date)
+//
+//                    guard let activityType = document.get("activity_type") as? String else { return }
+//                    guard let title = document.get("title") as? String else { return }
+//                    guard let workoutTime = document.get("workout_time") as? Int else { return }
+//
+//                    self?.workoutDataArray.append(
+//                        WorkoutData(
+//                            convertedDate: convertedDate,
+//                            timestampToDate: date,
+//                            workoutTime: workoutTime,
+//                            title: title,
+//                            activityType: activityType)
+//                    )
                     
                 }
             }

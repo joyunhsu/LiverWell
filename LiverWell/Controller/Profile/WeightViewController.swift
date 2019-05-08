@@ -42,6 +42,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     @IBOutlet weak var lineChartView: LineChartView!
     
+//    struct WeightData {
+//        let createdTimeString: String,
+//        let createdTime: Date,
+//        let documentID: String,
+//        let weight: Double
+//    }
+    
     var weightDataArray = [WeightData]() {
         didSet {
             tableView.reloadData()
@@ -52,13 +59,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     var initialWeight: Double = 0
     var lastMonthWeight: Double = 0
     var currentWeight: Double = 0
-    
-    struct WeightData {
-        let createdTimeString: String
-        let createdTime: Date
-        let documentID: String
-        let weight: Double
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

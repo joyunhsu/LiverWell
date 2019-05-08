@@ -18,9 +18,25 @@ class FIRFirestoreService {
         FirebaseApp.configure()
     }
     
+    let today = Date()
+    
     private func reference(to collectionReference: FIRCollectionReference) -> CollectionReference {
-//        return Firestore.firestore().collection(collectionReference.rawValue)
+        return Firestore.firestore().collection(collectionReference.rawValue)
+    }
+    
+//    func firebase(query: (CollectionReference) -> Query) {
+//
+//        let query = query(Firestore.firestore().collection("users"))
+//
+//        query.getDocuments(completion: {_,_ in
+//
+//        })
+//    }
+
+    private func userSubReference(to collectionReference: FIRCollectionReference) -> CollectionReference {
         let user = Auth.auth().currentUser
+        
+        Firestore.firestore().collection("users")
         
         return Firestore.firestore()
             .collection("users").document(user!.uid)
@@ -34,30 +50,60 @@ class FIRFirestoreService {
         } catch {
             print(error)
         }
-        
     }
     
     func read<T: Decodable>(from collectionReference: FIRCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
         
         reference(to: collectionReference).addSnapshotListener { (snapshot, _) in
-            
+
             guard let snapshot = snapshot else { return }
-            
+
             do {
                 var objects = [T]()
                 for document in snapshot.documents {
                     let object = try document.decode(as: objectType.self)
                     objects.append(object)
                 }
-                
+
                 completion(objects)
-                
+
             } catch {
                 print(error)
             }
-            
+
         }
         
+    }
+    
+    func readWeekWorkout<T: Decodable>(returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
+        
+        guard let monday = today.startOfWeek else { return }
+        
+        userSubReference(to: .workout)
+            .whereField("created_time", isGreaterThan: monday)
+            .order(by: "created_time", descending: false)
+            .getDocuments { (snapshot, error) in
+                
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    
+                    do {
+                        var objects = [T]()
+                        for document in snapshot!.documents {
+                            let object = try document.decode(as: objectType.self)
+                            objects.append(object)
+
+                        }
+                        
+                        completion(objects)
+                        
+                    } catch {
+                        print(error)
+                    }
+                
+            }
+        }
     }
     
     func update<T: Encodable & Identifiable>(for encodableObject: T, in collectionReference: FIRCollectionReference) {

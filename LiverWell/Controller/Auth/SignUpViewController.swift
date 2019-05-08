@@ -59,11 +59,12 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
     private func createUserDocument() {
         guard let userName = userName else { return }
         
-        let timestamp = NSDate().timeIntervalSince1970
-        let myTimeInterval = TimeInterval(timestamp)
-        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+//        let timestamp = NSDate().timeIntervalSince1970
+//        let myTimeInterval = TimeInterval(timestamp)
+//        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
-        let today = Date()
+        let today = Date() //.timeIntervalSince1970
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年M月d日"
         let convertedDate = dateFormatter.string(from: today)
@@ -85,21 +86,21 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
                 "name": userName,
                 "initial_weight": expectedWeightDouble,
                 "expected_weight": initialWeightDouble,
-                "signup_time": time
+                "signup_time": today
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
 
-                    self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: time)
+                    self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: today)
                 }
             }
 
         }
     }
     
-    private func addInitialWeight(uid: String, convertedDate: String, time: NSDate) {
+    private func addInitialWeight(uid: String, convertedDate: String, time: Date) {
         
         AppDelegate.db.collection("users").document(uid).collection("weight").document(convertedDate).setData(
             [
