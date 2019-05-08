@@ -15,6 +15,11 @@
 		6E40CAA9227FCA740099BF47 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAA8227FCA740099BF47 /* Int+Extension.swift */; };
 		6E40CAAC227FD7430099BF47 /* Keep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E40CAAA227FD7430099BF47 /* Keep.mp3 */; };
 		6E40CAAD227FD7430099BF47 /* Prepare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E40CAAB227FD7430099BF47 /* Prepare.mp3 */; };
+		6E40CAB1228152530099BF47 /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAB0228152530099BF47 /* FIRFirestoreService.swift */; };
+		6E40CAB3228161CA0099BF47 /* FIRCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAB2228161CA0099BF47 /* FIRCollectionReference.swift */; };
+		6E40CAB622816CDC0099BF47 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAB522816CDC0099BF47 /* UserItem.swift */; };
+		6E40CAB8228170BC0099BF47 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAB7228170BC0099BF47 /* Encodable+Extension.swift */; };
+		6E40CABA22817EBF0099BF47 /* Snapshot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40CAB922817EBF0099BF47 /* Snapshot+Extension.swift */; };
 		6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E49C98D2253D8FD006536A2 /* ActivityItem.swift */; };
 		6E49C9902253DA08006536A2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C98F2253DA08006536A2 /* Home.storyboard */; };
 		6E49C9922253DA1A006536A2 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E49C9912253DA1A006536A2 /* Activity.storyboard */; };
@@ -121,6 +126,11 @@
 		6E40CAA8227FCA740099BF47 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		6E40CAAA227FD7430099BF47 /* Keep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Keep.mp3; path = Counting/Keep.mp3; sourceTree = "<group>"; };
 		6E40CAAB227FD7430099BF47 /* Prepare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Prepare.mp3; path = Counting/Prepare.mp3; sourceTree = "<group>"; };
+		6E40CAB0228152530099BF47 /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
+		6E40CAB2228161CA0099BF47 /* FIRCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRCollectionReference.swift; sourceTree = "<group>"; };
+		6E40CAB522816CDC0099BF47 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
+		6E40CAB7228170BC0099BF47 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		6E40CAB922817EBF0099BF47 /* Snapshot+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+Extension.swift"; sourceTree = "<group>"; };
 		6E49C98D2253D8FD006536A2 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		6E49C98F2253DA08006536A2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6E49C9912253DA1A006536A2 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
@@ -251,6 +261,14 @@
 				6E2CAC982274863600C27748 /* CurrentWeightViewController.swift */,
 				6E761ECF2274DC6F00FD2C88 /* ExpectedWeightViewController.swift */,
 				6E2CAC942274852700C27748 /* SignUpViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		6E40CAB422816CCD0099BF47 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6E40CAB522816CDC0099BF47 /* UserItem.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -419,11 +437,14 @@
 		6EA8CBCE22533261000859FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E40CAB422816CCD0099BF47 /* Auth */,
 				6EA2EA6E225494070039B39F /* Home */,
 				6EA8CBDB22536695000859FD /* Activity */,
 				6EA2EA6F2254940F0039B39F /* Knowledge */,
 				6EA2EA702254942B0039B39F /* Profile */,
 				6EE01FBA22656C580026C911 /* FirebaseManager.swift */,
+				6E40CAB0228152530099BF47 /* FIRFirestoreService.swift */,
+				6E40CAB2228161CA0099BF47 /* FIRCollectionReference.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +510,8 @@
 				6E664C2F226DA55100221184 /* Date+Extension.swift */,
 				6EF3388C227BFD0E00A65924 /* Double+Extension.swift */,
 				6E40CAA8227FCA740099BF47 /* Int+Extension.swift */,
+				6E40CAB7228170BC0099BF47 /* Encodable+Extension.swift */,
+				6E40CAB922817EBF0099BF47 /* Snapshot+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -797,17 +820,21 @@
 				6EAA7A32225A7B740054AA69 /* DetailKnowledgeViewController.swift in Sources */,
 				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,
 				6E2CAC972274854200C27748 /* UserNameViewController.swift in Sources */,
+				6E40CAB1228152530099BF47 /* FIRFirestoreService.swift in Sources */,
 				6E892A43225F022600742339 /* WorkoutViewController.swift in Sources */,
 				6E892A41225F01C600742339 /* PauseViewController.swift in Sources */,
+				6E40CAB3228161CA0099BF47 /* FIRCollectionReference.swift in Sources */,
 				6E49C98E2253D8FD006536A2 /* ActivityItem.swift in Sources */,
 				6EE3182322718F3600283EEB /* StatusItem.swift in Sources */,
 				6E9599C02259C4B200BC1D9A /* SecondActivityInfoTableViewCell.swift in Sources */,
 				6EA8CBD622533B2F000859FD /* ActivityCollectionViewCell.swift in Sources */,
+				6E40CABA22817EBF0099BF47 /* Snapshot+Extension.swift in Sources */,
 				6EAA7A37225AF84B0054AA69 /* HeaderCollectionViewCell.swift in Sources */,
 				6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */,
 				6EA8CBD922533E80000859FD /* ActivityViewController.swift in Sources */,
 				6E40CAA9227FCA740099BF47 /* Int+Extension.swift in Sources */,
 				6E9599B5225901D400BC1D9A /* StretchSetupViewController.swift in Sources */,
+				6E40CAB8228170BC0099BF47 /* Encodable+Extension.swift in Sources */,
 				6E892A452260466A00742339 /* RestViewController.swift in Sources */,
 				6E9599B12258EB6C00BC1D9A /* TrainSetupViewController.swift in Sources */,
 				6EE614B1225B3792003A104C /* ProfileViewController.swift in Sources */,
@@ -818,6 +845,7 @@
 				6E892A3F225EE8E300742339 /* CountDownViewController.swift in Sources */,
 				6EF33891227E040000A65924 /* StretchCountdownViewController.swift in Sources */,
 				6EE0200A22683B740026C911 /* HomeObject.swift in Sources */,
+				6E40CAB622816CDC0099BF47 /* UserItem.swift in Sources */,
 				6E664C3622700F7800221184 /* StretchWorkoutViewController.swift in Sources */,
 				6EAA7A30225A7A700054AA69 /* KnowledgeTableViewCell.swift in Sources */,
 				6EE01FBB22656C580026C911 /* FirebaseManager.swift in Sources */,

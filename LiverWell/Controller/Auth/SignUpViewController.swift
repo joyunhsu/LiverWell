@@ -50,12 +50,13 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
             
             self.createUserDocument()
             
+            self.createUserDocument()
+            
         }
         
     }
     
     private func createUserDocument() {
-        
         guard let userName = userName else { return }
         
         let timestamp = NSDate().timeIntervalSince1970
@@ -69,24 +70,28 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         
         let user = Auth.auth().currentUser
         
+        let expectedWeightDouble = Double(expectedWeight!)
+
+        let initialWeightDouble = Double(currentWeight!)!
+        
         if let user = user {
-            
+
             let uid = user.uid
-            
+
             let userName = userName
-            
+
             // 創建以用戶UID為名的document
             AppDelegate.db.collection("users").document(uid).setData([
                 "name": userName,
-                "initial_weight": Double(currentWeight!),
-                "expected_weight": Double(expectedWeight!),
+                "initial_weight": expectedWeightDouble,
+                "expected_weight": initialWeightDouble,
                 "signup_time": time
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    
+
                     self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: time)
                 }
             }

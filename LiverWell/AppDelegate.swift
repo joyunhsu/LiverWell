@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
+        
+        FIRFirestoreService.shared.configure()
 
         Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
 
