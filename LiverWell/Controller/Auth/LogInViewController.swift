@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -25,6 +24,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         loginPasswordTextfield.delegate = self
         
         loginBtn.isEnabled = false
+        
         loginBtn.backgroundColor = .B3
 
     }
@@ -34,16 +34,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func signIn() {
-        Auth.auth().signIn(
-            withEmail: loginEmailTextfield.text!,
-            password: loginPasswordTextfield.text!
-        ) { (user, error) in
-            if error != nil {
-                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: true, completion: nil)
-            }
+
+        FIRFirestoreService.shared.login(
+            email: loginEmailTextfield.text!,
+            password: loginPasswordTextfield.text!) { (user, error) in
+                if error != nil {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
         }
     }
     

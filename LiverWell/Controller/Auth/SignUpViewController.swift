@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import TTTAttributedLabel
 
 class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttributedLabelDelegate {
@@ -45,7 +44,6 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
                 
                 // 註冊成功並顯示已登入
                 self.showMsg("已登入")
-                
                 self.createUserDocument()
             }
             
@@ -63,31 +61,26 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         dateFormatter.dateFormat = "yyyy年M月d日"
         let convertedDate = dateFormatter.string(from: today)
         
-        let user = Auth.auth().currentUser
-        
         guard let expectedWeightDouble = Double(expectedWeight!),
             let initialWeightDouble = Double(currentWeight!) else { return }
         
-        if let user = user {
-
-            let uid = user.uid
-            
-            let createUser = [
-                "name": userName,
-                "signup_time": today,
-                "expected_weight": expectedWeightDouble,
-                "initial_weight": initialWeightDouble
-                ] as [String: Any]
-            
-            FIRFirestoreService.shared.create(with: createUser) { (error) in
-                if let error = error {
-                    print("Error writing user document: \(error)")
-                } else {
-                    print("User document succesfully written!")
-                    self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: today)
-                }
+        let userDefaults = UserDefaults.standard
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
+        
+        let createUser = [
+            "name": userName,
+            "signup_time": today,
+            "expected_weight": expectedWeightDouble,
+            "initial_weight": initialWeightDouble
+            ] as [String: Any]
+        
+        FIRFirestoreService.shared.create(with: createUser) { (error) in
+            if let error = error {
+                print("Error writing user document: \(error)")
+            } else {
+                print("User document succesfully written!")
+                self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: today)
             }
-
         }
     }
     
@@ -116,11 +109,11 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         startBtn.isEnabled = false
         startBtn.backgroundColor = .B3
         
-        setup()
+        setupHyperText()
 
     }
     
-    private func setup() {
+    private func setupHyperText() {
         
         attributedLabel.numberOfLines = 0
         let strPP = "隱私權條款"

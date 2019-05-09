@@ -22,6 +22,8 @@ class FIRFirestoreService {
     
     lazy var user = Auth.auth().currentUser
     
+    lazy var uid = user!.uid
+    
     private func reference(to collectionReference: FIRCollectionReference) -> CollectionReference {
         return Firestore.firestore().collection(collectionReference.rawValue)
     }
@@ -40,7 +42,7 @@ class FIRFirestoreService {
         Firestore.firestore().collection("users")
         
         return Firestore.firestore()
-            .collection("users").document(user!.uid)
+            .collection("users").document(uid)
             .collection(collectionReference.rawValue)
     }
     
@@ -69,7 +71,10 @@ class FIRFirestoreService {
         
     }
     
-    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference, completion: @escaping (Error?) -> Void) {
+    func create<T: Encodable>(
+        for encodableObject: T,
+        in collectionReference: FIRCollectionReference,
+        completion: @escaping (Error?) -> Void) {
         do {
             let json = try encodableObject.toJson()
             reference(to: .users).document(user!.uid).setData(json, completion: completion)
@@ -77,16 +82,6 @@ class FIRFirestoreService {
             print(error)
         }
     }
-    
-//    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference, completion: @escaping (Error?) -> Void) {
-//        do {
-//            let json = try encodableObject.toJson()
-////            reference(to: collectionReference).addDocument(data: json)
-//            reference(to: .users).document(user!.uid).setData(json, completion: completion)
-//        } catch {
-//            print(error)
-//        }
-//    }
     
     func read<T: Decodable>(from collectionReference: FIRCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
         
@@ -167,9 +162,13 @@ class FIRFirestoreService {
         
     }
     
-    func createUser(email: String, password: String, completion: @escaping AuthDataResultCallback) {
+    func createUser(email: String, password: String, completion: AuthDataResultCallback?) {
         
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
         
+    }
+    
+    func login(email: String, password: String, completion: AuthDataResultCallback?) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
 }
