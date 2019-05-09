@@ -182,7 +182,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
         let entry7 = BarChartDataEntry(x: 3.0, y: Double(30))
         
         let dataSet = BarChartDataSet(
-            values: [entry1, entry2, entry3, entry4, entry5, entry6, entry7],
+            entries: [entry1, entry2, entry3, entry4, entry5, entry6, entry7],
             label: "Weekly Status")
         let data = BarChartData(dataSets: [dataSet])
         chartView.data = data
@@ -207,7 +207,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
             return BarChartDataEntry(x: Double(i), yValues: [val1, val2], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
         }
         
-        let set = BarChartDataSet(values: yVals, label: "Weekly Status")
+        let set = BarChartDataSet(entries: yVals, label: "Weekly Status")
         set.drawIconsEnabled = false
         set.colors = [
             NSUIColor(cgColor: UIColor.Orange!.cgColor),

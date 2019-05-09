@@ -339,7 +339,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         lineChartView.xAxis.valueFormatter = xValuesNumberFormatter
         
-        let lineDataSet = LineChartDataSet(values: entries, label: "Weight Chart")
+        let lineDataSet = LineChartDataSet(entries: entries, label: "Weight Chart")
         lineDataSet.circleRadius = 2.5
         lineDataSet.circleColors = [UIColor.B1!]
         lineDataSet.circleHoleRadius = 0
