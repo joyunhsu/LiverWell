@@ -14,27 +14,9 @@ class DetailKnowledgeViewController: UIViewController {
     
     @IBOutlet weak var contentLabel: UILabel!
     
-//    @IBOutlet weak var bookMarkBtn: UIButton!
-    
     var knowledge: Knowledge?
     
     var isMarked: Bool = false
-    
-//    @IBAction func bookMarkBtnPressed(_ sender: UIButton) {
-//
-//        isMarked = !isMarked
-//
-//        if isMarked == true {
-//
-//            bookMarkBtn.isSelected = true
-//
-//        } else {
-//
-//            bookMarkBtn.isSelected = false
-//
-//        }
-//
-//    }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         

@@ -14,10 +14,10 @@ protocol Identifiable {
 
 struct UserItem: Codable {
     
-    var expectedWeight: Double
-    var initialWeight: Double
     var name: String
     var signupTime: Date
+    var expectedWeight: Double
+    var initialWeight: Double
     
     enum CodingKeys: String, CodingKey {
         case expectedWeight = "expected_weight"

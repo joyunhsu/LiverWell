@@ -17,20 +17,6 @@ class KnowledgeTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var underlineView: UIView!
-    
-    @IBOutlet weak var bookMarkBtn: UIButton!
-    
-    @IBAction func bookMarkBtnPressed(_ sender: UIButton) {
-        
-        isMarked = !isMarked
-        
-        if isMarked == true {
-            bookMarkBtn.isSelected = true
-        } else {
-            bookMarkBtn.isSelected = false
-        }
-        
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

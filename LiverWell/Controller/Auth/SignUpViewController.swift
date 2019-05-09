@@ -31,32 +31,30 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         if self.signupEmailTextField.text == "" || self.signupPasswordTextfield.text == "" {
             self.showMsg("請輸入email和密碼")
             return
-        }
-        
-        // 建立帳號
-        Auth.auth().createUser(
-            withEmail: signupEmailTextField.text!,
-            password: signupPasswordTextfield.text!
-        ) { (user, error) in
-            
-            // 註冊失敗
-            if error != nil {
-                self.showMsg((error?.localizedDescription)!)
-                return
+        } else {
+            guard let email = signupEmailTextField.text,
+                let password = signupPasswordTextfield.text else { return }
+         
+            FIRFirestoreService.shared.createUser(email: email, password: password) { (user, error) in
+                
+                // 註冊失敗
+                if error != nil {
+                    self.showMsg((error?.localizedDescription)!)
+                    return
+                }
+                
+                // 註冊成功並顯示已登入
+                self.showMsg("已登入")
+                
+                self.createUserDocument()
             }
-            
-            // 註冊成功並顯示已登入
-            self.showMsg("已登入")
-            
-            self.createUserDocument()
-            
-            self.createUserDocument()
             
         }
         
     }
     
     private func createUserDocument() {
+        
         guard let userName = userName else { return }
         
 //        let timestamp = NSDate().timeIntervalSince1970
@@ -71,28 +69,25 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         
         let user = Auth.auth().currentUser
         
-        let expectedWeightDouble = Double(expectedWeight!)
-
-        let initialWeightDouble = Double(currentWeight!)!
+        guard let expectedWeightDouble = Double(expectedWeight!),
+            let initialWeightDouble = Double(currentWeight!) else { return }
         
         if let user = user {
 
             let uid = user.uid
-
-            let userName = userName
-
-            // 創建以用戶UID為名的document
-            AppDelegate.db.collection("users").document(uid).setData([
+            
+            let createUser = [
                 "name": userName,
-                "initial_weight": expectedWeightDouble,
-                "expected_weight": initialWeightDouble,
-                "signup_time": today
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
+                "signup_time": today,
+                "expected_weight": expectedWeightDouble,
+                "initial_weight": initialWeightDouble
+                ] as [String : Any]
+            
+            FIRFirestoreService.shared.create(for: "test", datas: createUser) { (error) in
+                if let error = error {
+                    print("Error writing document: \(error)")
                 } else {
                     print("Document successfully written!")
-
                     self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: today)
                 }
             }

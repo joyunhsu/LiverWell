@@ -20,6 +20,8 @@ class FIRFirestoreService {
     
     let today = Date()
     
+    lazy var user = Auth.auth().currentUser
+    
     private func reference(to collectionReference: FIRCollectionReference) -> CollectionReference {
         return Firestore.firestore().collection(collectionReference.rawValue)
     }
@@ -34,7 +36,6 @@ class FIRFirestoreService {
 //    }
 
     private func userSubReference(to collectionReference: FIRCollectionReference) -> CollectionReference {
-        let user = Auth.auth().currentUser
         
         Firestore.firestore().collection("users")
         
@@ -43,14 +44,39 @@ class FIRFirestoreService {
             .collection(collectionReference.rawValue)
     }
     
-    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference) {
-        do {
-            let json = try encodableObject.toJson()
-            reference(to: collectionReference).addDocument(data: json)
-        } catch {
-            print(error)
+    func create<T: Encodable>(
+        for encodableObject: T? = nil,
+        datas: [String: Any]? = nil,
+//        in collectionReference: FIRCollectionReference,
+        completion: @escaping (Error?) -> Void
+    ) {
+        
+        var json: [String: Any] = [:]
+        
+        if datas != nil {
+            
+            json = datas!
+            
+        } else {
+            
+            if let data = try? encodableObject.toJson() {
+                
+                json = data
+            }
         }
+        
+        reference(to: .users).document(user!.uid).setData(json, completion: completion)
     }
+    
+//    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference, completion: @escaping (Error?) -> Void) {
+//        do {
+//            let json = try encodableObject.toJson()
+////            reference(to: collectionReference).addDocument(data: json)
+//            reference(to: .users).document(user!.uid).setData(json, completion: completion)
+//        } catch {
+//            print(error)
+//        }
+//    }
     
     func read<T: Decodable>(from collectionReference: FIRCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
         
@@ -131,14 +157,9 @@ class FIRFirestoreService {
         
     }
     
-    func createUser(email: String, password: String, completion: @escaping (User, Error) -> Void) {
+    func createUser(email: String, password: String, completion: @escaping AuthDataResultCallback) {
         
-        Auth.auth().createUser(
-            withEmail: email,
-            password: password
-        )
-        
-//        completion(User.self, Error.self)
+        Auth.auth().createUser(withEmail: email, password: password, completion: completion)
         
     }
 }
