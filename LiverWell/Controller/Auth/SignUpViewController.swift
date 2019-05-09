@@ -35,7 +35,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
             guard let email = signupEmailTextField.text,
                 let password = signupPasswordTextfield.text else { return }
          
-            FIRFirestoreService.shared.createUser(email: email, password: password) { (user, error) in
+            FIRFirestoreService.shared.createUser(email: email, password: password) { (_, error) in
                 
                 // 註冊失敗
                 if error != nil {
@@ -57,11 +57,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         
         guard let userName = userName else { return }
         
-//        let timestamp = NSDate().timeIntervalSince1970
-//        let myTimeInterval = TimeInterval(timestamp)
-//        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
-        
-        let today = Date() //.timeIntervalSince1970
+        let today = Date()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年M月d日"
@@ -81,13 +77,13 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
                 "signup_time": today,
                 "expected_weight": expectedWeightDouble,
                 "initial_weight": initialWeightDouble
-                ] as [String : Any]
+                ] as [String: Any]
             
-            FIRFirestoreService.shared.create(for: "test", datas: createUser) { (error) in
+            FIRFirestoreService.shared.create(with: createUser) { (error) in
                 if let error = error {
-                    print("Error writing document: \(error)")
+                    print("Error writing user document: \(error)")
                 } else {
-                    print("Document successfully written!")
+                    print("User document succesfully written!")
                     self.addInitialWeight(uid: uid, convertedDate: convertedDate, time: today)
                 }
             }
@@ -97,13 +93,14 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
     
     private func addInitialWeight(uid: String, convertedDate: String, time: Date) {
         
-        AppDelegate.db.collection("users").document(uid).collection("weight").document(convertedDate).setData(
-            [
-                "weight": Double(currentWeight!),
-                "created_time": time
-        ]) { (err) in
-            if let err = err {
-                print("Error add initial weight to document: \(err)")
+        let weightData = [
+            "weight": Double(currentWeight!),
+            "created_time": time
+            ] as [String: Any]
+        
+        FIRFirestoreService.shared.create(with: weightData, in: .weight, documentID: convertedDate) { (error) in
+            if let error = error {
+                print("Error add initial weight to document: \(error)")
             } else {
                 print("Add initial weight to document successfully")
             }

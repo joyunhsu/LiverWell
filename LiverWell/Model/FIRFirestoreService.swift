@@ -44,28 +44,38 @@ class FIRFirestoreService {
             .collection(collectionReference.rawValue)
     }
     
-    func create<T: Encodable>(
-        for encodableObject: T? = nil,
-        datas: [String: Any]? = nil,
-//        in collectionReference: FIRCollectionReference,
+    func create(
+        with datas: [String: Any],
+        in subCollectionReference: FIRCollectionReference? = nil,
+        documentID: String? = nil,
         completion: @escaping (Error?) -> Void
     ) {
         
         var json: [String: Any] = [:]
         
-        if datas != nil {
+        json = datas
+        
+        if let subCollectionReference = subCollectionReference {
             
-            json = datas!
-            
-        } else {
-            
-            if let data = try? encodableObject.toJson() {
-                
-                json = data
+            if let documentID = documentID {
+                userSubReference(to: subCollectionReference).document(documentID).setData(json, completion: completion)
+            } else {
+                userSubReference(to: subCollectionReference).addDocument(data: json)
             }
+        
+        } else {
+            reference(to: .users).document(user!.uid).setData(json, completion: completion)
         }
         
-        reference(to: .users).document(user!.uid).setData(json, completion: completion)
+    }
+    
+    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference, completion: @escaping (Error?) -> Void) {
+        do {
+            let json = try encodableObject.toJson()
+            reference(to: .users).document(user!.uid).setData(json, completion: completion)
+        } catch {
+            print(error)
+        }
     }
     
 //    func create<T: Encodable>(for encodableObject: T, in collectionReference: FIRCollectionReference, completion: @escaping (Error?) -> Void) {
