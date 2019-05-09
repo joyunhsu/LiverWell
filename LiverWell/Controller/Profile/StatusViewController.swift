@@ -177,24 +177,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
                     self?.workoutDataArray.append(item!)
                     
-//                    let date = createdTime.dateValue()
-//                    let dateFormatter = DateFormatter()
-//                    dateFormatter.dateFormat = "yyyy-MM-dd"
-//                    let convertedDate = dateFormatter.string(from: date)
-//
-//                    guard let activityType = document.get("activity_type") as? String else { return }
-//                    guard let title = document.get("title") as? String else { return }
-//                    guard let workoutTime = document.get("workout_time") as? Int else { return }
-//
-//                    self?.workoutDataArray.append(
-//                        WorkoutData(
-//                            convertedDate: convertedDate,
-//                            timestampToDate: date,
-//                            workoutTime: workoutTime,
-//                            title: title,
-//                            activityType: activityType)
-//                    )
-                    
                 }
             }
                 

@@ -30,7 +30,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginBtnPressed(_ sender: UIButton) {
-        
+        signIn()
+    }
+    
+    private func signIn() {
         Auth.auth().signIn(
             withEmail: loginEmailTextfield.text!,
             password: loginPasswordTextfield.text!
@@ -42,7 +45,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        
     }
     
     func textField(

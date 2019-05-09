@@ -93,7 +93,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
             weeklyStatusView.drawHierarchy(in: weeklyStatusView.bounds, afterScreenUpdates: true)
         }
         
-        // Image to share
+        // image to share
         let renderedImageArray = [ renderedTodayStatus, renderedWeeklyStatus ]
         
         let image = renderedImageArray[selectedImageIndex]
@@ -148,11 +148,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
         //        chartView.setNeedsDisplay()
         
         // disable highlight
-        chartView.data!.highlightEnabled = !chartView.data!.isHighlightEnabled
-        //        chartView.setNeedsDisplay()
-        
-        // Animate Y
-        //        chartView.animate(yAxisDuration: 1.5)
+        chartView.data!.highlightEnabled = false
         
         // Toggle Icon
         for set in chartView.data!.dataSets {

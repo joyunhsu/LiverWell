@@ -30,7 +30,6 @@
 		6E4B74C222547C2F00BECC70 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */; };
 		6E4B74C522547FB600BECC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B74C422547FB600BECC70 /* HomeViewController.swift */; };
 		6E664C012269281300221184 /* KnowledgeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E664C002269281300221184 /* KnowledgeItem.swift */; };
-		6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0622699EC300221184 /* Mermaid.mp3 */; };
 		6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C082269A6FC00221184 /* Countdown.mp3 */; };
 		6E664C0B2269A98300221184 /* DonePerCount.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0A2269A98300221184 /* DonePerCount.mp3 */; };
 		6E664C1C2269A9DB00221184 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E664C0D2269A9DA00221184 /* 3.mp3 */; };
@@ -141,7 +140,6 @@
 		6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6E4B74C422547FB600BECC70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6E664C002269281300221184 /* KnowledgeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeItem.swift; sourceTree = "<group>"; };
-		6E664C0622699EC300221184 /* Mermaid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mermaid.mp3; sourceTree = "<group>"; };
 		6E664C082269A6FC00221184 /* Countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Countdown.mp3; sourceTree = "<group>"; };
 		6E664C0A2269A98300221184 /* DonePerCount.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DonePerCount.mp3; sourceTree = "<group>"; };
 		6E664C0D2269A9DA00221184 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 				6E40CAAA227FD7430099BF47 /* Keep.mp3 */,
 				6E40CAAB227FD7430099BF47 /* Prepare.mp3 */,
 				6E664C0A2269A98300221184 /* DonePerCount.mp3 */,
-				6E664C0622699EC300221184 /* Mermaid.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -672,7 +669,6 @@
 				6EA8CBD722533B2F000859FD /* ActivityCollectionViewCell.xib in Resources */,
 				6E664C092269A6FC00221184 /* Countdown.mp3 in Resources */,
 				6E664C1F2269A9DB00221184 /* 13.mp3 in Resources */,
-				6E664C0722699EC300221184 /* Mermaid.mp3 in Resources */,
 				6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */,
 				6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */,
 			);

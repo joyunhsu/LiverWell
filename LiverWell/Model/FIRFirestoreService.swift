@@ -130,4 +130,15 @@ class FIRFirestoreService {
         }
         
     }
+    
+    func createUser(email: String, password: String, completion: @escaping (User, Error) -> Void) {
+        
+        Auth.auth().createUser(
+            withEmail: email,
+            password: password
+        )
+        
+//        completion(User.self, Error.self)
+        
+    }
 }

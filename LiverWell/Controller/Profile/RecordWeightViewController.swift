@@ -60,6 +60,7 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             
+            // create new document
             let weightData: [String: Any] = [
                 "weight": weight,
                 "created_time": time
@@ -107,10 +108,8 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         
-//        if textField.text == "" {
-            confirmBtn.isEnabled = false
-            confirmBtn.backgroundColor = .B3
-//        }
+        confirmBtn.isEnabled = false
+        confirmBtn.backgroundColor = .B3
         
         if weightDocumentID != nil {
             titleLabel.text = "修改體重"

@@ -43,9 +43,9 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     @IBOutlet weak var lineChartView: LineChartView!
     
 //    struct WeightData {
-//        let createdTimeString: String,
-//        let createdTime: Date,
-//        let documentID: String,
+//        let createdTimeString: String
+//        let createdTime: Date
+//        let documentID: String
 //        let weight: Double
 //    }
     
@@ -222,23 +222,19 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             } else {
                 for document in snapshot!.documents {
                     
-                    guard let weight = document.get("weight") as? Double else { return }
-                    
                     guard let createdTime = document.get("created_time") as? Timestamp else { return }
                     
-                    let date = createdTime.dateValue()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "M月d日"
-                    let convertedDate = dateFormatter.string(from: date)
+                    var json = document.data()
                     
-                    self?.weightDataArray.append(
-                        WeightData(
-                            createdTimeString: convertedDate,
-                            createdTime: date,
-                            documentID: document.documentID,
-                            weight: weight
-                        )
-                    )
+                    json["created_time"] = nil
+                    
+                    var item = try? document.decode(as: WeightData.self, data: json)
+                    
+                    item?.createdTime = createdTime.dateValue()
+                    
+                    item?.documentID = document.documentID
+                    
+                    self?.weightDataArray.append(item!)
                     
                 }
             }
@@ -271,27 +267,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 
                 self?.tableView.reloadData()
                 
-//                DispatchQueue.global().async {
-//                    DispatchQueue.main.async {
-//                        let weightSinceStart = self!.currentWeight - self!.initialWeight
-//
-//                        if weightSinceStart > 0 {
-//                            self?.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
-//                        } else {
-//                            self?.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
-//                        }
-//
-//                        let weightSinceMonth = self!.currentWeight - self!.lastMonthWeight
-//                        if weightSinceMonth > 0 {
-//                            self?.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
-//                            self?.progressView.progress = 0
-//                        } else {
-//                            self?.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
-//                            self?.progressView.progress = Float((0 - weightSinceMonth) / 1)
-//                        }
-//                    }
-//                }
-                
             }
             
             self?.present(recordWeightVC, animated: true)
@@ -301,6 +276,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         let deleteAction = UIAlertAction(title: "刪除", style: .destructive) { [weak self] (action) in
         
             // Delete document
+            guard let documentID = documentID else { return }
+            
             weightRef.document(documentID).delete() { (error) in
                     if let error = error {
                         print("Error updating document: \(error)")
@@ -334,7 +311,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     private func setChartValues() {
         
         var referenceTimeInterval: TimeInterval = 0
-        if let minTimeInterval = (weightDataArray.map({ $0.createdTime.millisecondsSince1970})).min() {
+        if let minTimeInterval = (weightDataArray.map({ $0.createdTime!.millisecondsSince1970})).min() {
             referenceTimeInterval = TimeInterval(minTimeInterval)
         }
         
@@ -352,7 +329,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         var entries = [ChartDataEntry]()
         for weightData in reverseArray {
-            let timeInterval = weightData.createdTime.timeIntervalSince1970
+            let timeInterval = weightData.createdTime!.timeIntervalSince1970
             let xValue = (timeInterval - referenceTimeInterval) / (3600 * 24)
             
             let yValue = weightData.weight

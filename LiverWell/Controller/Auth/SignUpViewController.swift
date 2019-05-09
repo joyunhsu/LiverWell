@@ -144,7 +144,6 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         attributedLabel.textAlignment = .center
         attributedLabel.attributedText = fullAttributedString
         
-        //        let rangeTC = nsString.range(of: strTC)
         let rangePP = nsString.range(of: strPP)
         
         let ppLinkAttributes: [String: Any] = [
@@ -159,9 +158,8 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         attributedLabel.activeLinkAttributes = ppActiveLinkAttributes
         attributedLabel.linkAttributes = ppLinkAttributes
         
-        //        let urlTC = URL(string: "action://TC")!
         let urlPP = URL(string: "https://www.joyunhsu.com/privacy-policy")!
-        //        attributedLable.addLink(to: urlTC, with: rangeTC)
+
         attributedLabel.addLink(to: urlPP, with: rangePP)
         
         attributedLabel.textColor = UIColor.lightGray
@@ -170,12 +168,9 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
     }
     
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        if url.absoluteString == "action://TC" {
-            print("TC click")
-        } else if url.absoluteString == "https://www.joyunhsu.com/privacy-policy" {
+        if url.absoluteString == "https://www.joyunhsu.com/privacy-policy" {
             print("PP click")
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            
         }
     }
     

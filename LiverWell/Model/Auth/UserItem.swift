@@ -12,7 +12,7 @@ protocol Identifiable {
     var id: String? { get set }
 }
 
-struct User: Codable {
+struct UserItem: Codable {
     
     var expectedWeight: Double
     var initialWeight: Double

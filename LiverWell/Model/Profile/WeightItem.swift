@@ -9,17 +9,18 @@
 import Foundation
 
 struct WeightData: Codable {
-    let createdTime: Date?
+    
+    var createdTime: Date?
     
     let weight: Double
     
-    let documentID: String?
+    var documentID: String?
     
     var createdTimeString: String {
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "M月d日"
         
         guard let date = createdTime else { return "" }
         
@@ -27,8 +28,5 @@ struct WeightData: Codable {
         
         return createdTimeString
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case weight
-    }
+
 }

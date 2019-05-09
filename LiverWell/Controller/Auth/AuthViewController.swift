@@ -29,12 +29,16 @@ class AuthViewController: STBaseViewController, UIScrollViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         super.viewWillDisappear(animated)
+        
         self.navigationController?.isNavigationBarHidden = false
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        
         pageControl.currentPage = Int(pageNumber)
     }
 }
