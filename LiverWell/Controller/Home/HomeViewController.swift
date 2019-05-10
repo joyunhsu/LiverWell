@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     var homeObject: HomeObject? {
         didSet {
             workoutCollectionView.reloadData()
-            
             setupView()
         }
     }
@@ -48,6 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
     let now = Date()
+//    let now = Calendar.current.date(byAdding: .day, value: -12, to: Date())!
     
     var todayDate = ""
     
@@ -155,8 +155,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         workEndHours: Int
         ) {
         
-        guard let sunday = now.endOfWeek else { return }
-        guard let saturday = Calendar.current.date(byAdding: .day, value: -1, to: sunday) else { return }
+        let sunday = now.dayOf(.sunday)
+        let saturday = now.dayOf(.saturday)
         
         let workStart = now.dateAt(hours: workStartHours, minutes: 0)
         let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
@@ -244,7 +244,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         if totalWorkoutTime > 15 {
             
-            UIView.animate(withDuration: 1.0) {
+            UIView.animate(withDuration: 0.5) {
                 
                 self.stretchProgressView.value = 15
                 
@@ -256,7 +256,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             
         } else {
             
-            UIView.animate(withDuration: 1.0) {
+            UIView.animate(withDuration: 0.5) {
                 
                 self.stretchProgressView.value = CGFloat(totalWorkoutTime)
                 
@@ -274,7 +274,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         guard let user = Auth.auth().currentUser else { return }
 
-        let today = Date()
+        let today = now
 
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
 

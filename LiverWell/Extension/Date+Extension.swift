@@ -20,21 +20,19 @@ extension Date {
     }
     
     var startOfWeek: Date? {
-        let gregorian = Calendar(identifier: .gregorian)
-        guard let sunday = gregorian.date(
-            from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
-            ) else { return nil }
-        return gregorian.date(byAdding: .day, value: 1, to: sunday)
-//        return gregorian.date(byAdding: .day, value: -6, to: sunday)
-    }
-    
-    var endOfWeek: Date? {
-        let gregorian = Calendar(identifier: .gregorian)
-        guard let sunday = gregorian.date(
-            from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
-            ) else { return nil }
-        return gregorian.date(byAdding: .day, value: 7, to: sunday)
-//        return gregorian.date(byAdding: .day, value: 0, to: sunday)
+        var cal = Calendar.current
+        cal.firstWeekday = 2
+        var comps = cal.dateComponents([.weekOfYear, .yearForWeekOfYear], from: self)
+        comps.weekday = 2
+        let mondayInWeek = cal.date(from: comps)!
+        return mondayInWeek
+        
+//        var gregorian = Calendar(identifier: .gregorian)
+//        guard let sunday = gregorian.date(
+//            from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
+//            ) else { return nil }
+//        return gregorian.date(byAdding: .day, value: 1, to: sunday)
+////        return gregorian.date(byAdding: .day, value: -6, to: sunday)
     }
     
     func startOfMonth() -> Date {
@@ -63,16 +61,6 @@ extension Date {
         
         let newDate = calendar.date(from: date_components)!
         return newDate
-    }
-    
-    func tuesdayOfWeek() -> Date {
-        guard let monday = self.startOfWeek else { return Date() }
-        return Calendar.current.date(byAdding: .day, value: 1, to: monday)!
-    }
-    
-    func wednesdayOfWeek() -> Date {
-        guard let monday = self.startOfWeek else { return Date() }
-        return Calendar.current.date(byAdding: .day, value: 2, to: monday)!
     }
     
     func dayOf(_ day: Day) -> Date {

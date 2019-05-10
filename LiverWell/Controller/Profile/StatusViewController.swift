@@ -55,8 +55,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     func presentWeekLabel(weeksBeforeCount: Int) {
         let today = Date()
         guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
-        guard let monday = referenceDay.startOfWeek else { return }
-        guard let sunday = referenceDay.endOfWeek else { return }
+        let monday = referenceDay.dayOf(.monday)
+        let sunday = referenceDay.dayOf(.sunday)
+//        guard let monday = referenceDay.startOfWeek else { return }
+//        guard let sunday = referenceDay.endOfWeek else { return }
         
         if weeksBeforeCount == 0 {
             weekStartEndLabel.text = "本週記錄"
@@ -150,9 +152,9 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBefore, to: today) else { return }
         
-        guard let monday = referenceDay.startOfWeek else { return }
+        let monday = referenceDay.dayOf(.monday)
         
-        guard let sunday = referenceDay.endOfWeek else { return }
+        let sunday = referenceDay.dayOf(.sunday)
         
         workoutRef
             .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 1, to: sunday))
