@@ -8,16 +8,6 @@
 
 import Foundation
 
-private enum LWDateFormat: String {
-    
-    case monthDate = "M月d日"
-    
-    case weekDay = "EEEE"
-    
-    case yearMonthDate = "yyyy-MM-dd"
-    
-}
-
 extension DateFormatter {
 
     // ex: 星期三
@@ -61,15 +51,6 @@ extension DateFormatter {
         
         return dateFormatter.string(from: date)
         
-    }
-    
-    private static func LWDateFormatter(date: Date, to dateFormat: LWDateFormat) -> String {
-        
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = dateFormat.rawValue
-        
-        return dateFormatter.string(from: date)
     }
     
 }

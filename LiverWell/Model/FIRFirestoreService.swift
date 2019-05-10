@@ -83,7 +83,10 @@ class FIRFirestoreService {
         }
     }
     
-    func read<T: Decodable>(from collectionReference: FIRCollectionReference, returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
+    func read<T: Decodable>(
+        from collectionReference: FIRCollectionReference,
+        returning objectType: T.Type,
+        completion: @escaping ([T]) -> Void) {
         
         reference(to: collectionReference).addSnapshotListener { (snapshot, _) in
 
@@ -106,38 +109,9 @@ class FIRFirestoreService {
         
     }
     
-    func readWeekWorkout<T: Decodable>(returning objectType: T.Type, completion: @escaping ([T]) -> Void) {
-        
-        guard let monday = today.startOfWeek else { return }
-        
-        userSubReference(to: .workout)
-            .whereField("created_time", isGreaterThan: monday)
-            .order(by: "created_time", descending: false)
-            .getDocuments { (snapshot, error) in
-                
-                if let error = error {
-                    print("Error getting documents: \(error)")
-                } else {
-                    
-                    do {
-                        var objects = [T]()
-                        for document in snapshot!.documents {
-                            let object = try document.decode(as: objectType.self)
-                            objects.append(object)
-
-                        }
-                        
-                        completion(objects)
-                        
-                    } catch {
-                        print(error)
-                    }
-                
-            }
-        }
-    }
-    
-    func update<T: Encodable & Identifiable>(for encodableObject: T, in collectionReference: FIRCollectionReference) {
+    func update<T: Encodable & Identifiable>(
+        for encodableObject: T,
+        in collectionReference: FIRCollectionReference) {
         
         do {
             let json = try encodableObject.toJson()
@@ -150,7 +124,9 @@ class FIRFirestoreService {
         
     }
     
-    func delete<T: Identifiable>(_ identifiableObject: T, in collectionReference: FIRCollectionReference) {
+    func delete<T: Identifiable>(
+        _ identifiableObject: T,
+        in collectionReference: FIRCollectionReference) {
         
         do {
             guard let id = identifiableObject.id else { throw LWError.encodingError}
@@ -162,13 +138,19 @@ class FIRFirestoreService {
         
     }
     
-    func createUser(email: String, password: String, completion: AuthDataResultCallback?) {
+    func createUser(
+        email: String,
+        password: String,
+        completion: AuthDataResultCallback?) {
         
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
         
     }
     
-    func login(email: String, password: String, completion: AuthDataResultCallback?) {
+    func login(
+        email: String,
+        password: String,
+        completion: AuthDataResultCallback?) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
 }
