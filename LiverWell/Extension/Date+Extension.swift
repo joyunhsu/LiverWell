@@ -73,7 +73,6 @@ extension Date {
         case .friday: return Calendar.current.date(byAdding: .day, value: 4, to: monday)!
         case .saturday: return Calendar.current.date(byAdding: .day, value: 5, to: monday)!
         case .sunday: return Calendar.current.date(byAdding: .day, value: 6, to: monday)!
-            
         }
     }
     

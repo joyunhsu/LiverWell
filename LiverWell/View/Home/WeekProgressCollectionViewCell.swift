@@ -11,7 +11,7 @@ import MBCircularProgressBar
 
 class WeekProgressCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var day: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
 
     @IBOutlet weak var progressView: MBCircularProgressBarView!
 

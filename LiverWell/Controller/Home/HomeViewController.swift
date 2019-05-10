@@ -204,27 +204,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     private func showToday() {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M月d日"
-        var convertedDate = dateFormatter.string(from: now)
+        let chineseMonthDate = DateFormatter.chineseMonthDate(date: now)
         
-        let dayFormatter = DateFormatter()
-        dayFormatter.dateFormat = "EEEE"
-        var convertedChineseDay = dayFormatter.string(from: now)
-        var chineseDay: String {
-            switch convertedChineseDay {
-            case "Monday": return "星期一"
-            case "Tuesday": return "星期二"
-            case "Wednesday": return "星期三"
-            case "Thursday": return "星期四"
-            case "Friday": return "星期五"
-            case "Saturday": return "星期六"
-            default: return "星期日"
-            }
-        }
+        let chineseDay = DateFormatter.chineseWeekday(date: now)
         
-        timeLabel.text = "\(convertedDate) \(chineseDay)"
-        todayDate = "\(convertedDate) \(chineseDay)"
+        timeLabel.text = "\(chineseMonthDate) \(chineseDay)"
+        todayDate = "\(chineseMonthDate) \(chineseDay)"
         
     }
     
@@ -252,7 +237,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                 
             }
             
-            remainingTimeLabel.text = "0分鐘"
+            remainingTimeLabel.text = "達成目標！"
             
         } else {
             
@@ -271,12 +256,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func getThisWeekProgress() {
-
-        guard let user = Auth.auth().currentUser else { return }
+        
+        let userDefaults = UserDefaults.standard
+        
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
 
         let today = now
 
-        let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
+        let workoutRef = AppDelegate.db.collection("users").document(uid).collection("workout")
 
         workoutRef
             .whereField("created_time", isGreaterThan: today.dayOf(.monday))
@@ -293,45 +280,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     guard let activityType = document.get("activity_type") as? String else { return }
 
                     let date = createdTime.dateValue()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    let convertedDate = dateFormatter.string(from: date)
-
-                    guard let self = self else { return }
-
-                    if convertedDate == dateFormatter.string(from: today) && activityType == "train" {
-                        self.tempTrainWorkoutTime += workoutTime
-                    } else if convertedDate == dateFormatter.string(from: today) && activityType == "stretch" {
-                        self.tempStretchWorkoutTime += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.monday)) {
-                        self.monSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.tuesday)) {
-                        self.tueSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.wednesday)) {
-                        self.wedSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.thursday)) {
-                        self.thuSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.friday)) {
-                        self.friSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.saturday)) {
-                        self.satSum += workoutTime
-                    }
-
-                    if convertedDate == dateFormatter.string(from: today.dayOf(.sunday)) {
-                        self.sunSum += workoutTime
-                    }
+                    
+                    self?.sortBy(day: date, workoutType: activityType, workoutTime: workoutTime)
 
                 }
             }
@@ -344,6 +294,50 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         }
 
+    }
+    
+    private func sortBy(day date: Date, workoutType: String, workoutTime: Int) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let convertedDate = dateFormatter.string(from: date)
+        
+        let today = now
+        
+        if convertedDate == dateFormatter.string(from: today) && workoutType == "train" {
+            self.tempTrainWorkoutTime += workoutTime
+        } else if convertedDate == dateFormatter.string(from: today) && workoutType == "stretch" {
+            self.tempStretchWorkoutTime += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.monday)) {
+            self.monSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.tuesday)) {
+            self.tueSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.wednesday)) {
+            self.wedSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.thursday)) {
+            self.thuSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.friday)) {
+            self.friSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.saturday)) {
+            self.satSum += workoutTime
+        }
+        
+        if convertedDate == dateFormatter.string(from: today.dayOf(.sunday)) {
+            self.sunSum += workoutTime
+        }
+        
     }
     
     private func setupView() {
@@ -412,8 +406,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 for: indexPath)
 
             guard let homeCell = cell as? HomeCollectionViewCell else { return cell }
-
-//            let item = manager.groups[1].items[indexPath.row]
             
             guard let workoutElement = homeObject?.workoutSet[indexPath.row] else { return cell }
 
@@ -430,7 +422,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
 
-            progressCell.day.text = days[indexPath.item]
+            progressCell.dayLabel.text = days[indexPath.item]
             progressCell.layoutView(value: self.dailyValue[indexPath.item])
 
             return progressCell

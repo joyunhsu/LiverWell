@@ -189,7 +189,7 @@
                                         <size key="customSize" width="20" height="40"/>
                                         <connections>
                                             <outlet property="completeImage" destination="Kh4-Cj-eqP" id="EkH-Vc-Jxg"/>
-                                            <outlet property="day" destination="VFi-dH-dmx" id="hEh-AL-d3a"/>
+                                            <outlet property="dayLabel" destination="VFi-dH-dmx" id="Shj-ss-qNI"/>
                                             <outlet property="progressView" destination="Bwz-0U-aal" id="cgg-Nj-rGe"/>
                                         </connections>
                                     </collectionViewCell>
@@ -757,7 +757,7 @@
                                                         <size key="customSize" width="20" height="40"/>
                                                         <connections>
                                                             <outlet property="completeImage" destination="5Az-8F-nDA" id="m0M-hr-ghk"/>
-                                                            <outlet property="day" destination="Rte-XR-vML" id="wm8-Ep-Za0"/>
+                                                            <outlet property="dayLabel" destination="Rte-XR-vML" id="K0F-hZ-QU6"/>
                                                             <outlet property="progressView" destination="pCX-is-7KA" id="wYG-ut-vDK"/>
                                                         </connections>
                                                     </collectionViewCell>

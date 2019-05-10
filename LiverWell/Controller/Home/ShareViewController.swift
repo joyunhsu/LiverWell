@@ -252,7 +252,7 @@ extension ShareViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
             
-            progressCell.day.text = days[indexPath.item]
+            progressCell.dayLabel.text = days[indexPath.item]
         
             progressCell.layoutView(value: self.dailyValue[indexPath.item])
             

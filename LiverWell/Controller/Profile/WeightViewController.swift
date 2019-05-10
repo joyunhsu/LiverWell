@@ -42,12 +42,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     @IBOutlet weak var lineChartView: LineChartView!
     
-//    struct WeightData {
-//        let createdTimeString: String
-//        let createdTime: Date
-//        let documentID: String
-//        let weight: Double
-//    }
+    let userDefaults = UserDefaults.standard
     
     var weightDataArray = [WeightData]() {
         didSet {
@@ -98,12 +93,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     private func readStatus() {
         
-        guard let user = Auth.auth().currentUser else { return }
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月"
         
-        let userDocRef = AppDelegate.db.collection("users").document(user.uid)
-        let weightRef = AppDelegate.db.collection("users").document(user.uid).collection("weight")
+        let userDocRef = AppDelegate.db.collection("users").document(uid)
+        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         let startOfMonth = Date().startOfMonth()
         
         var weightChangeSinceStart: Double = 0
@@ -209,8 +205,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     private func readWeight() {
         
-        guard let user = Auth.auth().currentUser else { return }
-        let uid = user.uid
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
@@ -244,9 +239,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Cloud Firestore
-        guard let user = Auth.auth().currentUser else { return }
         
-        let weightRef = AppDelegate.db.collection("users").document(user.uid).collection("weight")
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
+        
+        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
         let documentID = self.weightDataArray[indexPath.row].documentID
         

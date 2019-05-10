@@ -114,6 +114,7 @@
 		6EFDDEA92251E41100C1B8B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEA72251E41100C1B8B3 /* Main.storyboard */; };
 		6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */; };
 		6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */; };
+		9C08ADE222855245009520E5 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +228,7 @@
 		6EFDDEAD2251E41300C1B8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EFDDEAF2251E41300C1B8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BE3BE5E27CBD19E7110EDF /* Pods_LiverWell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiverWell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		C8CBB4EEC20963B5334D90D8 /* Pods-LiverWell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiverWell.debug.xcconfig"; path = "Target Support Files/Pods-LiverWell/Pods-LiverWell.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -504,6 +506,7 @@
 				6E4B74BF2254618D00BECC70 /* UIStoryboard+Extension.swift */,
 				6E4B74C122547C2F00BECC70 /* UIView+Extension.swift */,
 				6E9599B22258F7FE00BC1D9A /* UIColor+Extension.swift */,
+				9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */,
 				6E664C2F226DA55100221184 /* Date+Extension.swift */,
 				6EF3388C227BFD0E00A65924 /* Double+Extension.swift */,
 				6E40CAA8227FCA740099BF47 /* Int+Extension.swift */,
@@ -810,6 +813,7 @@
 				6E9599AD2258B85C00BC1D9A /* KnowledgeViewController.swift in Sources */,
 				6EE01FBD2265D5C30026C911 /* WorkoutManager.swift in Sources */,
 				6E2CAC952274852700C27748 /* SignUpViewController.swift in Sources */,
+				9C08ADE222855245009520E5 /* DateFormatter+Extension.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6E761ED222765CF500FD2C88 /* STBaseViewController.swift in Sources */,
 				6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */,

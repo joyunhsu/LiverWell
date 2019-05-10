@@ -54,18 +54,19 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     func presentWeekLabel(weeksBeforeCount: Int) {
         let today = Date()
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBeforeCount, to: today) else { return }
+        guard let referenceDay = Calendar.current.date(
+            byAdding: .day,
+            value: 0 + 7 * weeksBeforeCount,
+            to: today) else { return }
         let monday = referenceDay.dayOf(.monday)
         let sunday = referenceDay.dayOf(.sunday)
-//        guard let monday = referenceDay.startOfWeek else { return }
-//        guard let sunday = referenceDay.endOfWeek else { return }
         
         if weeksBeforeCount == 0 {
             weekStartEndLabel.text = "本週記錄"
         } else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "M月d日"
-            weekStartEndLabel.text = "\(dateFormatter.string(from: monday))至\(dateFormatter.string(from: sunday))"
+            let mondayOfWeek = DateFormatter.chineseMonthDate(date: monday)
+            let sundayOfWeek = DateFormatter.chineseMonthDate(date: sunday)
+            weekStartEndLabel.text = "\(mondayOfWeek)至\(sundayOfWeek)"
         }
         
     }
@@ -150,7 +151,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let today = Date()
         
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBefore, to: today) else { return }
+        guard let referenceDay = Calendar.current.date(
+            byAdding: .day,
+            value: 0 + 7 * weeksBefore,
+            to: today) else { return }
         
         let monday = referenceDay.dayOf(.monday)
         
@@ -227,16 +231,14 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     private func filterByDayAndType(day: Date) -> [Int] {
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let convertedDate = DateFormatter.yearMonthDay(date: day)
         
         let dayTrain = workoutDataArray.filter({
-            $0.convertedDate == dateFormatter.string(from: day) && $0.activityType == "train"
+            $0.convertedDate == convertedDate && $0.activityType == "train"
         })
         
         let dayStretch = workoutDataArray.filter({
-            $0.convertedDate == dateFormatter.string(from: day) && $0.activityType == "stretch"
+            $0.convertedDate == convertedDate && $0.activityType == "stretch"
         })
         
         return [timeSumOf(array: dayTrain), timeSumOf(array: dayStretch)]
@@ -408,31 +410,31 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         xAxisValue.valueFormatter = axisFormatDelegate
     }
     
-    private func barChartUpdate () { // 沒用到
-        
-        // Basic set up of plan chart
-        let entry1 = BarChartDataEntry(x: 1.0, y: Double(50))
-        let entry2 = BarChartDataEntry(x: 2.0, y: Double(20))
-        let entry3 = BarChartDataEntry(x: 3.0, y: Double(30))
-        let entry4 = BarChartDataEntry(x: 3.0, y: Double(40))
-        let entry5 = BarChartDataEntry(x: 3.0, y: Double(30))
-        let entry6 = BarChartDataEntry(x: 3.0, y: Double(40))
-        let entry7 = BarChartDataEntry(x: 3.0, y: Double(30))
-        
-        let dataSet = BarChartDataSet(
-            entries: [entry1, entry2, entry3, entry4, entry5, entry6, entry7],
-            label: "Weekly Status")
-        let data = BarChartData(dataSets: [dataSet])
-        chartView.data = data
-        chartView.chartDescription?.text = ""
-        
-        // Color
-        dataSet.colors = ChartColorTemplates.vordiplom()
-        
-        // Refresh chart with new data
-        chartView.notifyDataSetChanged()
-        
-    }
+//    private func barChartUpdate () { // 沒用到
+//
+//        // Basic set up of plan chart
+//        let entry1 = BarChartDataEntry(x: 1.0, y: Double(50))
+//        let entry2 = BarChartDataEntry(x: 2.0, y: Double(20))
+//        let entry3 = BarChartDataEntry(x: 3.0, y: Double(30))
+//        let entry4 = BarChartDataEntry(x: 3.0, y: Double(40))
+//        let entry5 = BarChartDataEntry(x: 3.0, y: Double(30))
+//        let entry6 = BarChartDataEntry(x: 3.0, y: Double(40))
+//        let entry7 = BarChartDataEntry(x: 3.0, y: Double(30))
+//
+//        let dataSet = BarChartDataSet(
+//            entries: [entry1, entry2, entry3, entry4, entry5, entry6, entry7],
+//            label: "Weekly Status")
+//        let data = BarChartData(dataSets: [dataSet])
+//        chartView.data = data
+//        chartView.chartDescription?.text = ""
+//
+//        // Color
+//        dataSet.colors = ChartColorTemplates.vordiplom()
+//
+//        // Refresh chart with new data
+//        chartView.notifyDataSetChanged()
+//
+//    }
 
 }
 
