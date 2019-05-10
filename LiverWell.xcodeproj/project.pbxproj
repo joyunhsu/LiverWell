@@ -115,7 +115,18 @@
 		6EFDDEAB2251E41300C1B8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAA2251E41300C1B8B3 /* Assets.xcassets */; };
 		6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */; };
 		9C08ADE222855245009520E5 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */; };
+		9C08ADEA22856B53009520E5 /* LiverWellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08ADE922856B53009520E5 /* LiverWellTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C08ADEC22856B53009520E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EFDDE962251E41100C1B8B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EFDDE9D2251E41100C1B8B3;
+			remoteInfo = LiverWell;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		637F95320E52C74D97EDA766 /* Pods-LiverWell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiverWell.release.xcconfig"; path = "Target Support Files/Pods-LiverWell/Pods-LiverWell.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +240,9 @@
 		6EFDDEAF2251E41300C1B8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BE3BE5E27CBD19E7110EDF /* Pods_LiverWell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiverWell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		9C08ADE722856B53009520E5 /* LiverWellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiverWellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C08ADE922856B53009520E5 /* LiverWellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiverWellTests.swift; sourceTree = "<group>"; };
+		9C08ADEB22856B53009520E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8CBB4EEC20963B5334D90D8 /* Pods-LiverWell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiverWell.debug.xcconfig"; path = "Target Support Files/Pods-LiverWell/Pods-LiverWell.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3364F3060856F44441AE5F18 /* Pods_LiverWell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C08ADE422856B53009520E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				6EFDDEA02251E41100C1B8B3 /* LiverWell */,
+				9C08ADE822856B53009520E5 /* LiverWellTests */,
 				6EFDDE9F2251E41100C1B8B3 /* Products */,
 				80430C5550624F60353E3DF9 /* Pods */,
 				6E0FC66F2D6008CB89A2C9E5 /* Frameworks */,
@@ -549,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				6EFDDE9E2251E41100C1B8B3 /* LiverWell.app */,
+				9C08ADE722856B53009520E5 /* LiverWellTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -578,6 +601,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9C08ADE822856B53009520E5 /* LiverWellTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C08ADE922856B53009520E5 /* LiverWellTests.swift */,
+				9C08ADEB22856B53009520E5 /* Info.plist */,
+			);
+			path = LiverWellTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,19 +634,41 @@
 			productReference = 6EFDDE9E2251E41100C1B8B3 /* LiverWell.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9C08ADE622856B53009520E5 /* LiverWellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C08ADEE22856B53009520E5 /* Build configuration list for PBXNativeTarget "LiverWellTests" */;
+			buildPhases = (
+				9C08ADE322856B53009520E5 /* Sources */,
+				9C08ADE422856B53009520E5 /* Frameworks */,
+				9C08ADE522856B53009520E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C08ADED22856B53009520E5 /* PBXTargetDependency */,
+			);
+			name = LiverWellTests;
+			productName = LiverWellTests;
+			productReference = 9C08ADE722856B53009520E5 /* LiverWellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6EFDDE962251E41100C1B8B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Jo Hsu";
 				TargetAttributes = {
 					6EFDDE9D2251E41100C1B8B3 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+					};
+					9C08ADE622856B53009520E5 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 6EFDDE9D2251E41100C1B8B3;
 					};
 				};
 			};
@@ -632,6 +686,7 @@
 			projectRoot = "";
 			targets = (
 				6EFDDE9D2251E41100C1B8B3 /* LiverWell */,
+				9C08ADE622856B53009520E5 /* LiverWellTests */,
 			);
 		};
 /* End PBXProject section */
@@ -674,6 +729,13 @@
 				6E664C1F2269A9DB00221184 /* 13.mp3 in Resources */,
 				6EAA7A38225AF84B0054AA69 /* HeaderCollectionViewCell.xib in Resources */,
 				6EE01FB92264DCAA0026C911 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C08ADE522856B53009520E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +930,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C08ADE322856B53009520E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C08ADEA22856B53009520E5 /* LiverWellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C08ADED22856B53009520E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EFDDE9D2251E41100C1B8B3 /* LiverWell */;
+			targetProxy = 9C08ADEC22856B53009520E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6EFDDEA72251E41100C1B8B3 /* Main.storyboard */ = {
@@ -1044,6 +1122,49 @@
 			};
 			name = Release;
 		};
+		9C08ADEF22856B53009520E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3YA9884FMS;
+				INFOPLIST_FILE = LiverWellTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyunhsu.LiverWellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LiverWell.app/LiverWell";
+			};
+			name = Debug;
+		};
+		9C08ADF022856B53009520E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YA9884FMS;
+				INFOPLIST_FILE = LiverWellTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyunhsu.LiverWellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LiverWell.app/LiverWell";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1061,6 +1182,15 @@
 			buildConfigurations = (
 				6EFDDEB32251E41300C1B8B3 /* Debug */,
 				6EFDDEB42251E41300C1B8B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C08ADEE22856B53009520E5 /* Build configuration list for PBXNativeTarget "LiverWellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C08ADEF22856B53009520E5 /* Debug */,
+				9C08ADF022856B53009520E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
