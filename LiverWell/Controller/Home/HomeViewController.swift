@@ -47,6 +47,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
+    let now = Date()
+    
     var todayDate = ""
     
     var tempTrainWorkoutTime = 0
@@ -86,8 +88,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getFIRProgress()
-        
         showToday()
         
         shareBtn.isEnabled = false
@@ -113,6 +113,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         todayTrainTime = nil
         tempStretchWorkoutTime = 0
@@ -154,7 +155,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         workEndHours: Int
         ) {
         
-        let now = Date()
         guard let sunday = now.endOfWeek else { return }
         guard let saturday = Calendar.current.date(byAdding: .day, value: -1, to: sunday) else { return }
         
@@ -204,7 +204,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     private func showToday() {
         
-        let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M月d日"
         var convertedDate = dateFormatter.string(from: now)
@@ -271,39 +270,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    private func getFIRProgress() {
-        
-        FIRFirestoreService.shared.readWeekWorkout(returning: WorkoutData.self) { (workoutData) in
-            print("=========")
-            print(workoutData)
-        }
-        
-    }
-    
     private func getThisWeekProgress() {
 
         guard let user = Auth.auth().currentUser else { return }
 
         let today = Date()
 
-        guard let monday = today.startOfWeek else { return }
-
-        guard let tuesday = Calendar.current.date(byAdding: .day, value: 1, to: monday) else { return }
-
-        guard let wednesday = Calendar.current.date(byAdding: .day, value: 2, to: monday) else { return }
-
-        guard let thursday = Calendar.current.date(byAdding: .day, value: 3, to: monday) else { return }
-
-        guard let friday = Calendar.current.date(byAdding: .day, value: 4, to: monday) else { return }
-
-        guard let saturday = Calendar.current.date(byAdding: .day, value: 5, to: monday) else { return }
-
-        guard let sunday = Calendar.current.date(byAdding: .day, value: 6, to: monday) else { return }
-
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
 
         workoutRef
-            .whereField("created_time", isGreaterThan: monday)
+            .whereField("created_time", isGreaterThan: today.dayOf(.monday))
             .order(by: "created_time", descending: false)
             .getDocuments { [weak self] (snapshot, error) in
 
@@ -329,31 +305,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                         self.tempStretchWorkoutTime += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: monday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.monday)) {
                         self.monSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: tuesday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.tuesday)) {
                         self.tueSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: wednesday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.wednesday)) {
                         self.wedSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: thursday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.thursday)) {
                         self.thuSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: friday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.friday)) {
                         self.friSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: saturday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.saturday)) {
                         self.satSum += workoutTime
                     }
 
-                    if convertedDate == dateFormatter.string(from: sunday) {
+                    if convertedDate == dateFormatter.string(from: today.dayOf(.sunday)) {
                         self.sunSum += workoutTime
                     }
 

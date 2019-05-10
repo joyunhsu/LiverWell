@@ -13,7 +13,6 @@ extension Date {
     // swiftlint:disable identifier_name
     var millisecondsSince1970: Int64 {
         return Int64((self.timeIntervalSince1970 * 1000.0).rounded()) // Date to millisecond
-        //RESOLVED CRASH HERE
     }
     
     init(milliseconds: Int) {
@@ -39,7 +38,11 @@ extension Date {
     }
     
     func startOfMonth() -> Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+        return Calendar.current.date(
+            from: Calendar.current.dateComponents(
+                [.year, .month],
+                from: Calendar.current.startOfDay(for: self))
+            )!
     }
 
     func dateAt(hours: Int, minutes: Int) -> Date {
@@ -60,6 +63,40 @@ extension Date {
         
         let newDate = calendar.date(from: date_components)!
         return newDate
+    }
+    
+    func tuesdayOfWeek() -> Date {
+        guard let monday = self.startOfWeek else { return Date() }
+        return Calendar.current.date(byAdding: .day, value: 1, to: monday)!
+    }
+    
+    func wednesdayOfWeek() -> Date {
+        guard let monday = self.startOfWeek else { return Date() }
+        return Calendar.current.date(byAdding: .day, value: 2, to: monday)!
+    }
+    
+    func dayOf(_ day: Day) -> Date {
+        guard let monday = self.startOfWeek else { return Date() }
+        switch day {
+        case .monday: return self.startOfWeek!
+        case .tuesday: return Calendar.current.date(byAdding: .day, value: 1, to: monday)!
+        case .wednesday: return Calendar.current.date(byAdding: .day, value: 2, to: monday)!
+        case .thursday: return Calendar.current.date(byAdding: .day, value: 3, to: monday)!
+        case .friday: return Calendar.current.date(byAdding: .day, value: 4, to: monday)!
+        case .saturday: return Calendar.current.date(byAdding: .day, value: 5, to: monday)!
+        case .sunday: return Calendar.current.date(byAdding: .day, value: 6, to: monday)!
+            
+        }
+    }
+    
+    enum Day {
+        case monday
+        case tuesday
+        case wednesday
+        case thursday
+        case friday
+        case saturday
+        case sunday
     }
     
 }

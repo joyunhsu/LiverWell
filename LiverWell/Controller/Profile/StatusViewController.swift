@@ -202,35 +202,24 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let today = Date()
         
-        guard let referenceDay = Calendar.current.date(byAdding: .day, value: 0 + 7 * weeksBefore, to: today) else { return }
+        guard let referenceDay = Calendar.current.date(
+            byAdding: .day,
+            value: 0 + 7 * weeksBefore,
+            to: today) else { return }
         
-        guard let monday = referenceDay.startOfWeek else { return }
+        self.monSum = filterByDayAndType(day: referenceDay.dayOf(.monday))
         
-        guard let tuesday = Calendar.current.date(byAdding: .day, value: 1, to: monday) else { return }
+        self.tueSum = filterByDayAndType(day: referenceDay.dayOf(.tuesday))
         
-        guard let wednesday = Calendar.current.date(byAdding: .day, value: 2, to: monday) else { return }
+        self.wedSum = filterByDayAndType(day: referenceDay.dayOf(.wednesday))
         
-        guard let thursday = Calendar.current.date(byAdding: .day, value: 3, to: monday) else { return }
+        self.thuSum = filterByDayAndType(day: referenceDay.dayOf(.thursday))
         
-        guard let friday = Calendar.current.date(byAdding: .day, value: 4, to: monday) else { return }
+        self.friSum = filterByDayAndType(day: referenceDay.dayOf(.friday))
         
-        guard let saturday = Calendar.current.date(byAdding: .day, value: 5, to: monday) else { return }
+        self.satSum = filterByDayAndType(day: referenceDay.dayOf(.saturday))
         
-        guard let sunday = Calendar.current.date(byAdding: .day, value: 6, to: monday) else { return }
-        
-        self.monSum = filterByDayAndType(day: monday)
-        
-        self.tueSum = filterByDayAndType(day: tuesday)
-        
-        self.wedSum = filterByDayAndType(day: wednesday)
-        
-        self.thuSum = filterByDayAndType(day: thursday)
-        
-        self.friSum = filterByDayAndType(day: friday)
-        
-        self.satSum = filterByDayAndType(day: saturday)
-        
-        self.sunSum = filterByDayAndType(day: sunday)
+        self.sunSum = filterByDayAndType(day: referenceDay.dayOf(.sunday))
         
     }
     
