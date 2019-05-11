@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
+class LogInViewController: STBaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginEmailTextfield: UITextField!
     
@@ -54,6 +54,22 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         ) -> Bool {
         
         if textField == loginPasswordTextfield {
+            
+            let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            
+            
+            
+            if !text.isEmpty {
+                loginBtn.isEnabled = true
+                loginBtn.backgroundColor = .Orange
+            } else {
+                loginBtn.isEnabled = false
+                loginBtn.backgroundColor = .B3
+            }
+            
+        }
+        
+        if textField == loginEmailTextfield {
             
             let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
             

@@ -57,7 +57,6 @@
 		6E73AC4F226877D200CA5347 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */; };
 		6E761ED02274DC6F00FD2C88 /* ExpectedWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E761ECF2274DC6F00FD2C88 /* ExpectedWeightViewController.swift */; };
 		6E761ED222765CF500FD2C88 /* STBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E761ED122765CF500FD2C88 /* STBaseViewController.swift */; };
-		6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A18225C8B8400742339 /* ChartBaseViewController.swift */; };
 		6E892A1C225D657500742339 /* ActivityEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */; };
 		6E892A3B225DEA3B00742339 /* LevelCollectinoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */; };
 		6E892A3D225DEBEB00742339 /* WeightEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */; };
@@ -179,7 +178,6 @@
 		6E73AC4E226877D200CA5347 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		6E761ECF2274DC6F00FD2C88 /* ExpectedWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedWeightViewController.swift; sourceTree = "<group>"; };
 		6E761ED122765CF500FD2C88 /* STBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBaseViewController.swift; sourceTree = "<group>"; };
-		6E892A18225C8B8400742339 /* ChartBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBaseViewController.swift; sourceTree = "<group>"; };
 		6E892A1B225D657500742339 /* ActivityEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntryTableViewCell.swift; sourceTree = "<group>"; };
 		6E892A3A225DEA3B00742339 /* LevelCollectinoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectinoViewCell.swift; sourceTree = "<group>"; };
 		6E892A3C225DEBEB00742339 /* WeightEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */,
-				6E892A18225C8B8400742339 /* ChartBaseViewController.swift */,
 				6E761ED122765CF500FD2C88 /* STBaseViewController.swift */,
 			);
 			path = Base;
@@ -878,7 +875,6 @@
 				9C08ADE222855245009520E5 /* DateFormatter+Extension.swift in Sources */,
 				6EA8CBE022536861000859FD /* UIImage+Extension.swift in Sources */,
 				6E761ED222765CF500FD2C88 /* STBaseViewController.swift in Sources */,
-				6E892A19225C8B8400742339 /* ChartBaseViewController.swift in Sources */,
 				6EF3388F227DFB9500A65924 /* StretchPrepareViewController.swift in Sources */,
 				6EAA7A32225A7B740054AA69 /* DetailKnowledgeViewController.swift in Sources */,
 				6EA2EA72225494750039B39F /* HomeManager.swift in Sources */,

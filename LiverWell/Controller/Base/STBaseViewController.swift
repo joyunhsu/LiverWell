@@ -78,5 +78,28 @@ class STBaseViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
+    
+//    func textField(
+//        _ textField: UITextField,
+//        shouldChangeCharactersIn range: NSRange,
+//        replacementString string: String
+//        ) -> Bool {
+//
+//        if textField == loginPasswordTextfield {
+//
+//            let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+//
+//            if !text.isEmpty {
+//                loginBtn.isEnabled = true
+//                loginBtn.backgroundColor = .Orange
+//            } else {
+//                loginBtn.isEnabled = false
+//                loginBtn.backgroundColor = .B3
+//            }
+//
+//        }
+//
+//        return true
+//    }
 }
 

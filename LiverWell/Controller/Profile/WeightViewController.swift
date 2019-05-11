@@ -48,6 +48,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         didSet {
             tableView.reloadData()
             setChartValues()
+            readStatus()
         }
     }
     
@@ -58,10 +59,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setChartValues()
         setupChartView()
         readWeight()
-//        readStatus()
         
         levelCollectionView.isHidden = true
         
@@ -95,14 +94,9 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy年MM月"
-        
         let userDocRef = AppDelegate.db.collection("users").document(uid)
-        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
+        let weightRef = userDocRef.collection("weight")
         let startOfMonth = Date().startOfMonth()
-        
-        var weightChangeSinceStart: Double = 0
         
         userDocRef
             .getDocument { (document, error) in
@@ -111,8 +105,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 guard let expected = document.get("expected_weight") as? Double else { return }
                 guard let signupTime = document.get("signup_time") as? Timestamp else { return }
                 
-                let date = signupTime.dateValue()
-                let convertedDate = dateFormatter.string(from: date)
+                let convertedDate = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
                 self.startMonthLabel.text = convertedDate
                 self.expectedWeightLabel.text = String(expected)
                 self.initialWeight = initial
@@ -152,8 +145,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                         guard let createdTime = document.get("created_time") as? Timestamp else { return }
                         guard let weight = document.get("weight") as? Double else { return }
                         
-                        let date = createdTime.dateValue()
-                        let convertedDate = dateFormatter.string(from: date)
+                        let convertedDate = DateFormatter.chineseYearMonth(date: createdTime.dateValue())
                         self?.currentMonthLabel.text = convertedDate
                         self?.currentWeight = weight
                 
@@ -202,7 +194,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         }
 
     }
-    
+
     private func readWeight() {
         
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
