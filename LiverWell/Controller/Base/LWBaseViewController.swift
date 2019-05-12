@@ -34,8 +34,8 @@ class LWBaseViewController: UIViewController {
     }
     
     func getData() {
-        print("----------------")
-        print("read data")
+//        print("----------------")
+//        print("read data")
     }
     
     func connectionErrorMsg(getData: (() -> Void)?) {

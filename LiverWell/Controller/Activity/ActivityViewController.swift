@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
+class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UIScrollViewDelegate {
     
     deinit {
         print("ActivityVC deinit")
@@ -43,11 +43,8 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
             secondCollectionView.reloadData()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        scrollView.delegate = self
+    
+    override func getData() {
         
         workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, _ ) in
             self?.trainElements = train
@@ -56,6 +53,13 @@ class ActivityViewController: UIViewController, UICollectionViewDelegate, UIScro
         workoutManager.getWorkout(activity: ActivityItems.stretch) { [weak self] (stretch, _ ) in
             self?.stretchElements = stretch
         }
+
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        scrollView.delegate = self
 
         let headerCellNib = UINib(nibName: "HeaderCollectionViewCell", bundle: nil)
 

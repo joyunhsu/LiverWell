@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class StretchSetupViewController: UIViewController, UITableViewDelegate {
     
@@ -124,6 +125,8 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
                     print("Stretch Workout Time Document succesfully updated")
                 }
             }
+            
+            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成\(recordStretchTime)分鐘運動！")
         }
         
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KnowledgeViewController: UIViewController, UITableViewDelegate {
+class KnowledgeViewController: LWBaseViewController, UITableViewDelegate {
 
     @IBOutlet weak var foodBtn: UIButton!
 
@@ -110,9 +110,8 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
     var workoutList = [Knowledge]()
     
     var fattyLiverList = [Knowledge]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func getData() {
         
         knowledgeManager.getKnowledge { (knowledgeList, _ ) in
             
@@ -123,6 +122,11 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate {
             self.filterList()
             
         }
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
 

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController, UIScrollViewDelegate {
+class ProfileViewController: LWBaseViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -55,6 +55,12 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         scrollView.delegate = self
+        
+//        getUserName()
+        
+    }
+    
+    override func getData() {
         
         getUserName()
         

@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class STBaseViewController: UIViewController {
+class STBaseViewController: LWBaseViewController {
     
     var isHideNavigationBar: Bool {
         
@@ -102,4 +102,3 @@ class STBaseViewController: UIViewController {
 //        return true
 //    }
 }
-
