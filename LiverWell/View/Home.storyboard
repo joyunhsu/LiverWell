@@ -422,6 +422,7 @@
                         <outlet property="shareBtn" destination="XZq-tS-KC0" id="bbO-hp-6y2"/>
                         <outlet property="statusLabel" destination="Vjg-fz-LQP" id="C5R-bC-tB7"/>
                         <outlet property="statusRemainTimeLabel" destination="zAd-bj-swh" id="dMT-o0-hvo"/>
+                        <outlet property="stillRemainLabel" destination="GWD-Oh-ymq" id="5Xb-r0-48s"/>
                         <outlet property="stretchProgressView" destination="NEx-o8-1iQ" id="gMJ-QZ-MaW"/>
                         <outlet property="suggestTopConstraint" destination="5Ml-N1-Apf" id="Bgb-rS-r6L"/>
                         <outlet property="timeLabel" destination="VaG-O6-Gve" id="Q2e-Oq-Mr0"/>

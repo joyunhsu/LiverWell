@@ -10,7 +10,6 @@ import UIKit
 import MBCircularProgressBar
 import Firebase
 
-// swiftlint:disable cyclomatic_complexity
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     let homeObjectManager = HomeObjectManager()
@@ -43,6 +42,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var workoutCollectionView: UICollectionView!
 
     @IBOutlet weak var weekProgressCollectionView: UICollectionView!
+    
+    @IBOutlet weak var stillRemainLabel: UILabel!
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
@@ -227,31 +228,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
         
-        if totalWorkoutTime > 15 {
+        UIView.animate(withDuration: 0.5) {
             
-            UIView.animate(withDuration: 0.5) {
-                
-                self.stretchProgressView.value = 15
-                
-                self.trainProgressView.value = CGFloat(trainWorkoutTime * 15 / totalWorkoutTime)
-                
-            }
+            self.stretchProgressView.value = CGFloat(totalWorkoutTime)
             
-            remainingTimeLabel.text = "達成目標！"
-            
-        } else {
-            
-            UIView.animate(withDuration: 0.5) {
-                
-                self.stretchProgressView.value = CGFloat(totalWorkoutTime)
-                
-                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
-                
-            }
-            
-            remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
+            self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
             
         }
+        
+        remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
         
     }
     

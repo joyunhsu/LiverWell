@@ -20,5 +20,7 @@ pod 'IQKeyboardManagerSwift', '6.0.4'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'TTTAttributedLabel'
+pod 'SwiftMessages'
+pod 'SCLAlertView'
 
 end

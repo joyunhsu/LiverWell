@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import SwiftMessages
+import SCLAlertView
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
@@ -23,7 +25,6 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             tableView.isHidden = false
             tableView.reloadData()
             setupView()
-            
         }
     }
     
@@ -38,7 +39,12 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     var selectedTimeWorkoutTitle: String?
     
-    var recordTrainTime: Int?
+    var recordTrainTime: Int? {
+        didSet {
+            print("-------------------")
+            showMsgView(minute: recordTrainTime!)
+        }
+    }
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -61,6 +67,25 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         sender.isSelected = true
         
         selectTimer(withTag: sender.tag)
+        
+//        showMsgView(minute: 5)
+        
+    }
+    
+    private func showTimeoutMsgView() {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let timeoutValue: TimeInterval = 5.0
+        let timeoutAction: SCLAlertView.SCLTimeoutConfiguration.ActionType = {
+            
+        }
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.showWarning(
+            "No button",
+            subTitle: "Just wait for 3 seconds and I will disappear",
+            timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: timeoutValue, timeoutAction: timeoutAction))
         
     }
 
@@ -86,7 +111,17 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         if self.workoutElement == nil {
             tableView.isHidden = true
         }
-
+        
+    }
+    
+    private func showMsgView(minute: Int) {
+        let msgView = MessageView.viewFromNib(layout: .cardView)
+        msgView.configureTheme(.success)
+        msgView.configureContent(title: "運動登錄！", body: "完成\(minute)分鐘運動")
+        msgView.button?.isHidden = true
+        var config = SwiftMessages.defaultConfig
+        config.duration = .forever
+        SwiftMessages.show(config: config, view: msgView)
     }
     
     private func setupView() {
@@ -142,6 +177,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         guard let recordTrainTime = recordTrainTime else { return }
         
         if recordTrainTime > 0 {
+            self.recordTrainTime = recordTrainTime
             AppDelegate.db.collection("users").document(user.uid).collection("workout").addDocument(
                 data: [
                     "activity_type": "train",
@@ -155,8 +191,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
                     print("Train Workout Time Document succesfully updated")
                 }
             }
+            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成\(recordTrainTime)分鐘運動！")
         }
-        
     }
 }
 
