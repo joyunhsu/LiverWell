@@ -9,8 +9,9 @@
 import UIKit
 import MBCircularProgressBar
 import Firebase
+import SCLAlertView
 
-class HomeViewController: UIViewController, UICollectionViewDelegate {
+class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     let homeObjectManager = HomeObjectManager()
     
@@ -83,8 +84,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func getData() {
         
         getThisWeekProgress()
         
@@ -92,10 +92,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             workStartHours: 9,
             workEndHours: 18
         )
-
+        
         groupNofity()
     }
-    
+
     private func groupNofity() {
         dispatchGroup.notify(queue: .main) {
             self.showTodayWorkoutProgress()
@@ -103,7 +103,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             self.setupView()
             self.shareBtn.isEnabled = true
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -207,8 +206,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func setupStatusAs(_ homeStatus: HomeStatus) {
+        
+        dispatchGroup.enter()
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
+            self?.dispatchGroup.leave()
         }
         
     }

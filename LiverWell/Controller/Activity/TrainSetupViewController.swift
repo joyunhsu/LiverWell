@@ -72,14 +72,14 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    private func showTimeoutMsgView() {
+    private func showTimeoutMsg() {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false
         )
-        
+
         let timeoutValue: TimeInterval = 5.0
         let timeoutAction: SCLAlertView.SCLTimeoutConfiguration.ActionType = {
-            
+
         }
         let alertView = SCLAlertView(appearance: appearance)
         alertView.showWarning(

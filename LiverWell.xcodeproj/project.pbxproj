@@ -115,6 +115,8 @@
 		6EFDDEAE2251E41300C1B8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDDEAC2251E41300C1B8B3 /* LaunchScreen.storyboard */; };
 		9C08ADE222855245009520E5 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08ADE122855245009520E5 /* DateFormatter+Extension.swift */; };
 		9C08ADEA22856B53009520E5 /* LiverWellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08ADE922856B53009520E5 /* LiverWellTests.swift */; };
+		9C4BC8252288070B00109CE4 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4BC8242288070B00109CE4 /* InternetConnection.swift */; };
+		9C4BC827228815AF00109CE4 /* LWBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4BC826228815AF00109CE4 /* LWBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +243,8 @@
 		9C08ADE722856B53009520E5 /* LiverWellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiverWellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C08ADE922856B53009520E5 /* LiverWellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiverWellTests.swift; sourceTree = "<group>"; };
 		9C08ADEB22856B53009520E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C4BC8242288070B00109CE4 /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		9C4BC826228815AF00109CE4 /* LWBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWBaseViewController.swift; sourceTree = "<group>"; };
 		C8CBB4EEC20963B5334D90D8 /* Pods-LiverWell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiverWell.debug.xcconfig"; path = "Target Support Files/Pods-LiverWell/Pods-LiverWell.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,6 +301,7 @@
 			children = (
 				6E4B74BD225460CC00BECC70 /* TabBarViewController.swift */,
 				6E761ED122765CF500FD2C88 /* STBaseViewController.swift */,
+				9C4BC826228815AF00109CE4 /* LWBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				6EA8CBDB22536695000859FD /* Activity */,
 				6EA2EA6F2254940F0039B39F /* Knowledge */,
 				6EA2EA702254942B0039B39F /* Profile */,
+				9C4BC8242288070B00109CE4 /* InternetConnection.swift */,
 				6E40CAB0228152530099BF47 /* FIRFirestoreService.swift */,
 				6E40CAB2228161CA0099BF47 /* FIRCollectionReference.swift */,
 			);
@@ -857,6 +863,7 @@
 				6E664C32226DC05700221184 /* RecordWeightViewController.swift in Sources */,
 				6E4B74BE225460CC00BECC70 /* TabBarViewController.swift in Sources */,
 				6E2CAC992274863600C27748 /* CurrentWeightViewController.swift in Sources */,
+				9C4BC827228815AF00109CE4 /* LWBaseViewController.swift in Sources */,
 				6EA8CBDD225366BE000859FD /* ActivityManager.swift in Sources */,
 				6EE614AE225B3250003A104C /* PieChartTableViewCell.swift in Sources */,
 				6EE01FDF2267842C0026C911 /* KnowledgeManager.swift in Sources */,
@@ -924,6 +931,7 @@
 				6EE0200822683B630026C911 /* HomeObjectManager.swift in Sources */,
 				6E761ED02274DC6F00FD2C88 /* ExpectedWeightViewController.swift in Sources */,
 				6EA2EA6D225482550039B39F /* HomeCollectionViewCell.swift in Sources */,
+				9C4BC8252288070B00109CE4 /* InternetConnection.swift in Sources */,
 				6EAA7A34225AF23F0054AA69 /* PracticeViewController.swift in Sources */,
 				6EA2EA74225494890039B39F /* HomeItem.swift in Sources */,
 				6EF064D52262D9D8004FB6A8 /* ShareViewController.swift in Sources */,
