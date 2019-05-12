@@ -45,7 +45,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
     let now = Date()
-//    let now = Calendar.current.date(byAdding: .day, value: -12, to: Date())!
     
     var todayDate = ""
     
@@ -98,12 +97,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func groupNofity() {
-        
         dispatchGroup.notify(queue: .main) {
             self.showTodayWorkoutProgress()
             self.workoutCollectionView.reloadData()
             self.setupView()
+            self.shareBtn.isEnabled = true
         }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,9 +163,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             statusRemainTimeLabel.text = "休息日好好放鬆，起身動一動！"
             
             if now >= sleepEnd && now <= sleepStart {
-                setupStatus(homeStatus: .resting)
+                setupStatusAs(.resting)
             } else {
-                setupStatus(homeStatus: .beforeSleep)
+                setupStatusAs(.beforeSleep)
             }
             
         } else {
@@ -174,16 +174,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 //            let fromSleepHour = sleepStartHours - nowHour
             
             if now >= workStart && now <= workEnd {
-                setupStatus(homeStatus: .working)
+                setupStatusAs(.working)
                 statusRemainTimeLabel.text = "離休息時間還有 \(fromRestHour) 小時"
             } else if now >= workEnd && now <= sleepStart {
-                setupStatus(homeStatus: .resting)
+                setupStatusAs(.resting)
                 statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
             } else if now >= sleepEnd && now <= workStart {
-                setupStatus(homeStatus: .resting)
+                setupStatusAs(.resting)
                 statusRemainTimeLabel.text = "離工作時間還有 \(workStartHours - nowHour) 小時"
             } else {
-                setupStatus(homeStatus: .beforeSleep)
+                setupStatusAs(.beforeSleep)
                 if nowHour > workEndHours {
                     statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
                 } else if nowHour < workStartHours {
@@ -199,7 +199,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     private func showToday() {
         
         let chineseMonthDate = DateFormatter.chineseMonthDate(date: now)
-        
         let chineseDay = DateFormatter.chineseWeekday(date: now)
         
         timeLabel.text = "\(chineseMonthDate) \(chineseDay)"
@@ -207,32 +206,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
-    private func setupStatus(homeStatus: HomeStatus) {
+    private func setupStatusAs(_ homeStatus: HomeStatus) {
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
         }
-        
-    }
-    
-    private func showTodayWorkoutProgress() {
-        
-        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
-        
-        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
-        
-        todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
-        
-        UIView.animate(withDuration: 0.5) {
-            
-            self.stretchProgressView.value = CGFloat(totalWorkoutTime)
-            
-            self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
-            
-        }
-        
-        remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
-        
-        weekProgressCollectionView.reloadData()
         
     }
     
@@ -277,6 +254,28 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         }
 
+    }
+    
+    private func showTodayWorkoutProgress() {
+        
+        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
+        
+        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
+        
+        todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.stretchProgressView.value = CGFloat(totalWorkoutTime)
+            
+            self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            
+        }
+        
+        remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
+        
+        weekProgressCollectionView.reloadData()
+        
     }
     
     private func sortBy(day date: Date, workoutType: String, workoutTime: Int) {
