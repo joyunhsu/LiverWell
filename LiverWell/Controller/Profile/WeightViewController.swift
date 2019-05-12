@@ -171,27 +171,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                     }
                 }
         }
-        
-        DispatchQueue.global().async {
-            DispatchQueue.main.async {
-                let weightSinceStart = self.currentWeight - self.initialWeight
-                
-                if weightSinceStart > 0 {
-                    self.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
-                } else {
-                    self.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
-                }
-                
-                let weightSinceMonth = self.currentWeight - self.lastMonthWeight
-                if weightSinceMonth > 0 {
-                    self.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
-                    self.progressView.progress = 0
-                } else {
-                    self.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
-                    self.progressView.progress = Float((0 - weightSinceMonth) / 1)
-                }
-            }
-        }
 
     }
 

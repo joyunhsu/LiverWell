@@ -137,10 +137,15 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
             desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
             desVC.stretchTimeLabel.text = "\(stretchWorkoutTime)分鐘"
             desVC.todayDateLabel.text = todayDate
-            desVC.stretchProgressView.value = CGFloat(stretchWorkoutTime + trainWorkoutTime)
-            desVC.trainProgressView.value = CGFloat(trainWorkoutTime)
+            
+            if totalWorkoutTime >= 15 {
+                    desVC.stretchProgressView.value = 15
+                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime * 15 / totalWorkoutTime)
+            } else {
+                    desVC.stretchProgressView.value = CGFloat(totalWorkoutTime)
+                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            }
         }
-        
     }
     
     private func determineStatus(
@@ -246,7 +251,6 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
                     self?.sortBy(day: date, workoutType: activityType, workoutTime: workoutTime)
 
                 }
-                
                 self?.dispatchGroup.leave()
             }
 
@@ -266,15 +270,31 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         
         todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
         
-        UIView.animate(withDuration: 0.5) {
+        if totalWorkoutTime >= 15 {
             
-            self.stretchProgressView.value = CGFloat(totalWorkoutTime)
+            UIView.animate(withDuration: 0.5) {
+                
+                self.stretchProgressView.value = 15
+                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime * 15 / totalWorkoutTime)
+                
+            }
             
-            self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            stillRemainLabel.text = "太棒了"
+            remainingTimeLabel.text = "達成目標"
+            
+        } else {
+        
+            UIView.animate(withDuration: 0.5) {
+                
+                self.stretchProgressView.value = CGFloat(totalWorkoutTime)
+                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+                
+            }
+            
+            stillRemainLabel.text = "還剩"
+            remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
             
         }
-        
-        remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
         
         weekProgressCollectionView.reloadData()
         
@@ -358,7 +378,6 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
             }
         }
     }
-
 }
 
 extension HomeViewController: UICollectionViewDataSource {
