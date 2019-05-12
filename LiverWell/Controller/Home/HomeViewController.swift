@@ -14,12 +14,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     let homeObjectManager = HomeObjectManager()
     
-    var homeObject: HomeObject? {
-        didSet {
-            workoutCollectionView.reloadData()
-            setupView()
-        }
-    }
+    var homeObject: HomeObject?
+    
+    let dispatchGroup = DispatchGroup()
     
     @IBOutlet weak var suggestTopConstraint: NSLayoutConstraint!
     
@@ -54,25 +51,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     var tempTrainWorkoutTime = 0
     
-    var todayTrainTime: Int? {
-        didSet {
-            if todayStretchTime != nil || todayTrainTime != nil {
-                showTodayWorkoutProgress()
-                shareBtn.isEnabled = true
-            }
-        }
-    }
+    var todayTrainTime: Int?
     
     var tempStretchWorkoutTime = 0
     
-    var todayStretchTime: Int? {
-        didSet {
-            if todayStretchTime != nil || todayTrainTime != nil {
-                showTodayWorkoutProgress()
-                shareBtn.isEnabled = true
-            }
-        }
-    }
+    var todayStretchTime: Int?
     
     var monSum = 0
     var tueSum = 0
@@ -104,13 +87,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getThisWeekProgress()
+        
         determineStatus(
             workStartHours: 9,
             workEndHours: 18
         )
+
+        groupNofity()
+    }
+    
+    private func groupNofity() {
         
-        getThisWeekProgress()
-        
+        dispatchGroup.notify(queue: .main) {
+            self.showTodayWorkoutProgress()
+            self.workoutCollectionView.reloadData()
+            self.setupView()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -218,6 +211,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             self?.homeObject = homeObject
         }
+        
     }
     
     private func showTodayWorkoutProgress() {
@@ -238,9 +232,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
         
+        weekProgressCollectionView.reloadData()
+        
     }
     
     private func getThisWeekProgress() {
+        
+        dispatchGroup.enter()
         
         let userDefaults = UserDefaults.standard
         
@@ -269,13 +267,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     self?.sortBy(day: date, workoutType: activityType, workoutTime: workoutTime)
 
                 }
+                
+                self?.dispatchGroup.leave()
             }
 
             self?.todayTrainTime = self?.tempTrainWorkoutTime
 
             self?.todayStretchTime = self?.tempStretchWorkoutTime
-
-            self?.weekProgressCollectionView.reloadData()
 
         }
 
