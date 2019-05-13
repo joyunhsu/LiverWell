@@ -11,7 +11,6 @@ import Charts
 import Firebase
 
 // swiftlint:disable identifier_name
-
 class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDelegate {
     
     @IBOutlet weak var weekStartEndLabel: UILabel!
@@ -35,14 +34,10 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     }
     
     @IBAction func nextWeekBtnPressed(_ sender: UIButton) {
-        print("---yo-----")
-        print(Date().timeIntervalSince1970)
         workoutDataArray = [WorkoutData]()
         weeksBeforeCount += 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
         presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
-        print("-----發大財-----")
-        print(Date().timeIntervalSince1970)
     }
     
     @IBAction func previousWeekBtnPressed(_ sender: UIButton) {
@@ -161,7 +156,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let sunday = referenceDay.dayOf(.sunday)
         
         workoutRef
-            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 1, to: sunday))
+            .whereField("created_time", isLessThan: Calendar.current.date(byAdding: .day, value: 1, to: sunday)!)
             .whereField("created_time", isGreaterThan: monday)
             .order(by: "created_time", descending: false) // 由舊到新
             .getDocuments { [weak self] (snapshot, error) in
@@ -357,9 +352,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         chartView.data!.highlightEnabled = !chartView.data!.isHighlightEnabled
 //        chartView.setNeedsDisplay()
         
-        // Animate Y
-//        chartView.animate(yAxisDuration: 1.5)
-        
         // Toggle Icon
 //        for set in chartView.data!.dataSets {
 //            set.drawIconsEnabled = !set.drawIconsEnabled
@@ -409,32 +401,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         let xAxisValue = chartView.xAxis
         xAxisValue.valueFormatter = axisFormatDelegate
     }
-    
-//    private func barChartUpdate () { // 沒用到
-//
-//        // Basic set up of plan chart
-//        let entry1 = BarChartDataEntry(x: 1.0, y: Double(50))
-//        let entry2 = BarChartDataEntry(x: 2.0, y: Double(20))
-//        let entry3 = BarChartDataEntry(x: 3.0, y: Double(30))
-//        let entry4 = BarChartDataEntry(x: 3.0, y: Double(40))
-//        let entry5 = BarChartDataEntry(x: 3.0, y: Double(30))
-//        let entry6 = BarChartDataEntry(x: 3.0, y: Double(40))
-//        let entry7 = BarChartDataEntry(x: 3.0, y: Double(30))
-//
-//        let dataSet = BarChartDataSet(
-//            entries: [entry1, entry2, entry3, entry4, entry5, entry6, entry7],
-//            label: "Weekly Status")
-//        let data = BarChartData(dataSets: [dataSet])
-//        chartView.data = data
-//        chartView.chartDescription?.text = ""
-//
-//        // Color
-//        dataSet.colors = ChartColorTemplates.vordiplom()
-//
-//        // Refresh chart with new data
-//        chartView.notifyDataSetChanged()
-//
-//    }
 
 }
 

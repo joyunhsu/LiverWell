@@ -60,18 +60,22 @@ class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
 
         scrollView.delegate = self
-
-        let headerCellNib = UINib(nibName: "HeaderCollectionViewCell", bundle: nil)
-
-        firstCollectionView.register(headerCellNib, forCellWithReuseIdentifier: "HeaderCollectionViewCell")
-
-        secondCollectionView.register(headerCellNib, forCellWithReuseIdentifier: "HeaderCollectionViewCell")
-
-        let cellNib = UINib(nibName: "ActivityCollectionViewCell", bundle: nil)
-
-        firstCollectionView.register(cellNib, forCellWithReuseIdentifier: "ActivityCollectionViewCell")
-
-        secondCollectionView.register(cellNib, forCellWithReuseIdentifier: "ActivityCollectionViewCell")
+        
+        firstCollectionView.lw_registerCellWithNib(
+            identifier: String(describing: HeaderCollectionViewCell.self),
+            bundle: nil)
+        
+        secondCollectionView.lw_registerCellWithNib(
+            identifier: String(describing: HeaderCollectionViewCell.self),
+            bundle: nil)
+        
+        firstCollectionView.lw_registerCellWithNib(
+            identifier: String(describing: ActivityCollectionViewCell.self),
+            bundle: nil)
+        
+        secondCollectionView.lw_registerCellWithNib(
+            identifier: String(describing: ActivityCollectionViewCell.self),
+            bundle: nil)
 
         self.navigationController?.isNavigationBarHidden = true
 

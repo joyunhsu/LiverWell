@@ -181,7 +181,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     private func showTodayWorkoutProgress() {
         
         let todayTrainTime = homeManager.todayTrainTime
-        
+
         let todayStretchTime = homeManager.todayStretchTime
         
         let totalWorkoutTime = todayTrainTime + todayStretchTime

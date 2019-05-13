@@ -51,13 +51,18 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: "SetupActivityTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "SetupActivityTableViewCell")
+        tableView.lw_registerCellWithNib(
+            identifier: String(describing: SetupActivityTableViewCell.self),
+            bundle: nil)
         
         guard let idUrl = idUrl else { return }
         
         workoutElementManager.getWorkoutElement(id: idUrl) { (workoutElement, error) in
-            self.workoutElement = workoutElement
+            if let error = error {
+                print(error)
+            } else {
+                self.workoutElement = workoutElement
+            }
         }
         
         if workoutElement == nil {

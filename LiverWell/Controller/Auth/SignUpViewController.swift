@@ -122,9 +122,9 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.2
         
-        let fullAttributedString = NSAttributedString(string:string, attributes: [
+        let fullAttributedString = NSAttributedString(string: string, attributes: [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.foregroundColor: UIColor.B1!.cgColor,
+            NSAttributedString.Key.foregroundColor: UIColor.B1!.cgColor
             ])
         attributedLabel.textAlignment = .center
         attributedLabel.attributedText = fullAttributedString

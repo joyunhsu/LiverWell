@@ -36,25 +36,13 @@ class PauseViewController: UIViewController, UITableViewDelegate {
         
         barProgressView.progress = currentTime / maxTime
         
-        let firstCell = UINib(
-            nibName: String(describing: FirstActivityInfoTableViewCell.self),
-            bundle: nil
-        )
+        tableView.lw_registerCellWithNib(
+            identifier: String(describing: FirstActivityInfoTableViewCell.self),
+            bundle: nil)
         
-        tableView.register(
-            firstCell,
-            forCellReuseIdentifier: String(describing: FirstActivityInfoTableViewCell.self)
-        )
-        
-        let secondCell = UINib(
-            nibName: String(describing: SecondActivityInfoTableViewCell.self),
-            bundle: nil
-        )
-        
-        tableView.register(
-            secondCell,
-            forCellReuseIdentifier: String(describing: SecondActivityInfoTableViewCell.self)
-        )
+        tableView.lw_registerCellWithNib(
+            identifier: String(describing: SecondActivityInfoTableViewCell.self),
+            bundle: nil)
 
     }
     

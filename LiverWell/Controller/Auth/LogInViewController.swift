@@ -39,7 +39,10 @@ class LogInViewController: STBaseViewController, UITextFieldDelegate {
             email: loginEmailTextfield.text!,
             password: loginPasswordTextfield.text!) { (user, error) in
                 if error != nil {
-                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alert = UIAlertController(
+                        title: "Error",
+                        message: error?.localizedDescription,
+                        preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alert.addAction(defaultAction)
                     self.present(alert, animated: true, completion: nil)
@@ -56,8 +59,6 @@ class LogInViewController: STBaseViewController, UITextFieldDelegate {
         if textField == loginPasswordTextfield {
             
             let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-            
-            
             
             if !text.isEmpty {
                 loginBtn.isEnabled = true

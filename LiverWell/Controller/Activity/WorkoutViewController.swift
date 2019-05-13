@@ -178,7 +178,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func setupGif() {
         
-        guard let workoutArray = workoutArray else { return }
+        guard workoutArray != nil else { return }
         let currentWorkout = timeBasedWorkoutArray[workoutIndex]
         workoutImageView.animationImages = [
             UIImage(named: currentWorkout.images[0]),
@@ -217,7 +217,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func changeTitleAndRepeatText() {
         
-        guard let workoutArray = workoutArray else { return }
+        guard workoutArray != nil else { return }
         
         let currentWorkout = timeBasedWorkoutArray[workoutIndex]
         
@@ -240,7 +240,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
             repeatCountingText.append(repeatCount)
         }
         
-        guard let workoutArray = self.workoutArray else { return }
+        guard self.workoutArray != nil else { return }
         
         var beat = 0
         
@@ -319,7 +319,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
     
     private func moveToNextVC() {
         
-        guard let workoutArray = workoutArray else { return }
+        guard workoutArray != nil else { return }
         
 //        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return }
         
@@ -339,9 +339,7 @@ extension WorkoutViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        guard let workoutArray = workoutArray else { return 0 }
-        
-//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return 0 }
+        guard workoutArray != nil else { return 0 }
         
         return timeBasedWorkoutArray[workoutIndex].workoutSetRepeat
     }
@@ -359,8 +357,7 @@ extension WorkoutViewController: UICollectionViewDataSource {
         
         var bgColorArray = [UIColor?]()
         var textColorArray = [UIColor?]()
-        guard let workoutArray = workoutArray else { return cell }
-//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return cell }
+        guard workoutArray != nil else { return cell }
         
         for _ in 0..<timeBasedWorkoutArray[workoutIndex].workoutSetRepeat {
             let defaultViewColor = UIColor.B5
@@ -394,8 +391,7 @@ extension WorkoutViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
         ) -> CGSize {
-        guard let workoutArray = workoutArray else { return CGSize() }
-//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return CGSize() }
+        guard workoutArray != nil else { return CGSize() }
         let collectionViewWidth = repeatCollectionView.bounds.width
         let cellSpace = Int(collectionViewWidth) / timeBasedWorkoutArray[workoutIndex].workoutSetRepeat
         return CGSize(width: cellSpace, height: 25)

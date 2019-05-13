@@ -42,7 +42,6 @@ extension DateFormatter {
         return dateFormatter.string(from: date)
     }
     
-    
     // ex: 2019年3月
     static func chineseYearMonth(date: Date) -> String {
         
