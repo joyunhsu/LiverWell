@@ -342,12 +342,12 @@
                                     <constraint firstItem="kx9-dL-Iax" firstAttribute="leading" secondItem="NEx-o8-1iQ" secondAttribute="leading" id="Tl3-IE-Eis"/>
                                     <constraint firstItem="GWD-Oh-ymq" firstAttribute="leading" secondItem="NEx-o8-1iQ" secondAttribute="trailing" id="V2G-Oi-4Jk"/>
                                     <constraint firstAttribute="bottom" secondItem="NEx-o8-1iQ" secondAttribute="bottom" priority="750" id="Wnv-jC-8QC"/>
+                                    <constraint firstItem="OaE-As-Syo" firstAttribute="width" secondItem="GWD-Oh-ymq" secondAttribute="width" id="Yci-db-W8y"/>
                                     <constraint firstItem="NEx-o8-1iQ" firstAttribute="leading" secondItem="86e-Lh-2he" secondAttribute="trailing" id="e7X-aD-rVi"/>
                                     <constraint firstAttribute="trailing" secondItem="GWD-Oh-ymq" secondAttribute="trailing" id="eFZ-y6-JdY"/>
                                     <constraint firstItem="kx9-dL-Iax" firstAttribute="top" secondItem="NEx-o8-1iQ" secondAttribute="top" priority="750" id="gqs-tY-o4t"/>
                                     <constraint firstItem="OaE-As-Syo" firstAttribute="top" secondItem="sD7-Cw-YPI" secondAttribute="top" id="mGc-eK-pTI"/>
                                     <constraint firstItem="NEx-o8-1iQ" firstAttribute="centerY" secondItem="94o-TR-ABa" secondAttribute="centerY" id="mqH-3T-Wzj"/>
-                                    <constraint firstItem="OaE-As-Syo" firstAttribute="leading" secondItem="NEx-o8-1iQ" secondAttribute="trailing" id="pW3-qC-MqW"/>
                                     <constraint firstItem="NEx-o8-1iQ" firstAttribute="centerX" secondItem="94o-TR-ABa" secondAttribute="centerX" id="u6I-JT-POb"/>
                                 </constraints>
                             </view>

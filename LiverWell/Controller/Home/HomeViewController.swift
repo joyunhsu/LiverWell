@@ -13,6 +13,8 @@ import SCLAlertView
 
 class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
+    let homeManager = HomeManager()
+    
     let homeObjectManager = HomeObjectManager()
     
     var homeObject: HomeObject?
@@ -48,26 +50,6 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     let now = Date()
     
     var todayDate = ""
-    
-    var tempTrainWorkoutTime = 0
-    
-    var todayTrainTime: Int?
-    
-    var tempStretchWorkoutTime = 0
-    
-    var todayStretchTime: Int?
-    
-    var monSum = 0
-    var tueSum = 0
-    var wedSum = 0
-    var thuSum = 0
-    var friSum = 0
-    var satSum = 0
-    var sunSum = 0
-    
-    var dailyValue: [Int] {
-        return [monSum, tueSum, wedSum, thuSum, friSum, satSum, sunSum]
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +68,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     override func getData() {
         
-        getThisWeekProgress()
+        getThisWeekProcess()
         
         determineStatus(
             workStartHours: 9,
@@ -94,6 +76,28 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         )
         
         groupNofity()
+    }
+    
+    private func getThisWeekProcess() {
+        
+        dispatchGroup.enter()
+        
+        homeManager.getThisWeekProgress(today: Date()) { (result) in
+            
+            switch result {
+                
+            case .success(let workOuts):
+                
+                print(workOuts)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            self.dispatchGroup.leave()
+        }
+        
     }
 
     private func groupNofity() {
@@ -108,30 +112,19 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        todayTrainTime = nil
-        tempStretchWorkoutTime = 0
-        
-        todayStretchTime = nil
-        tempTrainWorkoutTime = 0
-        
-        monSum = 0
-        tueSum = 0
-        wedSum = 0
-        thuSum = 0
-        friSum = 0
-        satSum = 0
-        sunSum = 0
-        
+        homeManager.reset()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
+        let trainWorkoutTime = homeManager.todayTrainTime
+        
+        let stretchWorkoutTime = homeManager.todayStretchTime
         
         let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
         
         if let desVC = segue.destination as? ShareViewController {
-            desVC.dailyValue = dailyValue
+            desVC.dailyValue = homeManager.dailyValue
             desVC.loadViewIfNeeded()
             desVC.todayTotalTimeLabel.text = "\(totalWorkoutTime)"
             desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
@@ -220,53 +213,13 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         
     }
     
-    private func getThisWeekProgress() {
-        
-        dispatchGroup.enter()
-        
-        let userDefaults = UserDefaults.standard
-        
-        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
-
-        let today = now
-
-        let workoutRef = AppDelegate.db.collection("users").document(uid).collection("workout")
-
-        workoutRef
-            .whereField("created_time", isGreaterThan: today.dayOf(.monday))
-            .order(by: "created_time", descending: false)
-            .getDocuments { [weak self] (snapshot, error) in
-
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in snapshot!.documents {
-
-                    guard let workoutTime = document.get("workout_time") as? Int else { return }
-                    guard let createdTime = document.get("created_time") as? Timestamp else { return }
-                    guard let activityType = document.get("activity_type") as? String else { return }
-
-                    let date = createdTime.dateValue()
-                    
-                    self?.sortBy(day: date, workoutType: activityType, workoutTime: workoutTime)
-
-                }
-                self?.dispatchGroup.leave()
-            }
-
-            self?.todayTrainTime = self?.tempTrainWorkoutTime
-
-            self?.todayStretchTime = self?.tempStretchWorkoutTime
-
-        }
-
-    }
-    
     private func showTodayWorkoutProgress() {
         
-        guard let stretchWorkoutTime = todayStretchTime, let trainWorkoutTime = todayTrainTime else { return }
+        let todayTrainTime = homeManager.todayTrainTime
         
-        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
+        let todayStretchTime = homeManager.todayStretchTime
+        
+        let totalWorkoutTime = todayTrainTime + todayStretchTime
         
         todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
         
@@ -275,7 +228,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
             UIView.animate(withDuration: 0.5) {
                 
                 self.stretchProgressView.value = 15
-                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime * 15 / totalWorkoutTime)
+                self.trainProgressView.value = CGFloat(integerLiteral: todayTrainTime * 15 / totalWorkoutTime)
                 
             }
             
@@ -287,60 +240,16 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
             UIView.animate(withDuration: 0.5) {
                 
                 self.stretchProgressView.value = CGFloat(totalWorkoutTime)
-                self.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+                self.trainProgressView.value = CGFloat(integerLiteral: todayTrainTime)
                 
             }
             
-            stillRemainLabel.text = "還剩"
+            stillRemainLabel.text = "還差"
             remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
             
         }
         
         weekProgressCollectionView.reloadData()
-        
-    }
-    
-    private func sortBy(day date: Date, workoutType: String, workoutTime: Int) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let convertedDate = dateFormatter.string(from: date)
-        
-        let today = now
-        
-        if convertedDate == dateFormatter.string(from: today) && workoutType == "train" {
-            self.tempTrainWorkoutTime += workoutTime
-        } else if convertedDate == dateFormatter.string(from: today) && workoutType == "stretch" {
-            self.tempStretchWorkoutTime += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.monday)) {
-            self.monSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.tuesday)) {
-            self.tueSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.wednesday)) {
-            self.wedSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.thursday)) {
-            self.thuSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.friday)) {
-            self.friSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.saturday)) {
-            self.satSum += workoutTime
-        }
-        
-        if convertedDate == dateFormatter.string(from: today.dayOf(.sunday)) {
-            self.sunSum += workoutTime
-        }
         
     }
     
@@ -426,7 +335,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
 
             progressCell.dayLabel.text = days[indexPath.item]
-            progressCell.layoutView(value: self.dailyValue[indexPath.item])
+            progressCell.layoutView(value: homeManager.dailyValue[indexPath.item])
 
             return progressCell
 
