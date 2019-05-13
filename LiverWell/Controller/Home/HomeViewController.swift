@@ -8,8 +8,6 @@
 
 import UIKit
 import MBCircularProgressBar
-import Firebase
-import SCLAlertView
 
 class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
@@ -47,8 +45,6 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
-    let now = Date()
-    
     var todayDate = ""
 
     override func viewDidLoad() {
@@ -68,17 +64,28 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     override func getData() {
         
-        getThisWeekProcess()
+        getThisWeekProgess()
         
-        determineStatus(
-            workStartHours: 9,
-            workEndHours: 18
-        )
+        getStatus(workStartHour: 9, workEndHour: 18)
         
         groupNofity()
     }
     
-    private func getThisWeekProcess() {
+    func getStatus(workStartHour: Int, workEndHour: Int) {
+        
+        let statusElement = homeManager.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
+        
+        let status = statusElement.0
+        
+        let text = statusElement.1
+        
+        setupStatusAs(status)
+        
+        statusRemainTimeLabel.text = text
+        
+    }
+    
+    private func getThisWeekProgess() {
         
         dispatchGroup.enter()
         
@@ -101,10 +108,15 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     }
 
     private func groupNofity() {
+        
         dispatchGroup.notify(queue: .main) {
+            
             self.showTodayWorkoutProgress()
-            self.workoutCollectionView.reloadData()
+            
             self.setupView()
+            
+            self.workoutCollectionView.reloadData()
+            
             self.shareBtn.isEnabled = true
         }
     }
@@ -141,64 +153,14 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         }
     }
     
-    private func determineStatus(
-        workStartHours: Int,
-        workEndHours: Int
-        ) {
-        
-        let sunday = now.dayOf(.sunday)
-        let saturday = now.dayOf(.saturday)
-        
-        let workStart = now.dateAt(hours: workStartHours, minutes: 0)
-        let workEnd = now.dateAt(hours: workEndHours, minutes: 0)
-        let sleepStart = now.dateAt(hours: 21, minutes: 30)
-        let sleepEnd = now.dateAt(hours: 5, minutes: 0)
-        let nowHour = Calendar.current.component(.hour, from: now)
-        
-        if now >= saturday && now <= Calendar.current.date(byAdding: .day, value: 1, to: sunday)! {
-            // weekend
-            statusRemainTimeLabel.text = "休息日好好放鬆，起身動一動！"
-            
-            if now >= sleepEnd && now <= sleepStart {
-                setupStatusAs(.resting)
-            } else {
-                setupStatusAs(.beforeSleep)
-            }
-            
-        } else {
-            // workday
-            let fromRestHour = workEndHours - nowHour
-//            let fromSleepHour = sleepStartHours - nowHour
-            
-            if now >= workStart && now <= workEnd {
-                setupStatusAs(.working)
-                statusRemainTimeLabel.text = "離休息時間還有 \(fromRestHour) 小時"
-            } else if now >= workEnd && now <= sleepStart {
-                setupStatusAs(.resting)
-                statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
-            } else if now >= sleepEnd && now <= workStart {
-                setupStatusAs(.resting)
-                statusRemainTimeLabel.text = "離工作時間還有 \(workStartHours - nowHour) 小時"
-            } else {
-                setupStatusAs(.beforeSleep)
-                if nowHour > workEndHours {
-                    statusRemainTimeLabel.text = "離工作時間還有 \((24 - nowHour) + workStartHours) 小時"
-                } else if nowHour < workStartHours {
-                    statusRemainTimeLabel.text = "離工作時間還有 \(workStartHours - nowHour) 小時"
-                }
-                
-            }
-            
-        }
-        
-    }
-    
     private func showToday() {
         
-        let chineseMonthDate = DateFormatter.chineseMonthDate(date: now)
-        let chineseDay = DateFormatter.chineseWeekday(date: now)
+        let chineseMonthDate = DateFormatter.chineseMonthDate(date: Date())
+        
+        let chineseDay = DateFormatter.chineseWeekday(date: Date())
         
         timeLabel.text = "\(chineseMonthDate) \(chineseDay)"
+        
         todayDate = "\(chineseMonthDate) \(chineseDay)"
         
     }
@@ -206,8 +168,11 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     private func setupStatusAs(_ homeStatus: HomeStatus) {
         
         dispatchGroup.enter()
+        
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
-            self?.homeObject = homeObject
+            
+            self?.homeObject = homßeObject
+            
             self?.dispatchGroup.leave()
         }
         
@@ -223,30 +188,22 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         
         todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
         
-        if totalWorkoutTime >= 15 {
-            
-            UIView.animate(withDuration: 0.5) {
-                
+        UIView.animate(withDuration: 0.5) {
+            if totalWorkoutTime >= 15 {
                 self.stretchProgressView.value = 15
                 self.trainProgressView.value = CGFloat(integerLiteral: todayTrainTime * 15 / totalWorkoutTime)
-                
-            }
-            
-            stillRemainLabel.text = "太棒了"
-            remainingTimeLabel.text = "達成目標"
-            
-        } else {
-        
-            UIView.animate(withDuration: 0.5) {
-                
+            } else {
                 self.stretchProgressView.value = CGFloat(totalWorkoutTime)
                 self.trainProgressView.value = CGFloat(integerLiteral: todayTrainTime)
-                
             }
-            
+        }
+        
+        if totalWorkoutTime >= 15 {
+            stillRemainLabel.text = "太棒了"
+            remainingTimeLabel.text = "達成目標"
+        } else {
             stillRemainLabel.text = "還差"
             remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
-            
         }
         
         weekProgressCollectionView.reloadData()

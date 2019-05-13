@@ -22,35 +22,12 @@ struct WorkOut: Codable {
         
         case activityType = "activity_type"
         
-//        case createdTime = "created_time"
     }
 }
 
 class HomeManager {
-
-    let restingGroup = HomeGroup(
-        title: "休息中",
-        items: [
-            RestingItem.watchTV,
-            RestingItem.preventBackPain,
-            RestingItem.wholeBody,
-            RestingItem.upperBody,
-            RestingItem.lowerBody
-        ]
-    )
-
-    let workingGroup = HomeGroup(title: "工作中", items: [
-            WorkingItem.longSit,
-            WorkingItem.longStand
-        ]
-    )
-
-    let beforeSleepGroup = HomeGroup(
-        title: "準備就寢",
-        items: [
-            SleepItem.beforeSleep
-        ]
-    )
+    
+    let now = Date()
     
     var monSum = 0
     var tueSum = 0
@@ -67,8 +44,6 @@ class HomeManager {
     var todayTrainTime: Int = 0
     
     var todayStretchTime: Int = 0
-
-    lazy var groups: [HomeGroup] = [workingGroup, restingGroup, beforeSleepGroup]
     
     func getThisWeekProgress(today: Date, completion: @escaping (Result<[Int], Error>) -> Void) {
         
@@ -80,14 +55,10 @@ class HomeManager {
         
         let workoutRef = AppDelegate.db.collection("users").document(uid).collection("workout")
         
-        print("ya")
-        
         workoutRef
             .whereField("created_time", isGreaterThan: today.dayOf(.monday))
             .order(by: "created_time", descending: false)
             .getDocuments { (snapshot, error) in
-                
-                print("jo")
                 
                 if let error = error {
                 
@@ -110,15 +81,7 @@ class HomeManager {
                         item?.createdTime = createdTime
                         
                         workouts.append(item)
-                        
-//                        if let createdTime = document.get("created_time") as? Timestamp {
-//
-//                        } else {
-//                            continue
-//                        }
-//                        let date = createdTime.dateValue()
-//
-//                        self?.sortBy(day: date, workoutType: activityType, workoutTime: workoutTime)
+
                     }
                     
                     let nonnilWorkouts = workouts.compactMap({ $0 })
@@ -188,7 +151,6 @@ class HomeManager {
     func reset() {
         
         todayTrainTime = 0
-        
         todayStretchTime = 0
         
         monSum = 0
@@ -198,6 +160,64 @@ class HomeManager {
         friSum = 0
         satSum = 0
         sunSum = 0
+    }
+    
+    func determineStatus(workStartHour: Int, workEndHour: Int) -> (HomeStatus, String) {
+        
+        let sunday = now.dayOf(.sunday)
+        let saturday = now.dayOf(.saturday)
+        
+        let workStart = now.dateAt(hours: workStartHour, minutes: 0)
+        let workEnd = now.dateAt(hours: workEndHour, minutes: 0)
+        let sleepStart = now.dateAt(hours: 21, minutes: 30)
+        let sleepEnd = now.dateAt(hours: 5, minutes: 0)
+        let nowHour = Calendar.current.component(.hour, from: now)
+        
+        if now >= saturday && now <= Calendar.current.date(byAdding: .day, value: 1, to: sunday)! {
+            
+            // weekend
+            if now >= sleepEnd && now <= sleepStart {
+                
+                return (.resting, "休息日好好放鬆，起身動一動！")
+                
+            } else {
+                
+                return (.beforeSleep, "休息日好好放鬆，起身動一動！")
+            }
+            
+        } else {
+            
+            // workday
+            let fromRestHour = workEndHour - nowHour
+            
+            if now >= workStart && now <= workEnd {
+                
+                return (.working, "離休息時間還有 \(fromRestHour) 小時")
+                
+            } else if now >= workEnd && now <= sleepStart {
+                
+                return (.resting, "離工作時間還有 \((24 - nowHour) + workStartHour) 小時")
+                
+            } else if now >= sleepEnd && now <= workStart {
+                
+                return (.resting, "離工作時間還有 \(workStartHour - nowHour) 小時")
+                
+            } else {
+                
+                if nowHour > workEndHour {
+                    
+                    return (.beforeSleep, "離工作時間還有 \((24 - nowHour) + workStartHour) 小時")
+                    
+                } else if nowHour < workStartHour {
+                    
+                    return (.beforeSleep, "離工作時間還有 \(workStartHour - nowHour) 小時")
+                    
+                } else {
+                    
+                    return (.beforeSleep, "")
+                }
+            }
+        }
     }
 
 }

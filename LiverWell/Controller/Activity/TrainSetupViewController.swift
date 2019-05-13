@@ -41,8 +41,8 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     var recordTrainTime: Int? {
         didSet {
-            print("-------------------")
-            showMsgView(minute: recordTrainTime!)
+//            print("-------------------")
+//            showMsgView(minute: recordTrainTime!)
         }
     }
 
