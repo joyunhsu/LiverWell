@@ -8,23 +8,6 @@
 import Foundation
 import Firebase
 
-struct WorkOut: Codable {
-    
-    var workOutTime: Int
-    
-    var activityType: String
-    
-    var createdTime: Timestamp?
-
-    enum CodingKeys: String, CodingKey {
-        
-        case workOutTime = "workout_time"
-        
-        case activityType = "activity_type"
-        
-    }
-}
-
 class HomeManager {
     
     let now = Date()
@@ -38,7 +21,9 @@ class HomeManager {
     var sunSum = 0
     
     var dailyValue: [Int] {
+        
         return [monSum, tueSum, wedSum, thuSum, friSum, satSum, sunSum]
+        
     }
     
     var todayTrainTime: Int = 0
@@ -96,7 +81,6 @@ class HomeManager {
                     
                     completion(Result.success(self.dailyValue))
                 }
-                
         }
     }
     
@@ -115,7 +99,6 @@ class HomeManager {
         } else if convertedDate == dateFormatter.string(from: today) && workoutType == "stretch" {
             
             self.todayStretchTime += workoutTime
-            
         }
         
         if convertedDate == dateFormatter.string(from: today.dayOf(.monday)) {

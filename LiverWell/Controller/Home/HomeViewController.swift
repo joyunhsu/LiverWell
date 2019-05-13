@@ -90,18 +90,18 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         dispatchGroup.enter()
         
         homeManager.getThisWeekProgress(today: Date()) { (result) in
-            
+
             switch result {
-                
+
             case .success(let workOuts):
-                
+
                 print(workOuts)
-                
+
             case .failure(let error):
-                
+
                 print(error)
             }
-            
+
             self.dispatchGroup.leave()
         }
         
@@ -171,7 +171,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         
         homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
             
-            self?.homeObject = homßeObject
+            self?.homeObject = homeObject
             
             self?.dispatchGroup.leave()
         }

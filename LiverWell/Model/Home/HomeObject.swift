@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct HomeObject: Codable {
     let status, title, background: String
@@ -27,5 +28,22 @@ enum HomeStatus {
         case .working: return "1"
         case .beforeSleep: return "2"
         }
+    }
+}
+
+struct WorkOut: Codable {
+    
+    var workOutTime: Int
+    
+    var activityType: String
+    
+    var createdTime: Timestamp?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case workOutTime = "workout_time"
+        
+        case activityType = "activity_type"
+        
     }
 }
