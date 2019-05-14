@@ -135,7 +135,9 @@ class KnowledgeViewController: LWBaseViewController, UITableViewDelegate {
     private func filterList() {
         
         foodList = knowledgeList.filter({ return $0.category == "food" })
+        
         workoutList = knowledgeList.filter({ return $0.category == "workout" })
+        
         fattyLiverList = knowledgeList.filter({ return $0.category == "fattyLiver" })
         
     }

@@ -85,7 +85,7 @@ class ShareViewController: UIViewController, ChartViewDelegate {
         
         let renderer = UIGraphicsImageRenderer(size: todayStatusView.bounds.size)
         
-        let renderedTodayStatus = renderer.image { (UIGraphicsRendererContext) in
+        let renderedTodayStatus = renderer.image { (_) in
             todayStatusView.drawHierarchy(in: todayStatusView.bounds, afterScreenUpdates: true)
         }
         

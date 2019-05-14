@@ -25,16 +25,23 @@ class WeightProvider {
     
     let userDefaults = UserDefaults.standard
     
+    let dispatchGroup = DispatchGroup()
+    
     let startOfMonth = Date().startOfMonth()
     
-    var signupTime = ""
-    var expectedWeight: Double = 0
-    var initialWeight: Double = 0
-    var lastMonthWeight: Double = 0
-    var currentWeight: Double = 0
-    var user: UserItem?
+    var weightDataArray = [WeightData]()
     
-    func getStatus() -> WeightStatus {
+    var signupTime = ""
+    
+    var expectedWeight: Double = 0
+    
+    var initialWeight: Double = 0
+    
+    var lastMonthWeight: Double = 0
+    
+    var currentWeight: Double = 0
+    
+    func getStatus(completion: @escaping (WeightStatus) -> Void) {
         
         getUserData()
 
@@ -42,18 +49,21 @@ class WeightProvider {
 
         getThisMonthWeight()
         
-        let weightSinceStart = currentWeight - initialWeight
-        
-        let weightSinceMonth = currentWeight - lastMonthWeight
-        
-        let weightStatus = WeightStatus(
-            signupTime: signupTime,
-            expectWeight: expectedWeight,
-            weightSinceStart: weightSinceStart,
-            weightSinceMonth: weightSinceMonth)
-        
-        return weightStatus
-    
+        dispatchGroup.notify(queue: .main) {
+            
+            let weightSinceStart = self.currentWeight - self.initialWeight
+            
+            let weightSinceMonth = self.currentWeight - self.lastMonthWeight
+            
+            let weightStatus = WeightStatus(
+                signupTime: self.signupTime,
+                expectWeight: self.expectedWeight,
+                weightSinceStart: weightSinceStart,
+                weightSinceMonth: weightSinceMonth)
+            
+            completion(weightStatus)
+        }
+
     }
     
     private func getUserData() {
@@ -61,6 +71,8 @@ class WeightProvider {
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
         let userDocRef = AppDelegate.db.collection("users").document(uid)
+        
+        dispatchGroup.enter()
         
         userDocRef
             .getDocument { (document, error) in
@@ -70,22 +82,17 @@ class WeightProvider {
                     guard let expected = document.get("expected_weight") as? Double else { return }
                     guard let signupTime = document.get("signup_time") as? Timestamp else { return }
                     
-//                    self.startMonthLabel.text = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
-//                    self.expectedWeightLabel.text = String(expected)
-                    
                     self.initialWeight = initial
                     self.expectedWeight = expected
                     self.signupTime = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
                     
-//                    let user = UserItem(name: "", signupTime: signupTime.dateValue(), expectedWeight: expected, initialWeight: initial)
-//
-//                    self.user = user
+                    self.dispatchGroup.leave()
                     
                 } else {
                     
                     print("Document does not exist: \(String(describing: error))")
-                    
                 }
+                
         }
         
     }
@@ -95,6 +102,8 @@ class WeightProvider {
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
+        
+        dispatchGroup.enter()
         
         weightRef
             .whereField("created_time", isLessThan: startOfMonth)
@@ -109,8 +118,9 @@ class WeightProvider {
                         guard let weight = document.get("weight") as? Double else { return }
                         
                         self.lastMonthWeight = weight
-                        
                     }
+                    
+                    self.dispatchGroup.leave()
                 }
         }
         
@@ -122,27 +132,62 @@ class WeightProvider {
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
+        dispatchGroup.enter()
+        
         weightRef
             .whereField("created_time", isGreaterThan: startOfMonth)
             .order(by: "created_time", descending: true)
             .limit(to: 1)
-            .getDocuments { [weak self] (snapshot, error) in
+            .getDocuments { (snapshot, error) in
                 if let error = error {
                     print("Error getting document: \(error)")
                 } else {
                     for document in snapshot!.documents {
                         
-//                        guard let createdTime = document.get("created_time") as? Timestamp else { return }
-                        guard let currentWeight = document.get("weight") as? Double else { return }
-                        
-//                        let convertedDate = DateFormatter.chineseYearMonth(date: createdTime.dateValue())
-//                        self?.currentMonthLabel.text = convertedDate
-                        self?.currentWeight = currentWeight
+                        guard let current = document.get("weight") as? Double else { return }
+                        self.currentWeight = current
                     }
                     
+                    self.dispatchGroup.leave()
                 }
         }
         
     }
     
+    func getWeight(completion: @escaping (Result<[WeightData], Error>) -> Void) {
+        
+        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
+        
+        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
+        
+        weightRef
+            .order(by: "created_time", descending: true) // 由新到舊
+            .getDocuments { [weak self] (snapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    
+                    guard let strongSelf = self else { return }
+                    
+                    for document in snapshot!.documents {
+                        
+                        guard let createdTime = document.get("created_time") as? Timestamp else { return }
+                        
+                        var json = document.data()
+                        
+                        json["created_time"] = nil
+                        
+                        var item = try? document.decode(as: WeightData.self, data: json)
+                        
+                        item?.createdTime = createdTime.dateValue()
+                        
+                        item?.documentID = document.documentID
+                        
+                        strongSelf.weightDataArray.append(item!)
+                    }
+                    
+                    completion(Result.success(strongSelf.weightDataArray))
+                }
+        }
+    }
 }

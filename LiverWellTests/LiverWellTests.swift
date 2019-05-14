@@ -8,6 +8,7 @@
 
 import XCTest
 import UIKit
+@testable import LiverWell
 
 class LiverWellTests: XCTestCase {
     // swiftlint:disable identifier_name

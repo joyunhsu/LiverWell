@@ -244,4 +244,3 @@ extension StretchPrepareViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
-

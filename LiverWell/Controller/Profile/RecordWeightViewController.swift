@@ -49,7 +49,7 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
             // Update document without overwriting
             weightRef.document(weightDocumentID).updateData([
-                "weight": weight
+                "weight": weight!
             ]) { (error) in
                 if let error = error {
                     print("Error updating document: \(error)")
@@ -62,7 +62,7 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
             // create new document
             let weightData: [String: Any] = [
-                "weight": weight,
+                "weight": weight!,
                 "created_time": time
             ]
             

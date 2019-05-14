@@ -155,8 +155,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         updateBarProgress()
         
-//        barProgressView.setProgress(currentTIme, animated: false)
-        
         setupGif()
         
     }
@@ -321,13 +319,17 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate {
         
         guard workoutArray != nil else { return }
         
-//        guard let timeBasedWorkoutArray = timeBasedWorkoutArray else { return }
-        
-        if currentRepeat == timeBasedWorkoutArray[workoutIndex].workoutSetRepeat && workoutIndex == (timeBasedWorkoutArray.count - 1) {
+        if currentRepeat == timeBasedWorkoutArray[workoutIndex].workoutSetRepeat &&
+            workoutIndex == (timeBasedWorkoutArray.count - 1) {
+            
             performSegue(withIdentifier: "finishWorkout", sender: self)
+            
         } else if currentRepeat == timeBasedWorkoutArray[workoutIndex].workoutSetRepeat {
+            
             performSegue(withIdentifier: "startRest", sender: self)
+            
         } else {
+            
             return
         }
         

@@ -23,4 +23,10 @@ pod 'TTTAttributedLabel'
 pod 'SwiftMessages'
 pod 'SCLAlertView'
 
+target 'LiverWellTests' do
+        inherit! :search_paths
+        pod 'Firebase'
+    end
+
+
 end

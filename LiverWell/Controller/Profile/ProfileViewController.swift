@@ -30,7 +30,7 @@ class ProfileViewController: LWBaseViewController, UIScrollViewDelegate {
         
         let optionMenu = UIAlertController(title: "登出帳戶", message: "確定要從帳戶登出？", preferredStyle: .alert)
         
-        let logoutAction = UIAlertAction(title: "登出", style: .default) { [weak self] (action) in
+        let logoutAction = UIAlertAction(title: "登出", style: .default) { [weak self] (_) in
             if Auth.auth().currentUser != nil {
                 do {
                     try Auth.auth().signOut()
@@ -41,29 +41,27 @@ class ProfileViewController: LWBaseViewController, UIScrollViewDelegate {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { [weak self] (action) in
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { [weak self] (_) in
+            
             self?.dismiss(animated: true, completion: nil)
         }
         
         optionMenu.addAction(logoutAction)
-        optionMenu.addAction(cancelAction)
-        present(optionMenu, animated: true, completion: nil)
         
+        optionMenu.addAction(cancelAction)
+        
+        present(optionMenu, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         scrollView.delegate = self
-        
-//        getUserName()
-        
     }
     
     override func getData() {
         
         getUserName()
-        
     }
     
     private func getUserName() {
@@ -78,7 +76,7 @@ class ProfileViewController: LWBaseViewController, UIScrollViewDelegate {
                 guard let parsedName = name as? String else { return }
                 self.userNameLabel.text = parsedName
             } else {
-                print("Document does not exist")
+                print("Document does not exist: \(String(describing: error))")
             }
         }
         

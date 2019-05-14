@@ -8,7 +8,6 @@
 
 import UIKit
 import Charts
-import Firebase
 
 class WeightViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegate {
     
@@ -47,37 +46,42 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     let weightProvider = WeightProvider()
     
     var weightDataArray = [WeightData]() {
+        
         didSet {
             tableView.reloadData()
+            
             setChartValues()
-            readStatus()
+            
+            layoutStatus()
         }
     }
-    
-    var initialWeight: Double = 0
-    var lastMonthWeight: Double = 0
-    var currentWeight: Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupChartView()
-        readWeight()
-        levelCollectionView.isHidden = true
         
+        readWeight()
+
+        levelCollectionView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        readStatus()
+        
+        layoutStatus()
     }
     
     @IBAction func recordWeightPressed(_ sender: UIButton) {
         
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        
         let desVC = profileStoryboard.instantiateViewController(withIdentifier: "RecordWeightViewController")
+        
         guard let recordWeightVC = desVC as? RecordWeightViewController else { return }
+        
         recordWeightVC.weightDocumentID = nil
+        
         recordWeightVC.reloadDataAfterUpdate = { [weak self] in
             
             self?.weightDataArray = [WeightData]()
@@ -93,127 +97,31 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     
     private func layoutStatus() {
         
-        let status = weightProvider.getStatus()
+        weightProvider.getStatus { [weak self] (status) in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.startMonthLabel.text = status.signupTime
+            
+            strongSelf.currentMonthLabel.text = DateFormatter.chineseYearMonth(date: Date())
+            
+            strongSelf.expectedWeightLabel.text = String(status.expectWeight)
+            
+            strongSelf.weightSinceMonthLabel.text = String(status.weightSinceMonth)
+            
+            strongSelf.weightSinceStartLabel.text = String(status.weightSinceStart)
+        }
         
-        startMonthLabel.text = status.signupTime
-        
-//        expectedWeightLabel.text = status.
-        
-    }
-    
-    private func readStatus() {
-        
-//        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
-//
-//        let userDocRef = AppDelegate.db.collection("users").document(uid)
-//        let weightRef = userDocRef.collection("weight")
-//        let startOfMonth = Date().startOfMonth()
-//
-//        userDocRef
-//            .getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                guard let initial = document.get("initial_weight") as? Double else { return }
-//                guard let expected = document.get("expected_weight") as? Double else { return }
-//                guard let signupTime = document.get("signup_time") as? Timestamp else { return }
-//
-//                let convertedDate = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
-//                self.startMonthLabel.text = convertedDate
-//                self.expectedWeightLabel.text = String(expected)
-//                self.initialWeight = initial
-//            } else {
-//                print("Document does not exist: \(String(describing: error))")
-//            }
-//        }
-//
-//        weightRef
-//            .whereField("created_time", isLessThan: startOfMonth)
-//            .order(by: "created_time", descending: true)
-//            .limit(to: 1)
-//            .getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print("Error getting document: \(error)")
-//            } else {
-//                for document in snapshot!.documents {
-//
-//                    guard let weight = document.get("weight") as? Double else { return }
-//
-//                    self.lastMonthWeight = weight
-//
-//                }
-//            }
-//        }
-//
-//        weightRef
-//            .whereField("created_time", isGreaterThan: startOfMonth)
-//            .order(by: "created_time", descending: true)
-//            .limit(to: 1)
-//            .getDocuments { [weak self] (snapshot, error) in
-//                if let error = error {
-//                    print("Error getting document: \(error)")
-//                } else {
-//                    for document in snapshot!.documents {
-//
-//                        guard let createdTime = document.get("created_time") as? Timestamp else { return }
-//                        guard let weight = document.get("weight") as? Double else { return }
-//
-//                        let convertedDate = DateFormatter.chineseYearMonth(date: createdTime.dateValue())
-//                        self?.currentMonthLabel.text = convertedDate
-//                        self?.currentWeight = weight
-//
-//                        let weightSinceStart = weight - self!.initialWeight
-//
-//                        if weightSinceStart > 0 {
-//                            self?.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
-//                        } else {
-//                            self?.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
-//                        }
-//
-//                        let weightSinceMonth = weight - self!.lastMonthWeight
-//                        if weightSinceMonth > 0 {
-//                            self?.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
-//                            self?.progressView.progress = 0
-//                            self?.progressLabel.text = "0%"
-//                        } else {
-//                            self?.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
-//                            self?.progressView.progress = Float((0 - weightSinceMonth) / 1)
-//                            self?.progressLabel.text = "\(Int(Float((0 - weightSinceMonth) / 1) * 100))%"
-//                        }
-//
-//                    }
-//                }
-//        }
-
     }
 
     private func readWeight() {
         
-        guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
-        
-        let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
-        
-        weightRef
-            .order(by: "created_time", descending: true) // 由新到舊
-            .getDocuments { [weak self] (snapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in snapshot!.documents {
-                    
-                    guard let createdTime = document.get("created_time") as? Timestamp else { return }
-                    
-                    var json = document.data()
-                    
-                    json["created_time"] = nil
-                    
-                    var item = try? document.decode(as: WeightData.self, data: json)
-                    
-                    item?.createdTime = createdTime.dateValue()
-                    
-                    item?.documentID = document.documentID
-                    
-                    self?.weightDataArray.append(item!)
-                    
-                }
+        weightProvider.getWeight { (result) in
+            switch result {
+            case .success(let weightDataArray):
+                self.weightDataArray = weightDataArray
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -221,7 +129,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Cloud Firestore
-        
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
@@ -231,7 +138,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         // Action sheet setup
         let optionMenu = UIAlertController(title: "編輯體重資料", message: nil, preferredStyle: .actionSheet)
         
-        let editAction = UIAlertAction(title: "修改體重", style: .default) { [weak self] (action) in
+        let editAction = UIAlertAction(title: "修改體重", style: .default) { [weak self] (_) in
             
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let desVC = profileStoryboard.instantiateViewController(withIdentifier: "RecordWeightViewController")
@@ -251,7 +158,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
         }
         
-        let deleteAction = UIAlertAction(title: "刪除", style: .destructive) { [weak self] (action) in
+        let deleteAction = UIAlertAction(title: "刪除", style: .destructive) { [weak self] (_) in
         
             // Delete document
             guard let documentID = documentID else { return }
@@ -274,7 +181,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (_) in
             optionMenu.dismiss(animated: true, completion: nil)
         }
         

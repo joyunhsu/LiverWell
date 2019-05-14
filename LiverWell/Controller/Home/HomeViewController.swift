@@ -66,7 +66,6 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeMa
     override func getData() {
         
         homeManager.activate()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,7 +74,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeMa
         homeManager.reset()
     }
     
-    // MARK: - HomeViewModelDelegate
+    // MARK: - HomeManagerDelegate
     
     func didGet(date: String, homeObject: HomeObject, description: String) {
         

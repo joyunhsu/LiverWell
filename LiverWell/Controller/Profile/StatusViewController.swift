@@ -125,13 +125,15 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
             
             switch result {
                 
-            case .success(_):
+            case .success(let result):
                 
                 self.setupActivityEntry()
 
                 self.setChartData(count: 7, range: 60)
 
                 self.barChartViewSetup()
+                
+                print(result)
                 
             case .failure(let error):
                 
