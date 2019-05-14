@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import MBCircularProgressBar
 
-class HomeManager {
+class HomeProvider {
     
     let now = Date()
     

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class StatusManager {
+class StatusProvider {
     
     // swiftlint:disable identifier_name
     var watchTVSum = 0

@@ -22,7 +22,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     @IBOutlet weak var previousWeekBtn: UIButton!
     
-    let statusManager = StatusManager()
+    let statusProvider = StatusProvider()
     
     var weeksBeforeCount = 0 {
         didSet {
@@ -35,14 +35,14 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     }
     
     @IBAction func nextWeekBtnPressed(_ sender: UIButton) {
-        statusManager.reset()
+        statusProvider.reset()
         weeksBeforeCount += 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
         presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
     }
     
     @IBAction func previousWeekBtnPressed(_ sender: UIButton) {
-        statusManager.reset()
+        statusProvider.reset()
         weeksBeforeCount -= 1
         getWeeklyWorkoutData(weeksBefore: weeksBeforeCount)
         presentWeekLabel(weeksBeforeCount: weeksBeforeCount)
@@ -121,7 +121,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     private func getWeeklyWorkoutData(weeksBefore: Int) {
         
-        statusManager.getWeeklyWorkout(weeksBefore: weeksBefore) { (result) in
+        statusProvider.getWeeklyWorkout(weeksBefore: weeksBefore) { (result) in
             
             switch result {
                 
@@ -158,43 +158,43 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
         let watchTV = ActivityEntry(
             title: TrainItem.watchTV.title,
-            time: statusManager.watchTVSum,
-            activityType: "train")
+            time: statusProvider.watchTVSum,
+            activityType: ActivityType.train.rawValue)
 
         let backPain = ActivityEntry(
             title: TrainItem.preventBackPain.title,
-            time: statusManager.backPainSum,
-            activityType: "train")
+            time: statusProvider.backPainSum,
+            activityType: ActivityType.train.rawValue)
 
         let wholeBody = ActivityEntry(
             title: TrainItem.wholeBody.title,
-            time: statusManager.wholeBodySum,
-            activityType: "train")
+            time: statusProvider.wholeBodySum,
+            activityType: ActivityType.train.rawValue)
 
         let upperBody = ActivityEntry(
-            title: TrainItem.upperBody.title,
-            time: statusManager.upperBodySum,
-            activityType: "train")
+            title: TrainItem.watchTV.title,
+            time: statusProvider.upperBodySum,
+            activityType: ActivityType.train.rawValue)
 
         let lowerBody = ActivityEntry(
             title: TrainItem.lowerBody.title,
-            time: statusManager.lowerBodySum,
-            activityType: "train")
+            time: statusProvider.lowerBodySum,
+            activityType: ActivityType.train.rawValue)
 
         let longSit = ActivityEntry(
             title: StretchItem.longSit.title,
-            time: statusManager.longSitSum,
-            activityType: "stretch")
+            time: statusProvider.longSitSum,
+            activityType: ActivityType.stretch.rawValue)
 
         let longStand = ActivityEntry(
             title: StretchItem.longStand.title,
-            time: statusManager.longStandSum,
-            activityType: "stretch")
+            time: statusProvider.longStandSum,
+            activityType: ActivityType.stretch.rawValue)
 
         let beforeSleep = ActivityEntry(
             title: StretchItem.beforeSleep.title,
-            time: statusManager.beforeSleepSum,
-            activityType: "stretch")
+            time: statusProvider.beforeSleepSum,
+            activityType: ActivityType.stretch.rawValue)
 
         let tempEntryArray = [watchTV, backPain, wholeBody, upperBody, lowerBody, longSit, longStand, beforeSleep]
 
@@ -238,8 +238,8 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         let yVals = (0..<count).map { (i) -> BarChartDataEntry in
 
-            let dailyTrain = statusManager.weekSum[i][0]
-            let dailyStretch = statusManager.weekSum[i][1]
+            let dailyTrain = statusProvider.weekSum[i][0]
+            let dailyStretch = statusProvider.weekSum[i][1]
 
             return BarChartDataEntry(x: Double(i), yValues: [Double(dailyTrain), Double(dailyStretch)], icon: #imageLiteral(resourceName: "Icon_Profile_Star"))
         }
@@ -303,7 +303,7 @@ extension StatusViewController: UITableViewDataSource {
             
             guard let pieChartCell = cell as? PieChartTableViewCell else { return cell }
             
-            pieChartCell.layoutView(trainSum: statusManager.trainTimeSum, stretchSum: statusManager.stretchTimeSum)
+            pieChartCell.layoutView(trainSum: statusProvider.trainTimeSum, stretchSum: statusProvider.stretchTimeSum)
             
             return pieChartCell
             

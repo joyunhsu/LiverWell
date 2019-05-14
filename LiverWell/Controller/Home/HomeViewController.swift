@@ -11,7 +11,7 @@ import MBCircularProgressBar
 
 class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
-    let homeManager = HomeManager()
+    let homeProvider = HomeProvider()
     
     let homeObjectManager = HomeObjectManager()
     
@@ -73,7 +73,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     func getStatus(workStartHour: Int, workEndHour: Int) {
         
-        let statusElement = homeManager.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
+        let statusElement = homeProvider.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
         
         let status = statusElement.0
         
@@ -89,7 +89,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
         
         dispatchGroup.enter()
         
-        homeManager.getThisWeekProgress(today: Date()) { (result) in
+        homeProvider.getThisWeekProgress(today: Date()) { (result) in
 
             switch result {
 
@@ -124,19 +124,19 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        homeManager.reset()
+        homeProvider.reset()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let trainWorkoutTime = homeManager.todayTrainTime
+        let trainWorkoutTime = homeProvider.todayTrainTime
         
-        let stretchWorkoutTime = homeManager.todayStretchTime
+        let stretchWorkoutTime = homeProvider.todayStretchTime
         
         let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
         
         if let desVC = segue.destination as? ShareViewController {
-            desVC.dailyValue = homeManager.dailyValue
+            desVC.dailyValue = homeProvider.dailyValue
             desVC.loadViewIfNeeded()
             desVC.todayTotalTimeLabel.text = "\(totalWorkoutTime)"
             desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
@@ -180,9 +180,9 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     private func showTodayWorkoutProgress() {
         
-        let todayTrainTime = homeManager.todayTrainTime
+        let todayTrainTime = homeProvider.todayTrainTime
 
-        let todayStretchTime = homeManager.todayStretchTime
+        let todayStretchTime = homeProvider.todayStretchTime
         
         let totalWorkoutTime = todayTrainTime + todayStretchTime
         
@@ -292,7 +292,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
 
             progressCell.dayLabel.text = days[indexPath.item]
-            progressCell.layoutView(value: homeManager.dailyValue[indexPath.item])
+            progressCell.layoutView(value: homeProvider.dailyValue[indexPath.item])
 
             return progressCell
 
