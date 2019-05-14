@@ -9,7 +9,7 @@
 import UIKit
 import MBCircularProgressBar
 
-class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeViewModelDelegate {
+class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeManagerDelegate {
 
     @IBOutlet weak var suggestTopConstraint: NSLayoutConstraint!
     
@@ -39,9 +39,9 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeVi
     
     var todayDate = ""
     
-    lazy var viewModel: HomeViewModel = {
+    lazy var homeManager: HomeManager = {
         
-        let model = HomeViewModel()
+        let model = HomeManager()
         
         model.delegate = self
         
@@ -65,17 +65,17 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeVi
     
     override func getData() {
         
-        viewModel.activate()
+        homeManager.activate()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewModel.homeProvider.reset()
+        homeManager.reset()
     }
     
-    //MARK: - HomeViewModelDelegate
+    // MARK: - HomeViewModelDelegate
     
     func didGet(date: String, homeObject: HomeObject, description: String) {
         
@@ -122,15 +122,15 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let trainWorkoutTime = viewModel.homeProvider.todayTrainTime
+        let trainWorkoutTime = homeManager.trainWorkoutTime
 
-        let stretchWorkoutTime = viewModel.homeProvider.todayStretchTime
+        let stretchWorkoutTime = homeManager.stretchWorkoutTime
 
         let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
 
         if let desVC = segue.destination as? ShareViewController {
             
-            desVC.dailyValue = viewModel.homeProvider.dailyValue
+            desVC.dailyValue = homeManager.homeProvider.dailyValue
             
             desVC.loadViewIfNeeded()
             
@@ -158,9 +158,10 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeVi
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
         if collectionView == workoutCollectionView {
 
-            guard let homeObject = viewModel.homeObject else { return }
+            guard let homeObject = homeManager.homeObject else { return }
 
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
 
@@ -189,7 +190,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
         if collectionView == workoutCollectionView {
 
-            guard let workoutSet = viewModel.homeObject?.workoutSet else { return 0 }
+            guard let workoutSet = homeManager.homeObject?.workoutSet else { return 0 }
 
             return workoutSet.count
 
@@ -213,7 +214,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
             guard let homeCell = cell as? HomeCollectionViewCell else { return cell }
 
-            guard let workoutElement = viewModel.homeObject?.workoutSet[indexPath.row] else { return cell }
+            guard let workoutElement = homeManager.homeObject?.workoutSet[indexPath.row] else { return cell }
 
             homeCell.layoutCell(image: workoutElement.buttonImage)
 
@@ -230,7 +231,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
             progressCell.dayLabel.text = days[indexPath.item]
             
-            progressCell.layoutView(value: viewModel.homeProvider.dailyValue[indexPath.item])
+            progressCell.layoutView(value: homeManager.dailyValue[indexPath.item])
 
             return progressCell
 

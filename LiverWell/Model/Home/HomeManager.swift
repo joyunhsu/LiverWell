@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol HomeViewModelDelegate: AnyObject {
+protocol HomeManagerDelegate: AnyObject {
     
     func didGet(date: String, homeObject: HomeObject, description: String)
     
     func didGet(todayTrainTime: Int, todayStretchTime: Int)
 }
 
-class HomeViewModel {
+class HomeManager {
     
     let homeProvider = HomeProvider()
     
@@ -27,7 +27,22 @@ class HomeViewModel {
     
     var statusDescription: String?
     
-    weak var delegate: HomeViewModelDelegate?
+    var trainWorkoutTime: Int {
+        
+        return homeProvider.todayTrainTime
+    }
+    
+    var stretchWorkoutTime: Int {
+        
+        return homeProvider.todayStretchTime
+    }
+    
+    var dailyValue: [Int] {
+        
+        return homeProvider.dailyValue
+    }
+    
+    weak var delegate: HomeManagerDelegate?
     
     func activate() {
         
@@ -103,6 +118,11 @@ class HomeViewModel {
             
             strongSelf.delegate?.didGet(todayTrainTime: todayTrainTime, todayStretchTime: todayStretchTime)
         }
+    }
+    
+    func reset() {
+        
+        homeProvider.reset()
     }
 
 }

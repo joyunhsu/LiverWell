@@ -9,15 +9,15 @@
 import Foundation
 import Firebase
 
-struct Status {
+struct WeightStatus {
     
-    let startMonth: String
-    
-    let signupTime: Date
+    let signupTime: String
     
     let expectWeight: Double
     
-    let initialWeight: Double
+    let weightSinceStart: Double
+    
+    let weightSinceMonth: Double
     
 }
 
@@ -28,13 +28,13 @@ class WeightProvider {
     let startOfMonth = Date().startOfMonth()
     
     var signupTime = ""
-    var expectedWeigh: Double = 0
+    var expectedWeight: Double = 0
     var initialWeight: Double = 0
     var lastMonthWeight: Double = 0
     var currentWeight: Double = 0
     var user: UserItem?
     
-    private func getStatus() {
+    func getStatus() -> WeightStatus {
         
         getUserData()
 
@@ -46,8 +46,14 @@ class WeightProvider {
         
         let weightSinceMonth = currentWeight - lastMonthWeight
         
-//        let startMonth = DateForatter.
+        let weightStatus = WeightStatus(
+            signupTime: signupTime,
+            expectWeight: expectedWeight,
+            weightSinceStart: weightSinceStart,
+            weightSinceMonth: weightSinceMonth)
         
+        return weightStatus
+    
     }
     
     private func getUserData() {
@@ -68,7 +74,7 @@ class WeightProvider {
 //                    self.expectedWeightLabel.text = String(expected)
                     
                     self.initialWeight = initial
-                    self.expectedWeigh = expected
+                    self.expectedWeight = expected
                     self.signupTime = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
                     
 //                    let user = UserItem(name: "", signupTime: signupTime.dateValue(), expectedWeight: expected, initialWeight: initial)
@@ -132,7 +138,6 @@ class WeightProvider {
 //                        let convertedDate = DateFormatter.chineseYearMonth(date: createdTime.dateValue())
 //                        self?.currentMonthLabel.text = convertedDate
                         self?.currentWeight = currentWeight
-
                     }
                     
                 }
