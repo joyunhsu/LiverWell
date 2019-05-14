@@ -9,7 +9,17 @@
 import Foundation
 import Firebase
 
-
+struct Status {
+    
+    let startMonth: String
+    
+    let signupTime: Date
+    
+    let expectWeight: Double
+    
+    let initialWeight: Double
+    
+}
 
 class WeightProvider {
     
@@ -17,21 +27,30 @@ class WeightProvider {
     
     let startOfMonth = Date().startOfMonth()
     
+    var signupTime = ""
+    var expectedWeigh: Double = 0
     var initialWeight: Double = 0
     var lastMonthWeight: Double = 0
-//    var currentWeight: Double = 0
+    var currentWeight: Double = 0
+    var user: UserItem?
     
-    private func readStatus() {
+    private func getStatus() {
         
-//        getUserData()
-//
-//        getLastMonthWeight()
-//
-//        getThisMonthWeight()
+        getUserData()
+
+        getLastMonthWeight()
+
+        getThisMonthWeight()
+        
+        let weightSinceStart = currentWeight - initialWeight
+        
+        let weightSinceMonth = currentWeight - lastMonthWeight
+        
+//        let startMonth = DateForatter.
         
     }
     
-    private func getUserData(completion: @escaping (Result<UserItem, Error>) -> Void) {
+    private func getUserData() {
         
         guard let uid = userDefaults.value(forKey: "uid") as? String else { return }
         
@@ -45,14 +64,16 @@ class WeightProvider {
                     guard let expected = document.get("expected_weight") as? Double else { return }
                     guard let signupTime = document.get("signup_time") as? Timestamp else { return }
                     
-//                    let convertedDate = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
-//                    self.startMonthLabel.text = convertedDate
+//                    self.startMonthLabel.text = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
 //                    self.expectedWeightLabel.text = String(expected)
+                    
                     self.initialWeight = initial
+                    self.expectedWeigh = expected
+                    self.signupTime = DateFormatter.chineseYearMonth(date: signupTime.dateValue())
                     
-                    let user = UserItem(name: "", signupTime: signupTime.dateValue(), expectedWeight: expected, initialWeight: initial)
-                    
-                    completion(Result.success(user))
+//                    let user = UserItem(name: "", signupTime: signupTime.dateValue(), expectedWeight: expected, initialWeight: initial)
+//
+//                    self.user = user
                     
                 } else {
                     
@@ -110,27 +131,7 @@ class WeightProvider {
                         
 //                        let convertedDate = DateFormatter.chineseYearMonth(date: createdTime.dateValue())
 //                        self?.currentMonthLabel.text = convertedDate
-//                        self?.currentWeight = weight
-                        
-                        let weightSinceStart = currentWeight - self!.initialWeight
-                        
-//                        if weightSinceStart > 0 {
-//                            self?.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
-//                        } else {
-//                            self?.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
-//                        }
-                        
-                        let weightSinceMonth = currentWeight - self!.lastMonthWeight
-                        
-//                        if weightSinceMonth > 0 {
-//                            self?.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
-//                            self?.progressView.progress = 0
-//                            self?.progressLabel.text = "0%"
-//                        } else {
-//                            self?.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
-//                            self?.progressView.progress = Float((0 - weightSinceMonth) / 1)
-//                            self?.progressLabel.text = "\(Int(Float((0 - weightSinceMonth) / 1) * 100))%"
-//                        }
+                        self?.currentWeight = currentWeight
 
                     }
                     

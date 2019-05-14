@@ -9,16 +9,8 @@
 import UIKit
 import MBCircularProgressBar
 
-class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
-    
-    let homeProvider = HomeProvider()
-    
-    let homeObjectManager = HomeObjectManager()
-    
-    var homeObject: HomeObject?
-    
-    let dispatchGroup = DispatchGroup()
-    
+class HomeViewController: LWBaseViewController, UICollectionViewDelegate, HomeViewModelDelegate {
+
     @IBOutlet weak var suggestTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -46,16 +38,25 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
     var todayDate = ""
-
+    
+    lazy var viewModel: HomeViewModel = {
+        
+        let model = HomeViewModel()
+        
+        model.delegate = self
+        
+        return model
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showToday()
         
         shareBtn.isEnabled = false
         
         if UIScreen.main.nativeBounds.height == 1136 {
+            
             statusRemainTimeLabel.isHidden = true
+            
         } else {
 //            suggestTopConstraint.constant = 20
         }
@@ -64,130 +65,38 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
     
     override func getData() {
         
-        getThisWeekProgess()
+        viewModel.activate()
         
-        getStatus(workStartHour: 9, workEndHour: 18)
-        
-        groupNofity()
-    }
-    
-    func getStatus(workStartHour: Int, workEndHour: Int) {
-        
-        let statusElement = homeProvider.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
-        
-        let status = statusElement.0
-        
-        let text = statusElement.1
-        
-        setupStatusAs(status)
-        
-        statusRemainTimeLabel.text = text
-        
-    }
-    
-    private func getThisWeekProgess() {
-        
-        dispatchGroup.enter()
-        
-        homeProvider.getThisWeekProgress(today: Date()) { (result) in
-
-            switch result {
-
-            case .success(let workOuts):
-
-                print(workOuts)
-
-            case .failure(let error):
-
-                print(error)
-            }
-
-            self.dispatchGroup.leave()
-        }
-        
-    }
-
-    private func groupNofity() {
-        
-        dispatchGroup.notify(queue: .main) {
-            
-            self.showTodayWorkoutProgress()
-            
-            self.setupView()
-            
-            self.workoutCollectionView.reloadData()
-            
-            self.shareBtn.isEnabled = true
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        homeProvider.reset()
+        viewModel.homeProvider.reset()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let trainWorkoutTime = homeProvider.todayTrainTime
-        
-        let stretchWorkoutTime = homeProvider.todayStretchTime
-        
-        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
-        
-        if let desVC = segue.destination as? ShareViewController {
-            desVC.dailyValue = homeProvider.dailyValue
-            desVC.loadViewIfNeeded()
-            desVC.todayTotalTimeLabel.text = "\(totalWorkoutTime)"
-            desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
-            desVC.stretchTimeLabel.text = "\(stretchWorkoutTime)分鐘"
-            desVC.todayDateLabel.text = todayDate
-            
-            if totalWorkoutTime >= 15 {
-                    desVC.stretchProgressView.value = 15
-                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime * 15 / totalWorkoutTime)
-            } else {
-                    desVC.stretchProgressView.value = CGFloat(totalWorkoutTime)
-                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
-            }
-        }
-    }
+    //MARK: - HomeViewModelDelegate
     
-    private func showToday() {
+    func didGet(date: String, homeObject: HomeObject, description: String) {
         
-        let chineseMonthDate = DateFormatter.chineseMonthDate(date: Date())
+        timeLabel.text = date
         
-        let chineseDay = DateFormatter.chineseWeekday(date: Date())
+        statusLabel.text = homeObject.title
         
-        timeLabel.text = "\(chineseMonthDate) \(chineseDay)"
+        statusRemainTimeLabel.text = description
         
-        todayDate = "\(chineseMonthDate) \(chineseDay)"
+        background.image = UIImage(named: homeObject.background)
+        
+        workoutCollectionView.reloadData()
         
     }
     
-    private func setupStatusAs(_ homeStatus: HomeStatus) {
-        
-        dispatchGroup.enter()
-        
-        homeObjectManager.getHomeObject(homeStatus: homeStatus) { [weak self] (homeObject, _ ) in
-            
-            self?.homeObject = homeObject
-            
-            self?.dispatchGroup.leave()
-        }
-        
-    }
-    
-    private func showTodayWorkoutProgress() {
-        
-        let todayTrainTime = homeProvider.todayTrainTime
-
-        let todayStretchTime = homeProvider.todayStretchTime
+    func didGet(todayTrainTime: Int, todayStretchTime: Int) {
         
         let totalWorkoutTime = todayTrainTime + todayStretchTime
-        
+
         todayWorkoutTimeLabel.text = "\(totalWorkoutTime)"
-        
+
         UIView.animate(withDuration: 0.5) {
             if totalWorkoutTime >= 15 {
                 self.stretchProgressView.value = 15
@@ -197,7 +106,7 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
                 self.trainProgressView.value = CGFloat(integerLiteral: todayTrainTime)
             }
         }
-        
+
         if totalWorkoutTime >= 15 {
             stillRemainLabel.text = "太棒了"
             remainingTimeLabel.text = "達成目標"
@@ -205,42 +114,70 @@ class HomeViewController: LWBaseViewController, UICollectionViewDelegate {
             stillRemainLabel.text = "還差"
             remainingTimeLabel.text = "\(15 - totalWorkoutTime)分鐘"
         }
-        
+
         weekProgressCollectionView.reloadData()
         
+        self.shareBtn.isEnabled = true
     }
     
-    private func setupView() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let homeObject = homeObject else { return }
-        
-        statusLabel.text = homeObject.title
-        
-        background.image = UIImage(named: homeObject.background)
-        
+        let trainWorkoutTime = viewModel.homeProvider.todayTrainTime
+
+        let stretchWorkoutTime = viewModel.homeProvider.todayStretchTime
+
+        let totalWorkoutTime = stretchWorkoutTime + trainWorkoutTime
+
+        if let desVC = segue.destination as? ShareViewController {
+            
+            desVC.dailyValue = viewModel.homeProvider.dailyValue
+            
+            desVC.loadViewIfNeeded()
+            
+            desVC.todayTotalTimeLabel.text = "\(totalWorkoutTime)"
+            
+            desVC.trainTimeLabel.text = "\(trainWorkoutTime)分鐘"
+            
+            desVC.stretchTimeLabel.text = "\(stretchWorkoutTime)分鐘"
+            
+            desVC.todayDateLabel.text = todayDate
+
+            if totalWorkoutTime >= 15 {
+                
+                    desVC.stretchProgressView.value = 15
+                
+                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime * 15 / totalWorkoutTime)
+                
+            } else {
+                
+                    desVC.stretchProgressView.value = CGFloat(totalWorkoutTime)
+                
+                    desVC.trainProgressView.value = CGFloat(integerLiteral: trainWorkoutTime)
+            }
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == workoutCollectionView {
 
-            guard let homeObject = homeObject else { return }
-            
+            guard let homeObject = viewModel.homeObject else { return }
+
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Activity", bundle: nil)
-            
+
             if homeObject.status == "resting" {
-                
+
                 let desVC = mainStoryboard.instantiateViewController(withIdentifier: "TrainSetupViewController")
                 guard let trainVC = desVC as? TrainSetupViewController else { return }
                 trainVC.idUrl = homeObject.workoutSet[indexPath.item].id
                 self.present(trainVC, animated: true)
-                
+
             } else {
-            
+
                 let desVC = mainStoryboard.instantiateViewController(withIdentifier: "StretchSetupViewController")
                 guard let stretchVC = desVC as? StretchSetupViewController else { return }
                 stretchVC.idUrl = homeObject.workoutSet[indexPath.item].id
                 self.present(stretchVC, animated: true)
-                
+
             }
         }
     }
@@ -252,8 +189,8 @@ extension HomeViewController: UICollectionViewDataSource {
 
         if collectionView == workoutCollectionView {
 
-            guard let workoutSet = homeObject?.workoutSet else { return 0 }
-            
+            guard let workoutSet = viewModel.homeObject?.workoutSet else { return 0 }
+
             return workoutSet.count
 
         } else if collectionView == weekProgressCollectionView {
@@ -262,7 +199,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
         }
 
-        return Int()
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -275,8 +212,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 for: indexPath)
 
             guard let homeCell = cell as? HomeCollectionViewCell else { return cell }
-            
-            guard let workoutElement = homeObject?.workoutSet[indexPath.row] else { return cell }
+
+            guard let workoutElement = viewModel.homeObject?.workoutSet[indexPath.row] else { return cell }
 
             homeCell.layoutCell(image: workoutElement.buttonImage)
 
@@ -292,7 +229,8 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let progressCell = cell as? WeekProgressCollectionViewCell else { return cell }
 
             progressCell.dayLabel.text = days[indexPath.item]
-            progressCell.layoutView(value: homeProvider.dailyValue[indexPath.item])
+            
+            progressCell.layoutView(value: viewModel.homeProvider.dailyValue[indexPath.item])
 
             return progressCell
 
@@ -344,7 +282,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == workoutCollectionView {
             
             let height = CGFloat(119) // collectionView.visibleCells[0].frame.height
+            
             let viewHeight = collectionView.frame.size.height
+            
             let toBottomUp = viewHeight - height
 
             return UIEdgeInsets(top: 0, left: 16, bottom: toBottomUp, right: 0)

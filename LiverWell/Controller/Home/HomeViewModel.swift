@@ -1,0 +1,108 @@
+//
+//  HomeViewModel.swift
+//  LiverWell
+//
+//  Created by Jo Yun Hsu on 2019/5/14.
+//  Copyright © 2019 Jo Hsu. All rights reserved.
+//
+
+import Foundation
+
+protocol HomeViewModelDelegate: AnyObject {
+    
+    func didGet(date: String, homeObject: HomeObject, description: String)
+    
+    func didGet(todayTrainTime: Int, todayStretchTime: Int)
+}
+
+class HomeViewModel {
+    
+    let homeProvider = HomeProvider()
+    
+    let homeObjectManager = HomeObjectManager()
+    
+    var homeObject: HomeObject?
+    
+    let dispatchGroup = DispatchGroup()
+    
+    var statusDescription: String?
+    
+    weak var delegate: HomeViewModelDelegate?
+    
+    func activate() {
+        
+        getThisWeekProgess()
+        
+        getStatus(workStartHour: 9, workEndHour: 18)
+        
+        groupNofity()
+    }
+    
+    private func getThisWeekProgess() {
+        
+        dispatchGroup.enter()
+        
+        homeProvider.getThisWeekProgress(today: Date()) { (result) in
+            
+            switch result {
+                
+            case .success(let workOuts):
+                
+                print(workOuts)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            self.dispatchGroup.leave()
+        }
+        
+    }
+    
+    func getStatus(workStartHour: Int, workEndHour: Int) {
+        
+        let statusElement = homeProvider.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
+        
+        statusDescription = statusElement.1
+        
+        dispatchGroup.enter()
+        
+        homeObjectManager.getHomeObject(homeStatus: statusElement.0) { [weak self] (homeObject, _ ) in
+            
+            self?.homeObject = homeObject
+            
+            self?.dispatchGroup.leave()
+        }
+    }
+    
+    private func today() -> String {
+        
+        let chineseMonthDate = DateFormatter.chineseMonthDate(date: Date())
+        
+        let chineseDay = DateFormatter.chineseWeekday(date: Date())
+        
+        return "\(chineseMonthDate) \(chineseDay)"
+        
+    }
+    
+    private func groupNofity() {
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+
+            guard let strongSelf = self,
+                  let homeObject = strongSelf.homeObject,
+                  let description = strongSelf.statusDescription
+            else { return }
+            
+            let todayTrainTime = strongSelf.homeProvider.todayTrainTime
+            
+            let todayStretchTime = strongSelf.homeProvider.todayStretchTime
+
+            strongSelf.delegate?.didGet(date: strongSelf.today(), homeObject: homeObject, description: description)
+            
+            strongSelf.delegate?.didGet(todayTrainTime: todayTrainTime, todayStretchTime: todayStretchTime)
+        }
+    }
+
+}
