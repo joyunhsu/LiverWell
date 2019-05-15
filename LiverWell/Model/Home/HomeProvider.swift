@@ -146,21 +146,25 @@ class HomeProvider {
         sunSum = 0
     }
     
-    func determineStatus(workStartHour: Int, workEndHour: Int) -> (HomeStatus, String) {
+    func determineStatusAt(
+        time: Date = Date(),
+        workStartHour: Int,
+        workEndHour: Int
+        ) -> (status: HomeStatus, description: String) {
         
-        let sunday = now.dayOf(.sunday)
-        let saturday = now.dayOf(.saturday)
+        let sunday = time.dayOf(.sunday)
+        let saturday = time.dayOf(.saturday)
         
-        let workStart = now.dateAt(hours: workStartHour, minutes: 0)
-        let workEnd = now.dateAt(hours: workEndHour, minutes: 0)
-        let sleepStart = now.dateAt(hours: 21, minutes: 30)
-        let sleepEnd = now.dateAt(hours: 5, minutes: 0)
-        let nowHour = Calendar.current.component(.hour, from: now)
+        let workStart = time.dateAt(hours: workStartHour, minutes: 0)
+        let workEnd = time.dateAt(hours: workEndHour, minutes: 0)
+        let sleepStart = time.dateAt(hours: 21, minutes: 30)
+        let sleepEnd = time.dateAt(hours: 5, minutes: 0)
+        let nowHour = Calendar.current.component(.hour, from: time)
         
-        if now >= saturday && now <= Calendar.current.date(byAdding: .day, value: 1, to: sunday)! {
+        if time >= saturday && time <= Calendar.current.date(byAdding: .day, value: 1, to: sunday)! {
             
             // weekend
-            if now >= sleepEnd && now <= sleepStart {
+            if time >= sleepEnd && time <= sleepStart {
                 
                 return (.resting, "休息日好好放鬆，起身動一動！")
                 
@@ -174,15 +178,15 @@ class HomeProvider {
             // workday
             let fromRestHour = workEndHour - nowHour
             
-            if now >= workStart && now <= workEnd {
+            if time >= workStart && time <= workEnd {
                 
                 return (.working, "離休息時間還有 \(fromRestHour) 小時")
                 
-            } else if now >= workEnd && now <= sleepStart {
+            } else if time >= workEnd && time <= sleepStart {
                 
                 return (.resting, "離工作時間還有 \((24 - nowHour) + workStartHour) 小時")
                 
-            } else if now >= sleepEnd && now <= workStart {
+            } else if time >= sleepEnd && time <= workStart {
                 
                 return (.resting, "離工作時間還有 \(workStartHour - nowHour) 小時")
                 

@@ -12,6 +12,54 @@ import UIKit
 
 class LiverWellTests: XCTestCase {
     // swiftlint:disable identifier_name
+    
+    let homeProvider = HomeProvider()
+    
+    func test_determinStatusAs_correctStatus() {
+        
+        // Arrange
+        let workHour = Date().dateAt(hours: 10, minutes: 30)
+        
+        let workExpect = HomeStatus.working
+        
+        let sleepHour = Date().dateAt(hours: 23, minutes: 40)
+        
+        let sleepExpect = HomeStatus.beforeSleep
+        
+        let restHour = Date().dateAt(hours: 20, minutes: 30)
+        
+        let restExpect = HomeStatus.resting
+        
+        let sunday = Date().dayOf(.sunday).dateAt(hours: 12, minutes: 30)
+        
+        let weekendExpect = HomeStatus.resting
+        
+        let satSleep = Date().dayOf(.saturday).dateAt(hours: 3, minutes: 20)
+        
+        let weekendSleepExpect = HomeStatus.beforeSleep
+        
+        // Action
+        let actualResultOne = homeProvider.determineStatusAt(time: workHour, workStartHour: 9, workEndHour: 18).status
+        
+        let actualResultTwo = homeProvider.determineStatusAt(time: sleepHour, workStartHour: 9, workEndHour: 18).status
+        
+        let actualRestulThree = homeProvider.determineStatusAt(time: restHour, workStartHour: 9, workEndHour: 18).status
+        
+        let actualResultFour = homeProvider.determineStatusAt(time: sunday, workStartHour: 9, workEndHour: 18).status
+        
+        let actualResultFive = homeProvider.determineStatusAt(time: satSleep, workStartHour: 9, workEndHour: 18).status
+        
+        // Assert
+        XCTAssertEqual(workExpect, actualResultOne)
+        
+        XCTAssertEqual(sleepExpect, actualResultTwo)
+        
+        XCTAssertEqual(restExpect, actualRestulThree)
+        
+        XCTAssertEqual(weekendExpect, actualResultFour)
+        
+        XCTAssertEqual(weekendSleepExpect, actualResultFive)
+    }
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -39,6 +87,7 @@ class LiverWellTests: XCTestCase {
     }
     
     func add(aaa: Int, bbb: Int) -> Int {
+        
         return aaa + bbb
 //        return 0
     }

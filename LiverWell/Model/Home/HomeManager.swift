@@ -77,13 +77,13 @@ class HomeManager {
     
     func getStatus(workStartHour: Int, workEndHour: Int) {
         
-        let statusElement = homeProvider.determineStatus(workStartHour: workStartHour, workEndHour: workEndHour)
+        let statusElement = homeProvider.determineStatusAt(workStartHour: workStartHour, workEndHour: workEndHour)
         
-        statusDescription = statusElement.1
+        statusDescription = statusElement.description
         
         dispatchGroup.enter()
         
-        homeObjectManager.getHomeObject(homeStatus: statusElement.0) { [weak self] (homeObject, _ ) in
+        homeObjectManager.getHomeObject(homeStatus: statusElement.status) { [weak self] (homeObject, _ ) in
             
             self?.homeObject = homeObject
             

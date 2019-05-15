@@ -46,4 +46,3 @@ struct ActivityEntry {
     let time: Int
     let activityType: String
 }
-
