@@ -543,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhI-aD-wXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4804" y="-11.244377811094454"/>
+            <point key="canvasLocation" x="4804" y="-45"/>
         </scene>
         <!--Stretch Setup View Controller-->
         <scene sceneID="pyH-rI-9CM">
@@ -1847,7 +1847,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="p0i-ZF-yMl"/>
-        <segue reference="hdZ-Mn-LOm"/>
+        <segue reference="V9S-5g-iX7"/>
         <segue reference="4QL-8V-gIM"/>
     </inferredMetricsTieBreakers>
 </document>

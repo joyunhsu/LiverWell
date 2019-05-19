@@ -131,7 +131,7 @@ class StretchSetupViewController: UIViewController, UITableViewDelegate {
                 }
             }
             
-            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成\(recordStretchTime)分鐘運動！")
+            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成 \(recordStretchTime) 分鐘運動！")
         }
         
     }

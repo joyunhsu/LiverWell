@@ -192,7 +192,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
                     print("Train Workout Time Document succesfully updated")
                 }
             }
-            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成\(recordTrainTime)分鐘運動！")
+            SCLAlertView().showSuccess("運動登錄", subTitle: "太好了，完成 \(recordTrainTime) 分鐘運動！")
         }
     }
 }

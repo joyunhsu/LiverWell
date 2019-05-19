@@ -995,6 +995,7 @@
                         <outlet property="lineChartView" destination="lzI-79-6MP" id="X8y-4b-yZT"/>
                         <outlet property="progressLabel" destination="G3v-Eu-Dtp" id="Lw9-PF-Fwr"/>
                         <outlet property="progressView" destination="gbV-JB-PBo" id="CMn-T0-qqe"/>
+                        <outlet property="starIcon" destination="pMN-6B-Hhb" id="M4y-6i-JgT"/>
                         <outlet property="startMonthLabel" destination="jiE-lB-7AI" id="sGy-G3-dVz"/>
                         <outlet property="statusCaptionLabel" destination="oGh-jS-5lQ" id="chd-2L-zCN"/>
                         <outlet property="statusImageView" destination="5ld-Ll-i7k" id="djQ-L2-1iM"/>

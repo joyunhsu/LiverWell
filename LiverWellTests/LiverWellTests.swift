@@ -15,50 +15,87 @@ class LiverWellTests: XCTestCase {
     
     let homeProvider = HomeProvider()
     
-    func test_determinStatusAs_correctStatus() {
+    func test_connection_internetConnection() {
+        
+        // Arrange
+        let status = CheckInternet.Connection()
+        
+        let expect = true
+        // Action
+        
+        // Assert
+        XCTAssertEqual(status, expect)
+    }
+    
+    func test_determinStatusAs_workDuringWeekday() {
         
         // Arrange
         let workHour = Date().dateAt(hours: 10, minutes: 30)
         
-        let workExpect = HomeStatus.working
-        
-        let sleepHour = Date().dateAt(hours: 23, minutes: 40)
-        
-        let sleepExpect = HomeStatus.beforeSleep
-        
-        let restHour = Date().dateAt(hours: 20, minutes: 30)
-        
-        let restExpect = HomeStatus.resting
-        
-        let sunday = Date().dayOf(.sunday).dateAt(hours: 12, minutes: 30)
-        
-        let weekendExpect = HomeStatus.resting
-        
-        let satSleep = Date().dayOf(.saturday).dateAt(hours: 3, minutes: 20)
-        
-        let weekendSleepExpect = HomeStatus.beforeSleep
+        let expect = HomeStatus.working
         
         // Action
-        let actualResultOne = homeProvider.determineStatusAt(time: workHour, workStartHour: 9, workEndHour: 18).status
-        
-        let actualResultTwo = homeProvider.determineStatusAt(time: sleepHour, workStartHour: 9, workEndHour: 18).status
-        
-        let actualRestulThree = homeProvider.determineStatusAt(time: restHour, workStartHour: 9, workEndHour: 18).status
-        
-        let actualResultFour = homeProvider.determineStatusAt(time: sunday, workStartHour: 9, workEndHour: 18).status
-        
-        let actualResultFive = homeProvider.determineStatusAt(time: satSleep, workStartHour: 9, workEndHour: 18).status
+        let result = homeProvider.determineStatusAt(time: workHour, workStartHour: 9, workEndHour: 18).status
         
         // Assert
-        XCTAssertEqual(workExpect, actualResultOne)
+        XCTAssertEqual(expect, result)
+    }
+    
+    func test_determinStatusAs_restDuringWeekday() {
         
-        XCTAssertEqual(sleepExpect, actualResultTwo)
+        // Arrange
+        let restHour = Date().dateAt(hours: 20, minutes: 30)
         
-        XCTAssertEqual(restExpect, actualRestulThree)
+        let expect = HomeStatus.resting
         
-        XCTAssertEqual(weekendExpect, actualResultFour)
+        // Action
+        let result = homeProvider.determineStatusAt(time: restHour, workStartHour: 9, workEndHour: 18).status
         
-        XCTAssertEqual(weekendSleepExpect, actualResultFive)
+        // Assert
+        XCTAssertEqual(expect, result)
+    }
+    
+    func test_determinStatusAs_beforeSleepDuringWeekday() {
+        
+        // Arrange
+        let sleepHour = Date().dateAt(hours: 23, minutes: 40)
+        
+        let expect = HomeStatus.beforeSleep
+        
+        // Action
+        let result = homeProvider.determineStatusAt(time: sleepHour, workStartHour: 9, workEndHour: 18).status
+        
+        // Assert
+        XCTAssertEqual(expect, result)
+    }
+    
+    func test_determineStatusAs_restWeekend() {
+        
+        // Arrange
+        let sunNoon = Date().dayOf(.sunday).dateAt(hours: 12, minutes: 30)
+        
+        let expect = HomeStatus.resting
+        
+        // Action
+        let result = homeProvider.determineStatusAt(time: sunNoon, workStartHour: 9, workEndHour: 18).status
+        
+        // Assert
+        XCTAssertEqual(expect, result)
+    }
+    
+    func test_determineStatusAs_sleepWeekend() {
+        
+        // Arrange
+        let satMidnight = Date().dayOf(.saturday).dateAt(hours: 3, minutes: 20)
+        
+        let expect = HomeStatus.beforeSleep
+        
+        // Action
+        let result = homeProvider.determineStatusAt(time: satMidnight, workStartHour: 9, workEndHour: 18).status
+        
+        // Assert
+        XCTAssertEqual(expect, result)
+        
     }
 
     override func setUp() {

@@ -103,19 +103,21 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         
         axisFormatDelegate = self
         
-        nextWeekBtn.isHidden = true
-        
-        weekStartEndLabel.text = "本週記錄"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         getWeeklyWorkoutData(weeksBefore: 0)
+        
+        weekStartEndLabel.text = "本週記錄"
+        
+        nextWeekBtn.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         workoutDataArray = [WorkoutData]()
     }
     
@@ -133,7 +135,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
                 self.barChartViewSetup()
                 
-                print(result)
+//                print(result)
                 
             case .failure(let error):
                 
@@ -158,6 +160,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
     
     private func setupActivityEntry() {
 
+        // sort for tableView data display
         let watchTV = ActivityEntry(
             title: TrainItem.watchTV.title,
             time: statusProvider.watchTVSum,

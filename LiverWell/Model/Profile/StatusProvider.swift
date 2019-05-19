@@ -38,6 +38,8 @@ class StatusProvider {
 
     func getWeeklyWorkout(weeksBefore: Int, completion: @escaping (Result<[WorkoutData], Error>) -> Void) {
         
+        reset()
+        
         guard let user = Auth.auth().currentUser else { return }
         
         let workoutRef = AppDelegate.db.collection("users").document(user.uid).collection("workout")
@@ -219,6 +221,13 @@ class StatusProvider {
         
         workoutDataArray = [WorkoutData]()
         
+        monSum = [0, 0]
+        tueSum = [0, 0]
+        wedSum = [0, 0]
+        thuSum = [0, 0]
+        friSum = [0, 0]
+        satSum = [0, 0]
+        sunSum = [0, 0]
     }
     
 }

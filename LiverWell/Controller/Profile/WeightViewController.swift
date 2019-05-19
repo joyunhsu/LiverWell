@@ -12,34 +12,21 @@ import Charts
 class WeightViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegate {
     
     @IBOutlet weak var startMonthLabel: UILabel!
-    
     @IBOutlet weak var currentMonthLabel: UILabel!
-    
     @IBOutlet weak var expectedWeightLabel: UILabel!
-    
     @IBOutlet weak var weightSinceStartLabel: UILabel!
-    
     @IBOutlet weak var weightSinceMonthLabel: UILabel!
-    
     @IBOutlet weak var weightLossMonthLabel: UILabel!
-    
     @IBOutlet weak var progressView: UIProgressView!
-    
     @IBOutlet weak var progressLabel: UILabel!
-    
     @IBOutlet weak var statusImageView: UIImageView!
-    
     @IBOutlet weak var statusTitleLabel: UILabel!
-    
     @IBOutlet weak var statusTitleView: UIView!
-    
     @IBOutlet weak var statusCaptionLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var levelCollectionView: UICollectionView!
-    
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var starIcon: UIImageView!
     
     let userDefaults = UserDefaults.standard
     
@@ -72,6 +59,26 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         layoutStatus()
     }
     
+    private func readWeight() {
+        
+        weightProvider.getWeight { (result) in
+            
+            switch result {
+                
+            case .success(let weightDataArray):
+                
+                self.weightDataArray = weightDataArray
+                
+                print("==============")
+                print(weightDataArray)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+
     @IBAction func recordWeightPressed(_ sender: UIButton) {
         
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
@@ -89,7 +96,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             self?.readWeight()
             
             self?.tableView.reloadData()
-            
         }
         
         present(recordWeightVC, animated: true)
@@ -101,6 +107,35 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
             guard let strongSelf = self else { return }
             
+            let weightSinceStart = status.weightSinceStart
+            
+            let weightSinceMonth = status.weightSinceMonth
+            
+            if weightSinceStart > 0 {
+                strongSelf.weightSinceStartLabel.text = "+\(weightSinceStart.format(f: ".1"))"
+            } else {
+                strongSelf.weightSinceStartLabel.text = weightSinceStart.format(f: ".1")
+            }
+            
+            let percentage = Int(Float((0 - weightSinceMonth) / 1) * 100)
+            
+            if weightSinceMonth > 0 {
+                strongSelf.weightSinceMonthLabel.text = "+\(weightSinceMonth.format(f: ".1"))"
+                strongSelf.progressView.progress = 0
+                strongSelf.progressLabel.text = "0%"
+                strongSelf.starIcon.isHidden = true
+            } else if percentage >= 100 {
+                strongSelf.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
+                strongSelf.progressView.progress = Float((0 - weightSinceMonth) / 1)
+                strongSelf.progressLabel.text = "\(Int(Float((0 - weightSinceMonth) / 1) * 100))%"
+                strongSelf.starIcon.isHidden = false
+            } else {
+                strongSelf.weightSinceMonthLabel.text = weightSinceMonth.format(f: ".1")
+                strongSelf.progressView.progress = Float((0 - weightSinceMonth) / 1)
+                strongSelf.progressLabel.text = "\(Int(Float((0 - weightSinceMonth) / 1) * 100))%"
+                strongSelf.starIcon.isHidden = true
+            }
+            
             strongSelf.startMonthLabel.text = status.signupTime
             
             strongSelf.currentMonthLabel.text = DateFormatter.chineseYearMonth(date: Date())
@@ -109,21 +144,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             
             strongSelf.weightSinceMonthLabel.text = String(status.weightSinceMonth)
             
-            strongSelf.weightSinceStartLabel.text = String(status.weightSinceStart)
         }
         
-    }
-
-    private func readWeight() {
-        
-        weightProvider.getWeight { (result) in
-            switch result {
-            case .success(let weightDataArray):
-                self.weightDataArray = weightDataArray
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -146,16 +168,16 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             recordWeightVC.weightDocumentID = documentID
             recordWeightVC.reloadDataAfterUpdate = { [weak self] in
                 
-                self?.weightDataArray = [WeightData]()
+                guard let strongSelf = self else { return }
                 
-                self?.readWeight()
+                strongSelf.weightDataArray = [WeightData]()
                 
-                self?.tableView.reloadData()
+                strongSelf.readWeight()
                 
+//                self?.tableView.reloadData()
             }
             
             self?.present(recordWeightVC, animated: true)
-            
         }
         
         let deleteAction = UIAlertAction(title: "刪除", style: .destructive) { [weak self] (_) in
@@ -163,22 +185,23 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             // Delete document
             guard let documentID = documentID else { return }
             
-            weightRef.document(documentID).delete() { (error) in
-                    if let error = error {
-                        print("Error updating document: \(error)")
-                    } else {
-                        print("Document succesfully updated")
-                    }
+            weightRef.document(documentID).delete(completion: { (error) in
+                if let error = error {
+                    print("Error deleting document: \(error)")
+                } else {
+                    print("Document succesfully deleted")
                 }
+            })
             
-            self?.weightDataArray = [WeightData]()
+            guard let strongSelf = self else { return }
             
-            self?.readWeight()
+            strongSelf.weightDataArray = [WeightData]()
             
-            self?.tableView.reloadData()
+            strongSelf.readWeight()
             
-            self?.setChartValues()
+            strongSelf.tableView.reloadData()
             
+            strongSelf.setChartValues()
         }
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (_) in
@@ -271,7 +294,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
         // Change xAxis label from top to bottom
         lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         lineChartView.minOffset = 0
-        
     }
 
 }

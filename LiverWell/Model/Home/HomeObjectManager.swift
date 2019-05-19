@@ -11,13 +11,16 @@ import Foundation
 class HomeObjectManager {
     
     let decoder = JSONDecoder()
+    
     let session: URLSession
     
     init(configuration: URLSessionConfiguration) {
+        
         self.session = URLSession(configuration: configuration)
     }
     
     convenience init() {
+        
         self.init(configuration: .default)
     }
     

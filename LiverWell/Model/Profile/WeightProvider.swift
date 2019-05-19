@@ -94,7 +94,7 @@ class WeightProvider {
                 }
                 
         }
-        
+    
     }
     
     private func getLastMonthWeight() {

@@ -10,22 +10,33 @@ import Foundation
 import Firebase
 
 struct HomeObject: Codable {
+    
     let status, title, background: String
+    
     let workoutSet: [HomeWorkoutSet]
 }
 
 struct HomeWorkoutSet: Codable {
+    
     let title, buttonImage, id: String
 }
 
 enum HomeStatus {
+    
     case resting
+    
     case working
+    
     case beforeSleep
+    
     func url() -> String {
+        
         switch self {
+            
         case .resting: return "0"
+            
         case .working: return "1"
+            
         case .beforeSleep: return "2"
         }
     }
@@ -44,6 +55,5 @@ struct WorkOut: Codable {
         case workOutTime = "workout_time"
         
         case activityType = "activity_type"
-        
     }
 }
