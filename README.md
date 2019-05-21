@@ -5,6 +5,11 @@ To help people prevent from the threat of fatty-liver,  Liverwell helps you acco
 
 [<img src="https://github.com/nick1ee/Shalk/raw/master/screenshot/DownloadAppStoreBadge.png" width="160" height="50" align=center>](https://itunes.apple.com/tw/app/liverwell/id1461737545?mt=8)
 
+```
+If you need to build the project, please create new project on 
+Google Firebase and download GoogleService-Info.plist from it.
+```
+
 
 # Features & ScreenShots
 
@@ -44,7 +49,7 @@ To help people prevent from the threat of fatty-liver,  Liverwell helps you acco
 ### Profile
 * Workout Progress tracking
 
-    [<img src="https://i.imgur.com/Cz4u7w1.png" width="200" height="355" align=center>]() [<img src="https://i.imgur.com/n7vjXYV.png" width="200" height="355" align=center>]() 
+    [<img src="https://i.imgur.com/2Mw9ig3.gif" width="200" height="355" align=center>]() [<img src="https://i.imgur.com/n7vjXYV.png" width="200" height="355" align=center>]() 
 
 * Weight tracking
 
@@ -64,5 +69,8 @@ To help people prevent from the threat of fatty-liver,  Liverwell helps you acco
 
 
 # Requirements
-iOS 11.0+
-Xcode 10.2+
+* iOS 11.0+
+* Xcode 10.2+
+
+# Contacts
+Jo Hsu [jaune.yh@gmail.com](jaune.yh@gmail.com)
