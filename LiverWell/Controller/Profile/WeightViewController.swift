@@ -142,9 +142,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             strongSelf.currentMonthLabel.text = DateFormatter.chineseYearMonth(date: Date())
 
             strongSelf.expectedWeightLabel.text = String(status.expectWeight)
-
-            strongSelf.weightSinceMonthLabel.text = String(status.weightSinceMonth)
-
         }
 
     }

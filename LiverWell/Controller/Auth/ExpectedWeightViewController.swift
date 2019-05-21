@@ -65,7 +65,7 @@ class ExpectedWeightViewController: STBaseViewController, UITextFieldDelegate {
         
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
         }
         

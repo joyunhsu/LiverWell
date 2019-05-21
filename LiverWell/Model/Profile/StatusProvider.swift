@@ -191,7 +191,7 @@ class StatusProvider {
         return timeSumOf(array: array)
     }
     
-    private func percentageOf(entry sum: Int) -> Int {
+    func percentageOf(entry sum: Int) -> Int {
         
         let totalSum = stretchTimeSum + trainTimeSum
         

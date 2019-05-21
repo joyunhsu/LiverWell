@@ -584,7 +584,7 @@
                                                 <rect key="frame" x="94.5" y="123.5" width="154" height="154"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-6X-LzE">
-                                                        <rect key="frame" x="63.5" y="48" width="27" height="51"/>
+                                                        <rect key="frame" x="63.5" y="46.5" width="27" height="51"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="51" id="dbv-Gj-lE0"/>
                                                         </constraints>
@@ -593,7 +593,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG7-XA-RKN">
-                                                        <rect key="frame" x="62.5" y="99" width="29" height="17"/>
+                                                        <rect key="frame" x="62.5" y="97.5" width="29" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="KqU-QQ-P5b"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="dUj-kl-u9K"/>
@@ -606,9 +606,9 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="FQq-6X-LzE" firstAttribute="centerX" secondItem="dKc-et-COr" secondAttribute="centerX" id="75f-46-JO7"/>
+                                                    <constraint firstItem="FQq-6X-LzE" firstAttribute="centerY" secondItem="dKc-et-COr" secondAttribute="centerY" constant="-5" id="9NO-gV-1F6"/>
                                                     <constraint firstItem="yG7-XA-RKN" firstAttribute="top" secondItem="FQq-6X-LzE" secondAttribute="bottom" id="I41-Lz-gMr"/>
                                                     <constraint firstItem="yG7-XA-RKN" firstAttribute="centerX" secondItem="dKc-et-COr" secondAttribute="centerX" id="VPW-nk-b1m"/>
-                                                    <constraint firstItem="FQq-6X-LzE" firstAttribute="top" secondItem="dKc-et-COr" secondAttribute="top" constant="48" id="ka8-TW-fWh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">

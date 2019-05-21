@@ -145,18 +145,6 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
         }
         
     }
-
-    private func percentageOf(entry sum: Int) -> Int {
-
-        guard let stretchTimeSum = stretchTimeSum, let trainTimeSum = trainTimeSum else { return 0 }
-
-        let totalSum = stretchTimeSum + trainTimeSum
-
-        let percentage = lround(Double(sum * 100 / totalSum))
-
-        return percentage
-
-    }
     
     private func setupActivityEntry() {
 
@@ -323,7 +311,7 @@ extension StatusViewController: UITableViewDataSource {
             entryCell.layoutView(
                 title: activityEntry.title,
                 time: activityEntry.time,
-                percentage: percentageOf(entry: activityEntry.time),
+                percentage: statusProvider.percentageOf(entry: activityEntry.time),
                 activityType: activityEntry.activityType)
             
             return entryCell
