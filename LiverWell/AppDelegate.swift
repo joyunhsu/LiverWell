@@ -47,11 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
             self?.window?.rootViewController = storyboard.instantiateInitialViewController()
-            
+
             let userDefaults = UserDefaults.standard
-            
-//            let user = Auth.auth().currentUser
-            
+
             userDefaults.set(user!.uid, forKey: "uid")
 
         }
@@ -59,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         Fabric.with([Crashlytics.self])
+        
+//        window?.rootViewController = UIViewController()
         
         return true
     }

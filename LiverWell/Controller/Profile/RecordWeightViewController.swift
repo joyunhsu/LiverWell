@@ -20,6 +20,8 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
     
     var reloadDataAfterUpdate: (() -> Void)?
     
+//    var reloadDataAfterUpdate: ((WeightDataTest) -> Void)?
+    
     var weightDocumentID: String?
     
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
@@ -59,6 +61,8 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
                     guard let closure = self.reloadDataAfterUpdate else { return }
                     
                     closure()
+//                    let weightData = WeightDataTest(weight: weight!, time: time)
+//                    closure(weightData)
                 }
             }
             
@@ -127,4 +131,9 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
         weightDocumentID = nil
     }
 
+}
+
+struct WeightDataTest {
+    let weight: Double
+    let time: NSDate
 }

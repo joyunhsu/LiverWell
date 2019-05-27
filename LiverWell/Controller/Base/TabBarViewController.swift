@@ -26,12 +26,19 @@ private enum Tab {
 
         case .home: controller = UIStoryboard.home.instantiateInitialViewController()!
 
+//        case .home: controller = UIViewController()
+            
         case .activity: controller = UIStoryboard.activity.instantiateInitialViewController()!
 
+//        case .activity: controller = UIViewController()
+            
         case .knowledge: controller = UIStoryboard.knowledge.instantiateInitialViewController()!
+            
+//        case .knowledge: controller = UIViewController()
 
         case .profile: controller = UIStoryboard.profile.instantiateInitialViewController()!
-
+            
+//        case .profile: controller = UIViewController()
         }
 
         controller.tabBarItem = tabBarItem()

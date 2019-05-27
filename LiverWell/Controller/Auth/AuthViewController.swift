@@ -39,6 +39,9 @@ class AuthViewController: STBaseViewController, UIScrollViewDelegate {
         
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         
-        pageControl.currentPage = Int(pageNumber)
+        if pageNumber < 4 && pageNumber >= 0 {
+         
+            pageControl.currentPage = Int(pageNumber)
+        }
     }
 }

@@ -98,6 +98,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
 
             self?.tableView.reloadData()
         }
+        
+//        recordWeightVC.reloadDataAfterUpdate = { (weight) in
+//            print(weight)
+//        }
 
         present(recordWeightVC, animated: true)
     }
@@ -164,6 +168,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
             let desVC = profileStoryboard.instantiateViewController(withIdentifier: "RecordWeightViewController")
             guard let recordWeightVC = desVC as? RecordWeightViewController else { return }
             recordWeightVC.weightDocumentID = documentID
+            
             recordWeightVC.reloadDataAfterUpdate = { [weak self] in
 
                 guard let strongSelf = self else { return }

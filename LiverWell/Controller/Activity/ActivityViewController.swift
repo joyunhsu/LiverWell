@@ -43,8 +43,9 @@ class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UI
             secondCollectionView.reloadData()
         }
     }
-    
-    override func getData() {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         workoutManager.getWorkout(activity: ActivityItems.train) { [weak self] (train, _ ) in
             self?.trainElements = train
@@ -53,11 +54,6 @@ class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UI
         workoutManager.getWorkout(activity: ActivityItems.stretch) { [weak self] (stretch, _ ) in
             self?.stretchElements = stretch
         }
-
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
         scrollView.delegate = self
         
@@ -125,13 +121,17 @@ class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UI
             btn.isSelected = false
 
         }
-
-        orderBtns[number].isSelected = true
-
-        UIView.animate(withDuration: 0.1) {
-
-            self.view.layoutIfNeeded()
-
+        
+        if number < 2 && number >= 0 {
+            
+            orderBtns[number].isSelected = true
+            
+            UIView.animate(withDuration: 0.1) {
+                
+                self.view.layoutIfNeeded()
+                
+            }
+            
         }
 
     }
@@ -142,11 +142,11 @@ class ActivityViewController: LWBaseViewController, UICollectionViewDelegate, UI
 
             if collectionView == firstCollectionView {
 
-                performSegue(withIdentifier: "setupTrain", sender: self)
+                performSegue(withIdentifier: "setupTrain", sender: nil)
 
             } else {
 
-                performSegue(withIdentifier: "setupStretch", sender: self)
+                performSegue(withIdentifier: "setupStretch", sender: nil)
 
             }
 
@@ -227,9 +227,7 @@ extension ActivityViewController: UICollectionViewDataSource {
             guard let headerCell = cell as? HeaderCollectionViewCell else { return cell }
             
             let trainGroup = manager.trainGroup
-            
             let stretchGroup = manager.stretchGroup
-            
             if collectionView == firstCollectionView {
                 
                 headerCell.layoutCell(
