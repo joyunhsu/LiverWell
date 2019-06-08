@@ -176,8 +176,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 strongSelf.weightDataArray = [WeightData]()
 
                 strongSelf.readWeight()
-
-//                self?.tableView.reloadData()
             }
 
             self?.present(recordWeightVC, animated: true)
@@ -196,15 +194,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
                 }
             })
 
-            guard let strongSelf = self else { return }
+            self?.weightDataArray = [WeightData]()
 
-            strongSelf.weightDataArray = [WeightData]()
+            self?.readWeight()
 
-            strongSelf.readWeight()
+            self?.tableView.reloadData()
 
-            strongSelf.tableView.reloadData()
-
-            strongSelf.setChartValues()
+            self?.setChartValues()
         }
 
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (_) in

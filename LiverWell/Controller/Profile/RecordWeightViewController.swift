@@ -57,12 +57,6 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
                     print("Error updating document: \(error)")
                 } else {
                     print("Document succesfully updated")
-                    
-                    guard let closure = self.reloadDataAfterUpdate else { return }
-                    
-                    closure()
-//                    let weightData = WeightDataTest(weight: weight!, time: time)
-//                    closure(weightData)
                 }
             }
             
@@ -84,9 +78,9 @@ class RecordWeightViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-//        guard let closure = reloadDataAfterUpdate else { return }
-//
-//        closure()
+        guard let closure = reloadDataAfterUpdate else { return }
+
+        closure()
         
         dismiss(animated: true)
     }

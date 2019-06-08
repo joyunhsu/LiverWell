@@ -160,6 +160,8 @@ class WeightProvider {
         
         let weightRef = AppDelegate.db.collection("users").document(uid).collection("weight")
         
+        weightDataArray = [WeightData]()
+
         weightRef
             .order(by: "created_time", descending: true) // 由新到舊
             .getDocuments { [weak self] (snapshot, error) in
