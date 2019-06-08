@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SwiftMessages
 import SCLAlertView
 
 class TrainSetupViewController: UIViewController, UITableViewDelegate {
@@ -39,12 +38,7 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
     
     var selectedTimeWorkoutTitle: String?
     
-    var recordTrainTime: Int? {
-        didSet {
-//            print("-------------------")
-//            showMsgView(minute: recordTrainTime!)
-        }
-    }
+    var recordTrainTime: Int?
 
     @IBAction func dismissBtnPressed(_ sender: UIBarButtonItem) {
 
@@ -67,8 +61,6 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
         sender.isSelected = true
         
         selectTimer(withTag: sender.tag)
-        
-//        showMsgView(minute: 5)
         
     }
     
@@ -113,16 +105,6 @@ class TrainSetupViewController: UIViewController, UITableViewDelegate {
             tableView.isHidden = true
         }
         
-    }
-    
-    private func showMsgView(minute: Int) {
-        let msgView = MessageView.viewFromNib(layout: .cardView)
-        msgView.configureTheme(.success)
-        msgView.configureContent(title: "運動登錄！", body: "完成\(minute)分鐘運動")
-        msgView.button?.isHidden = true
-        var config = SwiftMessages.defaultConfig
-        config.duration = .forever
-        SwiftMessages.show(config: config, view: msgView)
     }
     
     private func setupView() {

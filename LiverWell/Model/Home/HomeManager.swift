@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MKProgress
 
 protocol HomeManagerDelegate: AnyObject {
     
@@ -117,6 +118,8 @@ class HomeManager {
             strongSelf.delegate?.didGet(date: strongSelf.today(), homeObject: homeObject, description: description)
             
             strongSelf.delegate?.didGet(todayTrainTime: todayTrainTime, todayStretchTime: todayStretchTime)
+            
+            MKProgress.hide()
         }
     }
     

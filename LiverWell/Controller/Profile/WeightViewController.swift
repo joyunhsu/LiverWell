@@ -98,10 +98,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UICollectionV
 
             self?.tableView.reloadData()
         }
-        
-//        recordWeightVC.reloadDataAfterUpdate = { (weight) in
-//            print(weight)
-//        }
 
         present(recordWeightVC, animated: true)
     }

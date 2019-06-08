@@ -20,8 +20,8 @@ pod 'IQKeyboardManagerSwift', '6.0.4'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'TTTAttributedLabel'
-pod 'SwiftMessages'
 pod 'SCLAlertView'
+pod 'MKProgress', '~> 1.0.9'
 
 target 'LiverWellTests' do
         inherit! :search_paths

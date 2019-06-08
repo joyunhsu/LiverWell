@@ -121,6 +121,7 @@ PODS:
   - Kingfisher (5.4.0)
   - leveldb-library (1.20)
   - MBCircularProgressBar (0.3.5)
+  - MKProgress (1.0.9)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -129,9 +130,6 @@ PODS:
   - Protobuf (3.7.0)
   - SCLAlertView (0.8)
   - SwiftLint (0.32.0)
-  - SwiftMessages (6.0.2):
-    - SwiftMessages/App (= 6.0.2)
-  - SwiftMessages/App (6.0.2)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
@@ -147,9 +145,9 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (= 6.0.4)
   - Kingfisher
   - MBCircularProgressBar
+  - MKProgress (~> 1.0.9)
   - SCLAlertView
   - SwiftLint
-  - SwiftMessages
   - TTTAttributedLabel
 
 SPEC REPOS:
@@ -176,11 +174,11 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - MBCircularProgressBar
+    - MKProgress
     - nanopb
     - Protobuf
     - SCLAlertView
     - SwiftLint
-    - SwiftMessages
     - TTTAttributedLabel
 
 SPEC CHECKSUMS:
@@ -206,13 +204,13 @@ SPEC CHECKSUMS:
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+  MKProgress: 4fa8dd701b872c82b780c885d577f99c8848d584
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
-  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: d65af32892f8cfdc3bfc3b61e6b4437d16e343dc
+PODFILE CHECKSUM: 2111b7715576382faf50047dab4ae249714ef454
 
 COCOAPODS: 1.6.1

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftMessages
 
 class PauseViewController: UIViewController, UITableViewDelegate {
     
@@ -61,24 +60,11 @@ class PauseViewController: UIViewController, UITableViewDelegate {
         
         if let setupVC = desVC as? TrainSetupViewController {
             setupVC.recordTrainTime = recordTime
-//            if recordTime >= 0 {
-//                showMsgView(minute: recordTime)
-//            }
+            
         } else if let setupVC = desVC as? StretchSetupViewController {
             setupVC.recordStretchTime = recordTime
         }
         
-    }
-    
-    private func showMsgView(minute: Int) {
-
-        let msgView = MessageView.viewFromNib(layout: .cardView)
-        msgView.configureTheme(.success)
-        msgView.configureContent(title: "運動登錄！", body: "完成\(minute)分鐘運動")
-        msgView.button?.isHidden = true
-        var config = SwiftMessages.defaultConfig
-        config.duration = .forever
-        SwiftMessages.show(config: config, view: msgView)
     }
     
     private func setupGif() {
