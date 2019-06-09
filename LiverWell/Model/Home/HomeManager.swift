@@ -119,7 +119,7 @@ class HomeManager {
             
             strongSelf.delegate?.didGet(todayTrainTime: todayTrainTime, todayStretchTime: todayStretchTime)
             
-            MKProgress.hide()
+            ProgressHud.hideProgressHud()
         }
     }
     

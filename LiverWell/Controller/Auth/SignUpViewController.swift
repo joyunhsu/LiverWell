@@ -87,7 +87,7 @@ class SignUpViewController: STBaseViewController, UITextFieldDelegate, TTTAttrib
     private func addInitialWeight(uid: String, convertedDate: String, time: Date) {
         
         let weightData = [
-            "weight": Double(currentWeight!),
+            "weight": Double(currentWeight!) as Any,
             "created_time": time
             ] as [String: Any]
         

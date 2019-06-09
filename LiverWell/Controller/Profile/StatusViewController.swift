@@ -135,7 +135,7 @@ class StatusViewController: UIViewController, UITableViewDelegate, ChartViewDele
 
                 self.barChartViewSetup()
                 
-//                print(result)
+                print(result)
                 
             case .failure(let error):
                 
