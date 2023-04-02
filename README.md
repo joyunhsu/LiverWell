@@ -3,8 +3,6 @@
 
 To help people prevent from the threat of fatty-liver,  Liverwell helps you accomplish the goal of 15-minute workout per day by providing easy workouts based on three different scenarios. Personal progress/weight tracking, helpful health-related tips are a plus to help you gain better understanding for the health journey.
 
-[<img src="https://github.com/nick1ee/Shalk/raw/master/screenshot/DownloadAppStoreBadge.png" width="160" height="50" align=center>](https://itunes.apple.com/tw/app/liverwell/id1461737545?mt=8)
-
 ```
 If you need to build the project, please create new project on 
 Google Firebase and download GoogleService-Info.plist from it.
